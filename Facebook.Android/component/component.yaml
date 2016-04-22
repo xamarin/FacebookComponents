@@ -1,0 +1,54 @@
+version: 4.10.1.0
+name: Facebook Android SDK
+id: facebookandroid
+publisher: Xamarin Inc.
+publisher-url: https://developers.facebook.com/docs/android/
+summary: Integrate with Facebook to help you build engaging social apps and get more installs.
+icons: 
+  - icons/facebookandroid_128x128.png
+  - icons/facebookandroid_512x512.png
+is_shell: true
+libraries:
+  android: 
+    - ../output/Xamarin.Facebook.dll
+    - ../output/Xamarin.Facebook.AudienceNetwork.dll
+packages:
+  android:
+    - Xamarin.Facebook.Android, Version=4.10.1.0
+    - Xamarin.Facebook.AudienceNetwork.Android, Version=4.10.1.0
+    - Xamarin.Android.Support.v4, Version=23.1.1.0
+    - Xamarin.Android.Support.v7.CardView, Version=23.1.1.0
+    - Xamarin.Android.Support.v7.RecyclerView, Version=23.1.1.0
+    - Xamarin.Android.Support.v7.AppCompat, Version=23.1.1.0
+    - Bolts, Version=1.3.0.0
+samples:
+  - name: "Hello Facebook Sample"
+    path: ../samples/HelloFacebookSample.sln
+    removeProjects:
+      - Xamarin.Facebook
+      - Xamarin.Facebook.AudienceNetwork
+    installNuGets:
+      - project: HelloFacebookSample
+        packages:
+          - Xamarin.Facebook.Android
+  - name: "Messenger Send Sample"
+    path: ../samples/MessengerSendSample.sln
+    removeProjects:
+      - Xamarin.Facebook
+      - Xamarin.Facebook.AudienceNetwork
+    installNuGets:
+      - project: MessengerSendSample
+        packages:
+          - Xamarin.Facebook.Android
+  - name: "Audience Network Sample"
+    path: ../samples/AudienceNetworkSample.sln
+    removeProjects:
+      - Xamarin.Facebook
+      - Xamarin.Facebook.AudienceNetwork
+    installNuGets:
+      - project: AudienceNetworkSample
+        packages:
+          - Xamarin.Facebook.Android
+          - Xamarin.Facebook.AudienceNetwork.Android
+local-nuget-repo: ../output
+no_build: true

@@ -1,0 +1,36 @@
+<metadata>
+
+    <attr path="/api/package[@name='com.facebook']" name="managedName">Xamarin.Facebook</attr>
+    <attr path="/api/package[@name='com.facebook.appevents']" name="managedName">Xamarin.Facebook.AppEvents</attr>
+    <attr path="/api/package[@name='com.facebook.applinks']" name="managedName">Xamarin.Facebook.AppLinks</attr>
+    <attr path="/api/package[@name='com.facebook.internal']" name="managedName">Xamarin.Facebook.Internal</attr>
+    <attr path="/api/package[@name='com.facebook.login']" name="managedName">Xamarin.Facebook.Login</attr>
+    <attr path="/api/package[@name='com.facebook.login.widget']" name="managedName">Xamarin.Facebook.Login.Widget</attr>
+    <attr path="/api/package[@name='com.facebook.messenger']" name="managedName">Xamarin.Facebook.Messenger</attr>
+    <attr path="/api/package[@name='com.facebook.share']" name="managedName">Xamarin.Facebook.Share</attr>
+    <attr path="/api/package[@name='com.facebook.share.internal']" name="managedName">Xamarin.Facebook.Share.Internal</attr>
+    <attr path="/api/package[@name='com.facebook.share.model']" name="managedName">Xamarin.Facebook.Share.Model</attr>
+    <attr path="/api/package[@name='com.facebook.share.widget']" name="managedName">Xamarin.Facebook.Share.Widget</attr>
+
+
+
+    <attr path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase.ModeHandler']" name="visibility">public</attr>
+    <attr path="/api/package[@name='com.facebook.login']/interface[@name='StartActivityDelegate']" name="visibility">public</attr>
+
+    <attr path="/api/package[@name='com.facebook']/class[@name='GraphRequestBatch']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]" name="managedReturn">Java.Lang.Object</attr>
+
+    <attr path="/api/package[@name='com.facebook.share.internal']/class[@name='LikeContent.Builder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Java.Lang.Object</attr>
+    <attr path="/api/package[@name='com.facebook.share.model']/class[@name='ShareVideo.Builder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Java.Lang.Object</attr>
+    <attr path="/api/package[@name='com.facebook.share.model']/class[@name='GameRequestContent.Builder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Java.Lang.Object</attr>
+    <attr path="/api/package[@name='com.facebook.share.model']/class[@name='AppGroupCreationContent.Builder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Java.Lang.Object</attr>
+    <attr path="/api/package[@name='com.facebook.share.model']/class[@name='AppInviteContent.Builder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Java.Lang.Object</attr>
+    <attr path="/api/package[@name='com.facebook.share.model']/class[@name='SharePhoto.Builder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Java.Lang.Object</attr>
+
+<!--    <remove-node path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMedia.Builder']" />-->
+
+
+    <attr path="/api/package[@name='com.facebook.share.internal']/class[@name='VideoUploader.TransferChunkWorkItem']/method[@name='getParameters' and count(parameter)=0]" name="visibility">protected</attr>
+    <attr path="/api/package[@name='com.facebook.share.internal']/class[@name='VideoUploader.FinishUploadWorkItem']/method[@name='getParameters' and count(parameter)=0]" name="visibility">protected</attr>
+    <attr path="/api/package[@name='com.facebook.share.internal']/class[@name='VideoUploader.StartUploadWorkItem']/method[@name='getParameters' and count(parameter)=0]" name="visibility">protected</attr>
+
+</metadata>

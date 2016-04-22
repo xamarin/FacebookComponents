@@ -1,0 +1,38 @@
+version: 4.10.0.0
+name: Facebook iOS SDK
+id: facebookios
+publisher: Xamarin Inc
+publisher-url: https://xamarin.com/
+src-url: https://github.com/facebook/facebook-ios-sdk
+summary: Build great social experiences and get more installs by adding Facebook to your app.
+is_shell: true
+icons:
+  - icons/facebookios_128x128.png
+  - icons/facebookios_512x512.png
+packages:
+  ios-unified:
+    - Xamarin.Facebook.iOS, Version=4.10.0.0
+libraries:
+  ios-unified:
+    - ../output/unified/Facebook.dll
+samples:
+  - name: "iOS Unified Sample"
+    path: "../samples/FacebookiOSSample/FacebookiOSSample.sln"
+    removeProjects:
+      - Facebook
+    installNuGets:
+      - project: FacebookiOSSample
+        packages:
+          - Xamarin.Facebook.iOS
+  - name: "HelloFacebook Sample"
+    path: "../samples/HelloFacebook/HelloFacebook.sln"
+    removeProjects:
+      - Facebook
+    installNuGets:
+      - project: HelloFacebook
+        packages:
+          - Xamarin.Facebook.iOS
+no_build: true
+local-nuget-repo: ../output
+screenshots:
+  - screenshots/screenshot1.png

@@ -1,0 +1,20 @@
+version: 4.10.0.0
+name: Facebook Audience Network iOS SDK
+id: fbaudiencenetworkios
+publisher: Xamarin Inc
+publisher-url: https://xamarin.com/
+src-url: https://developers.facebook.com/products/audience-network/
+summary: Monetize your app with Facebook ads.
+icons:
+  - icons/fbaudiencenetworkios_128x128.png
+  - icons/fbaudiencenetworkios_512x512.png
+libraries:
+  ios-unified:
+    - ../output/unified/Facebook.AudienceNetwork.dll
+samples:
+  - name: "FBAudienceNetwork iOS Unified Sample"
+    path: "../samples/FBAudienceNetworkSample/FBAudienceNetworkSample.sln"
+    removeFiles:
+      - FBAudienceNetworkSample/Makefile
+      - FBAudienceNetworkSample/FBAudienceNetworkSample-Classic.csproj
+no_build: true

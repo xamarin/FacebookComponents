@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Facebook", "source\Xamarin.Facebook\Xamarin.Facebook.csproj", "{33B8DF4F-E480-4B97-8DA1-BEB89CA6B644}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Facebook.AudienceNetwork", "source\Xamarin.Facebook.AudienceNetwork\Xamarin.Facebook.AudienceNetwork.csproj", "{31835D38-4EB1-40EF-98B5-0AE73E24A803}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{31835D38-4EB1-40EF-98B5-0AE73E24A803}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31835D38-4EB1-40EF-98B5-0AE73E24A803}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31835D38-4EB1-40EF-98B5-0AE73E24A803}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31835D38-4EB1-40EF-98B5-0AE73E24A803}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33B8DF4F-E480-4B97-8DA1-BEB89CA6B644}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33B8DF4F-E480-4B97-8DA1-BEB89CA6B644}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33B8DF4F-E480-4B97-8DA1-BEB89CA6B644}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33B8DF4F-E480-4B97-8DA1-BEB89CA6B644}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

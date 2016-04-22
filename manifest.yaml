@@ -1,0 +1,15 @@
+##############################################################
+# Facebook Group
+##############################################################
+- Name: FacebookAndroid
+  BuildScript: ./Facebook.Android/build.cake
+  TriggerPaths: [ Facebook.Android ]
+  MacBuildTargets: [ samples, nuget, component ]
+- Name: FacebookiOS
+  BuildScript: ./Facebook.iOS/build.cake
+  TriggerPaths: [ Facebook.iOS ]
+  MacBuildTargets: [ samples, nuget, component ]
+- Name: FacebookiOSAudienceNetwork
+  BuildScript: ./Facebook.AudienceNetwork.iOS/build.cake
+  TriggerPaths: [ Facebook.AudienceNetwork.iOS ]
+  MacBuildTargets: [ samples, component ]

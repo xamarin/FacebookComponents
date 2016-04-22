@@ -1,0 +1,10 @@
+﻿<metadata>
+	<attr path="/api/package[@name='com.facebook.ads']" name="managedName">Xamarin.Facebook.Ads</attr>
+    <attr path="/api/package[@name='com.facebook.ads.internal']" name="managedName">Xamarin.Facebook.Ads.Internal</attr>
+    <attr path="/api/package[@name='com.facebook.ads.internal.adapters']" name="managedName">Xamarin.Facebook.Ads.Internal.Adapters</attr>
+    <attr path="/api/package[@name='com.facebook.ads.internal.dev']" name="managedName">Xamarin.Facebook.Ads.Internal.Dev</attr>
+    <attr path="/api/package[@name='com.facebook.ads.internal.extra']" name="managedName">Xamarin.Facebook.Ads.Internal.Extra</attr>
+    <attr path="/api/package[@name='com.facebook.ads.internal.server']" name="managedName">Xamarin.Facebook.Ads.Internal.Server</attr>
+    <attr path="/api/package[@name='com.facebook.ads.internal.ssp']" name="managedName">Xamarin.Facebook.Ads.Internal.Ssp</attr>
+    <attr path="/api/package[@name='com.facebook.ads.internal.util']" name="managedName">Xamarin.Facebook.Ads.Internal.Util</attr>
+</metadata>
