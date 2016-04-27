@@ -44,6 +44,13 @@ Before the `.sln` files will compile in Xamarin Studio, the external dependencie
 The license for this repository is specified in 
 [License.md](License.md)
 
+## Contribution Guidelines
+
+You will need to complete a Contribution License Agreement before your pull request can be accepted. You can complete the CLA by going through the steps at [https://cla2.dotnetfoundation.org/][33].
+
+## .NET Foundation
+This project is part of the [.NET Foundation][34]
+
 
 [1]: Facebook.Android
 [2]: Facebook.AudienceNetwork.iOS
@@ -58,4 +65,6 @@ The license for this repository is specified in
 
 [31]: https://cocoapods.org/
 [32]: http://cakebuild.net
+[33]: https://cla2.dotnetfoundation.org/
+[34]: http://www.dotnetfoundation.org/projects
 
