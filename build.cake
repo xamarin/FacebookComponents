@@ -5,8 +5,8 @@
 var TARGET = Argument ("target", Argument ("t", Argument ("Target", "build")));
 
 var GIT_PREVIOUS_COMMIT = EnvironmentVariable ("GIT_PREVIOUS_SUCCESSFUL_COMMIT") ?? Argument ("gitpreviouscommit", "");
-var GIT_COMMIT = EnvironmentVariable ("GIT_COMMIT") ?? Argument("gitcommit", "");
-var GIT_BRANCH = EnvironmentVariable ("GIT_BRANCH") ?? "origin/master";
+var GIT_COMMIT = EnvironmentVariable ("GIT_COMMIT") ?? EnvironmentVariable ("GIT_CLONE_COMMIT_HASH") ?? Argument("gitcommit", "");
+var GIT_BRANCH = EnvironmentVariable ("GIT_BRANCH") ?? EnvironmentVariable ("BITRISE_GIT_BRANCH") ?? "origin/master";
 var GIT_PATH = EnvironmentVariable ("GIT_EXE") ?? (IsRunningOnWindows () ? "C:\\Program Files (x86)\\Git\\bin\\git.exe" : "git");
 
 var BUILD_GROUPS = DeserializeYamlFromFile<List<BuildGroup>> ("./manifest.yaml");
