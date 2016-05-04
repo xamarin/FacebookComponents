@@ -34,9 +34,7 @@
     <attr path="/api/package[@name='com.facebook.share.internal']/class[@name='VideoUploader.FinishUploadWorkItem']/method[@name='getParameters' and count(parameter)=0]" name="visibility">protected</attr>
     <attr path="/api/package[@name='com.facebook.share.internal']/class[@name='VideoUploader.StartUploadWorkItem']/method[@name='getParameters' and count(parameter)=0]" name="visibility">protected</attr>
 
-	<remove-node path="/api/package[contains(@name, 'com.facebook.share.internal')]" />
-
-	<remove-node path="/api/package[@name='com.facebook.login.widget']/class[@name='DeviceLoginButton.DeviceLoginClickListener']" />
-
-	<remove-node path="/api/package[@name='com.facebook.login']/class[@name='CustomTabLoginMethodHandler']" />
+    <remove-node path="/api/package[contains(@name, 'com.facebook.share.internal')]" />
+    <remove-node path="/api/package[@name='com.facebook.login.widget']/class[@name='DeviceLoginButton.DeviceLoginClickListener']" />
+    <remove-node path="/api/package[@name='com.facebook.login']/class[@name='CustomTabLoginMethodHandler']" />
 </metadata>
