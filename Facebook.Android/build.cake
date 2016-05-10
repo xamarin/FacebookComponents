@@ -1,12 +1,13 @@
 
 #load "../common.cake"
 
+var NUGET_VERSION = "4.11.0";
 
-var FB_VERSION = "4.10.1";
+var FB_VERSION = "4.11.0";
 var FB_URL = string.Format ("http://search.maven.org/remotecontent?filepath=com/facebook/android/facebook-android-sdk/{0}/facebook-android-sdk-{0}.aar", FB_VERSION);
 var FB_DOCS_URL = string.Format ("http://search.maven.org/remotecontent?filepath=com/facebook/android/facebook-android-sdk/{0}/facebook-android-sdk-{0}-javadoc.jar", FB_VERSION);
 
-var AN_VERSION = "4.10.1";
+var AN_VERSION = "4.11.0";
 var AN_URL = string.Format ("http://search.maven.org/remotecontent?filepath=com/facebook/android/audience-network-sdk/{0}/audience-network-sdk-{0}.aar", AN_VERSION);
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
@@ -34,8 +35,8 @@ var buildSpec = new BuildSpec () {
 	},
 
 	NuGets = new [] {
-		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.Android.nuspec"},
-		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.AudienceNetwork.Android.nuspec"},
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.Android.nuspec", Version = NUGET_VERSION },
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.AudienceNetwork.Android.nuspec", Version = NUGET_VERSION },
 	},
 
 	Components = new [] {
