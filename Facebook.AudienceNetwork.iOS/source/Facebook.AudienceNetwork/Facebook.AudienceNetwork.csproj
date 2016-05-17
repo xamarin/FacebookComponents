@@ -43,7 +43,6 @@
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
   <ItemGroup>
     <Compile Include="extensions.cs" />
     <Compile Include="Facebook.AudienceNetwork.linkwith.cs">
@@ -61,4 +60,5 @@
       <Link>Facebook.AudienceNetwork.a</Link>
     </ObjcBindingNativeLibrary>
   </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

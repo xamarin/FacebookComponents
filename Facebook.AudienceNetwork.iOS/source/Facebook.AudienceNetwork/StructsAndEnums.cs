@@ -31,9 +31,10 @@ namespace Facebook.AudienceNetwork
 	public enum NativeAdsCachePolicy : long
 	{
 		None = 0,
-		Icon = 1,
-		CoverImage = 2,
-		All = 1 | 2
+		Icon = 0x1,
+		CoverImage = 0x2,
+		Video = 0x3,
+		All = Icon | CoverImage | Video
 	}
 
 	[Native]
