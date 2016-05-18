@@ -21,10 +21,10 @@ namespace Facebook.AudienceNetwork
 
 	// @interface FBAdChoicesView : UIView
 	[DisableDefaultCtor]
-	[BaseType (typeof(UIView), Name = "FBAdChoicesView")]
+	[BaseType (typeof (UIView), Name = "FBAdChoicesView")]
 	interface AdChoicesView
 	{
-		
+
 		// @property (readonly, nonatomic, weak) UILabel * label;
 		[Export ("label", ArgumentSemantic.Weak)]
 		UILabel Label { get; }
@@ -36,6 +36,14 @@ namespace Facebook.AudienceNetwork
 		// @property (nonatomic, assign, readonly, getter=isExpandable) BOOL expandable;
 		[Export ("expandable")]
 		bool Expandable { [Bind ("isExpandable")] get; set; }
+
+		// @property (nonatomic, weak, readwrite) FBNativeAd *nativeAd;
+		[Export ("nativeAd", ArgumentSemantic.Weak)]
+		NativeAd NativeAd { get; set; }
+
+		// @property (nonatomic, assign, readwrite) UIRectCorner corner;
+		[Export ("corner", ArgumentSemantic.Assign)]
+		UIRectCorner Corner { get; set; }
 
 		// -(instancetype)initWithNativeAd:(FBNativeAd *)nativeAd;
 		[Export ("initWithNativeAd:")]
@@ -68,7 +76,7 @@ namespace Facebook.AudienceNetwork
 	}
 
 	[DisableDefaultCtor]
-	[BaseType (typeof(NSObject), Name = "FBAdSettings")]
+	[BaseType (typeof (NSObject), Name = "FBAdSettings")]
 	interface AdSettings
 	{
 
@@ -81,7 +89,7 @@ namespace Facebook.AudienceNetwork
 
 		[Static]
 		[Export ("addTestDevices:")]
-		void AddTestDevices (string[] devicesHash);
+		void AddTestDevices (string [] devicesHash);
 
 		[Static]
 		[Export ("clearTestDevices")]
@@ -132,7 +140,7 @@ namespace Facebook.AudienceNetwork
 	}
 
 	[DisableDefaultCtor]
-	[BaseType (typeof(UIView), Name = "FBAdView")]
+	[BaseType (typeof (UIView), Name = "FBAdView")]
 	interface AdView
 	{
 
@@ -163,7 +171,7 @@ namespace Facebook.AudienceNetwork
 
 	[Protocol]
 	[Model]
-	[BaseType (typeof(NSObject), Name = "FBAdViewDelegate")]
+	[BaseType (typeof (NSObject), Name = "FBAdViewDelegate")]
 	interface AdViewDelegate
 	{
 
@@ -184,7 +192,7 @@ namespace Facebook.AudienceNetwork
 	}
 
 	[DisableDefaultCtor]
-	[BaseType (typeof(UIViewController), Name = "FBInterstitialAd")]
+	[BaseType (typeof (UIViewController), Name = "FBInterstitialAd")]
 	interface InterstitialAd : AdViewDelegate
 	{
 
@@ -216,7 +224,7 @@ namespace Facebook.AudienceNetwork
 
 	[Protocol]
 	[Model]
-	[BaseType (typeof(NSObject), Name = "FBInterstitialAdDelegate")]
+	[BaseType (typeof (NSObject), Name = "FBInterstitialAdDelegate")]
 	interface InterstitialAdDelegate
 	{
 
@@ -237,7 +245,7 @@ namespace Facebook.AudienceNetwork
 	}
 
 	// @interface FBMediaView : UIView
-	[BaseType (typeof(UIView), Name = "FBMediaView")]
+	[BaseType (typeof (UIView), Name = "FBMediaView")]
 	interface MediaView
 	{
 		[Export ("initWithFrame:")]
@@ -258,7 +266,7 @@ namespace Facebook.AudienceNetwork
 
 		// @property (nonatomic, assign, getter=isAutoplayEnabled) BOOL autoplayEnabled;
 		[Export ("autoplayEnabled")]
-		bool AutoplayEnabled { [Bind("isAutoplayEnabled")] get; set; }
+		bool AutoplayEnabled { [Bind ("isAutoplayEnabled")] get; set; }
 	}
 
 	interface IMediaViewDelegate
@@ -269,7 +277,7 @@ namespace Facebook.AudienceNetwork
 	// @protocol FBMediaViewDelegate <NSObject>
 	[Model]
 	[Protocol]
-	[BaseType (typeof(NSObject), Name = "FBMediaViewDelegate")]
+	[BaseType (typeof (NSObject), Name = "FBMediaViewDelegate")]
 	interface MediaViewDelegate
 	{
 		// @optional -(void)mediaViewDidLoad:(FBMediaView *)mediaView;
@@ -278,7 +286,7 @@ namespace Facebook.AudienceNetwork
 	}
 
 	[DisableDefaultCtor]
-	[BaseType (typeof(NSObject), Name = "FBNativeAd")]
+	[BaseType (typeof (NSObject), Name = "FBNativeAd")]
 	interface NativeAd
 	{
 
@@ -325,7 +333,7 @@ namespace Facebook.AudienceNetwork
 		void RegisterView (UIView view, UIViewController viewController);
 
 		[Export ("registerViewForInteraction:withViewController:withClickableViews:")]
-		void RegisterView (UIView view, UIViewController viewController, UIView[] clickableViews);
+		void RegisterView (UIView view, UIViewController viewController, UIView [] clickableViews);
 
 		[Export ("unregisterView")]
 		void UnregisterView ();
@@ -345,27 +353,31 @@ namespace Facebook.AudienceNetwork
 
 	[Protocol]
 	[Model]
-	[BaseType (typeof(NSObject), Name = "FBNativeAdDelegate")]
+	[BaseType (typeof (NSObject), Name = "FBNativeAdDelegate")]
 	interface NativeAdDelegate
 	{
 
-		[Export ("nativeAdDidLoad:")][Abstract]
+		[Export ("nativeAdDidLoad:")]
+		[Abstract]
 		void NativeAdDidLoad (NativeAd nativeAd);
 
-		[Export ("nativeAd:didFailWithError:")][Abstract]
+		[Export ("nativeAd:didFailWithError:")]
+		[Abstract]
 		void NativeAdDidFail (NativeAd nativeAd, NSError error);
 
-		[Export ("nativeAdDidClick:")][Abstract]
+		[Export ("nativeAdDidClick:")]
+		[Abstract]
 		void NativeAdDidClick (NativeAd nativeAd);
 
-		[Export ("nativeAdDidFinishHandlingClick:")][Abstract]
+		[Export ("nativeAdDidFinishHandlingClick:")]
+		[Abstract]
 		void NativeAdDidFinishHandlingClick (NativeAd nativeAd);
 	}
 
 	delegate void AdImageCompletionHandler ([NullAllowed] UIImage imageLoaded);
 
 	[DisableDefaultCtor]
-	[BaseType (typeof(NSObject), Name = "FBAdImage")]
+	[BaseType (typeof (NSObject), Name = "FBAdImage")]
 	interface AdImage
 	{
 
@@ -388,7 +400,7 @@ namespace Facebook.AudienceNetwork
 
 	// @interface FBAdStarRatingView : UIView
 	[Obsolete]
-	[BaseType (typeof(UIView), Name = "FBAdStarRatingView")]
+	[BaseType (typeof (UIView), Name = "FBAdStarRatingView")]
 	interface AdStarRatingView
 	{
 
@@ -412,11 +424,11 @@ namespace Facebook.AudienceNetwork
 		IntPtr Constructor (CGRect frame, AdStarRating starRating);
 	}
 
-	delegate UIView NativeAdScrollViewViewProviderHandler (NativeAd nativeAd,nuint position);
+	delegate UIView NativeAdScrollViewViewProviderHandler (NativeAd nativeAd, nuint position);
 
 	// @interface FBNativeAdScrollView : UIView
 	[DisableDefaultCtor]
-	[BaseType (typeof(UIView), Name = "FBNativeAdScrollView")]
+	[BaseType (typeof (UIView), Name = "FBNativeAdScrollView")]
 	interface NativeAdScrollView
 	{
 		// @property (readonly, assign, nonatomic) NSUInteger maximumNativeAdCount;
@@ -475,7 +487,7 @@ namespace Facebook.AudienceNetwork
 	// @protocol FBNativeAdsManagerDelegate <NSObject>
 	[Model]
 	[Protocol]
-	[BaseType (typeof(NSObject), Name = "FBNativeAdsManagerDelegate")]
+	[BaseType (typeof (NSObject), Name = "FBNativeAdsManagerDelegate")]
 	interface NativeAdsManagerDelegate
 	{
 		// @required -(void)nativeAdsLoaded;
@@ -491,7 +503,7 @@ namespace Facebook.AudienceNetwork
 
 	// @interface FBNativeAdsManager : NSObject
 	[DisableDefaultCtor]
-	[BaseType (typeof(NSObject), Name = "FBNativeAdsManager")]
+	[BaseType (typeof (NSObject), Name = "FBNativeAdsManager")]
 	interface NativeAdsManager
 	{
 		// @property (nonatomic, weak) id<FBNativeAdsManagerDelegate> delegate;
@@ -531,7 +543,7 @@ namespace Facebook.AudienceNetwork
 
 	// @interface FBNativeAdTableViewAdProvider : NSObject
 	[DisableDefaultCtor]
-	[BaseType (typeof(NSObject), Name = "FBNativeAdTableViewAdProvider")]
+	[BaseType (typeof (NSObject), Name = "FBNativeAdTableViewAdProvider")]
 	interface NativeAdTableViewAdProvider
 	{
 		// @property (nonatomic, weak) id<FBNativeAdDelegate> delegate;
@@ -563,10 +575,10 @@ namespace Facebook.AudienceNetwork
 
 	// @interface FBNativeAdTableViewCellProvider : FBNativeAdTableViewAdProvider
 	[DisableDefaultCtor]
-	[BaseType (typeof(NativeAdTableViewAdProvider), Name = "FBNativeAdTableViewCellProvider")]
+	[BaseType (typeof (NativeAdTableViewAdProvider), Name = "FBNativeAdTableViewCellProvider")]
 	interface NativeAdTableViewCellProvider
 	{
-		
+
 		// -(instancetype)initWithManager:(FBNativeAdsManager *)manager forType:(FBNativeAdViewType)type;
 		[Export ("initWithManager:forType:")]
 		IntPtr Constructor (NativeAdsManager manager, NativeAdViewType type);
@@ -591,7 +603,7 @@ namespace Facebook.AudienceNetwork
 
 	// @interface FBNativeAdView : UIView
 	[DisableDefaultCtor]
-	[BaseType (typeof(UIView), Name = "FBNativeAdView")]
+	[BaseType (typeof (UIView), Name = "FBNativeAdView")]
 	interface NativeAdView
 	{
 		// @property (readonly, assign, nonatomic) FBNativeAdViewType type;
@@ -615,7 +627,7 @@ namespace Facebook.AudienceNetwork
 	}
 
 	// @interface FBNativeAdViewAttributes : NSObject <NSCopying>
-	[BaseType (typeof(NSObject), Name = "FBNativeAdViewAttributes")]
+	[BaseType (typeof (NSObject), Name = "FBNativeAdViewAttributes")]
 	interface NativeAdViewAttributes : INSCopying
 	{
 		// - (nonnull instancetype)initWithDictionary:(nonnull NSDictionary *) dict;

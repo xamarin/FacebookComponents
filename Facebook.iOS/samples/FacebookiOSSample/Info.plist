@@ -96,5 +96,7 @@
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
 	</array>
+	<key>CFBundleName</key>
+	<string>FacebookiOSSample</string>
 </dict>
 </plist>
