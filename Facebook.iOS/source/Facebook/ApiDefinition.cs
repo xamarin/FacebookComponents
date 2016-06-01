@@ -2045,7 +2045,6 @@ namespace Facebook.ShareKit
 	}
 
 	// @interface FBSDKShareDialog : NSObject <FBSDKSharingDialog>
-	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKShareDialog")]
 	interface ShareDialog : SharingDialog
 	{
