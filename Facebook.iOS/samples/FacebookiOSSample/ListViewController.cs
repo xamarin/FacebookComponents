@@ -16,7 +16,7 @@ namespace FacebookiOSSample
 	{
 		public ListViewController (FacebookListType type) : base (UITableViewStyle.Grouped, null, true)
 		{
-			var kindListName = type == FacebookListType.Friends ? "friendlists?fields=id,name" : "groups";
+			var kindListName = type == FacebookListType.Friends ? "friendlists?fields=id,name" : "groups?fields=id,name";
 
 			Root = new RootElement (type == FacebookListType.Friends ? "Friendlists" : "Managed Groups");
 
