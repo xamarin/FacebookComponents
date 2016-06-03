@@ -182,8 +182,10 @@ namespace FacebookiOSSample
 					userSection.Add (new StringElement ("Birthday: " + userInfo ["birthday"].ToString ()));
 				if (userInfo ["about"] != null)
 					userSection.Add (new StringElement ("About: " + userInfo ["about"].ToString ()));
-				if (userInfo ["hometown"] != null)
-					userSection.Add (new StringElement ("Hometown: " + userInfo ["hometown"].ToString ()));
+				if (userInfo ["hometown"] != null) {
+					var hometownData = userInfo ["hometown"] as NSDictionary;
+					userSection.Add (new StringElement ("Hometown: " + hometownData ["name"]));
+				}
 
 				Root.Add (userSection);
 
