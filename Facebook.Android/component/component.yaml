@@ -16,10 +16,10 @@ packages:
   android:
     - Xamarin.Facebook.Android, Version=4.11.0.0
     - Xamarin.Facebook.AudienceNetwork.Android, Version=4.11.0.0
-    - Xamarin.Android.Support.v4, Version=23.1.1.0
-    - Xamarin.Android.Support.v7.CardView, Version=23.1.1.0
-    - Xamarin.Android.Support.v7.RecyclerView, Version=23.1.1.0
-    - Xamarin.Android.Support.v7.AppCompat, Version=23.1.1.0
+    - Xamarin.Android.Support.v4, Version=23.2.1.0
+    - Xamarin.Android.Support.v7.CardView, Version=23.2.1.0
+    - Xamarin.Android.Support.v7.RecyclerView, Version=23.2.1.0
+    - Xamarin.Android.Support.v7.AppCompat, Version=23.2.1.0
     - Bolts, Version=1.4.0.0
 samples:
   - name: "Hello Facebook Sample"
