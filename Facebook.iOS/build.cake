@@ -1,8 +1,8 @@
 
 #load "../common.cake"
 
-var SDK_DATE = "20160210";
-var SDK_VERSION = "4.10.0.0";
+var SDK_DATE = "20160412";
+var SDK_VERSION = "4.11.0.0";
 var SDK_URL = string.Format ("https://origincache.facebook.com/developers/resources/?id=FacebookSDKs-iOS-{0}.zip", SDK_DATE);
 var SDK_FILE = "FacebookSDKs-iOS.zip";
 var SDK_PATH = "./externals/FacebookSDKs";

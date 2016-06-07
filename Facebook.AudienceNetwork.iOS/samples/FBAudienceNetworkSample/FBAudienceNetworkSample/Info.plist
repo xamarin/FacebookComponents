@@ -55,5 +55,7 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>CFBundleName</key>
+	<string>FBAudienceNetworkSample</string>
 </dict>
 </plist>

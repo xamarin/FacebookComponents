@@ -1,4 +1,4 @@
-version: 4.10.0.0
+version: 4.11.0.1
 name: Facebook iOS SDK
 id: facebookios
 publisher: Xamarin Inc
@@ -11,7 +11,7 @@ icons:
   - icons/facebookios_512x512.png
 packages:
   ios-unified:
-    - Xamarin.Facebook.iOS, Version=4.10.0.0
+    - Xamarin.Facebook.iOS, Version=4.11.0.1
 libraries:
   ios-unified:
     - ../output/unified/Facebook.dll
