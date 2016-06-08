@@ -22,8 +22,8 @@ string appName = "Your_App_Display_Name";
 
 public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 {
-	Settings.AppID = FacebookAppId;
-	Settings.DefaultDisplayName = DisplayName;
+	Settings.AppID = appId;
+	Settings.DisplayName = appName;
 	// ...
 	
 	// This method verifies if you have been logged into the app before, and keep you logged in after you reopen or kill your app.
@@ -83,7 +83,7 @@ public override void ViewDidLoad ()
 	};
 
 	// The user image profile is set automatically once is logged in
-	pictureView = new ProfilePictureView (new CGRect (50, 0, 220, 220));
+	pictureView = new ProfilePictureView (new CGRect (50, 50, 220, 220));
 
 	// Add views to main view
 	View.AddSubview (loginView);
