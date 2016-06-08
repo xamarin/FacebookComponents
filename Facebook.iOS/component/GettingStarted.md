@@ -102,8 +102,8 @@ public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 	// If you set true, you can handle the user profile info once is logged into FB with the Profile.Notifications.ObserveDidChange notification,
 	// If you set false, you need to get the user Profile info by hand with a GraphRequest
 	Profile.EnableUpdatesOnAccessTokenChange (true);
-	Settings.AppID = FacebookAppId;
-	Settings.DefaultDisplayName = DisplayName;
+	Settings.AppID = appId;
+	Settings.DisplayName = appName;
 	//...
 	
 	// This method verifies if you have been logged into the app before, and keep you logged in after you reopen or kill your app.
@@ -175,7 +175,7 @@ public override void ViewDidLoad ()
 	};
 
 	// The user image profile is set automatically once is logged in
-	pictureView = new ProfilePictureView (new CGRect (50, 0, 220, 220));
+	pictureView = new ProfilePictureView (new CGRect (50, 50, 220, 220));
 
 	// Create the label that will hold user's facebook name
 	nameLabel = new UILabel (new RectangleF (20, 319, 280, 21)) {

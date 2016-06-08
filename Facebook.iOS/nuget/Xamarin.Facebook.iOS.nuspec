@@ -15,6 +15,6 @@
   </metadata>
   <files>
     <!-- iOS Unified -->
-    <file src="output/unified/Facebook.dll" target="lib\Xamarin.iOS10" />
+    <file src="output/unified/Facebook.dll" target="lib/Xamarin.iOS10" />
   </files>
 </package>
