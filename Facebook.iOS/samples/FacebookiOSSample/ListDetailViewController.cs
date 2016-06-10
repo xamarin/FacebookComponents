@@ -39,7 +39,7 @@ namespace FacebookiOSSample
 				// Add the name and the picture profile to the view
 				for (nuint i = 0; i < membersData.Count; i++) {
 					// Get the info of one of the members
-					var memberData = membersData.GetItem <NSDictionary> (i);
+					var memberData = membersData.GetItem<NSDictionary> (i);
 					var pictureView = new ProfilePictureView (new CGRect (48, 0, 220, 220)) {
 						ProfileId = memberData ["id"].ToString (),
 						TranslatesAutoresizingMaskIntoConstraints = false
@@ -50,6 +50,11 @@ namespace FacebookiOSSample
 							Flags = UIViewElement.CellFlags.DisableSelection | UIViewElement.CellFlags.Transparent
 						}
 					});
+
+					pictureView.WidthAnchor.ConstraintEqualTo (220).Active = true;
+					pictureView.HeightAnchor.ConstraintEqualTo (220).Active = true;
+					pictureView.CenterXAnchor.ConstraintEqualTo (TableView.CenterXAnchor).Active = true;
+					//pictureView.CenterYAnchor.ConstraintEqualTo (0).Active = true;
 				}
 
 				Root = new RootElement (listName) {
