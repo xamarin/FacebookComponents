@@ -27,13 +27,14 @@ namespace Facebook.AudienceNetwork
 		Verbose
 	}
 
+	[Flags]
 	[Native]
 	public enum NativeAdsCachePolicy : long
 	{
-		None = 0,
-		Icon = 0x1,
-		CoverImage = 0x2,
-		Video = 0x3,
+		None = 1 << 0,
+		Icon = 1 << 1,
+		CoverImage = 1 << 2,
+		Video = 1 << 3,
 		All = Icon | CoverImage | Video
 	}
 
