@@ -25,7 +25,8 @@ namespace Facebook.CoreKit
 		DialogUnavailable,
 		AccessTokenRequired,
 		AppVersionUnsupported,
-		BrowswerUnavailable
+		BrowserUnavailable,
+		BrowswerUnavailable = BrowserUnavailable
 	}
 
 	[Native]

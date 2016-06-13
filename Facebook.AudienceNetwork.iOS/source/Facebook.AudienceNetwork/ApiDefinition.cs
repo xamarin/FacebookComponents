@@ -45,6 +45,11 @@ namespace Facebook.AudienceNetwork
 		[Export ("corner", ArgumentSemantic.Assign)]
 		UIRectCorner Corner { get; set; }
 
+		// @property (nonatomic, weak, readwrite, nullable) UIViewController *viewController;
+		[NullAllowed]
+		[Export ("viewController", ArgumentSemantic.Weak)]
+		UIViewController ViewController { get; set; }
+
 		// -(instancetype)initWithNativeAd:(FBNativeAd *)nativeAd;
 		[Export ("initWithNativeAd:")]
 		IntPtr Constructor (NativeAd nativeAd);
@@ -55,16 +60,16 @@ namespace Facebook.AudienceNetwork
 
 		// -(instancetype)initWithViewController:(UIViewController *)viewController adChoicesIcon:(FBAdImage *)adChoicesIcon adChoicesLinkURL:(NSURL *)adChoicesLinkURL attributes:(FBNativeAdViewAttributes *)attributes __attribute__((objc_designated_initializer));
 		[Export ("initWithViewController:adChoicesIcon:adChoicesLinkURL:attributes:")]
-		IntPtr Constructor (UIViewController viewController, AdImage adChoicesIcon, NSUrl adChoicesLinkURL, [NullAllowed] NativeAdViewAttributes attributes);
+		IntPtr Constructor ([NullAllowed] UIViewController viewController, AdImage adChoicesIcon, NSUrl adChoicesLinkURL, [NullAllowed] NativeAdViewAttributes attributes);
 
 		// -(instancetype)initWithViewController:(UIViewController *)viewController adChoicesIcon:(FBAdImage *)adChoicesIcon adChoicesLinkURL:(NSURL *)adChoicesLinkURL attributes:(FBNativeAdViewAttributes *)attributes expandable:(BOOL)expandable __attribute__((objc_designated_initializer));
 		[Export ("initWithViewController:adChoicesIcon:adChoicesLinkURL:attributes:expandable:")]
-		IntPtr Constructor (UIViewController viewController, AdImage adChoicesIcon, NSUrl adChoicesLinkURL, [NullAllowed] NativeAdViewAttributes attributes, bool expandable);
+		IntPtr Constructor ([NullAllowed] UIViewController viewController, AdImage adChoicesIcon, NSUrl adChoicesLinkURL, [NullAllowed] NativeAdViewAttributes attributes, bool expandable);
 
 		// -(instancetype)initWithViewController:(UIViewController *)viewController adChoicesIcon:(FBAdImage *)adChoicesIcon adChoicesLinkURL:(NSURL *)adChoicesLinkURL adChoicesText:(nullable NSString*)adChoicesText attributes:(FBNativeAdViewAttributes *)attributes expandable:(BOOL)expandable __attribute__((objc_designated_initializer));
 		[DesignatedInitializer]
 		[Export ("initWithViewController:adChoicesIcon:adChoicesLinkURL:adChoicesText:attributes:expandable:")]
-		IntPtr Constructor (UIViewController viewController, AdImage adChoicesIcon, NSUrl adChoicesLinkURL, [NullAllowed] string adChoicesText, [NullAllowed] NativeAdViewAttributes attributes, bool expandable);
+		IntPtr Constructor ([NullAllowed] UIViewController viewController, AdImage adChoicesIcon, NSUrl adChoicesLinkURL, [NullAllowed] string adChoicesText, [NullAllowed] NativeAdViewAttributes attributes, bool expandable);
 
 		// -(void)updateFrameFromSuperview;
 		[Export ("updateFrameFromSuperview")]
@@ -120,19 +125,23 @@ namespace Facebook.AudienceNetwork
 	{
 		[Internal]
 		[Field ("kFBAdSize320x50", "__Internal")]
-		IntPtr _kFBAdSize320x50Global { get; }
+		IntPtr _kFBAdSize320x50 { get; }
 
 		[Internal]
 		[Field ("kFBAdSizeHeight50Banner", "__Internal")]
-		IntPtr _kFBAdSizeHeight50BannerGlobal { get; }
+		IntPtr _kFBAdSizeHeight50Banner { get; }
 
 		[Internal]
 		[Field ("kFBAdSizeHeight90Banner", "__Internal")]
-		IntPtr _kFBAdSizeHeight90BannerGlobal { get; }
+		IntPtr _kFBAdSizeHeight90Banner { get; }
+
+		[Internal]
+		[Field ("kFBAdSizeInterstitial", "__Internal")]
+		IntPtr _kFBAdSizeInterstitial { get; }
 
 		[Internal]
 		[Field ("kFBAdSizeInterstital", "__Internal")]
-		IntPtr _kFBAdSizeInterstitalGlobal { get; }
+		IntPtr _kFBAdSizeInterstital { get; }
 
 		[Internal]
 		[Field ("kFBAdSizeHeight250Rectangle", "__Internal")]
@@ -146,7 +155,7 @@ namespace Facebook.AudienceNetwork
 
 		[DesignatedInitializer]
 		[Export ("initWithPlacementID:adSize:rootViewController:")]
-		IntPtr Constructor (string placementID, AdSize adSize, UIViewController viewController);
+		IntPtr Constructor (string placementID, AdSize adSize, [NullAllowed] UIViewController viewController);
 
 		[Export ("loadAd")]
 		void LoadAd ();
@@ -214,7 +223,7 @@ namespace Facebook.AudienceNetwork
 		void LoadAd ();
 
 		[Export ("showAdFromRootViewController:")]
-		bool ShowAdFromRootViewController (UIViewController rootViewController);
+		bool ShowAdFromRootViewController ([NullAllowed] UIViewController rootViewController);
 	}
 
 	interface IInterstitialAdDelegate
@@ -330,10 +339,10 @@ namespace Facebook.AudienceNetwork
 		IntPtr Constructor (string placementId);
 
 		[Export ("registerViewForInteraction:withViewController:")]
-		void RegisterView (UIView view, UIViewController viewController);
+		void RegisterView (UIView view, [NullAllowed] UIViewController viewController);
 
 		[Export ("registerViewForInteraction:withViewController:withClickableViews:")]
-		void RegisterView (UIView view, UIViewController viewController, UIView [] clickableViews);
+		void RegisterView (UIView view, [NullAllowed] UIViewController viewController, UIView [] clickableViews);
 
 		[Export ("unregisterView")]
 		void UnregisterView ();

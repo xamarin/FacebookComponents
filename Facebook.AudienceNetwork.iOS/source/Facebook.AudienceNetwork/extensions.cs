@@ -15,6 +15,7 @@ using ObjCRuntime;
 
 namespace Facebook.AudienceNetwork
 {
+	[Preserve (AllMembers = true)]
 	public static partial class AdSizes
 	{
 		static AdSize? size320x50;
@@ -66,16 +67,32 @@ namespace Facebook.AudienceNetwork
 			}
 		}
 
+		static AdSize? interstitial;
+
+		public static AdSize Interstitial {
+			get {
+				if (interstitial != null)
+					return interstitial.Value;
+
+				IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
+				IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kFBAdSizeInterstitial");
+				interstitial = (AdSize)Marshal.PtrToStructure (ptr, typeof (AdSize));
+				Dlfcn.dlclose (RTLD_MAIN_ONLY);
+
+				return interstitial.Value;
+			}
+		}
+
 		static AdSize? interstital;
 
-		[Obsolete]
+		[Obsolete ("Use Interstitial instead.")]
 		public static AdSize Interstital {
 			get {
 				if (interstital != null)
 					return interstital.Value;
 
 				IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
-				IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kFBAdSizeInterstital");
+				IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kFBAdSizeInterstitial");
 				interstital = (AdSize)Marshal.PtrToStructure (ptr, typeof (AdSize));
 				Dlfcn.dlclose (RTLD_MAIN_ONLY);
 

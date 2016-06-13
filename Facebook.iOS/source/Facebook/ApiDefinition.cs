@@ -2022,6 +2022,11 @@ namespace Facebook.ShareKit
 		[Export ("graphNode", ArgumentSemantic.Copy)]
 		string GraphNode { get; set; }
 
+		// @property (nonatomic, strong) FBSDKAccessToken *accessToken;
+		[NullAllowed]
+		[Export ("accessToken", ArgumentSemantic.Strong)]
+		CoreKit.AccessToken AccessToken { get; set; }
+
 		// -(BOOL)canShare;
 		[Export ("canShare")]
 		bool CanShare ();
