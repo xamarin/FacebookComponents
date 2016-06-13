@@ -50,11 +50,6 @@ namespace FacebookiOSSample
 							Flags = UIViewElement.CellFlags.DisableSelection | UIViewElement.CellFlags.Transparent
 						}
 					});
-
-					pictureView.WidthAnchor.ConstraintEqualTo (220).Active = true;
-					pictureView.HeightAnchor.ConstraintEqualTo (220).Active = true;
-					pictureView.CenterXAnchor.ConstraintEqualTo (TableView.CenterXAnchor).Active = true;
-					//pictureView.CenterYAnchor.ConstraintEqualTo (0).Active = true;
 				}
 
 				Root = new RootElement (listName) {

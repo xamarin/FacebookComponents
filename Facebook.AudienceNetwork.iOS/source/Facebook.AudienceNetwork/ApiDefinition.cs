@@ -125,19 +125,23 @@ namespace Facebook.AudienceNetwork
 	{
 		[Internal]
 		[Field ("kFBAdSize320x50", "__Internal")]
-		IntPtr _kFBAdSize320x50Global { get; }
+		IntPtr _kFBAdSize320x50 { get; }
 
 		[Internal]
 		[Field ("kFBAdSizeHeight50Banner", "__Internal")]
-		IntPtr _kFBAdSizeHeight50BannerGlobal { get; }
+		IntPtr _kFBAdSizeHeight50Banner { get; }
 
 		[Internal]
 		[Field ("kFBAdSizeHeight90Banner", "__Internal")]
-		IntPtr _kFBAdSizeHeight90BannerGlobal { get; }
+		IntPtr _kFBAdSizeHeight90Banner { get; }
+
+		[Internal]
+		[Field ("kFBAdSizeInterstitial", "__Internal")]
+		IntPtr _kFBAdSizeInterstitial { get; }
 
 		[Internal]
 		[Field ("kFBAdSizeInterstital", "__Internal")]
-		IntPtr _kFBAdSizeInterstitalGlobal { get; }
+		IntPtr _kFBAdSizeInterstital { get; }
 
 		[Internal]
 		[Field ("kFBAdSizeHeight250Rectangle", "__Internal")]
