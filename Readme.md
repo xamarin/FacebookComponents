@@ -19,7 +19,7 @@ The build script for this project uses [Cake][32].  To run the build, you can us
 
 ```
 cd Facebook.iOS
-sh build.sh -target libs
+sh ../build.sh -target libs
 ```
 
 The bootstrapper script will automatically download Cake.exe and all the required tools and files into the `./tools/` folder.
