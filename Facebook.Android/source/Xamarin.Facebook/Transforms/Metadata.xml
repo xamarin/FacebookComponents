@@ -37,4 +37,7 @@
     <remove-node path="/api/package[contains(@name, 'com.facebook.share.internal')]" />
     <remove-node path="/api/package[@name='com.facebook.login.widget']/class[@name='DeviceLoginButton.DeviceLoginClickListener']" />
     <remove-node path="/api/package[@name='com.facebook.login']/class[@name='CustomTabLoginMethodHandler']" />
+
+	<attr path="/api/package[@name='com.facebook.appevents']/class[@name='AppEvent']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.facebook.appevents']/class[@name='AccessTokenAppIdPair']" name="visibility">public</attr>
 </metadata>
