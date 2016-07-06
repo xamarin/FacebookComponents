@@ -381,6 +381,10 @@ namespace Facebook.AudienceNetwork
 		[Export ("nativeAdDidFinishHandlingClick:")]
 		[Abstract]
 		void NativeAdDidFinishHandlingClick (NativeAd nativeAd);
+
+		[Export("nativeAdWillLogImpression:")]
+		[Abstract]
+		void NativeAdWillLogImpression(NativeAd nativeAd);
 	}
 
 	delegate void AdImageCompletionHandler ([NullAllowed] UIImage imageLoaded);
