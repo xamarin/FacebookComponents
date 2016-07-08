@@ -73,6 +73,7 @@
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchI18n>
     </MtouchI18n>
+    <MtouchFastDev>false</MtouchFastDev>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
