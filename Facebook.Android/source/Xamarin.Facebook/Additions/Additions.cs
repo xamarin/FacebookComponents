@@ -29,11 +29,11 @@ namespace Xamarin.Facebook.Share.Model
             }
 
 
-            // This method is explicitly implemented as a member of an instantiated Xamarin.Facebook.Share.Model.IShareModelBuilder
-            global::Java.Lang.Object global::Xamarin.Facebook.Share.Model.IShareModelBuilder.ReadFrom (global::Android.OS.Parcel p0)
-            {
-                return global::Java.Interop.JavaObjectExtensions.JavaCast<Java.Lang.Object>(ReadFrom (p0));
-            }
+            //// This method is explicitly implemented as a member of an instantiated Xamarin.Facebook.Share.Model.IShareModelBuilder
+            //global::Java.Lang.Object global::Xamarin.Facebook.Share.Model.IShareModelBuilder.ReadFrom (global::Android.OS.Parcel p0)
+            //{
+            //    return global::Java.Interop.JavaObjectExtensions.JavaCast<Java.Lang.Object>(ReadFrom (p0));
+            //}
 
             static IntPtr id_readFrom_Landroid_os_Parcel_;
 
@@ -64,11 +64,11 @@ namespace Xamarin.Facebook.Share.Model
             }
 
 
-            // This method is explicitly implemented as a member of an instantiated Xamarin.Facebook.Share.Model.IShareModelBuilder
-            global::Java.Lang.Object global::Xamarin.Facebook.Share.Model.IShareModelBuilder.ReadFrom (global::Android.OS.Parcel p0)
-            {
-                return global::Java.Interop.JavaObjectExtensions.JavaCast<Java.Lang.Object>(ReadFrom (p0));
-            }
+            //// This method is explicitly implemented as a member of an instantiated Xamarin.Facebook.Share.Model.IShareModelBuilder
+            //global::Java.Lang.Object global::Xamarin.Facebook.Share.Model.IShareModelBuilder.ReadFrom (global::Android.OS.Parcel p0)
+            //{
+            //    return global::Java.Interop.JavaObjectExtensions.JavaCast<Java.Lang.Object>(ReadFrom (p0));
+            //}
 
             static IntPtr id_readFrom_Landroid_os_Parcel_;
 
@@ -97,11 +97,11 @@ namespace Xamarin.Facebook.Share.Model
                 return global::Java.Lang.Object.GetObject<global::Java.Lang.Object> (JNIEnv.CallObjectMethod  (Handle, id_build), JniHandleOwnership.TransferLocalRef);
             }
 
-            // This method is explicitly implemented as a member of an instantiated Xamarin.Facebook.Share.Model.IShareModelBuilder
-            global::Java.Lang.Object global::Xamarin.Facebook.Share.Model.IShareModelBuilder.ReadFrom (global::Android.OS.Parcel p0)
-            {
-                return global::Java.Interop.JavaObjectExtensions.JavaCast<Java.Lang.Object>(ReadFrom (p0));
-            }
+            //// This method is explicitly implemented as a member of an instantiated Xamarin.Facebook.Share.Model.IShareModelBuilder
+            //global::Java.Lang.Object global::Xamarin.Facebook.Share.Model.IShareModelBuilder.ReadFrom (global::Android.OS.Parcel p0)
+            //{
+            //    return global::Java.Interop.JavaObjectExtensions.JavaCast<Java.Lang.Object>(ReadFrom (p0));
+            //}
 
             static IntPtr id_readFrom_Landroid_os_Parcel_;
 
