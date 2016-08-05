@@ -14,13 +14,14 @@ libraries:
     - ../output/Xamarin.Facebook.AudienceNetwork.dll
 packages:
   android:
-    - Xamarin.Facebook.Android, Version=4.13.2.0
-    - Xamarin.Facebook.AudienceNetwork.Android, Version=4.13.0.0
-    - Xamarin.Android.Support.v4, Version=23.4.0.0
-    - Xamarin.Android.Support.v7.CardView, Version=23.4.0.0
-    - Xamarin.Android.Support.v7.RecyclerView, Version=23.4.0.0
-    - Xamarin.Android.Support.v7.AppCompat, Version=23.4.0.0
+    - Xamarin.Facebook.Android, Version=4.14.0
+    - Xamarin.Facebook.AudienceNetwork.Android, Version=4.14.0
+    - Xamarin.Android.Support.v4, Version=23.4.0.1
+    - Xamarin.Android.Support.v7.CardView, Version=23.4.0.1
+    - Xamarin.Android.Support.v7.RecyclerView, Version=23.4.0.1
+    - Xamarin.Android.Support.v7.AppCompat, Version=23.4.0.1
     - Bolts, Version=1.4.0.0
+    - Xam.Plugins.Android.ExoPlayer, Version=1.5.8
 samples:
   - name: "Hello Facebook Sample"
     path: ../samples/HelloFacebookSample.sln
