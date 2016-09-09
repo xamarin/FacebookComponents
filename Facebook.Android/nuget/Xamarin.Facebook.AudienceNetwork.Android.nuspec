@@ -11,7 +11,7 @@
     <copyright>Copyright 2013-2016</copyright>
     <projectUrl>https://components.xamarin.com/view/facebookandroid</projectUrl>
     <licenseUrl>https://components.xamarin.com/license/facebookandroid</licenseUrl>
-    <iconUrl>https://xamarin-component-icons.s3.amazonaws.com/Xamarin.Facebook.AudienceNetwork.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/xamarin/FacebookComponents/master/icons/facebook-audiencenetwork-android_128x128.png</iconUrl>
     <dependencies>
       <group targetFramework="MonoAndroid41">
         <dependency id="Xamarin.Facebook.Android" version="$version$"/>
