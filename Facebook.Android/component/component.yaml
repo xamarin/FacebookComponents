@@ -5,8 +5,8 @@ publisher: Xamarin Inc.
 publisher-url: https://developers.facebook.com/docs/android/
 summary: Integrate with Facebook to help you build engaging social apps and get more installs.
 icons: 
-  - icons/facebookandroid_128x128.png
-  - icons/facebookandroid_512x512.png
+  - ../../icons/facebook-android_128x128.png
+  - ../../icons/facebook-android_512x512.png
 is_shell: true
 libraries:
   android: 
