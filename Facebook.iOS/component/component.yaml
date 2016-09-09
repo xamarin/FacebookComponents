@@ -7,8 +7,8 @@ src-url: https://github.com/facebook/facebook-ios-sdk
 summary: Build great social experiences and get more installs by adding Facebook to your app.
 is_shell: true
 icons:
-  - icons/facebookios_128x128.png
-  - icons/facebookios_512x512.png
+  - ../../icons/facebook-ios_128x128.png
+  - ../../icons/facebook-ios_512x512.png
 packages:
   ios-unified:
     - Xamarin.Facebook.iOS, Version=4.13.1.0
