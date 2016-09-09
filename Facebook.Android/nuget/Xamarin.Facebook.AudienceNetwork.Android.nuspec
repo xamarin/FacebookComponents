@@ -18,6 +18,7 @@
         <dependency id="Xamarin.Android.Support.v7.AppCompat" version="23.4.0.1"/>
         <dependency id="Xamarin.Android.Support.v7.RecyclerView" version="23.4.0.1"/>
         <dependency id="Xamarin.GooglePlayServices.Ads" version="29.0.0.2"/>
+        <dependency id="Xam.Plugins.Android.ExoPlayer" version="1.5.8"/>
       </group>
     </dependencies>
   </metadata>
