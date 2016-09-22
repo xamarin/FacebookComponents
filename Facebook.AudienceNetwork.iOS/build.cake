@@ -1,8 +1,7 @@
 
 #load "../common.cake"
 
-var SDK_DATE = "20160412";
-var SDK_VERSION = "4.13.1";
+var SDK_VERSION = "4.15.1";
 var SDK_URL = string.Format ("https://origincache.facebook.com/developers/resources/?id=FacebookSDKs-iOS-{0}.zip", SDK_VERSION);
 var SDK_FILE = "FacebookSDKs-iOS.zip";
 var SDK_PATH = "./externals/FacebookSDKs";
@@ -25,7 +24,10 @@ var buildSpec = new BuildSpec () {
 	},
 
 	Samples = new ISolutionBuilder [] {
-		new IOSSolutionBuilder { SolutionPath = "./samples/FBAudienceNetworkSample/FBAudienceNetworkSample.sln", BuildsOn = BuildPlatforms.Mac }
+		new IOSSolutionBuilder {
+			SolutionPath = "./samples/FBAudienceNetworkSample/FBAudienceNetworkSample.sln",
+			Configuration = "Release|iPhone",
+			BuildsOn = BuildPlatforms.Mac }
 	},
 
 	Components = new [] {
@@ -40,7 +42,7 @@ Task ("externals")
 	if (!DirectoryExists ("./externals/"))
 		CreateDirectory ("./externals");
 
-	DownloadFile (SDK_URL, "./externals/" + SDK_FILE, new DownloadFileSettings
+	DownloadFile (SDK_URL, "./externals/" + SDK_FILE, new Cake.Xamarin.Build.DownloadFileSettings
 	{
 		UserAgent = "curl/7.43.0"
 	});
