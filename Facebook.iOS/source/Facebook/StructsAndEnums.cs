@@ -203,4 +203,11 @@ namespace Facebook.ShareKit
 		FeedBrowser,
 		FeedWeb
 	}
+
+	[Native]
+	public enum AppInviteDestination : ulong
+	{
+		Facebook = 0,
+		Messenger,
+	}
 }

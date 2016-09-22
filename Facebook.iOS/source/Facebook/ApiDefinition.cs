@@ -347,6 +347,7 @@ namespace Facebook.CoreKit
 		// + (BOOL)fetchDeferredAppInvite:(FBSDKDeferredAppInviteHandler)handler;
 		[Static]
 		[Export ("fetchDeferredAppInvite:")]
+		[Obsolete ("This method is no longer available and will always return NO.")]
 		bool FetchDeferredAppInvite (DeferredAppInviteHandler handler);
 
 		// + (NSString*)appInvitePromotionCodeFromURL:(NSURL*)url;
@@ -588,7 +589,7 @@ namespace Facebook.CoreKit
 
 		// @property (assign, nonatomic) id<FBSDKGraphRequestConnectionDelegate> delegate;
 		[NullAllowed]
-		[Export ("delegate", ArgumentSemantic.Assign)]
+		[Export ("delegate", ArgumentSemantic.Weak)]
 		IGraphRequestConnectionDelegate Delegate { get; set; }
 
 		// @property (nonatomic) NSTimeInterval timeout;
@@ -980,6 +981,7 @@ namespace Facebook.CoreKit
 		NSError Error { get; }
 
 		[Export ("exception", ArgumentSemantic.Strong)]
+		[Obsolete ("Task exception handling is deprecated and will be removed in a future release.")]
 		NSException Exception { get; }
 
 		[Export ("isCancelled", ArgumentSemantic.Assign)]
@@ -1186,7 +1188,7 @@ namespace Facebook.LoginKit
 
 		// @property (assign, nonatomic) id<FBSDKLoginTooltipViewDelegate> delegate;
 		[NullAllowed]
-		[Export ("delegate", ArgumentSemantic.Assign)]
+		[Export ("delegate", ArgumentSemantic.Weak)]
 		ILoginTooltipViewDelegate Delegate { get; set; }
 
 		// @property (assign, nonatomic) BOOL forceDisplay;
@@ -1496,34 +1498,41 @@ namespace Facebook.ShareKit
 		Name = "FBSDKAppGroupAddDialog",
 		Delegates = new [] { "Delegate" },
 		Events = new [] { typeof (AppGroupAddDialogDelegate) })]
+	[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 	interface AppGroupAddDialog
 	{
 
 		// +(instancetype)showWithContent:(FBSDKAppGroupContent *)content delegate:(id<FBSDKAppGroupAddDialogDelegate>)delegate;
 		[Static]
 		[Export ("showWithContent:delegate:")]
+		[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 		AppGroupAddDialog Show ([NullAllowed] AppGroupContent content, [NullAllowed] IAppGroupAddDialogDelegate aDelegate);
 
 		// @property (nonatomic, weak) id<FBSDKAppGroupAddDialogDelegate> delegate;
 		[NullAllowed]
 		[Export ("delegate", ArgumentSemantic.Weak)]
+		[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 		IAppGroupAddDialogDelegate Delegate { get; set; }
 
 		// @property (copy, nonatomic) FBSDKAppGroupContent * content;
 		[NullAllowed]
 		[Export ("content", ArgumentSemantic.Copy)]
+		[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 		AppGroupContent Content { get; set; }
 
 		// -(BOOL)canShow;
 		[Export ("canShow")]
+		[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 		bool CanShow { get; }
 
 		// -(BOOL)show;
 		[Export ("show")]
+		[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 		bool Show ();
 
 		// -(BOOL)validateWithError:(NSError **)errorRef;
 		[Export ("validateWithError:")]
+		[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 		bool Validate (out NSError error);
 	}
 
@@ -1536,6 +1545,7 @@ namespace Facebook.ShareKit
 	[Model]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "FBSDKAppGroupAddDialogDelegate")]
+	[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 	interface AppGroupAddDialogDelegate
 	{
 
@@ -1544,6 +1554,7 @@ namespace Facebook.ShareKit
 		[EventArgs ("AppGroupAddDialogCompleted")]
 		[EventName ("Completed")]
 		[Export ("appGroupAddDialog:didCompleteWithResults:")]
+		[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 		void DidComplete (AppGroupAddDialog appGroupAddDialog, NSDictionary results);
 
 		// @required -(void)appGroupAddDialog:(FBSDKAppGroupAddDialog *)appGroupAddDialog didFailWithError:(NSError *)error;
@@ -1551,6 +1562,7 @@ namespace Facebook.ShareKit
 		[EventArgs ("AppGroupAddDialogFailed")]
 		[EventName ("Failed")]
 		[Export ("appGroupAddDialog:didFailWithError:")]
+		[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 		void DidFail (AppGroupAddDialog appGroupAddDialog, NSError error);
 
 		// @required -(void)appGroupAddDialogDidCancel:(FBSDKAppGroupAddDialog *)appGroupAddDialog;
@@ -1558,6 +1570,7 @@ namespace Facebook.ShareKit
 		[EventArgs ("AppGroupAddDialogCancelled")]
 		[EventName ("Cancelled")]
 		[Export ("appGroupAddDialogDidCancel:")]
+		[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 		void DidCancel (AppGroupAddDialog appGroupAddDialog);
 	}
 
@@ -1588,33 +1601,40 @@ namespace Facebook.ShareKit
 		Name = "FBSDKAppGroupJoinDialog",
 		Delegates = new [] { "Delegate" },
 		Events = new [] { typeof (AppGroupJoinDialogDelegate) })]
+	[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 	interface AppGroupJoinDialog
 	{
 
 		// +(instancetype)showWithGroupID:(NSString *)groupID delegate:(id<FBSDKAppGroupJoinDialogDelegate>)delegate;
 		[Static]
 		[Export ("showWithGroupID:delegate:")]
+		[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 		AppGroupJoinDialog Show (string groupID, [NullAllowed] IAppGroupJoinDialogDelegate aDelegate);
 
 		// @property (nonatomic, weak) id<FBSDKAppGroupJoinDialogDelegate> delegate;
 		[NullAllowed]
 		[Export ("delegate", ArgumentSemantic.Weak)]
+		[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 		IAppGroupJoinDialogDelegate Delegate { get; set; }
 
 		// @property (copy, nonatomic) NSString * groupID;
 		[Export ("groupID", ArgumentSemantic.Copy)]
+		[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 		string GroupID { get; set; }
 
 		// -(BOOL)canShow;
 		[Export ("canShow")]
+		[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 		bool CanShow { get; }
 
 		// -(BOOL)show;
 		[Export ("show")]
+		[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 		bool Show ();
 
 		// -(BOOL)validateWithError:(NSError **)errorRef;
 		[Export ("validateWithError:")]
+		[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 		bool Validate (out NSError error);
 	}
 
@@ -1627,6 +1647,7 @@ namespace Facebook.ShareKit
 	[Model]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "FBSDKAppGroupJoinDialogDelegate")]
+	[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 	interface AppGroupJoinDialogDelegate
 	{
 
@@ -1635,6 +1656,7 @@ namespace Facebook.ShareKit
 		[EventArgs ("AppGroupJoinDialogCompleted")]
 		[EventName ("Completed")]
 		[Export ("appGroupJoinDialog:didCompleteWithResults:")]
+		[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 		void DidComplete (AppGroupJoinDialog appGroupJoinDialog, NSDictionary results);
 
 		// @required -(void)appGroupJoinDialog:(FBSDKAppGroupJoinDialog *)appGroupJoinDialog didFailWithError:(NSError *)error;
@@ -1642,6 +1664,7 @@ namespace Facebook.ShareKit
 		[EventArgs ("AppGroupJoinDialogFailed")]
 		[EventName ("Failed")]
 		[Export ("appGroupJoinDialog:didFailWithError:")]
+		[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 		void DidFail (AppGroupJoinDialog appGroupJoinDialog, NSError error);
 
 		// @required -(void)appGroupJoinDialogDidCancel:(FBSDKAppGroupJoinDialog *)appGroupJoinDialog;
@@ -1649,6 +1672,7 @@ namespace Facebook.ShareKit
 		[EventArgs ("AppGroupJoinDialogCancelled")]
 		[EventName ("Cancelled")]
 		[Export ("appGroupJoinDialogDidCancel:")]
+		[Obsolete ("App and game groups are being deprecated. See https://developers.facebook.com/docs/games/services/game-groups for more information.")]
 		void DidCancel (AppGroupJoinDialog appGroupJoinDialog);
 	}
 
@@ -1674,6 +1698,10 @@ namespace Facebook.ShareKit
 		// @property (nonatomic, copy) NSString *promotionText;
 		[Export ("promotionText")]
 		string PromotionText { get; set; }
+
+		// @property FBSDKAppInviteDestination destination;
+		[Export ("destination")]
+		AppInviteDestination Destination { get; set; }
 
 		// -(BOOL)isEqualToAppInviteContent:(FBSDKAppInviteCon	tent *)content;
 		[Export ("isEqualToAppInviteContent:")]

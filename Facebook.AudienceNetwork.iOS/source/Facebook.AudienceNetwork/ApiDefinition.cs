@@ -39,6 +39,7 @@ namespace Facebook.AudienceNetwork
 
 		// @property (nonatomic, weak, readwrite) FBNativeAd *nativeAd;
 		[Export ("nativeAd", ArgumentSemantic.Weak)]
+		[NullAllowed]
 		NativeAd NativeAd { get; set; }
 
 		// @property (nonatomic, assign, readwrite) UIRectCorner corner;
@@ -140,10 +141,6 @@ namespace Facebook.AudienceNetwork
 		IntPtr _kFBAdSizeInterstitial { get; }
 
 		[Internal]
-		[Field ("kFBAdSizeInterstital", "__Internal")]
-		IntPtr _kFBAdSizeInterstital { get; }
-
-		[Internal]
 		[Field ("kFBAdSizeHeight250Rectangle", "__Internal")]
 		IntPtr _kFBAdSizeHeight250Rectangle { get; }
 	}
@@ -196,13 +193,13 @@ namespace Facebook.AudienceNetwork
 		[Export ("adView:didFailWithError:")]
 		void AdViewDidFail (AdView adView, NSError error);
 
-		[Export ("viewControllerForPresentingModalView")]
-		UIViewController ViewControllerForPresentingModalView ();
+		[Export ("viewControllerForPresentingModalView", ArgumentSemantic.Strong)]
+		UIViewController ViewControllerForPresentingModalView { get; }
 	}
 
 	[DisableDefaultCtor]
-	[BaseType (typeof (UIViewController), Name = "FBInterstitialAd")]
-	interface InterstitialAd : AdViewDelegate
+	[BaseType (typeof (NSObject), Name = "FBInterstitialAd")]
+	interface InterstitialAd
 	{
 
 		[Export ("placementID")]
@@ -213,6 +210,7 @@ namespace Facebook.AudienceNetwork
 		IInterstitialAdDelegate Delegate { get; set; }
 
 		[Export ("initWithPlacementID:")]
+		[DesignatedInitializer]
 		IntPtr Constructor (string placementId);
 
 		[Export ("isAdValid")]
@@ -353,6 +351,10 @@ namespace Facebook.AudienceNetwork
 
 		[Export ("isAdValid")]
 		bool IsAdValid { get; }
+
+		[Export ("getAdNetwork", ArgumentSemantic.Copy)]
+		[NullAllowed]
+		string AdNetwork { get; }
 	}
 
 	interface INativeAdDelegate
@@ -550,7 +552,8 @@ namespace Facebook.AudienceNetwork
 		void DisableAutoRefresh ();
 
 		// -(FBNativeAd *)nextNativeAd;
-		[Export ("nextNativeAd")]
+		[Export ("nextNativeAd", ArgumentSemantic.Strong)]
+		[NullAllowed]
 		NativeAd NextNativeAd { get; }
 	}
 
@@ -589,7 +592,7 @@ namespace Facebook.AudienceNetwork
 	// @interface FBNativeAdTableViewCellProvider : FBNativeAdTableViewAdProvider
 	[DisableDefaultCtor]
 	[BaseType (typeof (NativeAdTableViewAdProvider), Name = "FBNativeAdTableViewCellProvider")]
-	interface NativeAdTableViewCellProvider
+	interface NativeAdTableViewCellProvider : IUITableViewDataSource
 	{
 
 		// -(instancetype)initWithManager:(FBNativeAdsManager *)manager forType:(FBNativeAdViewType)type;
@@ -645,6 +648,7 @@ namespace Facebook.AudienceNetwork
 	{
 		// - (nonnull instancetype)initWithDictionary:(nonnull NSDictionary *) dict;
 		[Export ("initWithDictionary:")]
+		[DesignatedInitializer]
 		IntPtr Constructor (NSDictionary dictionary);
 
 		// @property (copy, nonatomic) UIColor * backgroundColor;
@@ -699,5 +703,57 @@ namespace Facebook.AudienceNetwork
 		[Static]
 		[Export ("defaultAttributesForType:")]
 		NativeAdViewAttributes DefaultAttributes (NativeAdViewType type);
+	}
+
+	// @interface FBNativeAdCollectionViewAdProvider : NSObject
+	[BaseType (typeof (NSObject), Name = "FBNativeAdCollectionViewAdProvider")]
+	interface NativeAdCollectionViewAdProvider
+	{
+		// @property (nonatomic, weak) id<FBNativeAdDelegate> _Nullable delegate;
+		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
+		INativeAdDelegate Delegate { get; set; }
+
+		// -(instancetype _Nonnull)initWithManager:(FBNativeAdsManager * _Nonnull)manager __attribute__((objc_designated_initializer));
+		[Export ("initWithManager:")]
+		[DesignatedInitializer]
+		IntPtr Constructor (NativeAdsManager manager);
+
+		// -(FBNativeAd * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView nativeAdForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+		[Export ("collectionView:nativeAdForRowAtIndexPath:")]
+		NativeAd GetNativeAdForRow (UICollectionView collectionView, NSIndexPath indexPath);
+
+		// -(BOOL)isAdCellAtIndexPath:(NSIndexPath * _Nonnull)indexPath forStride:(NSUInteger)stride;
+		[Export ("isAdCellAtIndexPath:forStride:")]
+		bool IsAdCellAtIndexPath (NSIndexPath indexPath, nuint stride);
+
+		// -(NSIndexPath * _Nonnull)adjustNonAdCellIndexPath:(NSIndexPath * _Nonnull)indexPath forStride:(NSUInteger)stride;
+		[Export ("adjustNonAdCellIndexPath:forStride:")]
+		NSIndexPath AdjustNonAdCellIndexPath (NSIndexPath indexPath, nuint stride);
+
+		// -(NSUInteger)adjustCount:(NSUInteger)count forStride:(NSUInteger)stride;
+		[Export ("adjustCount:forStride:")]
+		nuint AdjustCount (nuint count, nuint stride);
+	}
+
+	// @interface FBNativeAdCollectionViewCellProvider : FBNativeAdCollectionViewAdProvider
+	[BaseType (typeof (NativeAdCollectionViewAdProvider), Name = "FBNativeAdCollectionViewCellProvider")]
+	interface NativeAdCollectionViewCellProvider
+	{
+		// -(instancetype _Nonnull)initWithManager:(FBNativeAdsManager * _Nonnull)manager forType:(FBNativeAdViewType)type;
+		[Export ("initWithManager:forType:")]
+		IntPtr Constructor (NativeAdsManager manager, NativeAdViewType type);
+
+		// -(instancetype _Nonnull)initWithManager:(FBNativeAdsManager * _Nonnull)manager forType:(FBNativeAdViewType)type forAttributes:(FBNativeAdViewAttributes * _Nonnull)attributes __attribute__((objc_designated_initializer));
+		[Export ("initWithManager:forType:forAttributes:")]
+		[DesignatedInitializer]
+		IntPtr Constructor (NativeAdsManager manager, NativeAdViewType type, NativeAdViewAttributes attributes);
+
+		// -(UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+		[Export ("collectionView:cellForItemAtIndexPath:")]
+		UICollectionViewCell GetCell (UICollectionView collectionView, NSIndexPath indexPath);
+
+		// -(CGFloat)collectionView:(UICollectionView * _Nonnull)collectionView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+		[Export ("collectionView:heightForRowAtIndexPath:")]
+		nfloat GetHeightForRow (UICollectionView collectionView, NSIndexPath indexPath);
 	}
 }
