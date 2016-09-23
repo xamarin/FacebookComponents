@@ -20,6 +20,7 @@ packages:
     - Xamarin.Android.Support.v7.CardView, Version=23.4.0.1
     - Xamarin.Android.Support.v7.RecyclerView, Version=23.4.0.1
     - Xamarin.Android.Support.v7.AppCompat, Version=23.4.0.1
+    - Xamarin.Android.Support.CustomTabs, Version=23.4.0.1
     - Bolts, Version=1.4.0.1
 samples:
   - name: "Hello Facebook Sample"
