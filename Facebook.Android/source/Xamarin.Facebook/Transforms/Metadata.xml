@@ -29,6 +29,7 @@
 
 <!--    <remove-node path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMedia.Builder']" />-->
 
+	<remove-node path="/api/package[@name='com.facebook.internal']/class[@name='BoltsMeasurementEventListener']/method[@name='finalize' and count(parameter)=0]" />
 
     <attr path="/api/package[@name='com.facebook.share.internal']/class[@name='VideoUploader.TransferChunkWorkItem']/method[@name='getParameters' and count(parameter)=0]" name="visibility">protected</attr>
     <attr path="/api/package[@name='com.facebook.share.internal']/class[@name='VideoUploader.FinishUploadWorkItem']/method[@name='getParameters' and count(parameter)=0]" name="visibility">protected</attr>
@@ -40,4 +41,22 @@
 
 	<attr path="/api/package[@name='com.facebook.appevents']/class[@name='AppEvent']" name="visibility">public</attr>
 	<attr path="/api/package[@name='com.facebook.appevents']/class[@name='AccessTokenAppIdPair']" name="visibility">public</attr>
+
+	<attr path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol.NativeAppInfo']" name="visibility">internal</attr>
+	<attr path="/api/package[@name='com.facebook']/interface[@name='GraphRequest.KeyValueSerializer']" name="visibility">internal</attr>
+	<attr path="/api/package[@name='com.facebook.internal']/interface[@name='FileLruCache.StreamCloseCallback']" name="visibility">internal</attr>
+
+	<attr path="/api/package[@name='com.facebook.login']/class[@name='WebLoginMethodHandler']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.facebook.login']/class[@name='LoginMethodHandler']" name="visibility">public</attr>
+	<attr path="/api/package[@name='com.facebook.login']/class[@name='LoginClient']" name="visibility">public</attr>
+
+	<remove-node path="/api/package[@name='com.facebook.login']/interface[@name='LoginClient.OnCompletedListener']" name="visibility" />
+	<remove-node path="/api/package[@name='com.facebook.login']/interface[@name='LoginClient.BackgroundProcessingListener']" name="visibility" />
+
+	<!-- override is incorrectly added to this emitted method, so we will manually bind it -->
+	<remove-node path="/api/package[@name='com.facebook.share.widget']/class[@name='DeviceShareButton']/method[@name='setEnabled' and count(parameter)=1 and parameter[1][@type='boolean']]" />
+	<remove-node path="/api/package[@name='com.facebook.share.widget']/class[@name='LikeView']/method[@name='setEnabled' and count(parameter)=1 and parameter[1][@type='boolean']]" />
+	<remove-node path="/api/package[@name='com.facebook.share.widget']/class[@name='ShareButtonBase']/method[@name='setEnabled' and count(parameter)=1 and parameter[1][@type='boolean']]" />
+
+	<attr path="/api/package[@name='com.facebook.internal']/class[@name='FileLruCache.ModifiedFile']/method[@name='compareTo' and count(parameter)=1 and parameter[1][@type='com.facebook.internal.FileLruCache.ModifiedFile']]/parameter[1]" name="managedType">Java.Lang.Object</attr>
 </metadata>
