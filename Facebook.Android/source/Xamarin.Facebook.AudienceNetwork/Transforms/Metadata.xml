@@ -2,14 +2,30 @@
 	<attr path="/api/package[@name='com.facebook.ads']" name="managedName">Xamarin.Facebook.Ads</attr>
     <attr path="/api/package[@name='com.facebook.ads.internal']" name="managedName">Xamarin.Facebook.Ads.Internal</attr>
     <attr path="/api/package[@name='com.facebook.ads.internal.adapters']" name="managedName">Xamarin.Facebook.Ads.Internal.Adapters</attr>
-    <attr path="/api/package[@name='com.facebook.ads.internal.dev']" name="managedName">Xamarin.Facebook.Ads.Internal.Dev</attr>
-    <attr path="/api/package[@name='com.facebook.ads.internal.extra']" name="managedName">Xamarin.Facebook.Ads.Internal.Extra</attr>
+<!--    <attr path="/api/package[@name='com.facebook.ads.internal.dev']" name="managedName">Xamarin.Facebook.Ads.Internal.Dev</attr>-->
+<!--    <attr path="/api/package[@name='com.facebook.ads.internal.extra']" name="managedName">Xamarin.Facebook.Ads.Internal.Extra</attr>-->
     <attr path="/api/package[@name='com.facebook.ads.internal.server']" name="managedName">Xamarin.Facebook.Ads.Internal.Server</attr>
-    <attr path="/api/package[@name='com.facebook.ads.internal.ssp']" name="managedName">Xamarin.Facebook.Ads.Internal.Ssp</attr>
+<!--    <attr path="/api/package[@name='com.facebook.ads.internal.ssp']" name="managedName">Xamarin.Facebook.Ads.Internal.Ssp</attr>-->
     <attr path="/api/package[@name='com.facebook.ads.internal.util']" name="managedName">Xamarin.Facebook.Ads.Internal.Util</attr>
 
 
 	<!-- Field in an internal type is unnecessary -->
-	<remove-node path="/api/package[contains(@name, 'com.facebook.share.internal')]" />
-	<remove-node path="/api/package[@name='com.facebook.share.internal']/class[@name='LikeActionController']" />
+<!--	<remove-node path="/api/package[contains(@name, 'com.facebook.share.internal')]" />-->
+<!--	<remove-node path="/api/package[@name='com.facebook.share.internal']/class[@name='LikeActionController']" />-->
+
+	<remove-node path="/api/package[contains(@name, 'com.facebook.ads.internal.b')]" />
+	<remove-node path="/api/package[contains(@name, 'com.facebook.ads.internal.c')]" />
+	<remove-node path="/api/package[contains(@name, 'com.facebook.ads.internal.d')]" />
+	<remove-node path="/api/package[contains(@name, 'com.facebook.ads.internal.e')]" />
+	<remove-node path="/api/package[contains(@name, 'com.facebook.ads.internal.f')]" />
+	<remove-node path="/api/package[contains(@name, 'com.facebook.ads.internal.g')]" />
+	<remove-node path="/api/package[contains(@name, 'com.facebook.ads.internal.h')]" />
+	<remove-node path="/api/package[contains(@name, 'com.facebook.ads.internal.i')]" />
+
+	<remove-node path="/api/package[contains(@name, 'com.facebook.ads.internal.adapters')]" />
+	<remove-node path="/api/package[contains(@name, 'com.facebook.ads.internal.util')]" />
+	<remove-node path="/api/package[@name='com.facebook.ads.internal']/class[@name='d']" />
+	<remove-node path="/api/package[@name='com.facebook.ads.internal']/class[@name='e']" />
+	<remove-node path="/api/package[@name='com.facebook.ads.internal']/class[@name='f']" />
+	<remove-node path="/api/package[@name='com.facebook.ads.internal.server']/class[@name='c']" />
 </metadata>
