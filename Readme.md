@@ -44,6 +44,10 @@ Before the `.sln` files will compile in Xamarin Studio, the external dependencie
 The license for this repository is specified in 
 [License.md](License.md)
 
+## External-Dependency-Info and THIRD-PARTY-NOTICE Files
+
+Files named **External-Dependency-Info** within this repository exist to provide content to the **THIRD-PARTY-NOTICES** file of the Xamarin Component and NuGet binary packages. Information within the **External-Dependency-Info** files describe potential dependencies bundled with packages as a result of building projects within this repo. 
+
 ## Contribution Guidelines
 
 You will need to complete a Contribution License Agreement before your pull request can be accepted. You can complete the CLA by going through the steps at [https://cla2.dotnetfoundation.org/][33].

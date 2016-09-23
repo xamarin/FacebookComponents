@@ -16,5 +16,6 @@
   <files>
     <!-- iOS Unified -->
     <file src="output/unified/Facebook.dll" target="lib/Xamarin.iOS10" />
+    <file src="External-Dependency-Info" target="THIRD-PARTY-NOTICES" />
   </files>
 </package>

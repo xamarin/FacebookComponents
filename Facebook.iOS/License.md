@@ -1,7 +1,3 @@
-**Xamarin is not responsible for, nor does it grant any licenses to, third-party packages. Some packages may require or install dependencies which are governed by additional licenses.**
-
-Note: This component depends on [Facebook SDK for iOS](https://developers.facebook.com/docs/ios), which is licensed under the [Facebook Platform License](https://github.com/facebook/facebook-ios-sdk/blob/master/LICENSE).
-
 ### Xamarin Component for Facebook iOS SDK
 
 **The MIT License (MIT)**
