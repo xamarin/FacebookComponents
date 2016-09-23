@@ -17,6 +17,7 @@
     <Java7DocPaths>..\..\externals\fb-docs\</Java7DocPaths>
     <!--JavaDocPaths>docs\</JavaDocPaths -->
     <TargetFrameworkVersion>v4.0.3</TargetFrameworkVersion>
+    <AndroidClassParser>class-parse</AndroidClassParser>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
