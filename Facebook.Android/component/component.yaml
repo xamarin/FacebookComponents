@@ -7,6 +7,7 @@ summary: Integrate with Facebook to help you build engaging social apps and get 
 icons: 
   - ../../icons/facebook-android_128x128.png
   - ../../icons/facebook-android_512x512.png
+license: ../License.md
 is_shell: true
 libraries:
   android: 
@@ -51,5 +52,8 @@ samples:
         packages:
           - Xamarin.Facebook.Android
           - Xamarin.Facebook.AudienceNetwork.Android
+additional-files:
+  - source: "../External-Dependency-Info"
+    destination: "THIRD-PARTY-NOTICES"
 local-nuget-repo: ../output
 no_build: true

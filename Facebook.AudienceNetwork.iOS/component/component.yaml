@@ -8,6 +8,7 @@ summary: Monetize your app with Facebook ads.
 icons:
   - ../../icons/facebook-audiencenetwork-ios_128x128.png
   - ../../icons/facebook-audiencenetwork-ios_512x512.png
+license: ../License.md
 libraries:
   ios-unified:
     - ../output/unified/Facebook.AudienceNetwork.dll
@@ -18,3 +19,6 @@ samples:
       - FBAudienceNetworkSample/Makefile
       - FBAudienceNetworkSample/FBAudienceNetworkSample-Classic.csproj
 no_build: true
+additional-files:
+  - source: "../External-Dependency-Info"
+    destination: "THIRD-PARTY-NOTICES"

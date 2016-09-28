@@ -9,6 +9,7 @@ is_shell: true
 icons:
   - ../../icons/facebook-ios_128x128.png
   - ../../icons/facebook-ios_512x512.png
+license: ../License.md
 packages:
   ios-unified:
     - Xamarin.Facebook.iOS, Version=4.15.1.0
@@ -36,3 +37,6 @@ no_build: true
 local-nuget-repo: ../output
 screenshots:
   - screenshots/screenshot1.png
+additional-files:
+  - source: "../External-Dependency-Info"
+    destination: "THIRD-PARTY-NOTICES"

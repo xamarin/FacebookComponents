@@ -24,5 +24,6 @@
   </metadata>
   <files>  
     <file src="output/Xamarin.Facebook.AudienceNetwork.dll" target="lib/MonoAndroid41" />
+    <file src="External-Dependency-Info" target="THIRD-PARTY-NOTICES" />
   </files>
 </package>
