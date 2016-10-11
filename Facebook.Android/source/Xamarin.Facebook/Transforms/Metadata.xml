@@ -59,4 +59,6 @@
 	<remove-node path="/api/package[@name='com.facebook.share.widget']/class[@name='ShareButtonBase']/method[@name='setEnabled' and count(parameter)=1 and parameter[1][@type='boolean']]" />
 
 	<attr path="/api/package[@name='com.facebook.internal']/class[@name='FileLruCache.ModifiedFile']/method[@name='compareTo' and count(parameter)=1 and parameter[1][@type='com.facebook.internal.FileLruCache.ModifiedFile']]/parameter[1]" name="managedType">Java.Lang.Object</attr>
+
+	<remove-node path="/api/package[@name='com.facebook.internal']/class[@name='WebDialog.UploadStagingResourcesTask']" />
 </metadata>
