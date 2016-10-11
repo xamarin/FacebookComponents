@@ -21,6 +21,7 @@
 	<remove-node path="/api/package[contains(@name, 'com.facebook.ads.internal.g')]" />
 	<remove-node path="/api/package[contains(@name, 'com.facebook.ads.internal.h')]" />
 	<remove-node path="/api/package[contains(@name, 'com.facebook.ads.internal.i')]" />
+	<remove-node path="/api/package[contains(@name, 'com.facebook.ads.internal.j')]" />
 
 	<remove-node path="/api/package[contains(@name, 'com.facebook.ads.internal.adapters')]" />
 	<remove-node path="/api/package[contains(@name, 'com.facebook.ads.internal.util')]" />
@@ -28,4 +29,5 @@
 	<remove-node path="/api/package[@name='com.facebook.ads.internal']/class[@name='e']" />
 	<remove-node path="/api/package[@name='com.facebook.ads.internal']/class[@name='f']" />
 	<remove-node path="/api/package[@name='com.facebook.ads.internal.server']/class[@name='c']" />
+	<remove-node path="/api/package[@name='com.facebook.ads.internal.server']/class[@name='d']" />
 </metadata>
