@@ -8,8 +8,10 @@ using Foundation;
 [assembly: LinkerSafe]
 [assembly: LinkWith ("Facebook.AudienceNetwork.a",
 					 LinkTarget.Simulator | LinkTarget.Simulator64 | LinkTarget.ArmV7 | LinkTarget.Arm64,
-					 Frameworks = "AudioToolbox AVFoundation CoreGraphics CoreImage CoreMedia OpenGLES QuartzCore Security StoreKit",
+					 Frameworks = "AudioToolbox AVFoundation CoreGraphics CoreImage CoreMedia OpenGLES Security StoreKit UIKit Foundation CoreVideo",
 					 WeakFrameworks = "AdSupport CoreMotion SafariServices WebKit",
 					 LinkerFlags = "-lc++ -lxml2",
 					 SmartLink = true,
 					 ForceLoad = true)]
+
+
