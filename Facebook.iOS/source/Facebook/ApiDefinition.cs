@@ -306,6 +306,10 @@ namespace Facebook.CoreKit
 		[Export ("application:openURL:sourceApplication:annotation:")]
 		bool OpenUrl ([NullAllowed] UIApplication application, [NullAllowed] NSUrl url, [NullAllowed] string sourceApplication, [NullAllowed] NSObject annotation);
 
+		// -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options;
+		[Export ("application:openURL:options:")]
+		bool OpenUrl (UIApplication application, NSUrl url, NSDictionary<NSString, NSObject> options);
+
 		// -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 		[Export ("application:didFinishLaunchingWithOptions:")]
 		bool FinishedLaunching ([NullAllowed] UIApplication application, [NullAllowed] NSDictionary launchOptions);
@@ -907,6 +911,12 @@ namespace Facebook.CoreKit
 		[Static]
 		[Export ("legacyUserDefaultTokenInformationKeyName")]
 		string LegacyUserDefaultTokenInformationKeyName { get; set; }
+
+		// +(void)setGraphAPIVersion:(NSString *)version;
+		// +(NSString *)graphAPIVersion;
+		[Static]
+		[Export ("graphAPIVersion")]
+		string GraphAPIVersion { get; set; }
 	}
 
 	delegate void TestUsersManagerRetrieveTestAccountTokensHandler (AccessToken [] tokens, NSError error);
