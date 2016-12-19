@@ -289,6 +289,18 @@ namespace Facebook.CoreKit
 		[Static]
 		[Export ("requestForCustomAudienceThirdPartyIDWithAccessToken:")]
 		GraphRequest RequestForCustomAudienceThirdPartyId (AccessToken accessToken);
+
+		// +(void)setUserID:(NSString *)userID;
+		// +(NSString *)userID;
+		[Static]
+		[Export ("userID")]
+		[NullAllowed]
+		string UserID { get; set; }
+
+		// +(void)updateUserProperties:(NSDictionary *)properties handler:(FBSDKGraphRequestHandler)handler;
+		[Static]
+		[Export ("updateUserProperties:handler:")]
+		void UpdateUserProperties (NSDictionary properties, [NullAllowed]GraphRequestHandler handler);
 	}
 
 	// @interface FBSDKApplicationDelegate : NSObject
