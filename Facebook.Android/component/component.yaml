@@ -1,4 +1,4 @@
-version: 4.16.1.0
+version: 4.18.0.0
 name: Facebook Android SDK
 id: facebookandroid
 publisher: Xamarin Inc.
@@ -15,8 +15,8 @@ libraries:
     - ../output/Xamarin.Facebook.AudienceNetwork.dll
 packages:
   android:
-    - Xamarin.Facebook.Android, Version=4.16.1
-    - Xamarin.Facebook.AudienceNetwork.Android, Version=4.16.1
+    - Xamarin.Facebook.Android, Version=4.18.0
+    - Xamarin.Facebook.AudienceNetwork.Android, Version=4.18.0
 samples:
   - name: "Hello Facebook Sample"
     path: ../samples/HelloFacebookSample.sln

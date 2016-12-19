@@ -2,7 +2,9 @@
 
     <attr path="/api/package[@name='com.facebook']" name="managedName">Xamarin.Facebook</attr>
     <attr path="/api/package[@name='com.facebook.appevents']" name="managedName">Xamarin.Facebook.AppEvents</attr>
+	<attr path="/api/package[@name='com.facebook.appevents.internal']" name="managedName">Facebook.Appevents.Internal</attr>
     <attr path="/api/package[@name='com.facebook.applinks']" name="managedName">Xamarin.Facebook.AppLinks</attr>
+	<attr path="/api/package[@name='com.facebook.devicerequests.internal']" name="managedName">Facebook.Devicerequests.Internal</attr>
     <attr path="/api/package[@name='com.facebook.internal']" name="managedName">Xamarin.Facebook.Internal</attr>
     <attr path="/api/package[@name='com.facebook.login']" name="managedName">Xamarin.Facebook.Login</attr>
     <attr path="/api/package[@name='com.facebook.login.widget']" name="managedName">Xamarin.Facebook.Login.Widget</attr>
