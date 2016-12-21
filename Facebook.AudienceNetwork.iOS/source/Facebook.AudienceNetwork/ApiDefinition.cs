@@ -860,6 +860,7 @@ namespace Facebook.AudienceNetwork
 	}
 
 	// @interface FBRewardedVideoAd : NSObject
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBRewardedVideoAd")]
 	interface RewardedVideoAd
 	{
