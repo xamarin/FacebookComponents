@@ -6,7 +6,7 @@
 # fixed we can use the prebuilt SDK again.
 # https://bugzilla.xamarin.com/show_bug.cgi?id=44635
 
-GIT_REPO_TAG=sdk-version-4.16.1
+GIT_REPO_TAG=sdk-version-4.18.0
 
 all: FBSDKCoreKit.a
 

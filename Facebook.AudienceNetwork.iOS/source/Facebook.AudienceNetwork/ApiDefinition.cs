@@ -282,6 +282,10 @@ namespace Facebook.AudienceNetwork
 		[Export ("nativeAd", ArgumentSemantic.Strong)]
 		NativeAd NativeAd { get; set; }
 
+		// @property (readonly, assign, nonatomic) float volume;
+		[Export ("volume")]
+		float Volume { get; }
+
 		// @property (nonatomic, assign, getter=isAutoplayEnabled) BOOL autoplayEnabled;
 		[Export ("autoplayEnabled")]
 		bool AutoplayEnabled { [Bind ("isAutoplayEnabled")] get; set; }
@@ -301,6 +305,30 @@ namespace Facebook.AudienceNetwork
 		// @optional -(void)mediaViewDidLoad:(FBMediaView *)mediaView;
 		[Export ("mediaViewDidLoad:")]
 		void MediaViewDidLoad (MediaView mediaView);
+
+		// @optional -(void)mediaViewWillEnterFullscreen:(FBMediaView * _Nonnull)mediaView;
+		[Export ("mediaViewWillEnterFullscreen:")]
+		void MediaViewWillEnterFullscreen (MediaView mediaView);
+
+		// @optional -(void)mediaViewDidExitFullscreen:(FBMediaView * _Nonnull)mediaView;
+		[Export ("mediaViewDidExitFullscreen:")]
+		void MediaViewDidExitFullscreen (MediaView mediaView);
+
+		// @optional -(void)mediaView:(FBMediaView * _Nonnull)mediaView videoVolumeDidChange:(float)volume;
+		[Export ("mediaView:videoVolumeDidChange:")]
+		void MediaViewVideoVolumeDidChange (MediaView mediaView, float volume);
+
+		// @optional -(void)mediaViewVideoDidPause:(FBMediaView * _Nonnull)mediaView;
+		[Export ("mediaViewVideoDidPause:")]
+		void MediaViewVideoDidPause (MediaView mediaView);
+
+		// @optional -(void)mediaViewVideoDidPlay:(FBMediaView * _Nonnull)mediaView;
+		[Export ("mediaViewVideoDidPlay:")]
+		void MediaViewVideoDidPlay (MediaView mediaView);
+
+		// @optional -(void)mediaViewVideoDidComplete:(MediaView * _Nonnull)mediaView;
+		[Export ("mediaViewVideoDidComplete:")]
+		void MediaViewVideoDidComplete (MediaView mediaView);
 	}
 
 	[DisableDefaultCtor]
@@ -829,5 +857,91 @@ namespace Facebook.AudienceNetwork
 		// @optional -(void)adViewWillLogImpression:(FBInstreamAdView * _Nonnull)adView;
 		[Export ("adViewWillLogImpression:")]
 		void AdViewWillLogImpression (InstreamAdView adView);
+	}
+
+	// @interface FBRewardedVideoAd : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FBRewardedVideoAd")]
+	interface RewardedVideoAd
+	{
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull placementID;
+		[Export ("placementID")]
+		string PlacementID { get; }
+
+		// @property (nonatomic, weak) id<FBRewardedVideoAdDelegate> _Nullable delegate;
+		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
+		IRewardedVideoAdDelegate Delegate { get; set; }
+
+		// @property (readonly, getter = isAdValid, nonatomic) BOOL adValid;
+		[Export ("adValid")]
+		bool AdValid { [Bind ("isAdValid")] get; }
+
+		// -(instancetype _Nonnull)initWithPlacementID:(NSString * _Nonnull)placementID;
+		[Export ("initWithPlacementID:")]
+		IntPtr Constructor (string placementID);
+
+		// -(instancetype _Nonnull)initWithPlacementID:(NSString * _Nonnull)placementID withUserID:(NSString * _Nullable)userID withCurrency:(NSString * _Nullable)currency;
+		[Export ("initWithPlacementID:withUserID:withCurrency:")]
+		IntPtr Constructor (string placementID, [NullAllowed] string userID, [NullAllowed] string currency);
+
+		// -(instancetype _Nonnull)initWithPlacementID:(NSString * _Nonnull)placementID withUserID:(NSString * _Nullable)userID withCurrency:(NSString * _Nullable)currency withAmount:(NSInteger)amount;
+		[Export ("initWithPlacementID:withUserID:withCurrency:withAmount:")]
+		IntPtr Constructor (string placementID, [NullAllowed] string userID, [NullAllowed] string currency, nint amount);
+
+		// -(void)loadAd;
+		[Export ("loadAd")]
+		void LoadAd ();
+
+		// -(BOOL)showAdFromRootViewController:(UIViewController * _Nonnull)rootViewController;
+		[Export ("showAdFromRootViewController:")]
+		bool ShowAd (UIViewController rootViewController);
+
+		// -(BOOL)showAdFromRootViewController:(UIViewController * _Nonnull)rootViewController animated:(BOOL)flag;
+		[Export ("showAdFromRootViewController:animated:")]
+		bool ShowAd (UIViewController rootViewController, bool flag);
+	}
+
+	interface IRewardedVideoAdDelegate { }
+
+	// @protocol FBRewardedVideoAdDelegate <NSObject>
+	[Protocol, Model]
+	[BaseType (typeof (NSObject), Name = "FBRewardedVideoAdDelegate")]
+	interface RewardedVideoAdDelegate
+	{
+		// @optional -(void)rewardedVideoAdDidClick:(FBRewardedVideoAd * _Nonnull)rewardedVideoAd;
+		[Export ("rewardedVideoAdDidClick:")]
+		void RewardedVideoAdDidClick (RewardedVideoAd rewardedVideoAd);
+
+		// @optional -(void)rewardedVideoAdDidLoad:(FBRewardedVideoAd * _Nonnull)rewardedVideoAd;
+		[Export ("rewardedVideoAdDidLoad:")]
+		void RewardedVideoAdDidLoad (RewardedVideoAd rewardedVideoAd);
+
+		// @optional -(void)rewardedVideoAdDidClose:(FBRewardedVideoAd * _Nonnull)rewardedVideoAd;
+		[Export ("rewardedVideoAdDidClose:")]
+		void RewardedVideoAdDidClose (RewardedVideoAd rewardedVideoAd);
+
+		// @optional -(void)rewardedVideoAdWillClose:(FBRewardedVideoAd * _Nonnull)rewardedVideoAd;
+		[Export ("rewardedVideoAdWillClose:")]
+		void RewardedVideoAdWillClose (RewardedVideoAd rewardedVideoAd);
+
+		// @optional -(void)rewardedVideoAd:(FBRewardedVideoAd * _Nonnull)rewardedVideoAd didFailWithError:(NSError * _Nonnull)error;
+		[Export ("rewardedVideoAd:didFailWithError:")]
+		void RewardedVideoAdDidFail (RewardedVideoAd rewardedVideoAd, NSError error);
+
+		// @optional -(void)rewardedVideoAdComplete:(FBRewardedVideoAd * _Nonnull)rewardedVideoAd;
+		[Export ("rewardedVideoAdComplete:")]
+		void RewardedVideoAdComplete (RewardedVideoAd rewardedVideoAd);
+
+		// @optional -(void)rewardedVideoAdWillLogImpression:(FBRewardedVideoAd * _Nonnull)rewardedVideoAd;
+		[Export ("rewardedVideoAdWillLogImpression:")]
+		void RewardedVideoAdWillLogImpression (RewardedVideoAd rewardedVideoAd);
+
+		// @optional -(void)rewardedVideoAdServerSuccess:(FBRewardedVideoAd * _Nonnull)rewardedVideoAd;
+		[Export ("rewardedVideoAdServerSuccess:")]
+		void RewardedVideoAdServerSuccess (RewardedVideoAd rewardedVideoAd);
+
+		// @optional -(void)rewardedVideoAdServerFailed:(FBRewardedVideoAd * _Nonnull)rewardedVideoAd;
+		[Export ("rewardedVideoAdServerFailed:")]
+		void RewardedVideoAdServerFailed (RewardedVideoAd rewardedVideoAd);
 	}
 }
