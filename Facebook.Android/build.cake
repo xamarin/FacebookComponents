@@ -1,8 +1,8 @@
 
 #load "../common.cake"
 
-var FB_NUGET_VERSION = "4.18.0-beta1";
-var AN_NUGET_VERSION = "4.18.0-beta1";
+var FB_NUGET_VERSION = "4.18.0-beta2";
+var AN_NUGET_VERSION = "4.18.0-beta2";
 
 var FB_VERSION = "4.18.0";
 var FB_URL = string.Format ("http://search.maven.org/remotecontent?filepath=com/facebook/android/facebook-android-sdk/{0}/facebook-android-sdk-{0}.aar", FB_VERSION);

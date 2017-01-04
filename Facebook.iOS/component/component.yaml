@@ -1,4 +1,4 @@
-version: 4.18.0.0
+version: 4.18.0.1
 name: Facebook iOS SDK
 id: facebookios
 publisher: Xamarin Inc
@@ -12,7 +12,7 @@ icons:
 license: ../License.md
 packages:
   ios-unified:
-    - Xamarin.Facebook.iOS, Version=4.18.0.0
+    - Xamarin.Facebook.iOS, Version=4.18.0.1
 libraries:
   ios-unified:
     - ../output/unified/Facebook.dll
@@ -38,5 +38,5 @@ local-nuget-repo: ../output
 screenshots:
   - screenshots/screenshot1.png
 additional-files:
-  - source: "../External-Dependency-Info"
-    destination: "THIRD-PARTY-NOTICES"
+  - source: "../External-Dependency-Info.txt"
+    destination: "THIRD-PARTY-NOTICES.txt"

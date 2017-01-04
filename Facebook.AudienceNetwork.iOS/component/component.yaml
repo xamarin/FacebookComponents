@@ -1,4 +1,4 @@
-version: 4.18.0.0
+version: 4.18.0.1
 name: Facebook Audience Network iOS SDK
 id: fbaudiencenetworkios
 publisher: Xamarin Inc
@@ -20,5 +20,5 @@ samples:
       - FBAudienceNetworkSample/FBAudienceNetworkSample-Classic.csproj
 no_build: true
 additional-files:
-  - source: "../External-Dependency-Info"
-    destination: "THIRD-PARTY-NOTICES"
+  - source: "../External-Dependency-Info.txt"
+    destination: "THIRD-PARTY-NOTICES.txt"
