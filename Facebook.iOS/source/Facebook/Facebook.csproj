@@ -54,6 +54,7 @@
     <Compile Include="FBSDKShareKit.linkwith.cs">
       <DependentUpon>FBSDKShareKit.a</DependentUpon>
     </Compile>
+    <Compile Include="Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
@@ -62,6 +63,23 @@
     <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="..\..\externals\Bolts.a">
+      <Link>Bolts.a</Link>
+    </ObjcBindingNativeLibrary>
+    <ObjcBindingNativeLibrary Include="..\..\externals\FBSDKCoreKit.a">
+      <Link>FBSDKCoreKit.a</Link>
+    </ObjcBindingNativeLibrary>
+    <ObjcBindingNativeLibrary Include="..\..\externals\FBSDKLoginKit.a">
+      <Link>FBSDKLoginKit.a</Link>
+    </ObjcBindingNativeLibrary>
+    <ObjcBindingNativeLibrary Include="..\..\externals\FBSDKMessengerShareKit.a">
+      <Link>FBSDKMessengerShareKit.a</Link>
+    </ObjcBindingNativeLibrary>
+    <ObjcBindingNativeLibrary Include="..\..\externals\FBSDKShareKit.a">
+      <Link>FBSDKShareKit.a</Link>
+    </ObjcBindingNativeLibrary>
+  </ItemGroup>
   <ItemGroup>
     <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\af.lproj\FacebookSDK.strings">
       <Link>Resources\FacebookSDKStrings.bundle\Resources\af.lproj\FacebookSDK.strings</Link>
@@ -195,22 +213,5 @@
     <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\zh_Hant_TW.lproj\FacebookSDK.strings">
       <Link>Resources\FacebookSDKStrings.bundle\Resources\zh_Hant_TW.lproj\FacebookSDK.strings</Link>
     </BundleResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ObjcBindingNativeLibrary Include="..\..\externals\Bolts.a">
-      <Link>Bolts.a</Link>
-    </ObjcBindingNativeLibrary>
-    <ObjcBindingNativeLibrary Include="..\..\externals\FBSDKCoreKit.a">
-      <Link>FBSDKCoreKit.a</Link>
-    </ObjcBindingNativeLibrary>
-    <ObjcBindingNativeLibrary Include="..\..\externals\FBSDKLoginKit.a">
-      <Link>FBSDKLoginKit.a</Link>
-    </ObjcBindingNativeLibrary>
-    <ObjcBindingNativeLibrary Include="..\..\externals\FBSDKMessengerShareKit.a">
-      <Link>FBSDKMessengerShareKit.a</Link>
-    </ObjcBindingNativeLibrary>
-    <ObjcBindingNativeLibrary Include="..\..\externals\FBSDKShareKit.a">
-      <Link>FBSDKShareKit.a</Link>
-    </ObjcBindingNativeLibrary>
   </ItemGroup>
 </Project>
