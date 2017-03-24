@@ -1,7 +1,7 @@
 
 #load "../common.cake"
 
-var SDK_VERSION = "4.18.0";
+var SDK_VERSION = "4.19.0";
 var SDK_URL = string.Format ("https://origincache.facebook.com/developers/resources/?id=FacebookSDKs-iOS-{0}.zip", SDK_VERSION);
 var SDK_FILE = "FacebookSDKs-iOS.zip";
 var SDK_PATH = "./externals/FacebookSDKs";
@@ -28,6 +28,10 @@ var buildSpec = new BuildSpec () {
 			SolutionPath = "./samples/FBAudienceNetworkSample/FBAudienceNetworkSample.sln",
 			Configuration = "Release|iPhone",
 			BuildsOn = BuildPlatforms.Mac }
+	},
+
+	NuGets = new [] {
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.AudienceNetwork.iOS.nuspec", BuildsOn = BuildPlatforms.Mac},
 	},
 
 	Components = new [] {
