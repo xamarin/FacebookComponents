@@ -1,0 +1,13 @@
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '7.0'
+install! 'cocoapods', :integrate_targets => false
+
+target 'FacebookiOS' do
+	pod 'FBSDKCoreKit', '4.19.0'
+	pod 'FBSDKLoginKit', '4.19.0'
+	pod 'FBSDKShareKit', '4.19.0'
+	pod 'FBSDKMessengerShareKit', '1.3.2'
+	pod 'Bolts', '1.7.0'
+end
