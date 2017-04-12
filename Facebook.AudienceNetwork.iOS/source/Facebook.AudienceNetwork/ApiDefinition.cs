@@ -116,20 +116,33 @@ namespace Facebook.AudienceNetwork
 		[Export ("setIsChildDirected:")]
 		void SetIsChildDirected (bool isChildDirected);
 
-		[Static]
-		[Export ("setUrlPrefix:")]
-		void SetUrlPrefix (string urlPrefix);
-
 		// + (void)setMediationService:(NSString *)service;
 		[Static]
 		[Export ("setMediationService:")]
 		void SetMediationService (string service);
+
+		// + (NSString *)urlPrefix;
+		[Advice ("This method should never be used in production.")]
+		[Static]
+		[Export ("urlPrefix")]
+		void GetUrlPrefix ();
+
+		[Advice ("This method should never be used in production.")]
+		[Static]
+		[Export ("setUrlPrefix:")]
+		void SetUrlPrefix (string urlPrefix);
 
 		// +(FBAdLogLevel)getLogLevel;
 		// +(void)setLogLevel:(FBAdLogLevel)level;
 		[Static]
 		[Export ("logLevel")]
 		AdLogLevel LogLevel { [Bind ("getLogLevel")] get; set; }
+
+		// + (FBMediaViewRenderingMethod)mediaViewRenderingMethod;
+		// + (void)setMediaViewRenderingMethod:(FBMediaViewRenderingMethod)mediaViewRenderingMethod;
+		[Static]
+		[Export ("mediaViewRenderingMethod")]
+		MediaViewRenderingMethod MediaViewRenderingMethod { get; set; }
 	}
 
 	[Static]
@@ -206,6 +219,70 @@ namespace Facebook.AudienceNetwork
 
 		[Export ("viewControllerForPresentingModalView", ArgumentSemantic.Strong)]
 		UIViewController ViewControllerForPresentingModalView { get; }
+	}
+
+	// @interface FBInstreamAdView : UIView
+	[DisableDefaultCtor]
+	[BaseType (typeof (UIView), Name = "FBInstreamAdView")]
+	interface InstreamAdView
+	{
+		// @property (readonly, getter = isAdValid, nonatomic) BOOL adValid;
+		[Export ("adValid")]
+		bool IsAdValid { [Bind ("isAdValid")] get; }
+
+		// @property (nonatomic, weak) id<FBInstreamAdViewDelegate> _Nullable delegate;
+		[NullAllowed]
+		[Export ("delegate", ArgumentSemantic.Weak)]
+		IInstreamAdViewDelegate Delegate { get; set; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull placementID;
+		[Export ("placementID")]
+		string PlacementID { get; }
+
+		// -(instancetype _Nullable)initWithPlacementID:(NSString * _Nonnull)placementID __attribute__((objc_designated_initializer));
+		[DesignatedInitializer]
+		[Export ("initWithPlacementID:")]
+		IntPtr Constructor (string placementID);
+
+		// -(void)loadAd;
+		[PostGet ("IsAdValid")]
+		[Export ("loadAd")]
+		void LoadAd ();
+
+		// -(BOOL)showAdFromRootViewController:(UIViewController * _Nullable)rootViewController;
+		[Export ("showAdFromRootViewController:")]
+		bool ShowAd ([NullAllowed] UIViewController rootViewController);
+	}
+
+	interface IInstreamAdViewDelegate { }
+
+	// @protocol FBInstreamAdViewDelegate <NSObject>
+	[Protocol, Model]
+	[BaseType (typeof (NSObject), Name = "FBInstreamAdViewDelegate")]
+	interface InstreamAdViewDelegate
+	{
+		// @required -(void)adViewDidLoad:(FBInstreamAdView * _Nonnull)adView;
+		[Abstract]
+		[Export ("adViewDidLoad:")]
+		void AdViewDidLoad (InstreamAdView adView);
+
+		// @required -(void)adViewDidEnd:(FBInstreamAdView * _Nonnull)adView;
+		[Abstract]
+		[Export ("adViewDidEnd:")]
+		void AdViewDidEnd (InstreamAdView adView);
+
+		// @required -(void)adView:(FBInstreamAdView * _Nonnull)adView didFailWithError:(NSError * _Nonnull)error;
+		[Abstract]
+		[Export ("adView:didFailWithError:")]
+		void AdViewDidFail (InstreamAdView adView, NSError error);
+
+		// @optional -(void)adViewDidClick:(FBInstreamAdView * _Nonnull)adView;
+		[Export ("adViewDidClick:")]
+		void AdViewDidClick (InstreamAdView adView);
+
+		// @optional -(void)adViewWillLogImpression:(FBInstreamAdView * _Nonnull)adView;
+		[Export ("adViewWillLogImpression:")]
+		void AdViewWillLogImpression (InstreamAdView adView);
 	}
 
 	[DisableDefaultCtor]
@@ -289,6 +366,18 @@ namespace Facebook.AudienceNetwork
 		// @property (nonatomic, assign, getter=isAutoplayEnabled) BOOL autoplayEnabled;
 		[Export ("autoplayEnabled")]
 		bool AutoplayEnabled { [Bind ("isAutoplayEnabled")] get; set; }
+
+		// @property (readonly, assign, nonatomic) CGFloat aspectRatio;
+		[Export ("aspectRatio")]
+		nfloat AspectRatio { get; }
+
+		// -(void)applyNaturalWidth;
+		[Export ("applyNaturalWidth")]
+		void ApplyNaturalWidth ();
+
+		// -(void)applyNaturalHeight;
+		[Export ("applyNaturalHeight")]
+		void ApplyNaturalHeight ();
 	}
 
 	interface IMediaViewDelegate
@@ -645,7 +734,7 @@ namespace Facebook.AudienceNetwork
 
 		// -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 		[Export ("tableView:cellForRowAtIndexPath:")]
-		UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath);
+		new UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath);
 
 		// -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 		[Export ("tableView:heightForRowAtIndexPath:")]
@@ -794,69 +883,6 @@ namespace Facebook.AudienceNetwork
 		// -(CGFloat)collectionView:(UICollectionView * _Nonnull)collectionView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 		[Export ("collectionView:heightForRowAtIndexPath:")]
 		nfloat GetHeightForRow (UICollectionView collectionView, NSIndexPath indexPath);
-	}
-
-	// @interface FBInstreamAdView : UIView
-	[BaseType (typeof (UIView), Name="FBInstreamAdView")]
-	interface InstreamAdView
-	{
-		// @property (readonly, getter = isAdValid, nonatomic) BOOL adValid;
-		[Export ("adValid")]
-		bool IsAdValid { [Bind ("isAdValid")] get; }
-
-		// @property (nonatomic, weak) id<FBInstreamAdViewDelegate> _Nullable delegate;
-		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
-		IInstreamAdViewDelegate Delegate { get; set; }
-
-		// @property (readonly, copy, nonatomic) NSString * _Nonnull placementID;
-		[Export ("placementID")]
-		string PlacementID { get; }
-
-		// -(instancetype _Nullable)initWithPlacementID:(NSString * _Nonnull)placementID __attribute__((objc_designated_initializer));
-		[Export ("initWithPlacementID:")]
-		[DesignatedInitializer]
-		IntPtr Constructor (string placementID);
-
-		// -(void)loadAd;
-		[PostGet ("IsAdValid")]
-		[Export ("loadAd")]
-		void LoadAd ();
-
-		// -(BOOL)showAdFromRootViewController:(UIViewController * _Nullable)rootViewController;
-		[Export ("showAdFromRootViewController:")]
-		bool ShowAd ([NullAllowed] UIViewController rootViewController);
-	}
-
-	interface IInstreamAdViewDelegate { }
-	
-
-	// @protocol FBInstreamAdViewDelegate <NSObject>
-	[Protocol, Model]
-	[BaseType (typeof (NSObject), Name="FBInstreamAdViewDelegate")]
-	interface InstreamAdViewDelegate
-	{
-		// @required -(void)adViewDidLoad:(FBInstreamAdView * _Nonnull)adView;
-		[Abstract]
-		[Export ("adViewDidLoad:")]
-		void AdViewDidLoad (InstreamAdView adView);
-
-		// @required -(void)adViewDidEnd:(FBInstreamAdView * _Nonnull)adView;
-		[Abstract]
-		[Export ("adViewDidEnd:")]
-		void AdViewDidEnd (InstreamAdView adView);
-
-		// @required -(void)adView:(FBInstreamAdView * _Nonnull)adView didFailWithError:(NSError * _Nonnull)error;
-		[Abstract]
-		[Export ("adView:didFailWithError:")]
-		void AdViewDidFail (InstreamAdView adView, NSError error);
-
-		// @optional -(void)adViewDidClick:(FBInstreamAdView * _Nonnull)adView;
-		[Export ("adViewDidClick:")]
-		void AdViewDidClick (InstreamAdView adView);
-
-		// @optional -(void)adViewWillLogImpression:(FBInstreamAdView * _Nonnull)adView;
-		[Export ("adViewWillLogImpression:")]
-		void AdViewWillLogImpression (InstreamAdView adView);
 	}
 
 	// @interface FBRewardedVideoAd : NSObject

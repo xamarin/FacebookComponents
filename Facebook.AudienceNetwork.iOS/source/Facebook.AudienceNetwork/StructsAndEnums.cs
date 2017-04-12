@@ -27,6 +27,16 @@ namespace Facebook.AudienceNetwork
 		Verbose
 	}
 
+	[Native]
+	public enum MediaViewRenderingMethod : long
+	{
+		Default,
+		Metal,
+		OpenGL,
+		Software
+	}
+
+
 	[Flags]
 	[Native]
 	public enum NativeAdsCachePolicy : long

@@ -891,6 +891,13 @@ namespace Facebook.CoreKit
 		[Export ("JPEGCompressionQuality")]
 		nfloat JpegCompressionQuality { get; set; }
 
+		// + (NSNumber *)autoLogAppEventsEnabled;
+		// + (void)setAutoLogAppEventsEnabled:(NSNumber*)AutoLogAppEventsEnabled;
+		[Internal]
+		[Static]
+		[Export ("autoLogAppEventsEnabled")]
+		NSNumber _AutoLogAppEventsEnabled { get; set; }
+
 		// +(BOOL)limitEventAndDataUsage;
 		// +(void)setLimitEventAndDataUsage:(BOOL)limitEventAndDataUsage;
 		[Static]
