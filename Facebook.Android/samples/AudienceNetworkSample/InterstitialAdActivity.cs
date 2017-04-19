@@ -75,6 +75,11 @@ namespace AudienceNetworkSample
 
             base.OnDestroy ();
         }
-    }
+
+		public void OnLoggingImpression(IAd ad)
+		{
+			Android.Util.Log.Error (TAG, "Logging impression...");
+		}
+	}
 }
 

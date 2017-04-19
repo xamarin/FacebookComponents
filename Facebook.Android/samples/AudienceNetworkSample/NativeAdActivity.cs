@@ -100,6 +100,11 @@ namespace AudienceNetworkSample
         {
             Android.Util.Log.Error (TAG, "Native Ad Error: " + error.ErrorMessage);
         }
-    }
+
+		public void OnLoggingImpression(IAd ad)
+		{
+			Android.Util.Log.Error (TAG, "Logging impression...");
+		}
+	}
 }
 
