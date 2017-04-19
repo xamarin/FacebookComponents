@@ -1,5 +1,6 @@
 using Android.Runtime;
 using System;
+using System.Linq;
 
 namespace Xamarin.Facebook
 {
@@ -213,5 +214,64 @@ namespace Xamarin.Facebook.Share.Widget
             }
         }
     }
+
+	public partial class AppInviteDialog
+	{
+		protected override global::System.Collections.IList _OrderedModeHandlers ()
+		{
+			return OrderedModeHandlers.ToList();
+		}
+	}
+
+	public partial class CreateAppGroupDialog
+	{
+		protected override global::System.Collections.IList _OrderedModeHandlers()
+		{
+			return OrderedModeHandlers.ToList();
+		}	
+	}
+
+	public partial class GameRequestDialog
+	{
+		protected override global::System.Collections.IList _OrderedModeHandlers()
+		{
+			return OrderedModeHandlers.ToList();
+		}	
+	}
+
+	public partial class JoinAppGroupDialog
+	{
+		protected override global::System.Collections.IList _OrderedModeHandlers()
+		{
+			return OrderedModeHandlers.ToList();
+		}	
+	}
+
+	public partial class MessageDialog
+	{
+		protected override global::System.Collections.IList _OrderedModeHandlers()
+		{
+			return OrderedModeHandlers.ToList();
+		}	
+	}
+
+	public partial class ShareDialog
+	{
+		protected override global::System.Collections.IList _OrderedModeHandlers()
+		{
+			return OrderedModeHandlers.ToList();
+		}	
+	}
+}
+
+namespace Xamarin.Facebook.Share
+{
+	public partial class DeviceShareDialog
+	{
+		protected override global::System.Collections.IList _OrderedModeHandlers()
+		{
+			return OrderedModeHandlers.ToList();
+		}	
+	}
 }
 
