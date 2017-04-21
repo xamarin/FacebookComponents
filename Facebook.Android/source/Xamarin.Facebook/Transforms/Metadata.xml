@@ -14,6 +14,9 @@
     <attr path="/api/package[@name='com.facebook.share.model']" name="managedName">Xamarin.Facebook.Share.Model</attr>
     <attr path="/api/package[@name='com.facebook.share.widget']" name="managedName">Xamarin.Facebook.Share.Widget</attr>
 
+	<attr path="/api/package[@name='com.facebook.places']" name="managedName">Xamarin.Facebook.Places</attr>
+	<attr path="/api/package[@name='com.facebook.places.internal']" name="managedName">Xamarin.Facebook.Places.Internal</attr>
+	<attr path="/api/package[@name='com.facebook.places.model']" name="managedName">Xamarin.Facebook.Places.Model</attr>
 
 
     <attr path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase.ModeHandler']" name="visibility">public</attr>
@@ -63,4 +66,14 @@
 	<attr path="/api/package[@name='com.facebook.internal']/class[@name='FileLruCache.ModifiedFile']/method[@name='compareTo' and count(parameter)=1 and parameter[1][@type='com.facebook.internal.FileLruCache.ModifiedFile']]/parameter[1]" name="managedType">Java.Lang.Object</attr>
 
 	<remove-node path="/api/package[@name='com.facebook.internal']/class[@name='WebDialog.UploadStagingResourcesTask']" />
+
+	<!-- FacebookDialogBase has an abstract IList OrderedModeHandlers and the generator tries to create proper generic list types, but that doesn't match the overridden member -->
+	<attr path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='getOrderedModeHandlers' and count(parameter)=0]" name="managedName">_OrderedModeHandlers</attr>
+	<!--<attr path="/api/package[@name='com.facebook.share']/class[@name='DeviceShareDialog']/method[@name='getOrderedModeHandlers' and count(parameter)=0]" name="managedReturn">System.Collections.IList</attr>
+	<attr path="/api/package[@name='com.facebook.share.widget']/class[@name='AppInviteDialog']/method[@name='getOrderedModeHandlers' and count(parameter)=0]" name="managedReturn">System.Collections.IList</attr>
+	<attr path="/api/package[@name='com.facebook.share.widget']/class[@name='CreateAppGroupDialog']/method[@name='getOrderedModeHandlers' and count(parameter)=0]" name="managedReturn">System.Collections.IList</attr>
+	<attr path="/api/package[@name='com.facebook.share.widget']/class[@name='GameRequestDialog']/method[@name='getOrderedModeHandlers' and count(parameter)=0]" name="managedReturn">System.Collections.IList</attr>
+	<attr path="/api/package[@name='com.facebook.share.widget']/class[@name='JoinAppGroupDialog']/method[@name='getOrderedModeHandlers' and count(parameter)=0]" name="managedReturn">System.Collections.IList</attr>
+	<attr path="/api/package[@name='com.facebook.share.widget']/class[@name='MessageDialog']/method[@name='getOrderedModeHandlers' and count(parameter)=0]" name="managedReturn">System.Collections.IList</attr>
+	<attr path="/api/package[@name='com.facebook.share.widget']/class[@name='ShareDialog']/method[@name='getOrderedModeHandlers' and count(parameter)=0]" name="managedReturn">System.Collections.IList</attr>-->
 </metadata>
