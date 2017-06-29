@@ -36,6 +36,21 @@ namespace Facebook.AudienceNetwork
 		Software
 	}
 
+	[Native]
+	public enum AdTestAdType : long
+	{
+		Default,
+		Img16x9AppInstall,
+		Img16x9Link,
+		VidHD16x9_46sAppInstall,
+		VidHD16x9_46sLink,
+		VidHD16x9_15sAppInstall,
+		VidHD16x9_15sLink,
+		VidHD9x16_39sAppInstall,
+		VidHD9x16_39sLink,
+		CarouselImgSquareAppInstall,
+		CarouselImgSquareLink
+	}
 
 	[Flags]
 	[Native]
