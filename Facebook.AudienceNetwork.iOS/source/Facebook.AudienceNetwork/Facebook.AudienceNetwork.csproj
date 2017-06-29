@@ -16,9 +16,9 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\unified\Debug</OutputPath>
-    <DefineConstants>DEBUG;__UNIFIED__;</DefineConstants>
+    <DefineConstants>__MOBILE__;__IOS__;DEBUG;__UNIFIED__;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -44,7 +44,7 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="extensions.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Facebook.AudienceNetwork.linkwith.cs">
       <DependentUpon>Facebook.AudienceNetwork.a</DependentUpon>
     </Compile>
