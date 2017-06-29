@@ -64,7 +64,7 @@ namespace Facebook.AudienceNetwork
 		IntPtr Constructor (NativeAd nativeAd, bool expandable);
 
 		// -(instancetype)initWithViewController:(UIViewController *)viewController adChoicesIcon:(FBAdImage *)adChoicesIcon adChoicesLinkURL:(NSURL *)adChoicesLinkURL attributes:(FBNativeAdViewAttributes *)attributes __attribute__((objc_designated_initializer));
-		[Export ("initWithViewController:adChoicesIcon:adChoicesLinkURL:attributes:")]
+		[Export ("initWithViewController:adChoicesIcon:attributes:")]
 		IntPtr Constructor ([NullAllowed] UIViewController viewController, AdImage adChoicesIcon, [NullAllowed] NativeAdViewAttributes attributes);
 
 		// -(void)updateFrameFromSuperview;
