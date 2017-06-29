@@ -482,7 +482,7 @@ namespace Facebook.AudienceNetwork
 		// - (nullable id)addPeriodicTimeObserverForInterval:(CMTime)interval queue:(dispatch_queue_t) queue usingBlock:(void (^)(CMTime time))block;
 		[return: NullAllowed]
 		[Export ("addPeriodicTimeObserverForInterval:queue:usingBlock:")]
-		NSObject AddPeriodicTimeObserverForInterval (CMTime interval, DispatchQueue queue, Action<CMTime> block);
+		NSObject AddPeriodicTimeObserver (CMTime interval, DispatchQueue queue, Action<CMTime> block);
 
 		// - (void)removeTimeObserver:(id)observer;
 		[Export ("removeTimeObserver:")]
