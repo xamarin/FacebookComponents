@@ -2,6 +2,7 @@
 #addin nuget:?package=Cake.FileHelpers&version=1.0.3.2
 #addin nuget:?package=Cake.Yaml&version=1.0.3.3
 #addin nuget:?package=Cake.Json&version=1.0.2
+#addin nuget:?package=Cake.XCode
 
 var TARGET = Argument ("target", Argument ("t", Argument ("Target", "build")));
 
@@ -187,6 +188,9 @@ void BuildGroups (List<BuildGroup> buildGroups, List<string> names, List<string>
 			branchInfo = " (" + gitBranch + ")";
 
 		Information ("[BUILD_DESC]{0}{1}[/BUILD_DESC]", groupsNameList, branchInfo);
+
+		Information ("Updating Cocoapods Spec repo before building...");
+		CocoaPodRepoUpdate();
 
 		foreach (var buildGroup in groupsToBuild) {
 			Information ("Building {0} with Targets {1}", buildGroup.Name, string.Join (",", buildGroup.BuildTargets));
