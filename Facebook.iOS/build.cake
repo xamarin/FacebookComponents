@@ -3,16 +3,21 @@
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
+var iosPlatform = "7.0";
+var facebookiOSSdkVersion = "4.24.0";
+var facebookMessengerShareKitVersion = "1.3.2";
+var boltsVersion = "1.7.0";
+
 var IOS_PODS = new List<string> {
 	"source 'https://github.com/CocoaPods/Specs.git'",
-	"platform :ios, '7.0'",
+	$"platform :ios, '{iosPlatform}'",
 	"install! 'cocoapods', :integrate_targets => false",
 	"target 'FacebookiOS' do",
-	"\tpod 'FBSDKCoreKit', '4.19.0'",
-	"\tpod 'FBSDKLoginKit', '4.19.0'",
-	"\tpod 'FBSDKShareKit', '4.19.0'",
-	"\tpod 'FBSDKMessengerShareKit', '1.3.2'",
-	"\tpod 'Bolts', '1.7.0'",
+	$"\tpod 'FBSDKCoreKit', '{facebookiOSSdkVersion}'",
+	$"\tpod 'FBSDKLoginKit', '{facebookiOSSdkVersion}'",
+	$"\tpod 'FBSDKShareKit', '{facebookiOSSdkVersion}'",
+	$"\tpod 'FBSDKMessengerShareKit', '{facebookMessengerShareKitVersion}'",
+	$"\tpod 'Bolts', '{boltsVersion}'",
 	"end",
 };
 

@@ -15,6 +15,10 @@ using UIKit;
 using CoreLocation;
 using Accounts;
 using CoreGraphics;
+using System.Reflection;
+using System.ComponentModel;
+using CoreMedia;
+using CoreFoundation;
 
 namespace Facebook.AudienceNetwork
 {
@@ -61,16 +65,7 @@ namespace Facebook.AudienceNetwork
 
 		// -(instancetype)initWithViewController:(UIViewController *)viewController adChoicesIcon:(FBAdImage *)adChoicesIcon adChoicesLinkURL:(NSURL *)adChoicesLinkURL attributes:(FBNativeAdViewAttributes *)attributes __attribute__((objc_designated_initializer));
 		[Export ("initWithViewController:adChoicesIcon:adChoicesLinkURL:attributes:")]
-		IntPtr Constructor ([NullAllowed] UIViewController viewController, AdImage adChoicesIcon, NSUrl adChoicesLinkURL, [NullAllowed] NativeAdViewAttributes attributes);
-
-		// -(instancetype)initWithViewController:(UIViewController *)viewController adChoicesIcon:(FBAdImage *)adChoicesIcon adChoicesLinkURL:(NSURL *)adChoicesLinkURL attributes:(FBNativeAdViewAttributes *)attributes expandable:(BOOL)expandable __attribute__((objc_designated_initializer));
-		[Export ("initWithViewController:adChoicesIcon:adChoicesLinkURL:attributes:expandable:")]
-		IntPtr Constructor ([NullAllowed] UIViewController viewController, AdImage adChoicesIcon, NSUrl adChoicesLinkURL, [NullAllowed] NativeAdViewAttributes attributes, bool expandable);
-
-		// -(instancetype)initWithViewController:(UIViewController *)viewController adChoicesIcon:(FBAdImage *)adChoicesIcon adChoicesLinkURL:(NSURL *)adChoicesLinkURL adChoicesText:(nullable NSString*)adChoicesText attributes:(FBNativeAdViewAttributes *)attributes expandable:(BOOL)expandable __attribute__((objc_designated_initializer));
-		[DesignatedInitializer]
-		[Export ("initWithViewController:adChoicesIcon:adChoicesLinkURL:adChoicesText:attributes:expandable:")]
-		IntPtr Constructor ([NullAllowed] UIViewController viewController, AdImage adChoicesIcon, NSUrl adChoicesLinkURL, [NullAllowed] string adChoicesText, [NullAllowed] NativeAdViewAttributes attributes, bool expandable);
+		IntPtr Constructor ([NullAllowed] UIViewController viewController, AdImage adChoicesIcon, [NullAllowed] NativeAdViewAttributes attributes);
 
 		// -(void)updateFrameFromSuperview;
 		[Export ("updateFrameFromSuperview")]
@@ -85,6 +80,22 @@ namespace Facebook.AudienceNetwork
 	[BaseType (typeof (NSObject), Name = "FBAdSettings")]
 	interface AdSettings
 	{
+		[Field ("FBAudienceNetworkErrorDomain", "__Internal")]
+		NSString AdsErrorDomain { get; }
+
+		[Field ("FBAudienceNetworkMediaViewErrorDomain", "__Internal")]
+		NSString MediaViewErrorDomain { get; }
+
+		// @property (class, nonatomic, assign, getter=isBackgroundVideoPlaybackAllowed) BOOL backgroundVideoPlaybackAllowed;
+		[Static]
+		[Export ("backgroundVideoPlaybackAllowed")]
+		bool IsBackgroundVideoPlaybackAllowed { [Bind ("isBackgroundVideoPlaybackAllowed")] get; set; }
+
+		// @property (class, nonatomic, assign) FBAdTestAdType testAdType;
+		[Static]
+		[Export ("testAdType", ArgumentSemantic.Assign)]
+		AdTestAdType TestAdType { get; set; }
+
 		[Static]
 		[Export ("isTestMode")]
 		bool IsTestMode { get; }
@@ -92,9 +103,6 @@ namespace Facebook.AudienceNetwork
 		[Static]
 		[Export ("testDeviceHash")]
 		string TestDeviceHash { get; }
-
-		[Field ("FBAudienceNetworkErrorDomain", "__Internal")]
-		NSString AdsErrorDomain { get; }
 
 		[Static]
 		[Export ("addTestDevice:")]
@@ -124,13 +132,14 @@ namespace Facebook.AudienceNetwork
 		// + (NSString *)urlPrefix;
 		[Advice ("This method should never be used in production.")]
 		[Static]
+		[return: NullAllowed]
 		[Export ("urlPrefix")]
-		void GetUrlPrefix ();
+		string GetUrlPrefix ();
 
 		[Advice ("This method should never be used in production.")]
 		[Static]
 		[Export ("setUrlPrefix:")]
-		void SetUrlPrefix (string urlPrefix);
+		void SetUrlPrefix ([NullAllowed] string urlPrefix);
 
 		// +(FBAdLogLevel)getLogLevel;
 		// +(void)setLogLevel:(FBAdLogLevel)level;
@@ -236,6 +245,7 @@ namespace Facebook.AudienceNetwork
 		IInstreamAdViewDelegate Delegate { get; set; }
 
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull placementID;
+		[NullAllowed]
 		[Export ("placementID")]
 		string PlacementID { get; }
 
@@ -264,25 +274,25 @@ namespace Facebook.AudienceNetwork
 		// @required -(void)adViewDidLoad:(FBInstreamAdView * _Nonnull)adView;
 		[Abstract]
 		[Export ("adViewDidLoad:")]
-		void AdViewDidLoad (InstreamAdView adView);
+		void AdViewDidLoad ([NullAllowed] InstreamAdView adView);
 
 		// @required -(void)adViewDidEnd:(FBInstreamAdView * _Nonnull)adView;
 		[Abstract]
 		[Export ("adViewDidEnd:")]
-		void AdViewDidEnd (InstreamAdView adView);
+		void AdViewDidEnd ([NullAllowed] InstreamAdView adView);
 
 		// @required -(void)adView:(FBInstreamAdView * _Nonnull)adView didFailWithError:(NSError * _Nonnull)error;
 		[Abstract]
 		[Export ("adView:didFailWithError:")]
-		void AdViewDidFail (InstreamAdView adView, NSError error);
+		void AdViewDidFail ([NullAllowed] InstreamAdView adView, [NullAllowed] NSError error);
 
 		// @optional -(void)adViewDidClick:(FBInstreamAdView * _Nonnull)adView;
 		[Export ("adViewDidClick:")]
-		void AdViewDidClick (InstreamAdView adView);
+		void AdViewDidClick ([NullAllowed] InstreamAdView adView);
 
 		// @optional -(void)adViewWillLogImpression:(FBInstreamAdView * _Nonnull)adView;
 		[Export ("adViewWillLogImpression:")]
-		void AdViewWillLogImpression (InstreamAdView adView);
+		void AdViewWillLogImpression ([NullAllowed] InstreamAdView adView);
 	}
 
 	[DisableDefaultCtor]
@@ -359,7 +369,12 @@ namespace Facebook.AudienceNetwork
 		[Export ("nativeAd", ArgumentSemantic.Strong)]
 		NativeAd NativeAd { get; set; }
 
+		// @property (nonatomic, strong, nonnull) FBMediaViewVideoRenderer *videoRenderer;
+		[Export ("videoRenderer", ArgumentSemantic.Strong)]
+		MediaViewVideoRenderer VideoRenderer { get; set; }
+
 		// @property (readonly, assign, nonatomic) float volume;
+		[Obsolete]
 		[Export ("volume")]
 		float Volume { get; }
 
@@ -420,6 +435,96 @@ namespace Facebook.AudienceNetwork
 		void MediaViewVideoDidComplete (MediaView mediaView);
 	}
 
+	// @interface FBMediaViewVideoRenderer : UIView
+	[DisableDefaultCtor]
+	[BaseType (typeof (UIView), Name = "FBMediaViewVideoRenderer")]
+	interface MediaViewVideoRenderer
+	{
+		[Export ("initWithFrame:")]
+		IntPtr Constructor (CGRect frame);
+
+		// @property (nonatomic, assign, readonly) CGFloat aspectRatio;
+		[Export ("aspectRatio", ArgumentSemantic.Assign)]
+		nfloat AspectRatio { get; }
+
+		// @property (nonatomic, assign, readonly) CMTime currentTime;
+		[Export ("currentTime", ArgumentSemantic.Assign)]
+		CMTime CurrentTime { get; }
+
+		// @property (nonatomic, assign, readonly) CMTime duration;
+		[Export ("duration", ArgumentSemantic.Assign)]
+		CMTime Duration { get; }
+
+		// @property (nonatomic, assign) float volume;
+		[Export ("volume", ArgumentSemantic.Assign)]
+		float Volume { get; set; }
+
+		// - (void)playVideo;
+		[Export ("playVideo")]
+		void PlayVideo ();
+
+		// - (void)pauseVideo;
+		[Export ("pauseVideo")]
+		void PauseVideo ();
+
+		// - (void)engageVideoSeek;
+		[Export ("engageVideoSeek")]
+		void EngageVideoSeek ();
+
+		// - (void)disengageVideoSeek;
+		[Export ("disengageVideoSeek")]
+		void DisengageVideoSeek ();
+
+		// - (void)seekVideoToTime:(CMTime)time;
+		[Export ("seekVideoToTime:")]
+		void SeekVideoToTime (CMTime time);
+
+		// - (nullable id)addPeriodicTimeObserverForInterval:(CMTime)interval queue:(dispatch_queue_t) queue usingBlock:(void (^)(CMTime time))block;
+		[return: NullAllowed]
+		[Export ("addPeriodicTimeObserverForInterval:queue:usingBlock:")]
+		NSObject AddPeriodicTimeObserver (CMTime interval, DispatchQueue queue, Action<CMTime> block);
+
+		// - (void)removeTimeObserver:(id)observer;
+		[Export ("removeTimeObserver:")]
+		void RemoveTimeObserver (NSObject observer);
+
+		// - (void)videoDidChangeVolume;
+		[Export ("videoDidChangeVolume")]
+		void VideoDidChangeVolume ();
+
+		// - (void)videoDidLoad;
+		[Export ("videoDidLoad")]
+		void VideoDidLoad ();
+
+		// - (void)videoDidPause;
+		[Export ("videoDidPause")]
+		void VideoDidPause ();
+
+		// - (void)videoDidPlay;
+		[Export ("videoDidPlay")]
+		void VideoDidPlay ();
+
+		// - (void)videoDidEngageSeek;
+		[Export ("videoDidEngageSeek")]
+		void VideoDidEngageSeek ();
+
+		// - (void)videoDidSeek;
+		[Export ("videoDidSeek")]
+		void VideoDidSeek ();
+
+		// - (void)videoDidDisengageSeek;
+		[Export ("videoDidDisengageSeek")]
+		void VideoDidDisengageSeek ();
+
+		// - (void)videoDidEnd;
+		[Export ("videoDidEnd")]
+		void VideoDidEnd ();
+
+		// - (void)videoDidFailWithError:(NSError *)error;
+		[Export ("videoDidFailWithError:")]
+		void VideoDidFail (NSError error);
+	}
+
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBNativeAd")]
 	interface NativeAd
@@ -450,8 +555,25 @@ namespace Facebook.AudienceNetwork
 		[Export ("coverImage", ArgumentSemantic.Retain)]
 		AdImage CoverImage { get; }
 
+		// @property (nonatomic, copy, readonly, nullable) NSString *rawBody;
+		[NullAllowed]
+		[Export ("rawBody")]
+		string RawBody { get; }
+
 		[Export ("body")]
 		string Body { get; }
+
+		// @property (nonatomic, strong, readonly, nullable) FBAdImage *adChoicesIcon;
+		[Export ("adChoicesIcon", ArgumentSemantic.Strong)]
+		AdImage AdChoicesIcon { get; }
+
+		// @property (nonatomic, copy, readonly, nullable) NSURL *adChoicesLinkURL;
+		[Export ("adChoicesLinkURL", ArgumentSemantic.Copy)]
+		NSUrl AdChoicesLinkUrl { get; }
+
+		// @property (nonatomic, copy, readonly, nullable) NSString *adChoicesText;
+		[Export ("adChoicesText", ArgumentSemantic.Copy)]
+		string AdChoicesText { get; }
 
 		[Export ("mediaCachePolicy", ArgumentSemantic.Assign)]
 		NativeAdsCachePolicy MediaCachePolicy { get; set; }
@@ -963,11 +1085,11 @@ namespace Facebook.AudienceNetwork
 		void RewardedVideoAdWillLogImpression (RewardedVideoAd rewardedVideoAd);
 
 		// @optional -(void)rewardedVideoAdServerSuccess:(FBRewardedVideoAd * _Nonnull)rewardedVideoAd;
-		[Export ("rewardedVideoAdServerSuccess:")]
-		void RewardedVideoAdServerSuccess (RewardedVideoAd rewardedVideoAd);
+		[Export ("rewardedVideoAdServerRewardDidSucceed:")]
+		void RewardedVideoAdServerRewardDidSuccess (RewardedVideoAd rewardedVideoAd);
 
 		// @optional -(void)rewardedVideoAdServerFailed:(FBRewardedVideoAd * _Nonnull)rewardedVideoAd;
-		[Export ("rewardedVideoAdServerFailed:")]
-		void RewardedVideoAdServerFailed (RewardedVideoAd rewardedVideoAd);
+		[Export ("rewardedVideoAdServerRewardDidFail:")]
+		void RewardedVideoAdServerRewardDidFail (RewardedVideoAd rewardedVideoAd);
 	}
 }

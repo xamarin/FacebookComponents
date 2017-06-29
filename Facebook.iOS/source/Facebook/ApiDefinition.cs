@@ -2132,17 +2132,20 @@ namespace Facebook.ShareKit
 	{
 
 		// @property (copy, nonatomic) NSString * contentDescription;
-		[Export ("contentDescription", ArgumentSemantic.Copy)]
-		string ContentDescription { get; set; }
+		[Obsolete ("This property is deprecated from Graph API 2.9. See https://developers.facebook.com/docs/apps/changelog#v2_9_deprecations")]
+		[Export ("contentDescription")]
+		string ContentDescription { get; }
 
 		// @property (copy, nonatomic) NSString * contentTitle;
-		[Export ("contentTitle", ArgumentSemantic.Copy)]
-		string ContentTitle { get; set; }
+		[Obsolete ("This property is deprecated from Graph API 2.9. See https://developers.facebook.com/docs/apps/changelog#v2_9_deprecations")]
+		[Export ("contentTitle")]
+		string ContentTitle { get; }
 
 		// @property (copy, nonatomic) NSURL * imageURL;
+		[Obsolete ("This property is deprecated from Graph API 2.9. See https://developers.facebook.com/docs/apps/changelog#v2_9_deprecations")]
 		[NullAllowed]
-		[Export ("imageURL", ArgumentSemantic.Copy)]
-		NSUrl ImageURL { get; set; }
+		[Export ("imageURL")]
+		NSUrl ImageURL { get; }
 
 		// @property (nonatomic, copy) NSString *quote;
 		[Export ("quote")]
