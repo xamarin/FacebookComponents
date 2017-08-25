@@ -25,7 +25,7 @@ string [] IOS_TARGETS = { "Bolts", "FBSDKCoreKit", "FBSDKShareKit", "FBSDKLoginK
 
 var buildSpec = new BuildSpec () {
 	Libs = new ISolutionBuilder [] {
-		new IOSSolutionBuilder {
+		new DefaultSolutionBuilder {
 			SolutionPath = "./source/Facebook/Facebook.sln",
 			Configuration = "Release",
 			BuildsOn = BuildPlatforms.Mac,
@@ -41,12 +41,14 @@ var buildSpec = new BuildSpec () {
 	Samples = new ISolutionBuilder [] {
 		new IOSSolutionBuilder {
 			SolutionPath = "./samples/FacebookiOSSample/FacebookiOSSample.sln",
-			Configuration = "Release|iPhone",
+			Configuration = "Release",
+			Platform = "iPhone",
 			BuildsOn = BuildPlatforms.Mac },
 
 		new IOSSolutionBuilder {
 			SolutionPath = "./samples/HelloFacebook/HelloFacebook.sln",
-			Configuration = "Release|iPhone",
+			Configuration = "Release",
+			Platform = "iPhone",
 			BuildsOn = BuildPlatforms.Mac },
 	},
 

@@ -1,8 +1,8 @@
 #addin nuget:?package=Cake.Xamarin.Build&version=2.0.18
-#addin nuget:?package=Cake.FileHelpers&version=1.0.3.2
+#addin nuget:?package=Cake.FileHelpers&version=1.0.3.15
 #addin nuget:?package=Cake.Yaml&version=1.0.3.3
 #addin nuget:?package=Cake.Json&version=1.0.2
-#addin nuget:?package=Cake.XCode
+#addin nuget:?package=Cake.XCode&version=2.0.13
 
 var TARGET = Argument ("target", Argument ("t", Argument ("Target", "build")));
 
