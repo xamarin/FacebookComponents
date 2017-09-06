@@ -455,6 +455,10 @@ namespace Facebook.AudienceNetwork
 		[Export ("duration", ArgumentSemantic.Assign)]
 		CMTime Duration { get; }
 
+		// @property (nonatomic, assign, readonly, getter=isPlaying) BOOL playing;
+		[Export ("isPlaying", ArgumentSemantic.Assign)]
+		bool IsPlaying { get; }
+
 		// @property (nonatomic, assign) float volume;
 		[Export ("volume", ArgumentSemantic.Assign)]
 		float Volume { get; set; }

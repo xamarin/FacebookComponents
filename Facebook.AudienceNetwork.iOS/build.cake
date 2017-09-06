@@ -1,10 +1,10 @@
 
 #load "../common.cake"
 
-var SDK_VERSION = "4.24.0";
-var SDK_URL = string.Format ("https://origincache.facebook.com/developers/resources/?id=FacebookSDKs-iOS-{0}.zip", SDK_VERSION);
-var SDK_FILE = "FacebookSDKs-iOS.zip";
-var SDK_PATH = "./externals/FacebookSDKs";
+var SDK_VERSION = "4.25.0";
+var SDK_URL = string.Format ("https://origincache.facebook.com/developers/resources/?id=FBAudienceNetwork-{0}.zip", SDK_VERSION);
+var SDK_FILE = "FBAudienceNetwork.zip";
+var SDK_PATH = "./externals/FBAudienceNetwork";
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
