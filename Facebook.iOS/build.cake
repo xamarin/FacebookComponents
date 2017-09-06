@@ -4,9 +4,9 @@
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
 var iosPlatform = "7.0";
-var facebookiOSSdkVersion = "4.24.0";
+var facebookiOSSdkVersion = "4.26.0";
 var facebookMessengerShareKitVersion = "1.3.2";
-var boltsVersion = "1.7.0";
+var boltsVersion = "1.8.4";
 
 var IOS_PODS = new List<string> {
 	"source 'https://github.com/CocoaPods/Specs.git'",
