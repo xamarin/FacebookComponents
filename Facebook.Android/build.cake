@@ -20,12 +20,8 @@ var buildSpec = new BuildSpec () {
 			SolutionPath = "./Xamarin.Facebook.sln",
 			BuildsOn = BuildPlatforms.Mac,
 			OutputFiles = new [] { 
-				new OutputFileCopy {
-					FromFile = "./source/Xamarin.Facebook/bin/Release/Xamarin.Facebook.dll",
-				},
-				new OutputFileCopy {
-					FromFile = "./source/Xamarin.Facebook.AudienceNetwork/bin/Release/Xamarin.Facebook.AudienceNetwork.dll",
-				}
+				new OutputFileCopy { FromFile = "./source/Xamarin.Facebook/bin/Release/Xamarin.Facebook.dll" },
+				new OutputFileCopy { FromFile = "./source/Xamarin.Facebook.AudienceNetwork/bin/Release/Xamarin.Facebook.AudienceNetwork.dll" }
 			}
 		}
 	},
@@ -42,7 +38,7 @@ var buildSpec = new BuildSpec () {
 	},
 
 	Components = new [] {
-		new Component { ManifestDirectory = "./component"},
+		new Component { ManifestDirectory = "./component" },
 	},
 };
 
@@ -50,16 +46,14 @@ Task ("externals")
 	.WithCriteria (!FileExists ("./externals/facebook.aar"))
 	.Does (() => 
 {
-	if (!DirectoryExists ("./externals/"))
-		CreateDirectory ("./externals");
+	EnsureDirectoryExists ("./externals/");
 
 	// Download the FB aar
 	DownloadFile (FB_URL, "./externals/facebook.aar");
 
 	// Download, and unzip the docs .jar
 	DownloadFile (FB_DOCS_URL, "./externals/facebook-docs.jar");
-	if (!DirectoryExists ("./externals/fb-docs"))
-		CreateDirectory ("./externals/fb-docs");
+	EnsureDirectoryExists ("./externals/fb-docs");
 	Unzip ("./externals/facebook-docs.jar", "./externals/fb-docs");
 
 	// Download the FB aar
