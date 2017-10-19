@@ -156,6 +156,10 @@ namespace Facebook.CoreKit
 		[Field ("FBSDKAppEventNameViewedContent", "__Internal")]
 		NSString ViewedContentEventNameKey { get; }
 
+		// extern NSString *const FBSDKAppEventParameterNameContent;
+		[Field ("FBSDKAppEventParameterNameContent", "__Internal")]
+		NSString ContentParameterNameKey { get; }
+
 		// extern NSString *const FBSDKAppEventParameterNameContentID;
 		[Field ("FBSDKAppEventParameterNameContentID", "__Internal")]
 		NSString ContentIdParameterNameKey { get; }
@@ -1810,6 +1814,40 @@ namespace Facebook.ShareKit
 		void DidFail (AppInviteDialog appInviteDialog, NSError error);
 	}
 
+	// @interface FBSDKCameraEffectArguments : NSObject <FBSDKCopying, NSSecureCoding>
+	[BaseType (typeof (NSObject), Name = "FBSDKCameraEffectArguments")]
+	interface CameraEffectArguments : CoreKit.Copying, INSSecureCoding
+	{
+		// -(void)setString:(NSString *)string forKey:(NSString *)key;
+		[Export ("setString:forKey:")]
+		void SetString (string aString, string key);
+
+		// -(NSString *)stringForKey:(NSString *)key;
+		[Export ("stringForKey:")]
+		string GetString (string key);
+
+		// -(void)setArray:(NSArray<NSString *> *)array forKey:(NSString *)key;
+		[Export ("setArray:forKey:")]
+		void SetArray (string [] array, string key);
+
+		// -(NSArray *)arrayForKey:(NSString *)key;
+		[Export ("arrayForKey:")]
+		string [] GetArray (string key);
+	}
+
+	// @interface FBSDKCameraEffectTextures : NSObject <FBSDKCopying, NSSecureCoding>
+	[BaseType (typeof (NSObject), Name = "FBSDKCameraEffectTextures")]
+	interface CameraEffectTextures : CoreKit.Copying, INSSecureCoding
+	{
+		// -(void)setImage:(UIImage *)image forKey:(NSString *)key;
+		[Export ("setImage:forKey:")]
+		void SetImage (UIImage image, string key);
+
+		// -(UIImage *)imageForKey:(NSString *)key;
+		[Export ("imageForKey:")]
+		UIImage GetImage (string key);
+	}
+
 	// @interface FBSDKGameRequestContent : NSObject <FBSDKCopying, NSSecureCoding>
 	[BaseType (typeof (NSObject), Name = "FBSDKGameRequestContent")]
 	interface GameRequestContent : CoreKit.Copying, INSSecureCoding
@@ -2104,6 +2142,27 @@ namespace Facebook.ShareKit
 
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (CGRect frame);
+	}
+
+	// @interface FBSDKShareCameraEffectContent : NSObject <FBSDKSharingContent>
+	[BaseType (typeof (NSObject), Name = "FBSDKShareCameraEffectContent")]
+	interface ShareCameraEffectContent : Facebook.ShareKit.SharingContent
+	{
+		// @property (copy, nonatomic) NSString * effectID;
+		[Export ("effectID")]
+		string EffectId { get; set; }
+
+		// @property (copy, nonatomic) FBSDKCameraEffectArguments * effectArguments;
+		[Export ("effectArguments", ArgumentSemantic.Copy)]
+		CameraEffectArguments EffectArguments { get; set; }
+
+		// @property (copy, nonatomic) FBSDKCameraEffectTextures * effectTextures;
+		[Export ("effectTextures", ArgumentSemantic.Copy)]
+		CameraEffectTextures EffectTextures { get; set; }
+
+		// -(BOOL)isEqualToShareCameraEffectContent:(FBSDKShareCameraEffectContent *)content;
+		[Export ("isEqualToShareCameraEffectContent:")]
+		bool Equals (ShareCameraEffectContent content);
 	}
 
 	// @interface FBSDKShareDialog : NSObject <FBSDKSharingDialog>
