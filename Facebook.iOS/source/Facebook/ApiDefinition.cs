@@ -1824,7 +1824,7 @@ namespace Facebook.ShareKit
 
 		// -(NSString *)stringForKey:(NSString *)key;
 		[Export ("stringForKey:")]
-		string StringForKey (string key);
+		string GetString (string key);
 
 		// -(void)setArray:(NSArray<NSString *> *)array forKey:(NSString *)key;
 		[Export ("setArray:forKey:")]
@@ -1832,7 +1832,7 @@ namespace Facebook.ShareKit
 
 		// -(NSArray *)arrayForKey:(NSString *)key;
 		[Export ("arrayForKey:")]
-		string [] ArrayForKey (string key);
+		string [] GetArray (string key);
 	}
 
 	// @interface FBSDKCameraEffectTextures : NSObject <FBSDKCopying, NSSecureCoding>
@@ -1845,7 +1845,7 @@ namespace Facebook.ShareKit
 
 		// -(UIImage *)imageForKey:(NSString *)key;
 		[Export ("imageForKey:")]
-		UIImage ImageForKey (string key);
+		UIImage GetImage (string key);
 	}
 
 	// @interface FBSDKGameRequestContent : NSObject <FBSDKCopying, NSSecureCoding>
