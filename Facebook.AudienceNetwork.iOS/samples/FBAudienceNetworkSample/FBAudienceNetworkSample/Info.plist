@@ -57,5 +57,9 @@
 	</dict>
 	<key>CFBundleName</key>
 	<string>FBAudienceNetworkSample</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>XSLaunchImageAssets</key>
+	<string>Assets.xcassets/LaunchImage.launchimage</string>
 </dict>
 </plist>

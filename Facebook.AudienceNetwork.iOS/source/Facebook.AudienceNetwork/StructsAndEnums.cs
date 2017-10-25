@@ -60,7 +60,8 @@ namespace Facebook.AudienceNetwork
 		Icon = 1 << 1,
 		CoverImage = 1 << 2,
 		Video = 1 << 3,
-		All = Icon | CoverImage | Video
+		AdChoices = 1 << 4,
+		All = Icon | CoverImage | Video | AdChoices
 	}
 
 	[Native]
