@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 
 using Foundation;
 using ObjCRuntime;
+using UIKit;
 
 namespace Facebook.AudienceNetwork
 {
@@ -114,6 +115,15 @@ namespace Facebook.AudienceNetwork
 
 				return rectangleHeight250.Value;
 			}
+		}
+	}
+
+	public partial class InterstitialAd
+	{
+		[Obsolete ("Use ShowAd method instead. This will be removed in future versions.")]
+		public bool ShowAdFromRootViewController (UIViewController rootViewController)
+		{
+			return ShowAd (rootViewController);
 		}
 	}
 }

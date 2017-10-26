@@ -27,7 +27,6 @@
     </MtouchI18n>
     <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchProfiling>true</MtouchProfiling>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -41,7 +40,6 @@
     <MtouchI18n>
     </MtouchI18n>
     <MtouchArch>i386, x86_64</MtouchArch>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,7 +59,6 @@
     </MtouchI18n>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <MtouchProfiling>true</MtouchProfiling>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>full</DebugType>
@@ -75,7 +72,6 @@
     <MtouchI18n>
     </MtouchI18n>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchExtraArgs></MtouchExtraArgs>
     <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
@@ -109,9 +105,6 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Default-568h%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
   </ItemGroup>
@@ -125,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -132,5 +126,9 @@
       <Project>{54FF3FE1-B984-4642-8131-16A4E8335A0D}</Project>
       <Name>Facebook.AudienceNetwork</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-568h%402x.png" />
   </ItemGroup>
 </Project>

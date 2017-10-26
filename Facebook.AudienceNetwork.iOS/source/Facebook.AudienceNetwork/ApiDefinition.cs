@@ -96,6 +96,11 @@ namespace Facebook.AudienceNetwork
 		[Export ("testAdType", ArgumentSemantic.Assign)]
 		AdTestAdType TestAdType { get; set; }
 
+		// @property (class, nonatomic, copy, readonly) NSString *bidderToken;
+		[Static]
+		[Export ("bidderToken")]
+		string BidderToken { get; }
+
 		[Static]
 		[Export ("isTestMode")]
 		bool IsTestMode { get; }
@@ -190,6 +195,14 @@ namespace Facebook.AudienceNetwork
 		[Export ("loadAd")]
 		void LoadAd ();
 
+		// - (void)loadAdWithBidPayload:(NSString *)bidPayload;
+		[Export ("loadAdWithBidPayload:")]
+		void LoadAd (string bidPayload);
+
+		// -(void)disableAutoRefresh;
+		[Export ("disableAutoRefresh")]
+		void DisableAutoRefresh ();
+
 		[Export ("placementID")]
 		string PlacementId { get; }
 
@@ -205,7 +218,6 @@ namespace Facebook.AudienceNetwork
 
 	interface IAdViewDelegate
 	{
-
 	}
 
 	[Protocol]
@@ -226,8 +238,12 @@ namespace Facebook.AudienceNetwork
 		[Export ("adView:didFailWithError:")]
 		void AdViewDidFail (AdView adView, NSError error);
 
+		// @optional -(void)adViewWillLogImpression:(FBAdView * _Nonnull)adView;
+		[Export ("adViewWillLogImpression:")]
+		void AdViewWillLogImpression (AdView adView);
+
 		[Export ("viewControllerForPresentingModalView", ArgumentSemantic.Strong)]
-		UIViewController ViewControllerForPresentingModalView { get; }
+		UIViewController GetViewControllerForPresentingModalView ();
 	}
 
 	// @interface FBInstreamAdView : UIView
@@ -258,6 +274,10 @@ namespace Facebook.AudienceNetwork
 		[PostGet ("IsAdValid")]
 		[Export ("loadAd")]
 		void LoadAd ();
+
+		// - (void) loadAdWithBidPayload:(NSString*) bidPayload;
+		[Export ("loadAdWithBidPayload:")]
+		void LoadAd (string bidPayload);
 
 		// -(BOOL)showAdFromRootViewController:(UIViewController * _Nullable)rootViewController;
 		[Export ("showAdFromRootViewController:")]
@@ -318,8 +338,13 @@ namespace Facebook.AudienceNetwork
 		[Export ("loadAd")]
 		void LoadAd ();
 
+		// - (void) loadAdWithBidPayload:(NSString*) bidPayload;
+		[PostGet ("IsAdValid")]
+		[Export ("loadAdWithBidPayload:")]
+		void LoadAd (string bidPayload);
+
 		[Export ("showAdFromRootViewController:")]
-		bool ShowAdFromRootViewController ([NullAllowed] UIViewController rootViewController);
+		bool ShowAd ([NullAllowed] UIViewController rootViewController);
 	}
 
 	interface IInterstitialAdDelegate
@@ -347,6 +372,10 @@ namespace Facebook.AudienceNetwork
 
 		[Export ("interstitialAd:didFailWithError:")]
 		void IntersitialDidFail (InterstitialAd interstitialAd, NSError error);
+
+		// @optional -(void)interstitialAdWillLogImpression:(FBInterstitialAd * _Nonnull)interstitialAd;
+		[Export ("interstitialAdWillLogImpression:")]
+		void InterstitialAdWillLogImpression (InterstitialAd interstitialAd);
 	}
 
 	// @interface FBMediaView : UIView
@@ -603,6 +632,11 @@ namespace Facebook.AudienceNetwork
 		[Export ("loadAd")]
 		void LoadAd ();
 
+		// - (void) loadAdWithBidPayload:(NSString*) bidPayload;
+		[PostGet ("IsAdValid")]
+		[Export ("loadAdWithBidPayload:")]
+		void LoadAd (string bidPayload);
+
 		[Export ("isAdValid")]
 		bool IsAdValid { get; }
 
@@ -621,25 +655,19 @@ namespace Facebook.AudienceNetwork
 	[BaseType (typeof (NSObject), Name = "FBNativeAdDelegate")]
 	interface NativeAdDelegate
 	{
-
 		[Export ("nativeAdDidLoad:")]
-		[Abstract]
 		void NativeAdDidLoad (NativeAd nativeAd);
 
 		[Export ("nativeAd:didFailWithError:")]
-		[Abstract]
 		void NativeAdDidFail (NativeAd nativeAd, NSError error);
 
 		[Export ("nativeAdDidClick:")]
-		[Abstract]
 		void NativeAdDidClick (NativeAd nativeAd);
 
 		[Export ("nativeAdDidFinishHandlingClick:")]
-		[Abstract]
 		void NativeAdDidFinishHandlingClick (NativeAd nativeAd);
 
 		[Export("nativeAdWillLogImpression:")]
-		[Abstract]
 		void NativeAdWillLogImpression(NativeAd nativeAd);
 	}
 
@@ -1043,6 +1071,10 @@ namespace Facebook.AudienceNetwork
 		// -(void)loadAd;
 		[Export ("loadAd")]
 		void LoadAd ();
+
+		// - (void) loadAdWithBidPayload:(NSString*) bidPayload;
+		[Export ("loadAdWithBidPayload:")]
+		void LoadAd (string bidPayload);
 
 		// -(BOOL)showAdFromRootViewController:(UIViewController * _Nonnull)rootViewController;
 		[Export ("showAdFromRootViewController:")]
