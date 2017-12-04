@@ -1,14 +1,14 @@
 
 #load "../common.cake"
 
-var FB_NUGET_VERSION = "4.26.0";
-var AN_NUGET_VERSION = "4.26.0";
+var FB_NUGET_VERSION = "4.28.0";
+var AN_NUGET_VERSION = "4.28.0";
 
 var FB_VERSION = "4.26.0";
 var FB_URL = string.Format ("http://search.maven.org/remotecontent?filepath=com/facebook/android/facebook-android-sdk/{0}/facebook-android-sdk-{0}.aar", FB_VERSION);
 var FB_DOCS_URL = string.Format ("http://search.maven.org/remotecontent?filepath=com/facebook/android/facebook-android-sdk/{0}/facebook-android-sdk-{0}-javadoc.jar", FB_VERSION);
 
-var AN_VERSION = "4.26.0";
+var AN_VERSION = "4.28.0";
 var AN_URL = string.Format ("http://search.maven.org/remotecontent?filepath=com/facebook/android/audience-network-sdk/{0}/audience-network-sdk-{0}.aar", AN_VERSION);
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
