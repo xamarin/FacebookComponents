@@ -59,6 +59,9 @@
     <ObjcBindingNativeLibrary Include="..\..\externals\Facebook.AudienceNetwork.a">
       <Link>Facebook.AudienceNetwork.a</Link>
     </ObjcBindingNativeLibrary>
+    <ObjcBindingNativeLibrary Include="..\..\externals\KVOController.a">
+      <Link>KVOController.a</Link>
+    </ObjcBindingNativeLibrary>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>
