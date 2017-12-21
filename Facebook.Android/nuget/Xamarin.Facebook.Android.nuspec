@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
-<package >
+<package>
   <metadata>
     <id>Xamarin.Facebook.Android</id>
     <title>Facebook SDK for Xamarin Android</title>
     <version>$version$</version>
-    <authors>Xamarin Inc.</authors>
-    <owners>Xamarin Inc.</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>C# bindings for Facebook's official SDK</description>
-    <copyright>Copyright © Microsoft Corporation</copyright>
-    <projectUrl>https://components.xamarin.com/view/facebookandroid</projectUrl>
-    <licenseUrl>https://components.xamarin.com/license/facebookandroid</licenseUrl>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <projectUrl>https://go.microsoft.com/fwlink/?linkid=865581</projectUrl>
+    <licenseUrl>https://go.microsoft.com/fwlink/?linkid=865585</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/FacebookComponents/master/icons/facebook-android_128x128.png</iconUrl>
     <dependencies>
       <group targetFramework="MonoAndroid70">
-        <dependency id="Xamarin.Android.Support.v4" version="25.3.1"/>
-        <dependency id="Xamarin.Android.Support.v7.CardView" version="25.3.1"/>
-        <dependency id="Xamarin.Android.Support.v7.AppCompat" version="25.3.1"/>
-        <dependency id="Xamarin.Android.Support.CustomTabs" version="25.3.1"/>
-        <dependency id="Bolts" version="1.4.0.1"/>
-        <dependency id="Xamarin.Google.ZXing.Core" version="3.3.0"/>
+        <dependency id="Xamarin.Android.Support.v4" version="25.3.1" />
+        <dependency id="Xamarin.Android.Support.v7.CardView" version="25.3.1" />
+        <dependency id="Xamarin.Android.Support.v7.AppCompat" version="25.3.1" />
+        <dependency id="Xamarin.Android.Support.CustomTabs" version="25.3.1" />
+        <dependency id="Bolts" version="1.4.0.1" />
+        <dependency id="Xamarin.Google.ZXing.Core" version="3.3.0" />
       </group>
     </dependencies>
   </metadata>
