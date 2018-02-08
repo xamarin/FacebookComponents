@@ -136,6 +136,13 @@ namespace Facebook.ShareKit
 	}
 
 	[Native]
+	public enum AppInviteDestination : ulong
+	{
+		Facebook = 0,
+		Messenger,
+	}
+
+	[Native]
 	public enum GameRequestActionType : ulong
 	{
 		None = 0,
@@ -205,9 +212,24 @@ namespace Facebook.ShareKit
 	}
 
 	[Native]
-	public enum AppInviteDestination : ulong
+	public enum ShareMessengerGenericTemplateImageAspectRatio : ulong
 	{
-		Facebook = 0,
-		Messenger,
+		Horizontal = 0,
+		Square
+	}
+
+	[Native]
+	public enum ShareMessengerMediaTemplateMediaType : ulong
+	{
+		Image = 0,
+		Video
+	}
+
+	[Native]
+	public enum ShareMessengerURLActionButtonWebviewHeightRatio : ulong
+	{
+		Full = 0,
+		Tall,
+		Compact
 	}
 }

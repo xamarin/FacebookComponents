@@ -1050,7 +1050,7 @@ namespace Facebook.CoreKit
 namespace Facebook.LoginKit
 {
 	// @interface FBSDKLoginButton : FBSDKButton
-	[BaseType (typeof (Facebook.CoreKit.Button),
+	[BaseType (typeof (CoreKit.Button),
 		Name = "FBSDKLoginButton",
 		Delegates = new [] { "Delegate" },
 		Events = new [] { typeof (LoginButtonDelegate) })]
@@ -1742,6 +1742,7 @@ namespace Facebook.ShareKit
 	}
 
 	// @interface FBSDKAppInviteDialog : NSObject
+	[Obsolete ("App Invites no longer supported")]
 	[BaseType (typeof (NSObject),
 		Name = "FBSDKAppInviteDialog",
 		Delegates = new [] { "Delegate" },
@@ -2001,6 +2002,7 @@ namespace Facebook.ShareKit
 	}
 
 	// @interface FBSDKLikeButton : FBSDKButton <FBSDKLiking>
+	[Obsolete]
 	[BaseType (typeof (CoreKit.Button), Name = "FBSDKLikeButton")]
 	interface LikeButton : Liking
 	{
@@ -2014,6 +2016,7 @@ namespace Facebook.ShareKit
 	}
 
 	// @interface FBSDKLikeControl : UIControl <FBSDKLiking>
+	[Obsolete]
 	[BaseType (typeof (UIControl), Name = "FBSDKLikeControl")]
 	interface LikeControl : Liking
 	{
@@ -2136,7 +2139,7 @@ namespace Facebook.ShareKit
 	}
 
 	// @interface FBSDKShareButton : FBSDKButton <FBSDKSharingButton>
-	[BaseType (typeof (Facebook.CoreKit.Button), Name = "FBSDKShareButton")]
+	[BaseType (typeof (CoreKit.Button), Name = "FBSDKShareButton")]
 	interface ShareButton : SharingButton
 	{
 
@@ -2146,7 +2149,7 @@ namespace Facebook.ShareKit
 
 	// @interface FBSDKShareCameraEffectContent : NSObject <FBSDKSharingContent>
 	[BaseType (typeof (NSObject), Name = "FBSDKShareCameraEffectContent")]
-	interface ShareCameraEffectContent : Facebook.ShareKit.SharingContent
+	interface ShareCameraEffectContent : SharingContent
 	{
 		// @property (copy, nonatomic) NSString * effectID;
 		[Export ("effectID")]
@@ -2226,6 +2229,128 @@ namespace Facebook.ShareKit
 		// - (BOOL)isEqualToShareMediaContent:(FBSDKShareMediaContent *)content;
 		[Export ("isEqualToShareMediaContent:")]
 		bool Equals (ShareMediaContent content);
+	}
+
+	interface IShareMessengerActionButton { }
+
+	// @protocol FBSDKShareMessengerActionButton <FBSDKCopying, NSSecureCoding>
+	[Protocol (Name = "FBSDKShareMessengerActionButton")]
+	interface ShareMessengerActionButton : CoreKit.Copying, INSSecureCoding
+	{
+		// @required @property (copy, nonatomic) NSString * title;
+		[Abstract]
+		[Export ("title")]
+		string Title { get; set; }
+	}
+
+	// @interface FBSDKShareMessengerGenericTemplateContent : NSObject <FBSDKSharingContent>
+	[BaseType (typeof (NSObject), Name = "FBSDKShareMessengerGenericTemplateContent")]
+	interface ShareMessengerGenericTemplateContent : SharingContent
+	{
+		// @property (assign, nonatomic) BOOL isSharable;
+		[Export ("isSharable")]
+		bool IsSharable { get; set; }
+
+		// @property (assign, nonatomic) FBSDKShareMessengerGenericTemplateImageAspectRatio imageAspectRatio;
+		[Export ("imageAspectRatio", ArgumentSemantic.Assign)]
+		ShareMessengerGenericTemplateImageAspectRatio ImageAspectRatio { get; set; }
+
+		// @property (copy, nonatomic) FBSDKShareMessengerGenericTemplateElement * element;
+		[Export ("element", ArgumentSemantic.Copy)]
+		ShareMessengerGenericTemplateElement Element { get; set; }
+	}
+
+	// @interface FBSDKShareMessengerGenericTemplateElement : NSObject <FBSDKCopying, NSSecureCoding>
+	[BaseType (typeof (NSObject), Name = "FBSDKShareMessengerGenericTemplateElement")]
+	interface ShareMessengerGenericTemplateElement : CoreKit.Copying, INSSecureCoding
+	{
+		// @property (copy, nonatomic) NSString * title;
+		[Export ("title")]
+		string Title { get; set; }
+
+		// @property (copy, nonatomic) NSString * subtitle;
+		[Export ("subtitle")]
+		string Subtitle { get; set; }
+
+		// @property (copy, nonatomic) NSURL * imageURL;
+		[Export ("imageURL", ArgumentSemantic.Copy)]
+		NSUrl ImageUrl { get; set; }
+
+		// @property (copy, nonatomic) id<FBSDKShareMessengerActionButton> defaultAction;
+		[Export ("defaultAction", ArgumentSemantic.Copy)]
+		IShareMessengerActionButton DefaultAction { get; set; }
+
+		// @property (copy, nonatomic) id<FBSDKShareMessengerActionButton> button;
+		[Export ("button", ArgumentSemantic.Copy)]
+		IShareMessengerActionButton Button { get; set; }
+	}
+
+	// @interface FBSDKShareMessengerMediaTemplateContent : NSObject <FBSDKSharingContent>
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FBSDKShareMessengerMediaTemplateContent")]
+	interface ShareMessengerMediaTemplateContent : SharingContent
+	{
+		// @property (assign, nonatomic) FBSDKShareMessengerMediaTemplateMediaType mediaType;
+		[Export ("mediaType", ArgumentSemantic.Assign)]
+		ShareMessengerMediaTemplateMediaType MediaType { get; set; }
+
+		// @property (readonly, copy, nonatomic) NSString * attachmentID;
+		[Export ("attachmentID")]
+		string AttachmentId { get; }
+
+		// @property (readonly, copy, nonatomic) NSURL * mediaURL;
+		[Export ("mediaURL", ArgumentSemantic.Copy)]
+		NSUrl MediaUrl { get; }
+
+		// @property (copy, nonatomic) id<FBSDKShareMessengerActionButton> button;
+		[Export ("button", ArgumentSemantic.Copy)]
+		IShareMessengerActionButton Button { get; set; }
+
+		// -(instancetype)initWithAttachmentID:(NSString *)attachmentID;
+		[Export ("initWithAttachmentID:")]
+		IntPtr Constructor (string attachmentId);
+
+		// -(instancetype)initWithMediaURL:(NSURL *)mediaURL;
+		[Export ("initWithMediaURL:")]
+		IntPtr Constructor (NSUrl mediaUrl);
+	}
+
+	// @interface FBSDKShareMessengerOpenGraphMusicTemplateContent : NSObject <FBSDKSharingContent>
+	[BaseType (typeof (NSObject), Name = "FBSDKShareMessengerOpenGraphMusicTemplateContent")]
+	interface ShareMessengerOpenGraphMusicTemplateContent : SharingContent
+	{
+		// @property (copy, nonatomic) NSURL * url;
+		[Export ("url", ArgumentSemantic.Copy)]
+		NSUrl Url { get; set; }
+
+		// @property (copy, nonatomic) id<FBSDKShareMessengerActionButton> button;
+		[Export ("button", ArgumentSemantic.Copy)]
+		IShareMessengerActionButton Button { get; set; }
+	}
+
+	// @interface FBSDKShareMessengerURLActionButton : NSObject <FBSDKShareMessengerActionButton>
+	[BaseType (typeof (NSObject), Name = "FBSDKShareMessengerURLActionButton")]
+	interface ShareMessengerUrlActionButton : ShareMessengerActionButton
+	{
+		// @property (copy, nonatomic) NSURL * url;
+		[Export ("url", ArgumentSemantic.Copy)]
+		NSUrl Url { get; set; }
+
+		// @property (assign, nonatomic) FBSDKShareMessengerURLActionButtonWebviewHeightRatio webviewHeightRatio;
+		[Export ("webviewHeightRatio", ArgumentSemantic.Assign)]
+		ShareMessengerURLActionButtonWebviewHeightRatio WebviewHeightRatio { get; set; }
+
+		// @property (assign, nonatomic) BOOL isMessengerExtensionURL;
+		[Export ("isMessengerExtensionURL")]
+		bool IsMessengerExtensionUrl { get; set; }
+
+		// @property (copy, nonatomic) NSURL * fallbackURL;
+		[Export ("fallbackURL", ArgumentSemantic.Copy)]
+		NSUrl FallbackUrl { get; set; }
+
+		// @property (assign, nonatomic) BOOL shouldHideWebviewShareButton;
+		[Export ("shouldHideWebviewShareButton")]
+		bool ShouldHideWebviewShareButton { get; set; }
 	}
 
 	// @interface FBSDKShareOpenGraphAction : FBSDKShareOpenGraphValueContainer <FBSDKCopying, NSSecureCoding>
@@ -2625,42 +2750,60 @@ namespace Facebook.ShareKit
 	}
 
 	// @protocol FBSDKSharingContent <FBSDKCopying, NSSecureCoding>
-	[Model]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "FBSDKSharingContent")]
 	interface SharingContent : CoreKit.Copying, INSSecureCoding
 	{
 
 		// @required @property (copy, nonatomic) NSURL * contentURL;
+		[Abstract]
 		[Export ("contentURL")]
 		NSUrl GetContentUrl ();
 
+		[Abstract]
 		[Export ("setContentURL:")]
 		void SetContentUrl ([NullAllowed] NSUrl url);
 
 		// @required @property (copy, nonatomic) NSArray * peopleIDs;
+		[Abstract]
 		[Export ("peopleIDs")]
 		string [] GetPeopleIds ();
 
+		[Abstract]
 		[Export ("setPeopleIDs:")]
 		void SetPeopleIds ([NullAllowed] string [] peolpleId);
 
 		// @required @property (copy, nonatomic) NSString * placeID;
+		[Abstract]
 		[Export ("placeID")]
 		string GetPlaceId ();
 
+		[Abstract]
 		[Export ("setPlaceID:")]
 		void SetPlaceId (string placeId);
 
 		// @property (nonatomic, copy) FBSDKHashtag *hashtag;
+		[Abstract]
 		[Export ("hashtag", ArgumentSemantic.Copy)]
 		Hashtag Hashtag { get; set; }
 
 		// @required @property (copy, nonatomic) NSString * ref;
+		[Abstract]
 		[Export ("ref")]
 		string GetRef ();
 
+		[Abstract]
 		[Export ("setRef:")]
 		void SetRef (string aRef);
+
+		// @required @property (copy, nonatomic) NSString * pageID;
+		[Abstract]
+		[Export ("pageID")]
+		string PageId { get; set; }
+
+		// @required @property (readonly, copy, nonatomic) NSString * shareUUID;
+		[Abstract]
+		[Export ("shareUUID")]
+		string ShareUuid { get; }
 	}
 }
