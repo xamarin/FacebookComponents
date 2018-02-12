@@ -50,10 +50,10 @@ namespace Facebook.AudienceNetwork
 		[Export ("corner", ArgumentSemantic.Assign)]
 		UIRectCorner Corner { get; set; }
 
-		// @property (nonatomic, weak, readwrite, nullable) UIViewController *viewController;
+		// @property (nonatomic, weak, readwrite, nullable) UIViewController *rootViewController;
 		[NullAllowed]
-		[Export ("viewController", ArgumentSemantic.Weak)]
-		UIViewController ViewController { get; set; }
+		[Export ("rootViewController", ArgumentSemantic.Weak)]
+		UIViewController RootViewController { get; set; }
 
 		// -(instancetype)initWithNativeAd:(FBNativeAd *)nativeAd;
 		[Export ("initWithNativeAd:")]
@@ -74,6 +74,10 @@ namespace Facebook.AudienceNetwork
 		// -(void)updateFrameFromSuperview:(UIRectCorner)corner;
 		[Export ("updateFrameFromSuperview:")]
 		void UpdateFrameFromSuperview (UIRectCorner corner);
+
+		// - (void)updateFrameFromSuperview:(UIRectCorner)corner insets:(UIEdgeInsets)insets;
+		[Export ("updateFrameFromSuperview:insets:")]
+		void UpdateFrameFromSuperview (UIRectCorner corner, UIEdgeInsets insets);
 	}
 
 	[DisableDefaultCtor]
@@ -95,6 +99,12 @@ namespace Facebook.AudienceNetwork
 		[Static]
 		[Export ("testAdType", ArgumentSemantic.Assign)]
 		AdTestAdType TestAdType { get; set; }
+
+		// @property (class, nonatomic, weak, nullable) id<FBAdLoggingDelegate> loggingDelegate;
+		[Static]
+		[NullAllowed]
+		[Export ("loggingDelegate", ArgumentSemantic.Weak)]
+		IAdLoggingDelegate LoggingDelegate { get; set; }
 
 		// @property (class, nonatomic, copy, readonly) NSString *bidderToken;
 		[Static]
@@ -159,6 +169,19 @@ namespace Facebook.AudienceNetwork
 		MediaViewRenderingMethod MediaViewRenderingMethod { get; set; }
 	}
 
+	interface IAdLoggingDelegate { }
+
+	[Model]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "FBAdLoggingDelegate")]
+	interface AdLoggingDelegate
+	{
+		// @required -(void)logAtLevel:(FBAdLogLevel)level withFileName:(NSString * _Nonnull)fileName withLineNumber:(int)lineNumber withThreadId:(long)threadId withBody:(NSString * _Nonnull)body;
+		[Abstract]
+		[Export ("logAtLevel:withFileName:withLineNumber:withThreadId:withBody:")]
+		void Log (AdLogLevel level, string fileName, int lineNumber, nint threadId, string body);
+	}
+
 	[Static]
 	interface AdSizes
 	{
@@ -190,7 +213,7 @@ namespace Facebook.AudienceNetwork
 
 		[DesignatedInitializer]
 		[Export ("initWithPlacementID:adSize:rootViewController:")]
-		IntPtr Constructor (string placementID, AdSize adSize, [NullAllowed] UIViewController viewController);
+		IntPtr Constructor (string placementId, AdSize adSize, [NullAllowed] UIViewController rootViewController);
 
 		[Export ("loadAd")]
 		void LoadAd ();
@@ -263,12 +286,16 @@ namespace Facebook.AudienceNetwork
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull placementID;
 		[NullAllowed]
 		[Export ("placementID")]
+		string PlacementId { get; }
+
+		[Obsolete ("Use PlacementId property instead. This will be removed in future versions.")]
+		[Wrap ("PlacementId")]
 		string PlacementID { get; }
 
 		// -(instancetype _Nullable)initWithPlacementID:(NSString * _Nonnull)placementID __attribute__((objc_designated_initializer));
 		[DesignatedInitializer]
 		[Export ("initWithPlacementID:")]
-		IntPtr Constructor (string placementID);
+		IntPtr Constructor (string placementId);
 
 		// -(void)loadAd;
 		[PostGet ("IsAdValid")]
@@ -746,8 +773,8 @@ namespace Facebook.AudienceNetwork
 
 		// @property (nonatomic, weak) UIViewController * viewController;
 		[NullAllowed]
-		[Export ("viewController", ArgumentSemantic.Weak)]
-		UIViewController ViewController { get; set; }
+		[Export ("rootViewController", ArgumentSemantic.Weak)]
+		UIViewController RootViewController { get; set; }
 
 		// @property (nonatomic, weak) id<FBNativeAdDelegate> delegate;
 		[NullAllowed]
@@ -823,7 +850,7 @@ namespace Facebook.AudienceNetwork
 		// -(instancetype)initWithPlacementID:(NSString *)placementID forNumAdsRequested:(NSUInteger)numAdsRequested;
 		[DesignatedInitializer]
 		[Export ("initWithPlacementID:forNumAdsRequested:")]
-		IntPtr Constructor (string placementID, nuint numAdsRequested);
+		IntPtr Constructor (string placementId, nuint numAdsRequested);
 
 		// -(void)loadAds;
 		[Export ("loadAds")]
@@ -915,8 +942,8 @@ namespace Facebook.AudienceNetwork
 
 		// @property (nonatomic, weak) UIViewController * viewController;
 		[NullAllowed]
-		[Export ("viewController", ArgumentSemantic.Weak)]
-		UIViewController ViewController { get; set; }
+		[Export ("rootViewController", ArgumentSemantic.Weak)]
+		UIViewController RootViewController { get; set; }
 
 		// +(instancetype)nativeAdViewWithNativeAd:(FBNativeAd *)nativeAd withType:(FBNativeAdViewType)type withAttributes:(FBNativeAdViewAttributes *)attributes;
 		[Static]
@@ -1046,7 +1073,15 @@ namespace Facebook.AudienceNetwork
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull placementID;
 		[Export ("placementID")]
+		string PlacementId { get; }
+
+		[Obsolete ("Use PlacementId property instead. This will be removed in future versions.")]
+		[Wrap ("PlacementId")]
 		string PlacementID { get; }
+
+		// @property (readonly, assign, nonatomic) CMTime duration;
+		[Export ("duration", ArgumentSemantic.Assign)]
+		CMTime Duration { get; }
 
 		// @property (nonatomic, weak) id<FBRewardedVideoAdDelegate> _Nullable delegate;
 		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
@@ -1058,15 +1093,15 @@ namespace Facebook.AudienceNetwork
 
 		// -(instancetype _Nonnull)initWithPlacementID:(NSString * _Nonnull)placementID;
 		[Export ("initWithPlacementID:")]
-		IntPtr Constructor (string placementID);
+		IntPtr Constructor (string placementId);
 
 		// -(instancetype _Nonnull)initWithPlacementID:(NSString * _Nonnull)placementID withUserID:(NSString * _Nullable)userID withCurrency:(NSString * _Nullable)currency;
 		[Export ("initWithPlacementID:withUserID:withCurrency:")]
-		IntPtr Constructor (string placementID, [NullAllowed] string userID, [NullAllowed] string currency);
+		IntPtr Constructor (string placementId, [NullAllowed] string userId, [NullAllowed] string currency);
 
 		// -(instancetype _Nonnull)initWithPlacementID:(NSString * _Nonnull)placementID withUserID:(NSString * _Nullable)userID withCurrency:(NSString * _Nullable)currency withAmount:(NSInteger)amount;
 		[Export ("initWithPlacementID:withUserID:withCurrency:withAmount:")]
-		IntPtr Constructor (string placementID, [NullAllowed] string userID, [NullAllowed] string currency, nint amount);
+		IntPtr Constructor (string placementId, [NullAllowed] string userId, [NullAllowed] string currency, nint amount);
 
 		// -(void)loadAd;
 		[Export ("loadAd")]
@@ -1083,6 +1118,10 @@ namespace Facebook.AudienceNetwork
 		// -(BOOL)showAdFromRootViewController:(UIViewController * _Nonnull)rootViewController animated:(BOOL)flag;
 		[Export ("showAdFromRootViewController:animated:")]
 		bool ShowAd (UIViewController rootViewController, bool flag);
+
+		[Obsolete ("Use ShowAd method instead. This will be removed in future versions.")]
+		[Wrap ("ShowAd (rootViewController)")]
+		bool ShowAdFromRootViewController (UIViewController rootViewController);
 	}
 
 	interface IRewardedVideoAdDelegate { }

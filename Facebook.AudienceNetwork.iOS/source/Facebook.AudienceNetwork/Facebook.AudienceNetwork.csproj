@@ -42,12 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions.cs" />
-    <Compile Include="Facebook.AudienceNetwork.linkwith.cs">
-      <DependentUpon>Facebook.AudienceNetwork.a</DependentUpon>
-    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
@@ -56,12 +55,13 @@
     <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ObjcBindingNativeLibrary Include="..\..\externals\Facebook.AudienceNetwork.a">
-      <Link>Facebook.AudienceNetwork.a</Link>
-    </ObjcBindingNativeLibrary>
-    <ObjcBindingNativeLibrary Include="..\..\externals\KVOController.a">
-      <Link>KVOController.a</Link>
-    </ObjcBindingNativeLibrary>
+    <NativeReference Include="..\..\externals\FBAudienceNetwork.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+      <Frameworks>AudioToolbox AVFoundation CoreGraphics CoreImage CoreMedia OpenGLES Security StoreKit UIKit Foundation CoreVideo</Frameworks>
+      <WeakFrameworks>AdSupport CoreMotion SafariServices WebKit</WeakFrameworks>
+      <LinkerFlags>-lc++ -lxml2</LinkerFlags>
+    </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>
