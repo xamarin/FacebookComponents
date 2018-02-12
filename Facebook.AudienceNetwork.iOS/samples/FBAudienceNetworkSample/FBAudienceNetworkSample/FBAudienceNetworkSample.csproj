@@ -111,10 +111,15 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="FBAudienceNetworkSampleViewController.cs" />
-    <Compile Include="FBAudienceNetworkSampleViewController.designer.cs">
-      <DependentUpon>FBAudienceNetworkSampleViewController.cs</DependentUpon>
+    <Compile Include="AdsViewController.cs" />
+    <Compile Include="AdsViewController.designer.cs">
+      <DependentUpon>AdsViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="NativeAdTableViewCell.cs" />
+    <Compile Include="NativeAdTableViewCell.designer.cs">
+      <DependentUpon>NativeAdTableViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomAlertAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

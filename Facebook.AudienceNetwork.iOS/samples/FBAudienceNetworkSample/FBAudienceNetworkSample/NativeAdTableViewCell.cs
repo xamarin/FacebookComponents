@@ -8,12 +8,8 @@ namespace FBAudienceNetworkSample
 	public partial class NativeAdTableViewCell : UITableViewCell
 	{
 		public static readonly NSString Key = new NSString ("NativeAdTableViewCell");
-		public static readonly UINib Nib;
 
-		static NativeAdTableViewCell ()
-		{
-			Nib = UINib.FromName ("NativeAdTableViewCell", NSBundle.MainBundle);
-		}
+		public UIView AdView { get => View; }
 
 		protected NativeAdTableViewCell (IntPtr handle) : base (handle)
 		{

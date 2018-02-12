@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 
-#if __UNIFIED__
 using Foundation;
 using UIKit;
-#else
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
-#endif
+
+using Facebook.AudienceNetwork;
 
 namespace FBAudienceNetworkSample
 {
@@ -24,7 +21,18 @@ namespace FBAudienceNetworkSample
 			get;
 			set;
 		}
-		
+
+		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
+		{
+			UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
+
+			AdSettings.LogLevel = AdLogLevel.Log;
+			AdSettings.ClearTestDevices ();
+			AdSettings.AddTestDevice ("HASH_ID");
+
+			return true;
+		}
+
 		// This method is invoked when the application is about to move from active to inactive state.
 		// OpenGL applications should use this method to pause.
 		public override void OnResignActivation (UIApplication application)
