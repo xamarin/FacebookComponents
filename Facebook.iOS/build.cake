@@ -4,7 +4,7 @@
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
 var iosPlatform = "7.0";
-var facebookiOSSdkVersion = "4.27.1";
+var facebookiOSSdkVersion = "4.30.0";
 var facebookMessengerShareKitVersion = "1.3.2";
 var boltsVersion = "1.8.4";
 
