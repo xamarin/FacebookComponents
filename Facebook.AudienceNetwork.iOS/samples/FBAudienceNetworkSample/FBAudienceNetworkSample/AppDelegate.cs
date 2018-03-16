@@ -33,27 +33,11 @@ namespace FBAudienceNetworkSample
 			return true;
 		}
 
-		// This method is invoked when the application is about to move from active to inactive state.
-		// OpenGL applications should use this method to pause.
-		public override void OnResignActivation (UIApplication application)
+		public static void ShowMessage (string title, string message, UIViewController fromViewController)
 		{
-		}
-		
-		// This method should be used to release shared resources and it should store the application state.
-		// If your application supports background exection this method is called instead of WillTerminate
-		// when the user quits.
-		public override void DidEnterBackground (UIApplication application)
-		{
-		}
-		
-		// This method is called as part of the transiton from background to active state.
-		public override void WillEnterForeground (UIApplication application)
-		{
-		}
-		
-		// This method is called when the application is about to terminate. Save data, if needed.
-		public override void WillTerminate (UIApplication application)
-		{
+			var alertController = UIAlertController.Create (title, message, UIAlertControllerStyle.Alert);
+			alertController.AddAction (UIAlertAction.Create ("Ok", UIAlertActionStyle.Cancel, null));
+			fromViewController.PresentViewController (alertController, true, null);
 		}
 	}
 }

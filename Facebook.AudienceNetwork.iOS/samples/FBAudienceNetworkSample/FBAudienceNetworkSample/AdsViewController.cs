@@ -12,33 +12,59 @@ namespace FBAudienceNetworkSample
 	public partial class AdsViewController : UIViewController, IUITableViewDataSource, IUITableViewDelegate,
 	INativeAdDelegate, IAdViewDelegate, IInterstitialAdDelegate, IRewardedVideoAdDelegate
 	{
+		
+		#region FB Audience Network Placement Ids
+
 		const string bannerPlacementId = "Banner_Placement_Id";
 		const string interstitialPlacementId = "Interstitial_Placement_Id";
 		const string nativePlacementId = "Native_Placement_Id";
 		const string rewardedVideoPlacementId = "Rewarded_Video_Placement_Id";
+
+		#endregion
+
+		#region Class Variables
 
 		List<NativeAdView> nativeAdViews;
 		AdView bannerAdView;
 		InterstitialAd interstitialAd;
 		RewardedVideoAd rewardedVideoAd;
 
+		#endregion
+
+		#region Constructors
+
 		public AdsViewController (IntPtr handle) : base (handle)
 		{
 		}
+
+		#endregion
+
+		#region Controller Life Cycle
 
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 			// Perform any additional setup after loading the view, typically from a nib.
 
+			var nativeAd = new NativeAd ("Native_Placement_Id") { 
+				Delegate = this,
+				MediaCachePolicy = NativeAdsCachePolicy.All
+			};
+			nativeAd.LoadAd ();
+
 			nativeAdViews = new List<NativeAdView> ();
 		}
+
+		#endregion
+
+		#region User Interactions
 
 		partial void BtnShow_Click (NSObject sender)
 		{
 			var actionSheet = UIAlertController.Create (null, null, UIAlertControllerStyle.ActionSheet);
 			actionSheet.AddAction (UIAlertAction.Create ("Cancel", UIAlertActionStyle.Cancel, null));
 			actionSheet.AddAction (UIAlertAction.Create ("Add Native ad to Table", UIAlertActionStyle.Default, AddNativeAd));
+			actionSheet.AddAction (UIAlertAction.Create ("Add Native ad template to Table", UIAlertActionStyle.Default, AddNativeAdTemplate));
 			actionSheet.AddAction (UIAlertAction.Create ("Show Banner ad", UIAlertActionStyle.Default, ShowBannerAd));
 			actionSheet.AddAction (UIAlertAction.Create ("Show Interstitial ad", UIAlertActionStyle.Default, ShowInterstitialAd));
 			actionSheet.AddAction (UIAlertAction.Create ("Show Rewarded Video Ad", UIAlertActionStyle.Default, ShowRewardedVideoAd));
@@ -46,6 +72,13 @@ namespace FBAudienceNetworkSample
 		}
 
 		void AddNativeAd (UIAlertAction obj)
+		{
+			var nativeAd = new NativeAd (nativePlacementId) { Delegate = this };
+			nativeAd.MediaCachePolicy = NativeAdsCachePolicy.All;
+			nativeAd.LoadAd ();
+		}
+
+		void AddNativeAdTemplate (UIAlertAction obj)
 		{
 			var nativeAd = new NativeAd (nativePlacementId) { Delegate = this };
 			nativeAd.LoadAd ();
@@ -81,6 +114,8 @@ namespace FBAudienceNetworkSample
 			rewardedVideoAd.LoadAd ();
 		}
 
+		#endregion
+
 		#region UITableView Data Source
 
 		[Export ("numberOfSectionsInTableView:")]
@@ -90,7 +125,7 @@ namespace FBAudienceNetworkSample
 		public UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
 		{
 			var nativeAdView = nativeAdViews [indexPath.Row];
-			var cell = tableView.DequeueReusableCell (NativeAdTableViewCell.Key, indexPath) as NativeAdTableViewCell;
+			var cell = tableView.DequeueReusableCell (NativeAdTemplateTableViewCell.Key, indexPath) as NativeAdTemplateTableViewCell;
 
 			nativeAdView.Frame = new CGRect (0, 0, cell.AdView.Frame.Width, 300);
 			cell.AdView.AddSubview (nativeAdView);
@@ -127,20 +162,27 @@ namespace FBAudienceNetworkSample
 		[Export ("nativeAdDidLoad:")]
 		public void NativeAdDidLoad (NativeAd nativeAd)
 		{
+			// Native Ad Logic
+			//Console.WriteLine (this.nativeAd == nativeAd);
+
+			// Native Ad Template Logic
 			var nativeAdView = NativeAdView.From (nativeAd, NativeAdViewType.GenericHeight300);
 			nativeAdViews.Add (nativeAdView);
 
-			// Register the native ad view and its view controller with the native ad instance
-			nativeAd.RegisterView (nativeAdView, this);
+			//// Register the native ad view and its view controller with the native ad instance
+			//nativeAd.RegisterView (nativeAdView, this);
 
-			var newIndexPath = NSIndexPath.FromRowSection (nativeAdViews.Count - 1, 0);
-			AdsTableView.InsertRows (new [] { newIndexPath }, UITableViewRowAnimation.Automatic);
-			AdsTableView.ScrollToRow (newIndexPath, UITableViewScrollPosition.Bottom, true);
+			//var newIndexPath = NSIndexPath.FromRowSection (nativeAdViews.Count - 1, 0);
+			//AdsTableView.InsertRows (new [] { newIndexPath }, UITableViewRowAnimation.Automatic);
+			//AdsTableView.ScrollToRow (newIndexPath, UITableViewScrollPosition.Bottom, true);
 		}
 
 		[Export ("nativeAd:didFailWithError:")]
-		public void NativeAdDidFail (NativeAd nativeAd, NSError error) =>
-		Console.WriteLine ($"{nameof (NativeAdDidFail)} - Native ad failed to load with error: {error.LocalizedDescription}");
+		public void NativeAdDidFail (NativeAd nativeAd, NSError error)
+		{
+			Console.WriteLine ($"{nameof (NativeAdDidFail)} - Native ad failed to load with error: {error.LocalizedDescription}");
+			AppDelegate.ShowMessage ("Native Ad Error", error.LocalizedDescription, NavigationController);
+		}
 
 		[Export ("nativeAdDidClick:")]
 		public void NativeAdDidClick (NativeAd nativeAd) =>
@@ -163,8 +205,11 @@ namespace FBAudienceNetworkSample
 		Console.WriteLine ($"{nameof (AdViewDidLoad)} - Ad was loaded and ready to be displayed");
 
 		[Export ("adView:didFailWithError:")]
-		public void AdViewDidFail (AdView adView, NSError error) =>
-		Console.WriteLine ($"{nameof (AdViewDidFail)} - Ad failed to load: {error.LocalizedDescription}");
+		public void AdViewDidFail (AdView adView, NSError error)
+		{
+			Console.WriteLine ($"{nameof (AdViewDidFail)} - Ad failed to load: {error.LocalizedDescription}");
+			AppDelegate.ShowMessage ("Banner Ad Error", error.LocalizedDescription, NavigationController);
+		}
 
 		[Export ("adViewDidClick:")]
 		public void AdViewDidClick (AdView adView) =>
@@ -192,8 +237,11 @@ namespace FBAudienceNetworkSample
 		}
 
 		[Export ("interstitialAd:didFailWithError:")]
-		public void IntersitialDidFail (InterstitialAd interstitialAd, NSError error) =>
-		Console.WriteLine ($"{nameof (IntersitialDidFail)} - Ad failed to load: {error.LocalizedDescription}");
+		public void IntersitialDidFail (InterstitialAd interstitialAd, NSError error)
+		{
+			Console.WriteLine ($"{nameof (IntersitialDidFail)} - Ad failed to load: {error.LocalizedDescription}");
+			AppDelegate.ShowMessage ("Interstitial Ad Error", error.LocalizedDescription, NavigationController);
+		}
 
 		[Export ("interstitialAdWillLogImpression:")]
 		public void InterstitialAdWillLogImpression (InterstitialAd interstitialAd) =>
@@ -224,8 +272,11 @@ namespace FBAudienceNetworkSample
 		}
 
 		[Export ("rewardedVideoAd:didFailWithError:")]
-		public void RewardedVideoAdDidFail (RewardedVideoAd rewardedVideoAd, NSError error) =>
-		Console.WriteLine ($"{nameof (RewardedVideoAdDidFail)} - Rewarded video ad failed to load: {error.LocalizedDescription}");
+		public void RewardedVideoAdDidFail (RewardedVideoAd rewardedVideoAd, NSError error)
+		{
+			Console.WriteLine ($"{nameof (RewardedVideoAdDidFail)} - Rewarded video ad failed to load: {error.LocalizedDescription}");
+			AppDelegate.ShowMessage ("Banner Ad Error", error.LocalizedDescription, NavigationController);
+		}
 
 		[Export ("rewardedVideoAdDidClick:")]
 		public void RewardedVideoAdDidClick (RewardedVideoAd rewardedVideoAd) =>

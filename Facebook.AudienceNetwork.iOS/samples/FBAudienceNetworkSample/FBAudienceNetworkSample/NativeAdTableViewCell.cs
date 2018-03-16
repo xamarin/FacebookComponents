@@ -7,9 +7,29 @@ namespace FBAudienceNetworkSample
 {
 	public partial class NativeAdTableViewCell : UITableViewCell
 	{
-		public static readonly NSString Key = new NSString ("NativeAdTableViewCell");
+		public static readonly NSString Key = new NSString (nameof (NativeAdTableViewCell));
 
 		public UIView AdView { get => View; }
+		public UIImage AdIcon { 
+			get => ImgAdIcon.Image; 
+			set => ImgAdIcon.Image = value; 
+		}
+		public string AdTitle { 
+			get => LblAdTitle.Text; 
+			set => LblAdTitle.Text = value; 
+		}
+		public string Sponsored { 
+			get => LblSponsored.Text; 
+			set => LblSponsored.Text = value; 
+		}
+		public string AdSocialContext { 
+			get => LblAdSocialContext.Text; 
+			set => LblAdSocialContext.Text = value; 
+		}
+		public string AdBody { 
+			get => LblAdBody.Text; 
+			set => LblAdBody.Text = value; 
+		}
 
 		protected NativeAdTableViewCell (IntPtr handle) : base (handle)
 		{
