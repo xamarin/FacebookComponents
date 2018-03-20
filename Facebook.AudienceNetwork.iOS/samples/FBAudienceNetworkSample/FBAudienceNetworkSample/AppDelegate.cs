@@ -26,9 +26,7 @@ namespace FBAudienceNetworkSample
 		{
 			UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
 
-			AdSettings.LogLevel = AdLogLevel.Log;
-			AdSettings.ClearTestDevices ();
-			AdSettings.AddTestDevice ("HASH_ID");
+			AdPlacementIds.AddTestDevices ();
 
 			return true;
 		}

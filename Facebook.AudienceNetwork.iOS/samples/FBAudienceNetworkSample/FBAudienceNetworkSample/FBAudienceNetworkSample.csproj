@@ -123,10 +123,7 @@
     <Compile Include="NativeAdTableViewCell.designer.cs">
       <DependentUpon>NativeAdTableViewCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
-    </Compile>
+    <Compile Include="AdPlacementIds.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

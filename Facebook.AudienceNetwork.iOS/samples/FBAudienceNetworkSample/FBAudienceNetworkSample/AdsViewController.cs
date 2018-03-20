@@ -12,16 +12,6 @@ namespace FBAudienceNetworkSample
 	public partial class AdsViewController : UIViewController, IUITableViewDataSource, IUITableViewDelegate,
 	INativeAdDelegate, IAdViewDelegate, IInterstitialAdDelegate, IRewardedVideoAdDelegate
 	{
-		
-		#region FB Audience Network Placement Ids
-
-		const string bannerPlacementId = "Banner_Placement_Id";
-		const string interstitialPlacementId = "Interstitial_Placement_Id";
-		const string nativePlacementId = "Native_Placement_Id";
-		const string rewardedVideoPlacementId = "Rewarded_Video_Placement_Id";
-
-		#endregion
-
 		#region Class Variables
 
 		List<NativeAdView> nativeAdViews;
@@ -46,12 +36,6 @@ namespace FBAudienceNetworkSample
 			base.ViewDidLoad ();
 			// Perform any additional setup after loading the view, typically from a nib.
 
-			var nativeAd = new NativeAd ("Native_Placement_Id") { 
-				Delegate = this,
-				MediaCachePolicy = NativeAdsCachePolicy.All
-			};
-			nativeAd.LoadAd ();
-
 			nativeAdViews = new List<NativeAdView> ();
 		}
 
@@ -73,14 +57,14 @@ namespace FBAudienceNetworkSample
 
 		void AddNativeAd (UIAlertAction obj)
 		{
-			var nativeAd = new NativeAd (nativePlacementId) { Delegate = this };
+			var nativeAd = new NativeAd (AdPlacementIds.Native) { Delegate = this };
 			nativeAd.MediaCachePolicy = NativeAdsCachePolicy.All;
 			nativeAd.LoadAd ();
 		}
 
 		void AddNativeAdTemplate (UIAlertAction obj)
 		{
-			var nativeAd = new NativeAd (nativePlacementId) { Delegate = this };
+			var nativeAd = new NativeAd (AdPlacementIds.Native) { Delegate = this };
 			nativeAd.LoadAd ();
 		}
 
@@ -90,7 +74,7 @@ namespace FBAudienceNetworkSample
 			bannerAdView?.Dispose ();
 			bannerAdView = null;
 
-			bannerAdView = new AdView (bannerPlacementId, AdSizes.BannerHeight50, this) { Delegate = this };
+			bannerAdView = new AdView (AdPlacementIds.Banner, AdSizes.BannerHeight50, this) { Delegate = this };
 			bannerAdView.Frame = new CGRect (0, 0, bannerAdView.Bounds.Width, bannerAdView.Bounds.Height);
 			bannerAdView.LoadAd ();
 			BannerView.AddSubview (bannerAdView);
@@ -101,7 +85,7 @@ namespace FBAudienceNetworkSample
 			interstitialAd?.Dispose ();
 			interstitialAd = null;
 
-			interstitialAd = new InterstitialAd (interstitialPlacementId) { Delegate = this };
+			interstitialAd = new InterstitialAd (AdPlacementIds.Interstitial) { Delegate = this };
 			interstitialAd.LoadAd ();
 		}
 
@@ -110,7 +94,7 @@ namespace FBAudienceNetworkSample
 			rewardedVideoAd?.Dispose ();
 			rewardedVideoAd = null;
 
-			rewardedVideoAd = new RewardedVideoAd (rewardedVideoPlacementId) { Delegate = this };
+			rewardedVideoAd = new RewardedVideoAd (AdPlacementIds.RewardedVideo) { Delegate = this };
 			rewardedVideoAd.LoadAd ();
 		}
 
@@ -162,19 +146,16 @@ namespace FBAudienceNetworkSample
 		[Export ("nativeAdDidLoad:")]
 		public void NativeAdDidLoad (NativeAd nativeAd)
 		{
-			// Native Ad Logic
-			//Console.WriteLine (this.nativeAd == nativeAd);
-
 			// Native Ad Template Logic
 			var nativeAdView = NativeAdView.From (nativeAd, NativeAdViewType.GenericHeight300);
 			nativeAdViews.Add (nativeAdView);
 
-			//// Register the native ad view and its view controller with the native ad instance
-			//nativeAd.RegisterView (nativeAdView, this);
+			// Register the native ad view and its view controller with the native ad instance
+			nativeAd.RegisterView (nativeAdView, this);
 
-			//var newIndexPath = NSIndexPath.FromRowSection (nativeAdViews.Count - 1, 0);
-			//AdsTableView.InsertRows (new [] { newIndexPath }, UITableViewRowAnimation.Automatic);
-			//AdsTableView.ScrollToRow (newIndexPath, UITableViewScrollPosition.Bottom, true);
+			var newIndexPath = NSIndexPath.FromRowSection (nativeAdViews.Count - 1, 0);
+			AdsTableView.InsertRows (new [] { newIndexPath }, UITableViewRowAnimation.Automatic);
+			AdsTableView.ScrollToRow (newIndexPath, UITableViewScrollPosition.Bottom, true);
 		}
 
 		[Export ("nativeAd:didFailWithError:")]
