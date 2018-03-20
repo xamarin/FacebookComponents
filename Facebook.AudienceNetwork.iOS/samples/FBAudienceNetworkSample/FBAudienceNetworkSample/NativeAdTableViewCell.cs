@@ -3,6 +3,8 @@
 using Foundation;
 using UIKit;
 
+using Facebook.AudienceNetwork;
+
 namespace FBAudienceNetworkSample
 {
 	public partial class NativeAdTableViewCell : UITableViewCell
@@ -10,6 +12,9 @@ namespace FBAudienceNetworkSample
 		public static readonly NSString Key = new NSString (nameof (NativeAdTableViewCell));
 
 		public UIView AdView { get => View; }
+		public MediaView CoverMediaViewAd { get => AdCoverMediaView; }
+		public AdChoicesView ChoiceViewAd { get => AdChoiceView; }
+		public UIButton AdCallToActionButton { get => BtnAdCallToAction; }
 		public UIImage AdIcon { 
 			get => ImgAdIcon.Image; 
 			set => ImgAdIcon.Image = value; 

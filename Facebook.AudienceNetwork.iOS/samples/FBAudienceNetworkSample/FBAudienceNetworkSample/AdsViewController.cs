@@ -14,7 +14,11 @@ namespace FBAudienceNetworkSample
 	{
 		#region Class Variables
 
-		List<NativeAdView> nativeAdViews;
+		static object padlock = new object ();
+
+		List<CustomNativeAd> customNativeAds;
+		NativeAd nativeAd;
+		NativeAd nativeAdTemplate;
 		AdView bannerAdView;
 		InterstitialAd interstitialAd;
 		RewardedVideoAd rewardedVideoAd;
@@ -36,7 +40,7 @@ namespace FBAudienceNetworkSample
 			base.ViewDidLoad ();
 			// Perform any additional setup after loading the view, typically from a nib.
 
-			nativeAdViews = new List<NativeAdView> ();
+			customNativeAds = new List<CustomNativeAd> ();
 		}
 
 		#endregion
@@ -57,15 +61,15 @@ namespace FBAudienceNetworkSample
 
 		void AddNativeAd (UIAlertAction obj)
 		{
-			var nativeAd = new NativeAd (AdPlacementIds.Native) { Delegate = this };
+			nativeAd = new NativeAd (AdPlacementIds.Native) { Delegate = this };
 			nativeAd.MediaCachePolicy = NativeAdsCachePolicy.All;
 			nativeAd.LoadAd ();
 		}
 
 		void AddNativeAdTemplate (UIAlertAction obj)
 		{
-			var nativeAd = new NativeAd (AdPlacementIds.Native) { Delegate = this };
-			nativeAd.LoadAd ();
+			nativeAdTemplate = new NativeAd (AdPlacementIds.Native) { Delegate = this };
+			nativeAdTemplate.LoadAd ();
 		}
 
 		void ShowBannerAd (UIAlertAction obj)
@@ -104,17 +108,39 @@ namespace FBAudienceNetworkSample
 
 		[Export ("numberOfSectionsInTableView:")]
 		public nint NumberOfSections (UITableView tableView) => 1;
-		public nint RowsInSection (UITableView tableView, nint section) => nativeAdViews.Count;
+		public nint RowsInSection (UITableView tableView, nint section) => customNativeAds.Count;
 
 		public UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
 		{
-			var nativeAdView = nativeAdViews [indexPath.Row];
-			var cell = tableView.DequeueReusableCell (NativeAdTemplateTableViewCell.Key, indexPath) as NativeAdTemplateTableViewCell;
+			var customNativeAd = customNativeAds [indexPath.Row];
 
-			nativeAdView.Frame = new CGRect (0, 0, cell.AdView.Frame.Width, 300);
-			cell.AdView.AddSubview (nativeAdView);
+			if (customNativeAd.IsTemplate) {
+				var cell = tableView.DequeueReusableCell (NativeAdTemplateTableViewCell.Key, indexPath) as NativeAdTemplateTableViewCell;
+				var nativeAdView = NativeAdView.From (customNativeAd.NativeAd, NativeAdViewType.GenericHeight300);
+				nativeAdView.Frame = new CGRect (0, 0, cell.AdView.Frame.Width, 300);
+				cell.AdView.AddSubview (nativeAdView);
 
-			return cell;
+				return cell;
+			} else {
+				var cell = tableView.DequeueReusableCell (NativeAdTableViewCell.Key, indexPath) as NativeAdTableViewCell;
+
+				// Wire up UIView with the native ad; only call to action button and media view will be clickable.
+				customNativeAd.NativeAd.RegisterView (cell.AdView, this, new UIView [] { cell.CoverMediaViewAd, cell.AdCallToActionButton });
+
+				// Create native UI using the ad metadata.
+				cell.CoverMediaViewAd.NativeAd = customNativeAd.NativeAd;
+
+				// Render native ads onto UIView
+				cell.AdTitle = customNativeAd.NativeAd.Title;
+				cell.AdBody = customNativeAd.NativeAd.Body;
+				cell.AdSocialContext = customNativeAd.NativeAd.SocialContext;
+				cell.Sponsored = "Sponsored";
+				cell.AdCallToActionButton.SetTitle (customNativeAd.NativeAd.CallToAction, UIControlState.Normal);
+				cell.ChoiceViewAd.NativeAd = customNativeAd.NativeAd;
+				cell.ChoiceViewAd.Corner = UIRectCorner.TopRight;
+
+				return cell;
+			}
 		}
 
 		#endregion
@@ -129,14 +155,26 @@ namespace FBAudienceNetworkSample
 		{
 			switch (editingStyle) {
 			case UITableViewCellEditingStyle.Delete:
-				var nativeAdView = nativeAdViews [indexPath.Row];
-				nativeAdView.Dispose ();
-				nativeAdView = null;
-				nativeAdViews.RemoveAt (indexPath.Row);
+				var customNativeAd = customNativeAds [indexPath.Row];
+				customNativeAd.AdImage = null;
+				customNativeAd.NativeAd.Dispose ();
+				customNativeAd.NativeAd = null;
+				customNativeAds.RemoveAt (indexPath.Row);
 				tableView.DeleteRows (new [] { indexPath }, UITableViewRowAnimation.Automatic);
 
 				break;
 			}
+		}
+
+		#endregion
+
+		#region Internal Functionality
+
+		void InsertRow ()
+		{
+			var newIndexPath = NSIndexPath.FromRowSection (customNativeAds.Count - 1, 0);
+			AdsTableView.InsertRows (new [] { newIndexPath }, UITableViewRowAnimation.Automatic);
+			AdsTableView.ScrollToRow (newIndexPath, UITableViewScrollPosition.Bottom, true);
 		}
 
 		#endregion
@@ -146,16 +184,35 @@ namespace FBAudienceNetworkSample
 		[Export ("nativeAdDidLoad:")]
 		public void NativeAdDidLoad (NativeAd nativeAd)
 		{
-			// Native Ad Template Logic
-			var nativeAdView = NativeAdView.From (nativeAd, NativeAdViewType.GenericHeight300);
-			nativeAdViews.Add (nativeAdView);
+			CustomNativeAd customNativeAd;
+			lock (padlock) {
+				customNativeAd = new CustomNativeAd (nativeAd, nativeAdTemplate == nativeAd);
+				customNativeAds.Add (customNativeAd);
+			}
 
-			// Register the native ad view and its view controller with the native ad instance
-			nativeAd.RegisterView (nativeAdView, this);
+			if (!customNativeAd.IsTemplate) {
+				InsertRow ();
+				return;
+			}
 
-			var newIndexPath = NSIndexPath.FromRowSection (nativeAdViews.Count - 1, 0);
-			AdsTableView.InsertRows (new [] { newIndexPath }, UITableViewRowAnimation.Automatic);
-			AdsTableView.ScrollToRow (newIndexPath, UITableViewScrollPosition.Bottom, true);
+			customNativeAd.NativeAd.Icon.LoadImageAsync (HandleAdImageCompletion);
+
+			void HandleAdImageCompletion (UIImage imageLoaded)
+			{
+				customNativeAd.AdImage = imageLoaded;
+				InsertRow ();
+			}
+
+			//// Native Ad Template Logic
+			//var nativeAdView = NativeAdView.From (nativeAd, NativeAdViewType.GenericHeight300);
+			//customNativeAds.Add (nativeAdView);
+
+			//// Register the native ad view and its view controller with the native ad instance
+			//nativeAd.RegisterView (nativeAdView, this);
+
+			//var newIndexPath = NSIndexPath.FromRowSection (customNativeAds.Count - 1, 0);
+			//AdsTableView.InsertRows (new [] { newIndexPath }, UITableViewRowAnimation.Automatic);
+			//AdsTableView.ScrollToRow (newIndexPath, UITableViewScrollPosition.Bottom, true);
 		}
 
 		[Export ("nativeAd:didFailWithError:")]

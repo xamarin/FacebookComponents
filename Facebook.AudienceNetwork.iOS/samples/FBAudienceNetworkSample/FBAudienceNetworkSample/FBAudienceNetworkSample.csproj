@@ -124,6 +124,7 @@
       <DependentUpon>NativeAdTableViewCell.cs</DependentUpon>
     </Compile>
     <Compile Include="AdPlacementIds.cs" />
+    <Compile Include="CustomNativeAd.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
