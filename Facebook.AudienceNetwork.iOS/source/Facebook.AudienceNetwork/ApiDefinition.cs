@@ -372,6 +372,10 @@ namespace Facebook.AudienceNetwork
 
 		[Export ("showAdFromRootViewController:")]
 		bool ShowAd ([NullAllowed] UIViewController rootViewController);
+
+		[Obsolete ("Use ShowAd method instead. This will be removed in future versions.")]
+		[Wrap ("ShowAd (rootViewController)")]
+		bool ShowAdFromRootViewController (UIViewController rootViewController);
 	}
 
 	interface IInterstitialAdDelegate
@@ -1118,10 +1122,6 @@ namespace Facebook.AudienceNetwork
 		// -(BOOL)showAdFromRootViewController:(UIViewController * _Nonnull)rootViewController animated:(BOOL)flag;
 		[Export ("showAdFromRootViewController:animated:")]
 		bool ShowAd (UIViewController rootViewController, bool flag);
-
-		[Obsolete ("Use ShowAd method instead. This will be removed in future versions.")]
-		[Wrap ("ShowAd (rootViewController)")]
-		bool ShowAdFromRootViewController (UIViewController rootViewController);
 	}
 
 	interface IRewardedVideoAdDelegate { }
