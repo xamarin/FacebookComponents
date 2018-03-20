@@ -3,21 +3,11 @@
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
-var iosPlatform = "7.0";
-var fbAudienceNetworkiOSSdkVersion = "4.26.0";
-var KVOControllerVersion = "1.2.0";
-
-var IOS_PODS = new List<string> {
-	"source 'https://github.com/CocoaPods/Specs.git'",
-	$"platform :ios, '{iosPlatform}'",
-	"install! 'cocoapods', :integrate_targets => false",
-	"target 'FBAudienceNetworkiOS' do",
-	$"\tpod 'FBAudienceNetwork', '{fbAudienceNetworkiOSSdkVersion}'",
-	$"\tpod 'KVOController', '{KVOControllerVersion}'",
-	"end",
-};
-
-string [] IOS_TARGETS = { "KVOController" };
+var SDK_VERSION = "4.27.2";
+var SDK_URL = string.Format ("https://origincache.facebook.com/developers/resources/?id=FBAudienceNetwork-{0}.zip", SDK_VERSION);
+var SDK_FILE = "FBAudienceNetwork.zip";
+var SDK_PATH = "./externals/FBAudienceNetwork";
+var SDK_FRAMEWORK = "FBAudienceNetwork.framework";
 
 var buildSpec = new BuildSpec () {
 	Libs = new ISolutionBuilder [] {
@@ -53,22 +43,21 @@ var buildSpec = new BuildSpec () {
 
 Task ("externals")
 	.IsDependentOn ("externals-base")
-	.WithCriteria (!FileExists ("./externals/Facebook.AudienceNetwork.a"))
+	.WithCriteria (!FileExists ($"./externals/{SDK_FRAMEWORK}"))
 	.Does (() => 
 {
 	EnsureDirectoryExists ("./externals");
 
-	if (CocoaPodVersion () < new System.Version (1, 0))
-		IOS_PODS.RemoveAt (2);
+	DownloadFile (SDK_URL, $"./externals/{SDK_FILE}", new Cake.Xamarin.Build.DownloadFileSettings
+	{
+		UserAgent = "curl/7.43.0"
+	});
 
-	FileWriteLines ("./externals/Podfile", IOS_PODS.ToArray ());
+	Unzip ($"./externals/{SDK_FILE}", SDK_PATH);
 
-	CocoaPodInstall ("./externals", new CocoaPodInstallSettings { });
+	CopyDirectory ($"{SDK_PATH}/{SDK_FRAMEWORK}", $"./externals/{SDK_FRAMEWORK}");
 
-	CopyFile ("./externals/Pods/FBAudienceNetwork/FBAudienceNetwork.framework/FBAudienceNetwork", "./externals/Facebook.AudienceNetwork.a");
-
-	foreach (var target in IOS_TARGETS)
-		BuildXCodeFatLibrary ("./Pods/Pods.xcodeproj", target, Archs.Simulator | Archs.Simulator64 | Archs.ArmV7 | Archs.Arm64, target, $"{target}.a", null, target);
+	DeleteDirectory (SDK_PATH, true);
 });
 
 Task ("clean").IsDependentOn ("clean-base").Does (() => 
