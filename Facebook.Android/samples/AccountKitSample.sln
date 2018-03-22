@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountKitSample", "AccountKitSample\AccountKitSample.csproj", "{51876BA5-6A59-4A98-A674-C7309543D047}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Facebook.AccountKit", "..\source\Xamarin.Facebook.AccountKit\Xamarin.Facebook.AccountKit.csproj", "{D8D26D33-F5F0-4597-B0A6-B1B3A97C8502}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51876BA5-6A59-4A98-A674-C7309543D047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51876BA5-6A59-4A98-A674-C7309543D047}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51876BA5-6A59-4A98-A674-C7309543D047}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{51876BA5-6A59-4A98-A674-C7309543D047}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51876BA5-6A59-4A98-A674-C7309543D047}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51876BA5-6A59-4A98-A674-C7309543D047}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D8D26D33-F5F0-4597-B0A6-B1B3A97C8502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8D26D33-F5F0-4597-B0A6-B1B3A97C8502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8D26D33-F5F0-4597-B0A6-B1B3A97C8502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8D26D33-F5F0-4597-B0A6-B1B3A97C8502}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ACD8298D-83DB-4FE7-8D55-638E6FF6A75D}
+	EndGlobalSection
+EndGlobal
