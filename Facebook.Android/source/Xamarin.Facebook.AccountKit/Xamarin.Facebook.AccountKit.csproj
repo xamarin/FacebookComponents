@@ -100,9 +100,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\externals\accountkit.aar">
+    <LibraryProjectZip Include="..\..\externals\accountkit.aar">
       <Link>Jars\accountkit.aar</Link>
-    </None>
+    </LibraryProjectZip>
     <None Include="Additions\AboutAdditions.txt" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -114,9 +114,9 @@
     <TransformFile Include="Transforms\EnumMethods.xml" />
   </ItemGroup>
   <ItemGroup>
-    <InputJar Include="..\..\externals\libphonenumber.jar">
+    <ReferenceJar Include="..\..\externals\libphonenumber.jar">
       <Link>Jars\libphonenumber.jar</Link>
-    </InputJar>
+    </ReferenceJar>
     <Content Include="Jars\AboutJars.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
