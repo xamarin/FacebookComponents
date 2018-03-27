@@ -28,7 +28,8 @@ namespace AccountKitSample
                 HandleSuccess = accountResult =>
                 {
                     string email = accountResult.Email;
-                    FindViewById<TextView>(Resource.Id.LogginInText).Text = email;
+                    string phone = accountResult.PhoneNumber?.ToString();
+                    FindViewById<TextView>(Resource.Id.LogginInText).Text = email ?? phone;
                 },
                 HandleError = loginError =>
                 {
