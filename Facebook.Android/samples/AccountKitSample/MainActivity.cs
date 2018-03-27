@@ -45,7 +45,6 @@ namespace AccountKitSample
 
                 FindViewById<Button>(Resource.Id.buttonLogInEmail).Click += delegate
                 {
-                    GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
                     Intent intent = new Intent(this, typeof(AccountKitActivity));
                     AccountKitConfiguration.AccountKitConfigurationBuilder configurationBuilder =
                         new AccountKitConfiguration.AccountKitConfigurationBuilder(
