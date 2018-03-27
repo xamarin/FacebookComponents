@@ -13,10 +13,12 @@ libraries:
   android: 
     - ../output/Xamarin.Facebook.dll
     - ../output/Xamarin.Facebook.AudienceNetwork.dll
+    - ../output/Xamarin.Facebook.AccountKit.dll
 packages:
   android:
     - Xamarin.Facebook.Android, Version=4.26.0
     - Xamarin.Facebook.AudienceNetwork.Android, Version=4.26.0
+    - Xamarin.Facebook.AccountKit.Android, Version=4.28.0    
 samples:
   - name: "Hello Facebook Sample"
     path: ../samples/HelloFacebookSample.sln
@@ -46,6 +48,14 @@ samples:
         packages:
           - Xamarin.Facebook.Android
           - Xamarin.Facebook.AudienceNetwork.Android
+  - name: "Account Kit Sample"
+    path: ../samples/AccountKitSample.sln
+    removeProjects:
+      - Xamarin.Facebook.AccountKit
+    installNuGets:
+      - project: AccountKitSample
+        packages:
+          - Xamarin.Facebook.AccountKit.Android
 additional-files:
   - source: "../External-Dependency-Info.txt"
     destination: "THIRD-PARTY-NOTICES.txt"
