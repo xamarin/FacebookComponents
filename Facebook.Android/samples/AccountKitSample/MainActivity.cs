@@ -87,7 +87,7 @@ namespace AccountKitSample
                     }
 
                     // If you have an authorization code, retrieve it from
-                    // loginResult.getAuthorizationCode()
+                    //var authCode = loginResult.AuthorizationCode;
                     // and pass it to your server and exchange it for an access token.
 
                     // Success! Start your next activity...
