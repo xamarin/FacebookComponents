@@ -13,7 +13,7 @@ var AN_VERSION = "4.26.0";
 var AN_URL = string.Format ("http://search.maven.org/remotecontent?filepath=com/facebook/android/audience-network-sdk/{0}/audience-network-sdk-{0}.aar", AN_VERSION);
 
 var AK_VERSION = "4.28.0";
-var AK_URL = string.Format ("http://search.maven.org/remotecontent?filepath=com/facebook/android/account-kit-sdk/{0}/account-kit-sdk-{0}.aar", AN_VERSION);
+var AK_URL = string.Format ("http://search.maven.org/remotecontent?filepath=com/facebook/android/account-kit-sdk/{0}/account-kit-sdk-{0}.aar", AK_VERSION);
 
 //AK dependency
 var PN_VERSION = "8.5.2";
