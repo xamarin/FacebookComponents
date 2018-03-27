@@ -3,7 +3,7 @@
 
 var FB_NUGET_VERSION = "4.26.0";
 var AN_NUGET_VERSION = "4.26.0";
-var AK_NUGET_VERSION = "4.28.0";
+var AK_NUGET_VERSION = "4.28.0-alpha";
 
 var FB_VERSION = "4.26.0";
 var FB_URL = string.Format ("http://search.maven.org/remotecontent?filepath=com/facebook/android/facebook-android-sdk/{0}/facebook-android-sdk-{0}.aar", FB_VERSION);
