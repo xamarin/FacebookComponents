@@ -45,7 +45,7 @@ var buildSpec = new BuildSpec () {
 	NuGets = new [] {
 		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.Android.nuspec", Version = FB_NUGET_VERSION },
 		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.AudienceNetwork.Android.nuspec", Version = AN_NUGET_VERSION },
-		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.AccountKit.Android.nuspec", Version = AN_NUGET_VERSION },		
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.AccountKit.Android.nuspec", Version = AK_NUGET_VERSION },		
 	},
 
 	Components = new [] {
