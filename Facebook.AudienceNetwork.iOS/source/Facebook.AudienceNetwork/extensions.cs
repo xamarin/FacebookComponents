@@ -117,13 +117,4 @@ namespace Facebook.AudienceNetwork
 			}
 		}
 	}
-
-	public partial class InterstitialAd
-	{
-		[Obsolete ("Use ShowAd method instead. This will be removed in future versions.")]
-		public bool ShowAdFromRootViewController (UIViewController rootViewController)
-		{
-			return ShowAd (rootViewController);
-		}
-	}
 }

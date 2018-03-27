@@ -1,7 +1,16 @@
-The Audience Network allows you to monetize your iOS apps with Facebook ads.
+Facebook's Audience Network allows you to monetize your iOS apps with targeted ads. Audience Network gives you a powerful way to make more money and grow your business with Facebook ads while you keep users engaged.
 
-You can choose between 3 ways of adding ads to your app:
+## How Audience Network Helps You Monetize Your App
 
-- **Banner Ad:** Add an ad on the top or bottom of your app
-- **Interstitial Ad:** Load a full screen ad at some moment within your app
-- **Native Ad:** give you the control to design the perfect ad units for your app. With our Native Ad API, you can determine the look and feel, size and location of your ads.
+* **Facebook Targeting Based on Real People:** Show highly targeted ads that match the interests of your users.
+* **Better Ads, Better User Experience:** Native ads that fit your app make for a great experience.
+* **More Money for You:** Earn more revenue when your users engage with ads.
+
+## Flexible, High-Performing Formats
+
+Drive better performance with ads people want to see. With Audience Network, you can deliver compelling ads to your users. You choose how they look and where they appear in the user flow:
+
+* **Native:** Ads that you design to fit your app, seamlessly.
+* **Interstitial:** Full-screen ads that capture attention and become part of the experience.
+* **Banner:** Traditional formats in a variety of placements.
+* **In-Stream Video:** Show ad content during a video for high revenue potential.

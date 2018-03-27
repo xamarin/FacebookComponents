@@ -4,6 +4,6 @@ obj
 output
 tools
 externals
-*.designer.cs
 *.userprefs
 *.DS_Store
+.vs/
