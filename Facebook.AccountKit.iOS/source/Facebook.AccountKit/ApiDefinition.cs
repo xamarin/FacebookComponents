@@ -366,7 +366,8 @@ namespace Facebook.AccountKit
     }
 
     // @protocol AKFViewController <AKFUIManaging, AKFConfiguring>
-    [Protocol, Model]
+    //[Protocol, Model]
+    [Model]
     [BaseType(typeof(NSObject))]
     interface ViewController : UIManaging, Configuring
     {
@@ -375,12 +376,12 @@ namespace Facebook.AccountKit
         ViewControllerDelegate Delegate { get; set; }
 
         // @required @property (nonatomic, weak) id<AKFViewControllerDelegate> delegate;
-        [Abstract]
+        //[Abstract]
         [NullAllowed, Export("delegate", ArgumentSemantic.Weak)]
         NSObject WeakDelegate { get; set; }
 
         // @required @property (readonly, assign, nonatomic) AKFLoginType loginType;
-        [Abstract]
+        //[Abstract]
         [Export("loginType", ArgumentSemantic.Assign)]
         LoginType LoginType { get; }
     }

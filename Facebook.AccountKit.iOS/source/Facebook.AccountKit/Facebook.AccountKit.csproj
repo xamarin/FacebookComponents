@@ -47,9 +47,12 @@
     <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="Native References/AccountKit.framework">
+    <NativeReference Include="..\..\externals\AccountKit.framework">
       <Kind>Framework</Kind>
       <ForceLoad>True</ForceLoad>
+      <Frameworks>UIKit Foundation AudioToolbox CoreGraphics CoreLocation Accounts Security Social</Frameworks>
+      <LinkerFlags>-lc++ -lxml2</LinkerFlags>
+      <WeakFrameworks>QuartzCore</WeakFrameworks>
     </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
