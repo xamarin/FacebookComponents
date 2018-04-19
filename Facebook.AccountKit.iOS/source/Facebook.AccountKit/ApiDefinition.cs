@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using ObjCRuntime;
 using Foundation;
@@ -387,6 +387,7 @@ namespace Facebook.AccountKit
         LoginType LoginType { get; }
     }
 
+    //For dealing with members that have the return type UIViewController<AKFViewController>
     [BaseType(typeof(UIViewController))]
     [Protocol]
     interface IUIViewController : ViewController { }
