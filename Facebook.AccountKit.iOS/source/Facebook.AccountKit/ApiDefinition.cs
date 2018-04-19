@@ -4,13 +4,11 @@ using ObjCRuntime;
 using Foundation;
 using UIKit;
 
-//using AccountKit;
-
 namespace Facebook.AccountKit
 {
     // @protocol AKFAccessToken <NSObject, NSCopying, NSSecureCoding>
     [Protocol, Model]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = "AKFAccessToken")]
     interface AccessToken : INSCopying, INSSecureCoding
     {
         // @required @property (readonly, copy, nonatomic) NSString * _Nonnull accountID;
@@ -39,9 +37,11 @@ namespace Facebook.AccountKit
         string TokenString { get; }
     }
 
+    interface IAccessToken{}
+
     // @protocol AKFAccount <NSObject, NSCopying, NSSecureCoding>
     [Protocol, Model]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = "AKFAccount")]
     interface Account : INSCopying, INSSecureCoding
     {
         // @required @property (readonly, copy, nonatomic) NSString * _Nonnull accountID;
@@ -59,6 +59,8 @@ namespace Facebook.AccountKit
         [NullAllowed, Export("phoneNumber", ArgumentSemantic.Copy)]
         PhoneNumber PhoneNumber { get; }
     }
+
+    interface IAccount {}
 
     // @protocol AKFConfiguring
     [Protocol]
@@ -91,7 +93,7 @@ namespace Facebook.AccountKit
     }
 
     // @interface Theme : NSObject <NSCopying>
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = "AKFTheme")]
     interface Theme : INSCopying
     {
         [Field("AKFButtonTypeCount", "__Internal")]
@@ -269,7 +271,7 @@ namespace Facebook.AccountKit
 
     // @protocol AKFActionController <NSObject>
     [Protocol, Model]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = "AKFActionController")]
     interface ActionController
     {
         // @required -(void)back;
@@ -285,7 +287,7 @@ namespace Facebook.AccountKit
 
     // @protocol AKFUIManager <NSObject>
     [Protocol, Model]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = "AKFUIManager")]
     interface UIManager
     {
         // @optional -(UIView * _Nullable)actionBarViewForState:(AKFLoginFlowState)state;
@@ -332,21 +334,21 @@ namespace Facebook.AccountKit
 
     // @protocol AKFAdvancedUIManager <AKFUIManager>
     [Protocol, Model]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = "AKFAdvancedUIManager")]
     interface AdvancedUIManager : UIManager
     {
     }
 
     // @protocol AKFAdvancedUIActionController <AKFActionController>
     [Protocol, Model]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = "AKFAdvancedUIActionController")]
     interface AdvancedUIActionController : ActionController
     {
     }
 
     // @protocol AKFUIManaging <NSObject>
     [Protocol, Model]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = "AKFUIManaging")]
     interface UIManaging
     {
         // @required @property (nonatomic, strong) id<AKFUIManager> uiManager;
@@ -366,9 +368,8 @@ namespace Facebook.AccountKit
     }
 
     // @protocol AKFViewController <AKFUIManaging, AKFConfiguring>
-    //[Protocol, Model]
-    [Model]
-    [BaseType(typeof(NSObject))]
+    [Protocol, Model]
+    [BaseType(typeof(NSObject), Name = "AKFViewController")]
     interface ViewController : UIManaging, Configuring
     {
         //[Abstract]
@@ -376,46 +377,50 @@ namespace Facebook.AccountKit
         ViewControllerDelegate Delegate { get; set; }
 
         // @required @property (nonatomic, weak) id<AKFViewControllerDelegate> delegate;
-        //[Abstract]
+        [Abstract]
         [NullAllowed, Export("delegate", ArgumentSemantic.Weak)]
         NSObject WeakDelegate { get; set; }
 
         // @required @property (readonly, assign, nonatomic) AKFLoginType loginType;
-        //[Abstract]
+        [Abstract]
         [Export("loginType", ArgumentSemantic.Assign)]
         LoginType LoginType { get; }
     }
 
+    [BaseType(typeof(UIViewController))]
+    [Protocol]
+    interface IUIViewController : ViewController { }
+
     // @protocol AKFViewControllerDelegate <NSObject>
     [Protocol, Model]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = "AKFViewControllerDelegate")]
     interface ViewControllerDelegate
     {
         // @optional -(void)viewController:(UIViewController<AKFViewController> *)viewController didCompleteLoginWithAuthorizationCode:(NSString *)code state:(NSString *)state;
         [Export("viewController:didCompleteLoginWithAuthorizationCode:state:")]
-        void ViewController(ViewController viewController, string code, string state);
+        void CompletedLoginWithCode(ViewController viewController, string code, string state);
 
         // @optional -(void)viewController:(UIViewController<AKFViewController> *)viewController didCompleteLoginWithAccessToken:(id<AKFAccessToken>)accessToken state:(NSString *)state;
         [Export("viewController:didCompleteLoginWithAccessToken:state:")]
-        void ViewController(ViewController viewController, AccessToken accessToken, string state);
+        void CompletedLoginWithToken(ViewController viewController, AccessToken accessToken, string state);
 
         // @optional -(void)viewController:(UIViewController<AKFViewController> *)viewController didFailWithError:(NSError *)error;
         [Export("viewController:didFailWithError:")]
-        void ViewController(ViewController viewController, NSError error);
+        void FailedWithError(ViewController viewController, NSError error);
 
         // @optional -(void)viewControllerDidCancel:(UIViewController<AKFViewController> *)viewController;
         [Export("viewControllerDidCancel:")]
-        void ViewControllerDidCancel(ViewController viewController);
+        void Canceled(ViewController viewController);
     }
 
     // typedef void (^AKFRequestAccountHandler)(id<AKFAccount> _Nullable, NSError * _Nullable);
-    delegate void RequestAccountHandler([NullAllowed] Account arg0, [NullAllowed] NSError arg1);
+    delegate void RequestAccountHandler([NullAllowed] IAccount account, [NullAllowed] NSError error);
 
     // typedef void (^AKFLogoutHandler)(BOOL, NSError * _Nullable);
-    delegate void LogoutHandler(bool arg0, [NullAllowed] NSError arg1);
+    delegate void LogoutHandler(bool arg0, [NullAllowed] NSError error);
 
     // @interface AKFAccountKit : NSObject
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = "AKFAccountKit")]
     [DisableDefaultCtor]
     interface AccountKit
     {
@@ -448,7 +453,7 @@ namespace Facebook.AccountKit
 
         // @property (readonly, copy, nonatomic) id<AKFAccessToken> _Nullable currentAccessToken;
         [NullAllowed, Export("currentAccessToken", ArgumentSemantic.Copy)]
-        AccessToken CurrentAccessToken { get; }
+        IAccessToken CurrentAccessToken { get; }
 
         // -(instancetype _Nonnull)initWithResponseType:(AKFResponseType)responseType __attribute__((objc_designated_initializer));
         [Export("initWithResponseType:")]
@@ -475,31 +480,33 @@ namespace Facebook.AccountKit
         [Export("viewControllerForEmailLogin")]
         //[Verify(MethodToProperty)]
         //ViewController ViewControllerForEmailLogin { get; }
-        ViewController ViewControllerForEmailLogin ();
+        IUIViewController ViewControllerForEmailLogin ();
 
         // -(UIViewController<AKFViewController> * _Nonnull)viewControllerForEmailLoginWithEmail:(NSString * _Nullable)email state:(NSString * _Nullable)state;
         [Export("viewControllerForEmailLoginWithEmail:state:")]
-        ViewController ViewControllerForEmailLoginWithEmail([NullAllowed] string email, [NullAllowed] string state);
+        IUIViewController ViewControllerForEmailLoginWithEmail([NullAllowed] string email, [NullAllowed] string state);
 
         // -(UIViewController<AKFViewController> * _Nonnull)viewControllerForPhoneLogin;
         [Export("viewControllerForPhoneLogin")]
         //[Verify(MethodToProperty)]
         //ViewController ViewControllerForPhoneLogin { get; }
-        ViewController ViewControllerForPhoneLogin ();
+        IUIViewController ViewControllerForPhoneLogin ();
 
         // -(UIViewController<AKFViewController> * _Nonnull)viewControllerForPhoneLoginWithPhoneNumber:(AKFPhoneNumber * _Nullable)phoneNumber state:(NSString * _Nullable)state;
         [Export("viewControllerForPhoneLoginWithPhoneNumber:state:")]
-        ViewController ViewControllerForPhoneLoginWithPhoneNumber([NullAllowed] PhoneNumber phoneNumber, [NullAllowed] string state);
+        IUIViewController ViewControllerForPhoneLoginWithPhoneNumber([NullAllowed] PhoneNumber phoneNumber, [NullAllowed] string state);
 
         // -(UIViewController<AKFViewController> * _Nullable)viewControllerForLoginResume;
         [NullAllowed, Export("viewControllerForLoginResume")]
         //[Verify(MethodToProperty)]
         //ViewController ViewControllerForLoginResume { get; }
-        ViewController ViewControllerForLoginResume ();
+        IUIViewController ViewControllerForLoginResume ();
     }
 
+    interface IAccountKit { }
+
     // @interface AKFPhoneNumber : NSObject <NSCopying, NSSecureCoding>
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = "AKFPhoneNumber")]
     [DisableDefaultCtor]
     interface PhoneNumber : INSCopying, INSSecureCoding
     {
@@ -536,7 +543,7 @@ namespace Facebook.AccountKit
     }
 
     // @interface AKFSettings : NSObject
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = "AKFSettings")]
     interface Settings
     {
         // +(NSString * _Nonnull)clientToken;
@@ -548,7 +555,7 @@ namespace Facebook.AccountKit
     }
 
     // @interface AKFSkinManager : NSObject <AKFUIManager>
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = "AKFSkinManager")]
     [DisableDefaultCtor]
     interface SkinManager : UIManager
     {

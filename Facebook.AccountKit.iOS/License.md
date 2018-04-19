@@ -1,4 +1,4 @@
-### Xamarin Component for Facebook Audience Network iOS SDK
+### Xamarin Component for Facebook Account Kit iOS SDK
 
 **The MIT License (MIT)**
 

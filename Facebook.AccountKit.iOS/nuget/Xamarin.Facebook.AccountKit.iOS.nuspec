@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>Xamarin.Facebook.AudienceNetwork.iOS</id>
-    <title>Facebook Audience Network SDK for Xamarin iOS</title>
-    <version>4.27.2.0</version>
+    <id>Xamarin.Facebook.AccountKit.iOS</id>
+    <title>Facebook Account Kit SDK for Xamarin iOS</title>
+    <version>4.31.0</version>
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <description>C# bindings for Facebook Audience Network's official SDK</description>
+    <description>C# bindings for Facebook Account Kit's official SDK</description>
     <copyright>© Microsoft Corporation. All rights reserved.</copyright>
     <projectUrl>https://go.microsoft.com/fwlink/?linkid=865579</projectUrl>
     <licenseUrl>https://go.microsoft.com/fwlink/?linkid=865583</licenseUrl>
-    <iconUrl>https://raw.githubusercontent.com/xamarin/FacebookComponents/master/icons/facebook-audiencenetwork-ios_128x128.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/xamarin/FacebookComponents/master/icons/facebook-accountkit-ios_128x128.png</iconUrl>
   </metadata>
   <files>
     <!-- iOS Unified -->
-    <file src="output/unified/Facebook.AudienceNetwork.dll" target="lib/Xamarin.iOS10" />
+    <file src="output/unified/Facebook.AccountKit.dll" target="lib/Xamarin.iOS10" />
     <file src="External-Dependency-Info.txt" target="THIRD-PARTY-NOTICES.txt" />
   </files>
 </package>

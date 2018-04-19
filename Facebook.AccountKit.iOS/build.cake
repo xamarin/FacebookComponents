@@ -3,21 +3,21 @@
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
-var SDK_VERSION = "4.27.2";
-var SDK_URL = string.Format ("https://origincache.facebook.com/developers/resources/?id=FBAudienceNetwork-{0}.zip", SDK_VERSION);
-var SDK_FILE = "FBAudienceNetwork.zip";
-var SDK_PATH = "./externals/FBAudienceNetwork";
-var SDK_FRAMEWORK = "FBAudienceNetwork.framework";
+var SDK_VERSION = "4.31.0";
+var SDK_URL = "https://origincache.facebook.com/developers/resources/?id=facebook-ios-sdk-current.zip";
+var SDK_FILE = string.Format ("FacebookSDKs-iOS-{0}.zip", SDK_VERSION);
+var SDK_PATH = string.Format ("./externals/FacebookSDKs-iOS-{0}", SDK_VERSION);
+var SDK_FRAMEWORK = "AccountKit.framework";
 
 var buildSpec = new BuildSpec () {
 	Libs = new ISolutionBuilder [] {
 		new DefaultSolutionBuilder {
-			SolutionPath = "./source/Facebook.AudienceNetwork/Facebook.AudienceNetwork.sln",
+			SolutionPath = "./source/Facebook.AccountKit/Facebook.AccountKit.sln",
 			Configuration = "Release",
 			BuildsOn = BuildPlatforms.Mac,
 			OutputFiles = new [] { 
 				new OutputFileCopy {
-					FromFile = "./source/Facebook.AudienceNetwork/bin/unified/Release/Facebook.AudienceNetwork.dll",
+					FromFile = "./source/Facebook.AccountKit/bin/Release/Facebook.AccountKit.dll",
 					ToDirectory = "./output/unified/"
 				}
 			}
@@ -26,19 +26,15 @@ var buildSpec = new BuildSpec () {
 
 	Samples = new ISolutionBuilder [] {
 		new IOSSolutionBuilder {
-			SolutionPath = "./samples/FBAudienceNetworkSample/FBAudienceNetworkSample.sln",
+			SolutionPath = "./samples/FBAccountKitSample/FBAccountKitSample.sln",
 			Configuration = "Release",
 			Platform = "iPhone",
 			BuildsOn = BuildPlatforms.Mac }
 	},
 
 	NuGets = new [] {
-		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.AudienceNetwork.iOS.nuspec", BuildsOn = BuildPlatforms.Mac},
-	},
-
-	Components = new [] {
-		new Component {ManifestDirectory = "./component", BuildsOn = BuildPlatforms.Mac},
-	},
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.AccountKit.iOS.nuspec", BuildsOn = BuildPlatforms.Mac},
+	}
 };
 
 Task ("externals")
