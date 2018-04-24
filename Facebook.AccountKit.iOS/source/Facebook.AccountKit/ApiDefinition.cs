@@ -92,6 +92,8 @@ namespace Facebook.AccountKit
         string[] WhitelistedCountryCodes { get; set; }
     }
 
+    interface IConfiguring { }
+
     // @interface Theme : NSObject <NSCopying>
     [BaseType(typeof(NSObject), Name = "AKFTheme")]
     interface Theme : INSCopying
@@ -285,6 +287,8 @@ namespace Facebook.AccountKit
         void Cancel();
     }
 
+    interface IActionController { }
+
     // @protocol AKFUIManager <NSObject>
     [Protocol, Model]
     [BaseType(typeof(NSObject), Name = "AKFUIManager")]
@@ -332,6 +336,8 @@ namespace Facebook.AccountKit
         Theme Theme { get; }
     }
 
+    interface IUIManager { }
+
     // @protocol AKFAdvancedUIManager <AKFUIManager>
     [Protocol, Model]
     [BaseType(typeof(NSObject), Name = "AKFAdvancedUIManager")]
@@ -354,7 +360,7 @@ namespace Facebook.AccountKit
         // @required @property (nonatomic, strong) id<AKFUIManager> uiManager;
         [Abstract]
         [Export("uiManager", ArgumentSemantic.Strong)]
-        UIManager UiManager { get; set; }
+        IUIManager UiManager { get; set; }
 
         // @required -(void)setAdvancedUIManager:(id<AKFAdvancedUIManager>)uiManager;
         [Abstract]
@@ -366,6 +372,8 @@ namespace Facebook.AccountKit
         [Export("setTheme:")]
         void SetTheme(Theme theme);
     }
+
+    interface IUIManaging { }
 
     // @protocol AKFViewController <AKFUIManaging, AKFConfiguring>
     [Protocol, Model]
@@ -386,11 +394,6 @@ namespace Facebook.AccountKit
         [Export("loginType", ArgumentSemantic.Assign)]
         LoginType LoginType { get; }
     }
-
-    //For dealing with members that have the return type UIViewController<AKFViewController>
-    [BaseType(typeof(UIViewController))]
-    [Protocol]
-    interface IUIViewController : ViewController { }
 
     // @protocol AKFViewControllerDelegate <NSObject>
     [Protocol, Model]
@@ -481,27 +484,27 @@ namespace Facebook.AccountKit
         [Export("viewControllerForEmailLogin")]
         //[Verify(MethodToProperty)]
         //ViewController ViewControllerForEmailLogin { get; }
-        IUIViewController ViewControllerForEmailLogin ();
+        UIViewController ViewControllerForEmailLogin ();
 
         // -(UIViewController<AKFViewController> * _Nonnull)viewControllerForEmailLoginWithEmail:(NSString * _Nullable)email state:(NSString * _Nullable)state;
         [Export("viewControllerForEmailLoginWithEmail:state:")]
-        IUIViewController ViewControllerForEmailLoginWithEmail([NullAllowed] string email, [NullAllowed] string state);
+        UIViewController ViewControllerForEmailLoginWithEmail([NullAllowed] string email, [NullAllowed] string state);
 
         // -(UIViewController<AKFViewController> * _Nonnull)viewControllerForPhoneLogin;
         [Export("viewControllerForPhoneLogin")]
         //[Verify(MethodToProperty)]
         //ViewController ViewControllerForPhoneLogin { get; }
-        IUIViewController ViewControllerForPhoneLogin ();
+        UIViewController ViewControllerForPhoneLogin ();
 
         // -(UIViewController<AKFViewController> * _Nonnull)viewControllerForPhoneLoginWithPhoneNumber:(AKFPhoneNumber * _Nullable)phoneNumber state:(NSString * _Nullable)state;
         [Export("viewControllerForPhoneLoginWithPhoneNumber:state:")]
-        IUIViewController ViewControllerForPhoneLoginWithPhoneNumber([NullAllowed] PhoneNumber phoneNumber, [NullAllowed] string state);
+        UIViewController ViewControllerForPhoneLoginWithPhoneNumber([NullAllowed] PhoneNumber phoneNumber, [NullAllowed] string state);
 
         // -(UIViewController<AKFViewController> * _Nullable)viewControllerForLoginResume;
         [NullAllowed, Export("viewControllerForLoginResume")]
         //[Verify(MethodToProperty)]
         //ViewController ViewControllerForLoginResume { get; }
-        IUIViewController ViewControllerForLoginResume ();
+        UIViewController ViewControllerForLoginResume ();
     }
 
     interface IAccountKit { }

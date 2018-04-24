@@ -3,7 +3,7 @@
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
-var SDK_VERSION = "4.31.0";
+var SDK_VERSION = "4.32.0";
 var SDK_URL = "https://origincache.facebook.com/developers/resources/?id=facebook-ios-sdk-current.zip";
 var SDK_FILE = string.Format ("FacebookSDKs-iOS-{0}.zip", SDK_VERSION);
 var SDK_PATH = string.Format ("./externals/FacebookSDKs-iOS-{0}", SDK_VERSION);

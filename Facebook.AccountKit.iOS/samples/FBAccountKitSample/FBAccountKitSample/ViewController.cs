@@ -10,7 +10,7 @@ namespace FBAccountKitSample
     public partial class ViewController : UIViewController, IViewControllerDelegate
     {
         public AccountKit accountKit;
-        public Facebook.AccountKit.IUIViewController pendingLoginViewController;
+        public UIViewController pendingLoginViewController;
         private TaskCompletionSource<string> fbtcs;
 
 
@@ -48,7 +48,7 @@ namespace FBAccountKitSample
             }
             if(pendingLoginViewController != null)
             {
-                PrepareLoginViewController(pendingLoginViewController);
+                PrepareLoginViewController(pendingLoginViewController.AsIViewControllerProtocol());
                 UIWindow w = UIApplication.SharedApplication.KeyWindow;
                 w.RootViewController.PresentViewController(pendingLoginViewController, true, null);
                 pendingLoginViewController = null;
@@ -57,8 +57,8 @@ namespace FBAccountKitSample
 
         partial void LoginWithEmail_TouchUpInside(UIButton sender)
         {
-            IUIViewController loginWithEmailViewController = accountKit.ViewControllerForEmailLogin();
-            PrepareLoginViewController(loginWithEmailViewController);
+            UIViewController loginWithEmailViewController = accountKit.ViewControllerForEmailLogin();
+            PrepareLoginViewController(loginWithEmailViewController.AsIViewControllerProtocol());
 
             UIWindow w = UIApplication.SharedApplication.KeyWindow;
 
@@ -67,8 +67,8 @@ namespace FBAccountKitSample
 
         partial void LoginWithPhone_TouchUpInside(UIButton sender)
         {
-            IUIViewController loginWithPhoneViewController = accountKit.ViewControllerForPhoneLogin();
-            PrepareLoginViewController(loginWithPhoneViewController);
+            UIViewController loginWithPhoneViewController = accountKit.ViewControllerForPhoneLogin();
+            PrepareLoginViewController(loginWithPhoneViewController.AsIViewControllerProtocol());
             UIWindow w = UIApplication.SharedApplication.KeyWindow;
 
             w.RootViewController.PresentViewController(loginWithPhoneViewController, true, null);
@@ -118,7 +118,7 @@ namespace FBAccountKitSample
         }
 
 
-        private void PrepareLoginViewController(Facebook.AccountKit.IUIViewController controller)
+        private void PrepareLoginViewController(IViewController controller)
         {
             var loginViewController = controller;
             loginViewController.WeakDelegate = this;
