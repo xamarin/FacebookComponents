@@ -51,7 +51,10 @@
     <Compile Include="FBSDKMessengerShareKit.linkwith.cs">
       <DependentUpon>FBSDKMessengerShareKit.a</DependentUpon>
     </Compile>
-    <Compile Include="FBSDKShareKit.linkwith.cs">
+    <Compile Include="FBSDKPlacesKit.linkwith.cs">
+      <DependentUpon>FBSDKPlacesKit.a</DependentUpon>
+    </Compile>
+	<Compile Include="FBSDKShareKit.linkwith.cs">
       <DependentUpon>FBSDKShareKit.a</DependentUpon>
     </Compile>
     <Compile Include="Extensions.cs" />
@@ -76,7 +79,10 @@
     <ObjcBindingNativeLibrary Include="..\..\externals\FBSDKMessengerShareKit.a">
       <Link>FBSDKMessengerShareKit.a</Link>
     </ObjcBindingNativeLibrary>
-    <ObjcBindingNativeLibrary Include="..\..\externals\FBSDKShareKit.a">
+    <ObjcBindingNativeLibrary Include="..\..\externals\FBSDKPlacesKit.a">
+      <Link>FBSDKPlacesKit.a</Link>
+    </ObjcBindingNativeLibrary>
+	<ObjcBindingNativeLibrary Include="..\..\externals\FBSDKShareKit.a">
       <Link>FBSDKShareKit.a</Link>
     </ObjcBindingNativeLibrary>
   </ItemGroup>

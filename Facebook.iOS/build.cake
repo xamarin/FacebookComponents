@@ -4,7 +4,9 @@
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
 var iosPlatform = "7.0";
-var facebookiOSSdkVersion = "4.30.0";
+var facebookiOSSdkVersion = "4.32.0";
+var facebookiOSXamarinFixVersion = "0";
+var facebookiOSFullVersion = $"{facebookiOSSdkVersion}.{facebookiOSXamarinFixVersion}";
 var facebookMessengerShareKitVersion = "1.3.2";
 var boltsVersion = "1.8.4";
 
@@ -16,12 +18,13 @@ var IOS_PODS = new List<string> {
 	$"\tpod 'FBSDKCoreKit', '{facebookiOSSdkVersion}'",
 	$"\tpod 'FBSDKLoginKit', '{facebookiOSSdkVersion}'",
 	$"\tpod 'FBSDKShareKit', '{facebookiOSSdkVersion}'",
+	$"\tpod 'FBSDKPlacesKit', '{facebookiOSSdkVersion}'",
 	$"\tpod 'FBSDKMessengerShareKit', '{facebookMessengerShareKitVersion}'",
 	$"\tpod 'Bolts', '{boltsVersion}'",
 	"end",
 };
 
-string [] IOS_TARGETS = { "Bolts", "FBSDKCoreKit", "FBSDKShareKit", "FBSDKLoginKit", "FBSDKMessengerShareKit" };
+string [] IOS_TARGETS = { "Bolts", "FBSDKCoreKit", "FBSDKShareKit", "FBSDKLoginKit", "FBSDKPlacesKit", "FBSDKMessengerShareKit" };
 
 var buildSpec = new BuildSpec () {
 	Libs = new ISolutionBuilder [] {
@@ -53,7 +56,7 @@ var buildSpec = new BuildSpec () {
 	},
 
 	NuGets = new [] {
-		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.iOS.nuspec", BuildsOn = BuildPlatforms.Mac},
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.iOS.nuspec", Version = facebookiOSFullVersion, BuildsOn = BuildPlatforms.Mac},
 	},
 
 	Components = new [] {

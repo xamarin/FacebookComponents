@@ -1,5 +1,6 @@
 ﻿using System;
 using Foundation;
+using CoreFoundation;
 namespace Facebook.CoreKit
 {
 	public partial class Settings

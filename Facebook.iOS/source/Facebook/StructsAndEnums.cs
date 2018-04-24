@@ -126,6 +126,18 @@ namespace Facebook.MessengerShareKit
 	}
 }
 
+namespace Facebook.PlacesKit
+{
+	[Native]
+	public enum PlaceLocationConfidence : long
+	{
+		NotApplicable,
+		Low,
+		Medium,
+		High
+	}
+}
+
 namespace Facebook.ShareKit
 {
 	[Native]
