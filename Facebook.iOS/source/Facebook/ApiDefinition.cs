@@ -323,6 +323,9 @@ namespace Facebook.CoreKit {
 		[Export ("application:openURL:options:")]
 		bool OpenUrl (UIApplication application, NSUrl url, NSDictionary<NSString, NSObject> options);
 
+		[Wrap ("OpenUrl (application, url, NSDictionary<NSString, NSObject>.FromObjectsAndKeys (options.Values, options.Keys, options.Keys.Length))")]
+		bool OpenUrl (UIApplication application, NSUrl url, NSDictionary options);
+
 		// -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 		[Export ("application:didFinishLaunchingWithOptions:")]
 		bool FinishedLaunching ([NullAllowed] UIApplication application, [NullAllowed] NSDictionary launchOptions);
