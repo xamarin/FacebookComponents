@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Facebook.AudienceNetwork.iOS</id>
     <title>Facebook Audience Network SDK for Xamarin iOS</title>
-    <version>4.27.2.0</version>
+    <version>$version$</version>
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>

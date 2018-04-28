@@ -346,7 +346,7 @@ namespace Facebook.AudienceNetwork
 	[BaseType (typeof (NSObject), Name = "FBInterstitialAd")]
 	interface InterstitialAd
 	{
-
+		
 		[Export ("placementID")]
 		string PlacementId { get; }
 
@@ -1103,10 +1103,6 @@ namespace Facebook.AudienceNetwork
 		[Export ("initWithPlacementID:withUserID:withCurrency:")]
 		IntPtr Constructor (string placementId, [NullAllowed] string userId, [NullAllowed] string currency);
 
-		// -(instancetype _Nonnull)initWithPlacementID:(NSString * _Nonnull)placementID withUserID:(NSString * _Nullable)userID withCurrency:(NSString * _Nullable)currency withAmount:(NSInteger)amount;
-		[Export ("initWithPlacementID:withUserID:withCurrency:withAmount:")]
-		IntPtr Constructor (string placementId, [NullAllowed] string userId, [NullAllowed] string currency, nint amount);
-
 		// -(void)loadAd;
 		[Export ("loadAd")]
 		void LoadAd ();
@@ -1114,6 +1110,10 @@ namespace Facebook.AudienceNetwork
 		// - (void) loadAdWithBidPayload:(NSString*) bidPayload;
 		[Export ("loadAdWithBidPayload:")]
 		void LoadAd (string bidPayload);
+
+		// - (BOOL)setRewardDataWithUserID:(NSString *)userID withCurrency:(NSString*) currency;
+		[Export ("setRewardDataWithUserID:withCurrency:")]
+		bool SetRewardData (string userId, string currency);
 
 		// -(BOOL)showAdFromRootViewController:(UIViewController * _Nonnull)rootViewController;
 		[Export ("showAdFromRootViewController:")]
@@ -1151,9 +1151,9 @@ namespace Facebook.AudienceNetwork
 		[Export ("rewardedVideoAd:didFailWithError:")]
 		void RewardedVideoAdDidFail (RewardedVideoAd rewardedVideoAd, NSError error);
 
-		// @optional -(void)rewardedVideoAdComplete:(FBRewardedVideoAd * _Nonnull)rewardedVideoAd;
-		[Export ("rewardedVideoAdComplete:")]
-		void RewardedVideoAdComplete (RewardedVideoAd rewardedVideoAd);
+		// @optional -(void)rewardedVideoAdVideoComplete:(FBRewardedVideoAd * _Nonnull)rewardedVideoAd;
+		[Export ("rewardedVideoAdVideoComplete:")]
+		void RewardedVideoAdVideoComplete (RewardedVideoAd rewardedVideoAd);
 
 		// @optional -(void)rewardedVideoAdWillLogImpression:(FBRewardedVideoAd * _Nonnull)rewardedVideoAd;
 		[Export ("rewardedVideoAdWillLogImpression:")]
