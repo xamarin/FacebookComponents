@@ -340,11 +340,15 @@ namespace Facebook.AccountKit
     {
     }
 
+    interface IAdvancedUIManager { }
+
     // @protocol AKFAdvancedUIActionController <AKFActionController>
     [Protocol (Name = "AKFAdvancedUIActionController")]
     interface AdvancedUIActionController : ActionController
     {
     }
+
+    interface IAdvancedUIActionController { }
 
     // @protocol AKFUIManaging <NSObject>
     [Protocol (Name = "AKFUIManaging")]
@@ -358,7 +362,7 @@ namespace Facebook.AccountKit
         // @required -(void)setAdvancedUIManager:(id<AKFAdvancedUIManager>)uiManager;
         [Abstract]
         [Export("setAdvancedUIManager:")]
-        void SetAdvancedUIManager(AdvancedUIManager IUiManager);
+        void SetAdvancedUIManager(IAdvancedUIManager uiManager);
 
         // @required -(void)setTheme:(Theme *)theme;
         [Abstract]
@@ -372,14 +376,10 @@ namespace Facebook.AccountKit
     [Protocol (Name = "AKFViewController")]
     interface ViewController : UIManaging, Configuring
     {
-        //[Abstract]
-        [Wrap("WeakDelegate")]
-        ViewControllerDelegate Delegate { get; set; }
-
         // @required @property (nonatomic, weak) id<AKFViewControllerDelegate> delegate;
         [Abstract]
-        [NullAllowed, Export("delegate", ArgumentSemantic.Weak)]
-        NSObject WeakDelegate { get; set; }
+        [Export("delegate", ArgumentSemantic.Weak)]
+        IViewControllerDelegate Delegate { get; set; }
 
         // @required @property (readonly, assign, nonatomic) AKFLoginType loginType;
         [Abstract]
@@ -396,19 +396,27 @@ namespace Facebook.AccountKit
     {
         // @optional -(void)viewController:(UIViewController<AKFViewController> *)viewController didCompleteLoginWithAuthorizationCode:(NSString *)code state:(NSString *)state;
         [Export("viewController:didCompleteLoginWithAuthorizationCode:state:")]
-        void DidCompleteLogin(ViewController viewController, string code, string state);
+        [EventArgs("ViewControllerDidCompleteLoginWithCode")]
+        [EventName("LoginCompleted")]
+        void DidCompleteLogin(IViewController viewController, string code, string state);
 
         // @optional -(void)viewController:(UIViewController<AKFViewController> *)viewController didCompleteLoginWithAccessToken:(id<AKFAccessToken>)accessToken state:(NSString *)state;
         [Export("viewController:didCompleteLoginWithAccessToken:state:")]
-        void DidCompleteLogin(ViewController viewController, AccessToken accessToken, string state);
+        [EventArgs("ViewControllerDidCompleteLoginWithToken")]
+        [EventName("LoginCompleted")]
+        void DidCompleteLogin(IViewController viewController, IAccessToken accessToken, string state);
 
         // @optional -(void)viewController:(UIViewController<AKFViewController> *)viewController didFailWithError:(NSError *)error;
         [Export("viewController:didFailWithError:")]
-        void DidFail(ViewController viewController, NSError error);
+        [EventArgs("ViewControllerDidFailWithError")]
+        [EventName("LoginFailed")]
+        void DidFail(IViewController viewController, NSError error);
 
         // @optional -(void)viewControllerDidCancel:(UIViewController<AKFViewController> *)viewController;
         [Export("viewControllerDidCancel:")]
-        void DidCancel(ViewController viewController);
+        [EventArgs("ViewControllerE")]
+        [EventName("LoginCanceled")]
+        void DidCancel(IViewController viewController);
     }
 
     interface IViewControllerDelegate { }

@@ -4,6 +4,9 @@
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
 var SDK_VERSION = "4.32.0";
+var XAMARIN_FIX_VERSION = "0";
+var NUGET_POSTFIX = "-alpha"; 
+var XAMARIN_FULL_VERSION = $"{facebookiOSSdkVersion}.{facebookiOSXamarinFixVersion}{NUGET_POSTFIX}";
 var SDK_URL = "https://origincache.facebook.com/developers/resources/?id=facebook-ios-sdk-current.zip";
 var SDK_FILE = string.Format ("FacebookSDKs-iOS-{0}.zip", SDK_VERSION);
 var SDK_PATH = string.Format ("./externals/FacebookSDKs-iOS-{0}", SDK_VERSION);
@@ -33,7 +36,7 @@ var buildSpec = new BuildSpec () {
 	},
 
 	NuGets = new [] {
-		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.AccountKit.iOS.nuspec", BuildsOn = BuildPlatforms.Mac},
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.AccountKit.iOS.nuspec", Version = XAMARIN_FULL_VERSION, BuildsOn = BuildPlatforms.Mac},
 	}
 };
 

@@ -11,10 +11,7 @@ namespace Facebook.AccountKit
     {
         public static IViewController AsIViewControllerProtocol(this UIViewController ctrl)
         {
-            var rv = ctrl as IViewController;
-            if (rv != null)
-                return rv;
-            return Runtime.GetINativeObject<IViewController>(ctrl.Handle, false);
+            return ctrl as IViewController ?? Runtime.GetINativeObject<IViewController>(ctrl.Handle, false);
         }
     }
 }
