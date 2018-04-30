@@ -7,19 +7,18 @@ using UIKit;
 namespace Facebook.AccountKit
 {
     // @protocol AKFAccessToken <NSObject, NSCopying, NSSecureCoding>
-    [Protocol, Model]
-    [BaseType(typeof(NSObject), Name = "AKFAccessToken")]
+    [Protocol (Name = "AKFAccessToken")]
     interface AccessToken : INSCopying, INSSecureCoding
     {
         // @required @property (readonly, copy, nonatomic) NSString * _Nonnull accountID;
         [Abstract]
         [Export("accountID")]
-        string AccountID { get; }
+        string AccountId { get; }
 
         // @required @property (readonly, copy, nonatomic) NSString * _Nonnull applicationID;
         [Abstract]
         [Export("applicationID")]
-        string ApplicationID { get; }
+        string ApplicationId { get; }
 
         // @required @property (readonly, copy, nonatomic) NSDate * _Nonnull lastRefresh;
         [Abstract]
@@ -40,14 +39,13 @@ namespace Facebook.AccountKit
     interface IAccessToken{}
 
     // @protocol AKFAccount <NSObject, NSCopying, NSSecureCoding>
-    [Protocol, Model]
-    [BaseType(typeof(NSObject), Name = "AKFAccount")]
+    [Protocol (Name = "AKFAccount")]
     interface Account : INSCopying, INSSecureCoding
     {
         // @required @property (readonly, copy, nonatomic) NSString * _Nonnull accountID;
         [Abstract]
         [Export("accountID")]
-        string AccountID { get; }
+        string AccountId { get; }
 
         // @required @property (readonly, copy, nonatomic) NSString * _Nullable emailAddress;
         [Abstract]
@@ -63,7 +61,7 @@ namespace Facebook.AccountKit
     interface IAccount {}
 
     // @protocol AKFConfiguring
-    [Protocol]
+    [Protocol (Name = "AKFConfiguring")]
     interface Configuring
     {
         // @required @property (copy, nonatomic) NSArray<NSString *> * blacklistedCountryCodes;
@@ -113,22 +111,22 @@ namespace Facebook.AccountKit
         // +(instancetype _Nonnull)defaultTheme;
         [Static]
         [Export("defaultTheme")]
-        Theme DefaultTheme();
+        Theme GetDefaultTheme();
 
         // +(instancetype _Nonnull)outlineTheme;
         [Static]
         [Export("outlineTheme")]
-        Theme OutlineTheme();
+        Theme GetOutlineTheme();
 
         // +(instancetype _Nonnull)outlineThemeWithPrimaryColor:(UIColor * _Nonnull)primaryColor primaryTextColor:(UIColor * _Nonnull)primaryTextColor secondaryTextColor:(UIColor * _Nonnull)secondaryTextColor statusBarStyle:(UIStatusBarStyle)statusBarStyle;
         [Static]
         [Export("outlineThemeWithPrimaryColor:primaryTextColor:secondaryTextColor:statusBarStyle:")]
-        Theme OutlineThemeWithPrimaryColor(UIColor primaryColor, UIColor primaryTextColor, UIColor secondaryTextColor, UIStatusBarStyle statusBarStyle);
+        Theme GetOutlineTheme(UIColor primaryColor, UIColor primaryTextColor, UIColor secondaryTextColor, UIStatusBarStyle statusBarStyle);
 
         // +(instancetype _Nonnull)themeWithPrimaryColor:(UIColor * _Nonnull)primaryColor primaryTextColor:(UIColor * _Nonnull)primaryTextColor secondaryColor:(UIColor * _Nonnull)secondaryColor secondaryTextColor:(UIColor * _Nonnull)secondaryTextColor statusBarStyle:(UIStatusBarStyle)statusBarStyle;
         [Static]
         [Export("themeWithPrimaryColor:primaryTextColor:secondaryColor:secondaryTextColor:statusBarStyle:")]
-        Theme ThemeWithPrimaryColor(UIColor primaryColor, UIColor primaryTextColor, UIColor secondaryColor, UIColor secondaryTextColor, UIStatusBarStyle statusBarStyle);
+        Theme GetTheme(UIColor primaryColor, UIColor primaryTextColor, UIColor secondaryColor, UIColor secondaryTextColor, UIStatusBarStyle statusBarStyle);
 
         // @property (copy, nonatomic) UIColor * _Nonnull backgroundColor;
         [Export("backgroundColor", ArgumentSemantic.Copy)]
@@ -268,12 +266,11 @@ namespace Facebook.AccountKit
 
         // -(BOOL)isEqualToTheme:(Theme * _Nonnull)theme;
         [Export("isEqualToTheme:")]
-        bool IsEqualToTheme(Theme theme);
+        bool Equals(Theme theme);
     }
 
     // @protocol AKFActionController <NSObject>
-    [Protocol, Model]
-    [BaseType(typeof(NSObject), Name = "AKFActionController")]
+    [Protocol (Name = "AKFActionController")]
     interface ActionController
     {
         // @required -(void)back;
@@ -290,37 +287,36 @@ namespace Facebook.AccountKit
     interface IActionController { }
 
     // @protocol AKFUIManager <NSObject>
-    [Protocol, Model]
-    [BaseType(typeof(NSObject), Name = "AKFUIManager")]
+    [Protocol (Name = "AKFUIManager")]
     interface UIManager
     {
         // @optional -(UIView * _Nullable)actionBarViewForState:(AKFLoginFlowState)state;
         [Export("actionBarViewForState:")]
         [return: NullAllowed]
-        UIView ActionBarViewForState(LoginFlowState state);
+        UIView GetActionBarView(LoginFlowState state);
 
         // @optional -(UIView * _Nullable)bodyViewForState:(AKFLoginFlowState)state;
         [Export("bodyViewForState:")]
         [return: NullAllowed]
-        UIView BodyViewForState(LoginFlowState state);
+        UIView GetBodyView(LoginFlowState state);
 
         // @optional -(AKFButtonType)buttonTypeForState:(AKFLoginFlowState)state;
         [Export("buttonTypeForState:")]
-        ButtonType ButtonTypeForState(LoginFlowState state);
+        ButtonType GetButtonType(LoginFlowState state);
 
         // @optional -(UIView * _Nullable)footerViewForState:(AKFLoginFlowState)state;
         [Export("footerViewForState:")]
         [return: NullAllowed]
-        UIView FooterViewForState(LoginFlowState state);
+        UIView GetFooterView(LoginFlowState state);
 
         // @optional -(UIView * _Nullable)headerViewForState:(AKFLoginFlowState)state;
         [Export("headerViewForState:")]
         [return: NullAllowed]
-        UIView HeaderViewForState(LoginFlowState state);
+        UIView GetHeaderView(LoginFlowState state);
 
         // @optional -(void)setActionController:(id<AKFActionController> _Nonnull)actionController;
         [Export("setActionController:")]
-        void SetActionController(ActionController actionController);
+        void SetActionController(IActionController actionController);
 
         // @optional -(void)setError:(NSError * _Nonnull)error;
         [Export("setError:")]
@@ -328,33 +324,30 @@ namespace Facebook.AccountKit
 
         // @optional -(AKFTextPosition)textPositionForState:(AKFLoginFlowState)state;
         [Export("textPositionForState:")]
-        TextPosition TextPositionForState(LoginFlowState state);
+        TextPosition GetTextPosition(LoginFlowState state);
 
         // @optional -(Theme * _Nullable)theme;
         [NullAllowed, Export("theme")]
         //[Verify(MethodToProperty)]
-        Theme Theme { get; }
+        Theme GetTheme();
     }
 
     interface IUIManager { }
 
     // @protocol AKFAdvancedUIManager <AKFUIManager>
-    [Protocol, Model]
-    [BaseType(typeof(NSObject), Name = "AKFAdvancedUIManager")]
+    [Protocol (Name = "AKFAdvancedUIManager")]
     interface AdvancedUIManager : UIManager
     {
     }
 
     // @protocol AKFAdvancedUIActionController <AKFActionController>
-    [Protocol, Model]
-    [BaseType(typeof(NSObject), Name = "AKFAdvancedUIActionController")]
+    [Protocol (Name = "AKFAdvancedUIActionController")]
     interface AdvancedUIActionController : ActionController
     {
     }
 
     // @protocol AKFUIManaging <NSObject>
-    [Protocol, Model]
-    [BaseType(typeof(NSObject), Name = "AKFUIManaging")]
+    [Protocol (Name = "AKFUIManaging")]
     interface UIManaging
     {
         // @required @property (nonatomic, strong) id<AKFUIManager> uiManager;
@@ -365,7 +358,7 @@ namespace Facebook.AccountKit
         // @required -(void)setAdvancedUIManager:(id<AKFAdvancedUIManager>)uiManager;
         [Abstract]
         [Export("setAdvancedUIManager:")]
-        void SetAdvancedUIManager(AdvancedUIManager uiManager);
+        void SetAdvancedUIManager(AdvancedUIManager IUiManager);
 
         // @required -(void)setTheme:(Theme *)theme;
         [Abstract]
@@ -376,8 +369,7 @@ namespace Facebook.AccountKit
     interface IUIManaging { }
 
     // @protocol AKFViewController <AKFUIManaging, AKFConfiguring>
-    [Protocol, Model]
-    [BaseType(typeof(NSObject), Name = "AKFViewController")]
+    [Protocol (Name = "AKFViewController")]
     interface ViewController : UIManaging, Configuring
     {
         //[Abstract]
@@ -395,6 +387,8 @@ namespace Facebook.AccountKit
         LoginType LoginType { get; }
     }
 
+    interface IViewController { }
+
     // @protocol AKFViewControllerDelegate <NSObject>
     [Protocol, Model]
     [BaseType(typeof(NSObject), Name = "AKFViewControllerDelegate")]
@@ -402,26 +396,28 @@ namespace Facebook.AccountKit
     {
         // @optional -(void)viewController:(UIViewController<AKFViewController> *)viewController didCompleteLoginWithAuthorizationCode:(NSString *)code state:(NSString *)state;
         [Export("viewController:didCompleteLoginWithAuthorizationCode:state:")]
-        void CompletedLoginWithCode(ViewController viewController, string code, string state);
+        void DidCompleteLogin(ViewController viewController, string code, string state);
 
         // @optional -(void)viewController:(UIViewController<AKFViewController> *)viewController didCompleteLoginWithAccessToken:(id<AKFAccessToken>)accessToken state:(NSString *)state;
         [Export("viewController:didCompleteLoginWithAccessToken:state:")]
-        void CompletedLoginWithToken(ViewController viewController, AccessToken accessToken, string state);
+        void DidCompleteLogin(ViewController viewController, AccessToken accessToken, string state);
 
         // @optional -(void)viewController:(UIViewController<AKFViewController> *)viewController didFailWithError:(NSError *)error;
         [Export("viewController:didFailWithError:")]
-        void FailedWithError(ViewController viewController, NSError error);
+        void DidFail(ViewController viewController, NSError error);
 
         // @optional -(void)viewControllerDidCancel:(UIViewController<AKFViewController> *)viewController;
         [Export("viewControllerDidCancel:")]
-        void Canceled(ViewController viewController);
+        void DidCancel(ViewController viewController);
     }
+
+    interface IViewControllerDelegate { }
 
     // typedef void (^AKFRequestAccountHandler)(id<AKFAccount> _Nullable, NSError * _Nullable);
     delegate void RequestAccountHandler([NullAllowed] IAccount account, [NullAllowed] NSError error);
 
     // typedef void (^AKFLogoutHandler)(BOOL, NSError * _Nullable);
-    delegate void LogoutHandler(bool arg0, [NullAllowed] NSError error);
+    delegate void LogoutHandler(bool success, [NullAllowed] NSError error);
 
     // @interface AKFAccountKit : NSObject
     [BaseType(typeof(NSObject), Name = "AKFAccountKit")]
@@ -484,27 +480,27 @@ namespace Facebook.AccountKit
         [Export("viewControllerForEmailLogin")]
         //[Verify(MethodToProperty)]
         //ViewController ViewControllerForEmailLogin { get; }
-        UIViewController ViewControllerForEmailLogin ();
+        UIViewController GetViewControllerForEmailLogin();
 
         // -(UIViewController<AKFViewController> * _Nonnull)viewControllerForEmailLoginWithEmail:(NSString * _Nullable)email state:(NSString * _Nullable)state;
         [Export("viewControllerForEmailLoginWithEmail:state:")]
-        UIViewController ViewControllerForEmailLoginWithEmail([NullAllowed] string email, [NullAllowed] string state);
+        UIViewController GetViewControllerForEmailLogin([NullAllowed] string email, [NullAllowed] string state);
 
         // -(UIViewController<AKFViewController> * _Nonnull)viewControllerForPhoneLogin;
         [Export("viewControllerForPhoneLogin")]
         //[Verify(MethodToProperty)]
         //ViewController ViewControllerForPhoneLogin { get; }
-        UIViewController ViewControllerForPhoneLogin ();
+        UIViewController GetViewControllerForPhoneLogin();
 
         // -(UIViewController<AKFViewController> * _Nonnull)viewControllerForPhoneLoginWithPhoneNumber:(AKFPhoneNumber * _Nullable)phoneNumber state:(NSString * _Nullable)state;
         [Export("viewControllerForPhoneLoginWithPhoneNumber:state:")]
-        UIViewController ViewControllerForPhoneLoginWithPhoneNumber([NullAllowed] PhoneNumber phoneNumber, [NullAllowed] string state);
+        UIViewController GetViewControllerForPhoneLogin([NullAllowed] PhoneNumber phoneNumber, [NullAllowed] string state);
 
         // -(UIViewController<AKFViewController> * _Nullable)viewControllerForLoginResume;
         [NullAllowed, Export("viewControllerForLoginResume")]
         //[Verify(MethodToProperty)]
         //ViewController ViewControllerForLoginResume { get; }
-        UIViewController ViewControllerForLoginResume ();
+        UIViewController GetViewControllerForLoginResume();
     }
 
     interface IAccountKit { }
@@ -529,7 +525,7 @@ namespace Facebook.AccountKit
 
         // @property (readonly, copy, nonatomic) NSString * _Nonnull countryISO;
         [Export("countryISO")]
-        string CountryISO { get; }
+        string CountryIso { get; }
 
         // @property (readonly, copy, nonatomic) NSString * _Nonnull phoneNumber;
         [Export("phoneNumber")]
@@ -537,13 +533,13 @@ namespace Facebook.AccountKit
 
         // -(BOOL)isEqualToPhoneNumber:(AKFPhoneNumber * _Nonnull)phoneNumber;
         [Export("isEqualToPhoneNumber:")]
-        bool IsEqualToPhoneNumber(PhoneNumber phoneNumber);
+        bool Equals(PhoneNumber phoneNumber);
 
         // -(NSString * _Nonnull)stringRepresentation;
         [Export("stringRepresentation")]
         //[Verify(MethodToProperty)]
         //string StringRepresentation { get; }
-        string StringRepresentation ();
+        string GetStringRepresentation();
     }
 
     // @interface AKFSettings : NSObject
