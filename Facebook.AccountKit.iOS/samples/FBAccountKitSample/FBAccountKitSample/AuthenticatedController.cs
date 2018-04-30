@@ -53,7 +53,7 @@ namespace FBAccountKitSample
             }
             else
             {
-                var accountIdAlertController = UIAlertController.Create("Account Kit Alert", $"Account Id: {account.AccountID}", UIAlertControllerStyle.Alert);
+                var accountIdAlertController = UIAlertController.Create("Account Kit Alert", $"Account Id: {account.AccountId}", UIAlertControllerStyle.Alert);
 
                 accountIdAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
 

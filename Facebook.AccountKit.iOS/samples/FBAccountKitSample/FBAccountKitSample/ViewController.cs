@@ -35,7 +35,7 @@ namespace FBAccountKitSample
                 accountKit = new AccountKit(ResponseType.AccessToken); //Or use Code
             }
 
-            pendingLoginViewController = accountKit.ViewControllerForLoginResume();
+            pendingLoginViewController = accountKit.GetViewControllerForLoginResume();
             fbtcs = new TaskCompletionSource<string>();
         }
 
@@ -57,7 +57,7 @@ namespace FBAccountKitSample
 
         partial void LoginWithEmail_TouchUpInside(UIButton sender)
         {
-            UIViewController loginWithEmailViewController = accountKit.ViewControllerForEmailLogin();
+            UIViewController loginWithEmailViewController = accountKit.GetViewControllerForEmailLogin();
             PrepareLoginViewController(loginWithEmailViewController.AsIViewControllerProtocol());
 
             UIWindow w = UIApplication.SharedApplication.KeyWindow;
@@ -67,7 +67,7 @@ namespace FBAccountKitSample
 
         partial void LoginWithPhone_TouchUpInside(UIButton sender)
         {
-            UIViewController loginWithPhoneViewController = accountKit.ViewControllerForPhoneLogin();
+            UIViewController loginWithPhoneViewController = accountKit.GetViewControllerForPhoneLogin();
             PrepareLoginViewController(loginWithPhoneViewController.AsIViewControllerProtocol());
             UIWindow w = UIApplication.SharedApplication.KeyWindow;
 
@@ -121,7 +121,7 @@ namespace FBAccountKitSample
         private void PrepareLoginViewController(IViewController controller)
         {
             var loginViewController = controller;
-            loginViewController.WeakDelegate = this;
+            loginViewController.Delegate = this;
         }
 
     }

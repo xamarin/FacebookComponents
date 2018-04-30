@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.Facebook.AccountKit.iOS</id>
     <title>Facebook Account Kit SDK for Xamarin iOS</title>
-    <version>4.31.0-alpha</version>
+    <version>$version$</version>
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
