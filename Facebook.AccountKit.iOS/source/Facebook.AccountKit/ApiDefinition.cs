@@ -396,26 +396,18 @@ namespace Facebook.AccountKit
     {
         // @optional -(void)viewController:(UIViewController<AKFViewController> *)viewController didCompleteLoginWithAuthorizationCode:(NSString *)code state:(NSString *)state;
         [Export("viewController:didCompleteLoginWithAuthorizationCode:state:")]
-        [EventArgs("ViewControllerDidCompleteLoginWithCode")]
-        [EventName("LoginCompleted")]
         void DidCompleteLogin(IViewController viewController, string code, string state);
 
         // @optional -(void)viewController:(UIViewController<AKFViewController> *)viewController didCompleteLoginWithAccessToken:(id<AKFAccessToken>)accessToken state:(NSString *)state;
         [Export("viewController:didCompleteLoginWithAccessToken:state:")]
-        [EventArgs("ViewControllerDidCompleteLoginWithToken")]
-        [EventName("LoginCompleted")]
         void DidCompleteLogin(IViewController viewController, IAccessToken accessToken, string state);
 
         // @optional -(void)viewController:(UIViewController<AKFViewController> *)viewController didFailWithError:(NSError *)error;
         [Export("viewController:didFailWithError:")]
-        [EventArgs("ViewControllerDidFailWithError")]
-        [EventName("LoginFailed")]
         void DidFail(IViewController viewController, NSError error);
 
         // @optional -(void)viewControllerDidCancel:(UIViewController<AKFViewController> *)viewController;
         [Export("viewControllerDidCancel:")]
-        [EventArgs("ViewControllerE")]
-        [EventName("LoginCanceled")]
         void DidCancel(IViewController viewController);
     }
 
@@ -510,8 +502,6 @@ namespace Facebook.AccountKit
         //ViewController ViewControllerForLoginResume { get; }
         UIViewController GetViewControllerForLoginResume();
     }
-
-    interface IAccountKit { }
 
     // @interface AKFPhoneNumber : NSObject <NSCopying, NSSecureCoding>
     [BaseType(typeof(NSObject), Name = "AKFPhoneNumber")]
