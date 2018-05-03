@@ -75,7 +75,7 @@ namespace FBAccountKitSample
         }
 
         [Export("viewControllerDidCancel:")]
-        public void Canceled(UIViewController viewController)
+        public void DidCancel(UIViewController viewController)
         {
             var CanceledAlertController = UIAlertController.Create("Account Kit Alert", "Facebook Account Kit Login Flow Canceled", UIAlertControllerStyle.Alert);
 
@@ -87,13 +87,13 @@ namespace FBAccountKitSample
 
         //For server side validation (code)
         //[Export("viewController:didCompleteLoginWithAuthorizationCode:state:")]
-        //public void CompletedLoginWithCode(UIViewController viewController, string code, string state)
+        //public void DidCompleteLogin(UIViewController viewController, string code, string state)
         //{
         //    Configure for code here
         //}
 
         [Export("viewController:didCompleteLoginWithAccessToken:state:")]
-        public void CompletedLoginWithToken(UIViewController viewController, IAccessToken accessToken, string state)
+        public void DidCompleteLogin(UIViewController viewController, IAccessToken accessToken, string state)
         {
             if (!string.IsNullOrEmpty(accessToken?.TokenString))
             {
@@ -107,7 +107,7 @@ namespace FBAccountKitSample
         }
 
         [Export("viewController:didFailWithError:")]
-        public void FailedWithError(UIViewController viewController, NSError error)
+        public void DidFail(UIViewController viewController, NSError error)
         {
             var errorAlertController = UIAlertController.Create("Account Kit Alert", "Facebook Account Kit Login Flow Errored", UIAlertControllerStyle.Alert);
 

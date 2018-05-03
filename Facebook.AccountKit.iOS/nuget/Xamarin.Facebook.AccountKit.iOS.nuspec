@@ -9,8 +9,8 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>C# bindings for Facebook Account Kit's official SDK</description>
     <copyright>© Microsoft Corporation. All rights reserved.</copyright>
-    <projectUrl>https://go.microsoft.com/fwlink/?linkid=865579</projectUrl>
-    <licenseUrl>https://go.microsoft.com/fwlink/?linkid=865583</licenseUrl>
+    <projectUrl>https://go.microsoft.com/fwlink/?linkid=873259</projectUrl>
+    <licenseUrl>https://go.microsoft.com/fwlink/?linkid=873258</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/FacebookComponents/master/icons/facebook-accountkit-ios_128x128.png</iconUrl>
   </metadata>
   <files>
