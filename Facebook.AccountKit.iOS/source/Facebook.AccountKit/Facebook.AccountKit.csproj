@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{EBD6BF8D-69F1-4611-A778-6A2C2E8D79BF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Facebook.AccountKit</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>Facebook.AccountKit</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Extensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="..\..\externals\AccountKit.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+      <Frameworks>UIKit Foundation AudioToolbox CoreGraphics CoreLocation Accounts Security Social</Frameworks>
+      <LinkerFlags></LinkerFlags>
+      <WeakFrameworks>QuartzCore</WeakFrameworks>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\af.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\af.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\af.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\af.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ar.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ar.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ar.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ar.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\bn.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\bn.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\bn.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\bn.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ckb_IQ.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ckb_IQ.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ckb_IQ.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ckb_IQ.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\cs.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\cs.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\cs.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\cs.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\da.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\da.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\da.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\da.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\de.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\de.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\de.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\de.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\el.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\el.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\el.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\el.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\en.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\en.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\en.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\en.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\en_GB.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\en_GB.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\es.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\es.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\es.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\es.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\es_ES.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\es_ES.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\es_ES.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\es_ES.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\fi.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\fi.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\fi.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\fi.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\fr.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\fr.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\fr.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\fr.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\gu.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\gu.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\gu.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\gu.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\he.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\he.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\he.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\he.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\hi.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\hi.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\hi.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\hi.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\hr.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\hr.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\hr.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\hr.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\hu.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\hu.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\hu.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\hu.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\id.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\id.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\id.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\id.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\it.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\it.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\it.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\it.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ja.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ja.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ja.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ja.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ko.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ko.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ko.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ko.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ml.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ml.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ml.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ml.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\mr.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\mr.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\mr.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\mr.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ms.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ms.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ms.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ms.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\my.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\my.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\my_MM.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\my_MM.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\my_MM.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\my_MM.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\nb.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\nb.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\nb.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\nb.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\nl.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\nl.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\nl.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\nl.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\pa.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\pa.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\pa.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\pa.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\pl.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\pl.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\pl.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\pl.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\pt.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\pt.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\pt.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\pt.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\pt_PT.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\pt_PT.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\pt_PT.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\pt_PT.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ro.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ro.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ro.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ro.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ru.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ru.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ru.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ru.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\sk.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\sk.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\sk.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\sk.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\sv.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\sv.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\sv.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\sv.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\sw.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\sw.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\sw_KE.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\sw_KE.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\sw_KE.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\sw_KE.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ta.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ta.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ta.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ta.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\te.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\te.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\te.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\te.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\th.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\th.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\th.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\th.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\tr.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\tr.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\tr.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\tr.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ur.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ur.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ur_PK.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ur_PK.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\ur_PK.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\ur_PK.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\vi.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\vi.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\vi.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\vi.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\zh.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\zh.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\zh.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\zh.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\zh_Hant_HK.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\zh_Hant_HK.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\zh_Hant_HK.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\zh_Hant_HK.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\zh_Hant_TW.lproj\AccountKit.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\zh_Hant_TW.lproj\AccountKit.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\AccountKit.framework\AccountKitStrings.bundle\Resources\zh_Hant_TW.lproj\AccountKitCountryCode.strings">
+      <Link>Resources\AccountKitStrings.bundle\Resources\zh_Hant_TW.lproj\AccountKitCountryCode.strings</Link>
+    </BundleResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+</Project>
