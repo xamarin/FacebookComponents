@@ -14,3 +14,7 @@
   BuildScript: ./Facebook.AudienceNetwork.iOS/build.cake
   TriggerPaths: [ Facebook.AudienceNetwork.iOS ]
   MacBuildTargets: [ samples, nuget, component ]
+- Name: FacebookiOSAccountKit
+  BuildScript: ./Facebook.AccountKit.iOS/build.cake
+  TriggerPaths: [ Facebook.AccountKit.iOS ]
+  MacBuildTargets: [ samples, nuget, component ]

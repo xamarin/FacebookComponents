@@ -1,0 +1,31 @@
+version: 4.32.0.0
+name: Facebook Account Kit iOS SDK
+id: fbaccountkitios
+publisher: Xamarin Inc
+publisher-url: https://xamarin.com/
+src-url: https://developers.facebook.com/products/account-creation
+summary: Offer people easy account creation at your website or app using their Facebook login info, or their phone number or email. No need for new passwords.
+icons:
+  - ../../icons/facebook-accountkit-ios_128x128.png
+  - ../../icons/facebook-accountkit-ios_512x512.png
+license: ../License.md
+packages:
+  ios-unified:
+    - Xamarin.Facebook.AccountKit.iOS, Version=4.32.0.0
+libraries:
+  ios-unified:
+    - ../output/unified/Facebook.AccountKit.dll
+samples:
+  - name: "FBAccountKit iOS Unified Sample"
+    path: "../samples/FBAccountKitSample/FBAccountKitSample.sln"
+    removeProjects:
+      - Facebook.AccountKit
+    installNuGets:
+      - project: FBAccountKitSample
+        packages:
+          - Xamarin.Facebook.AccountKit.iOS
+no_build: true
+local-nuget-repo: ../output
+additional-files:
+  - source: "../External-Dependency-Info.txt"
+    destination: "THIRD-PARTY-NOTICES.txt"
