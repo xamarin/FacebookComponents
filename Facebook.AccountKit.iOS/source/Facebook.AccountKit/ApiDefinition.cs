@@ -287,7 +287,8 @@ namespace Facebook.AccountKit
     interface IActionController { }
 
     // @protocol AKFUIManager <NSObject>
-    [Protocol (Name = "AKFUIManager")]
+	[Protocol, Model]
+	[BaseType (typeof (NSObject), Name = "AKFUIManager")]
     interface UIManager
     {
         // @optional -(UIView * _Nullable)actionBarViewForState:(AKFLoginFlowState)state;

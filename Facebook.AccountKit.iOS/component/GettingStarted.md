@@ -20,6 +20,15 @@
 - [Customizing the Account Kit UI for iOS](#customizing-the-account-kit-ui-for-ios)
 	- [Basic UI](#basic-ui)
 		- [Classic Skin](#classic-skin)
+		- [Translucent Skin](#translucent-skin)
+		- [Contemporary Skin](#contemporary-skin)
+	- [Advanced UI](#advanced-ui)
+	- [Using the Advanced UI Manager](#using-the-advanced-ui-manager)
+		- [Localization](#localization)
+- [Configuring Country Code Availability for SMS](#configuring-country-code-availability-for-sms)
+	- [Whitelisting Country Codes](#whitelisting-country-codes)
+	- [Blacklisting Country Codes](#blacklisting-country-codes)
+		- [Default Country Code](#default-country-code)
 
 ## 1. Select an App or Create a New App
 
@@ -318,7 +327,7 @@ The skin and the options you choose control the appearance of phone-number and e
 
 ### Classic Skin
 
-The following images of email and SMS screens show the classic skin without a background image, with a background image and a white tint, and with an image and a black tint.
+The following images of email and SMS screens show the classic skin without a background image, with a background image and a white tint, and with an image and a black tint:
 
 <p>
 	<img height=400 src="https://scontent.fgdl4-1.fna.fbcdn.net/v/t39.2365-6/17625995_1634207839939850_6051199768594481152_n.jpg?_nc_cat=0&_nc_eui2=v1%3AAeFhvkpVZ2BMEKmgd5GpMIewT5Td3eiE8u1tSnMm9OvNJxBLU00XZMY5pojWnJLh9tmksahUCkh6O1FYPaEIaFhkhUejtt2btVkOcVc5l9-d4g&oh=2c353d9b003393868d992fb1b682d70b&oe=5B55FF51" />
@@ -326,6 +335,244 @@ The following images of email and SMS screens show the classic skin without a ba
 	<img height=400 src="https://scontent.fgdl4-1.fna.fbcdn.net/v/t39.2365-6/17527818_1406262429424711_1054494267365392384_n.jpg?_nc_cat=0&_nc_eui2=v1%3AAeFojOISnVL9fJpdAzvS8q32awBoJ-O1tBg7K508K9GpBhQLHXGRvyVgEyC_d68AAkxqjuyGsW-5I8uFANIKWsyLS4bLuzqe0MbfHakFKe6-6A&oh=6cb6e1e77403423d29d3b31a6e254f3e&oe=5B98F0E3" />
 </p>
 
+The other screens in the login flow follow the skin and options you choose. For example, the following verification screen represents the classic skin with a background image and a white tint:
+
+<img height=400 src="https://scontent.fgdl4-1.fna.fbcdn.net/v/t39.2365-6/17639068_254973868298833_7409600188043493376_n.png?_nc_cat=0&_nc_eui2=v1%3AAeGN-F2yGbCLtgxY6p2ASZ4422WrF4pn9b4avIiTx40SzUr5IX2bfAtItAQ_brY9xGKsc8LaGj9zjyEbMycUs9wr15Dq8NjaRkCRfViACSFssQ&oh=0c89fa55038b7bd49360914b96a59b42&oe=5B8CB45B" />
+
+### Translucent Skin
+
+The following pictures illustrate the translucent skin without a background image, with an background image and a white tint:
+
+<p>
+	<img height=400 src="https://scontent.fgdl4-1.fna.fbcdn.net/v/t39.2365-6/17632948_797901453707374_6222656271800074240_n.png?_nc_cat=0&_nc_eui2=v1%3AAeFoNcZE1lvVO9hyatBtBdMF7QpXlnc9Ffn4MQgrF8LzGiFbE2TO7lzNYIpXANeMmP5oWzUFhPm3u5MAel8yaOhNc06TsjGrVWXD7JkiOlt-6w&oh=b8e2ff0d6fa3b774a5bf9ebc3a5d8380&oe=5B4F11A4" />
+	<img height=400 src="https://scontent.fgdl4-1.fna.fbcdn.net/v/t39.2365-6/17636445_407428996303861_4095262062744174592_n.png?_nc_cat=0&_nc_eui2=v1%3AAeHNYtEDNdUxFajYtoe8aAtAjXjhFM4KHC10fuZwTMOz_aURqt0AxCYkyjyoJE4A9DH2SSW1AwbPhxIMANjR-2oTVEIPS1_1KFZ51EF-zQYt7Q&oh=f616d49ac01b5000ae436815fb4104d8&oe=5B93875F" />
+</p>
+
+### Contemporary Skin
+
+The following pictures illustrate the contemporary skin without a background image, with an background image and a white tint, and with an image and a black tint:
+
+<p>
+	<img height=400 src="https://scontent.fgdl4-1.fna.fbcdn.net/v/t39.2365-6/17629506_1870188546594316_4786104039022526464_n.png?_nc_cat=0&_nc_eui2=v1%3AAeGEVjhhzxgHu8jQBLLXVN16mNUWpMxXfNxDd4MV-_0K6FcdShnf5THzOqi7DagNQs834KCjrd22KnYTZrEAvVoEkLpFUwN2nZ60PVX8LjwzJQ&oh=7b2dac9077e4646e28f0a86dd511c230&oe=5B89928B" />
+	<img height=400 src="https://scontent.fgdl4-1.fna.fbcdn.net/v/t39.2365-6/17632896_733823170122153_1795678981249302528_n.png?_nc_cat=0&_nc_eui2=v1%3AAeEx6gltfpplLE7Ht9MQQt-doGUl51g-TKaX05ko77aebsNEEN__v8yLZnUY9qlKBc1_3SwZLWs93gFaMKWU6OAnsPhqTuFf6AvRQy5qYUzrWQ&oh=054a0d465f9a5d469e984fe12ce67976&oe=5B9615B0" />
+	<img height=400 src="https://scontent.fgdl4-1.fna.fbcdn.net/v/t39.2365-6/17636453_773062582868962_3494230171907522560_n.png?_nc_cat=0&_nc_eui2=v1%3AAeHzumXZQsxDKwXE9yqsHC3-2g59AWExzZUSeWGupVLuXZ746kLZzEfUvNCrJ3wgGkcJdFe1jvA4w01v9EpHopnObve8LSFKP9cSbGj34Xo37w&oh=23f7ffe934f847d01157ccd9cb7f2b86&oe=5B93B9BF" />
+</p>
+
+The following code shows how to create a skin without a background image:
+
+```csharp
+// Constructor for a skin without a background image
+
+// Init AccountKit
+AccountKit accountKit;
+accountKit = new AccountKit (ResponseType.AccessToken);
+
+// Set view controller:
+UIViewController viewController;
+
+// --either-- Phone number login:
+viewController = accountKit.GetViewControllerForPhoneLogin (null, null);
+
+// --or-- Email login:
+viewController = accountKit.GetViewControllerForEmailLogin (null, null);
+
+// skinType can be SkinType.Classic, SkinType.Translucent, or SkinType.Contemporary
+viewController.AsIViewControllerProtocol ().UiManager = new SkinManager («SkinType», «UIColor»);
+
+// -- or --
+// Constructor using the default theme color
+viewController.AsIViewControllerProtocol ().UiManager = new SkinManager («SkinType»);
+```
+
+The following codes shows how to create a skin with a background image:
+
+```csharp
+// Constructor for a skin with a background image
+
+// Init AccountKit
+AccountKit accountKit;
+accountKit = new AccountKit (ResponseType.AccessToken);
+
+// Set view controller:
+UIViewController viewController;
+
+// --either-- Phone number login:
+viewController = accountKit.GetViewControllerForPhoneLogin (null, null);
+
+// --or-- Email login:
+viewController = accountKit.GetViewControllerForEmailLogin (null, null);
+
+// skinType can be SkinType.Classic, SkinType.Translucent, or SkinType.Contemporary
+// backgroundTint is either BackgroundTint.White or BackgroundTint.Black
+// tintIntensity is a number between 0.55 and 0.85
+viewController.AsIViewControllerProtocol ().UiManager = new SkinManager («SkinType», «UIColor», «UIImage», «BackgroundTint», «nfloat»);
+```
+
+## Advanced UI
+
+The advanced UI gives you the ability to customize many elements of the interface independently. With the advance UI, you can customize the following elements:
+
+<img height=400 src="https://scontent.fgdl4-1.fna.fbcdn.net/v/t39.2365-6/16686725_265801823847783_8569343337666969600_n.png?_nc_cat=0&_nc_eui2=v1%3AAeEBSEVBZ61mBgCKlmQDTZMQf-IkOlzBAM-S1s7OalUfdrG4IeM8WcwMN9IKPoL4S2GGP6Rx1a8oXb-Abv29inriCcj5E6TJrIjKiNL1U4bR0g&oh=0d0233e6cb103fc32f3915393fa607bf&oe=5B53486F" />
+
+> ![note_icon] **_Note_**: _Please don't obscure any elements of the Account Kit user interface when you adjust the text and background colors. This is required by our platform policy._
+
+The following table provides the full set of customizable options.
+
+| Property Name         | Description                                                         |
+|-----------------------|---------------------------------------------------------------------|
+| BackgroundColor       | Color for the background of the UI if an image is not used          |
+| ButtonBackgroundColor | Color for the background of the buttons                             |
+| ButtonBorderColor     | Color for the borders of buttons                                    |
+| ButtonTextColor       | Color for the text on buttons                                       |
+| IconColor             | Color for icons                                                     |
+| InputBackgroundColor  | Color for the background of the input boxes.                        |
+| InputBorderColor      | Color of the input boxes' border                                    |
+| InputTextColor        | Text color of the input text for Phone Number and Confirmation Code |
+| StatusBarStyle        | Style for the status bar at the top                                 |
+| TextColor             | Color for text                                                      |
+
+> ![note_icon] **_Note_**: If you specify a `BackgroundImage`, make sure your `BackgroundColor` is at least partly transparent (`Alpha` < 1.0), or your background image will not be visible.
+
+## Using the Advanced UI Manager
+
+Account Kit offers deeper customization of the login UI by allowing you to define an **Advanced UI** manager. You do this by creating a class that implements the `IAdvancedUIManager` interface and implementing individual methods to return custom views to be inserted in the login UI. For each view you want to customize, you must provide customizations appropriate to the current state of the login flow.
+
+Create a new interface in `MyUIManager` class.
+
+```csharp
+using Facebook.AccountKit;
+
+public class MyUIManager : NSObject, IUIManager {
+	public ButtonType ConfirmButtonType { get; private set; }
+	public ButtonType EntryButtonType { get; private set; }
+	public Theme Theme { get; set; }
+}
+```
+
+The `IUIManager` protocol lets you define the following customization points. This is how the protocol is defined:
+
+```csharp
+public interface IActionController : INativeObject, IDisposable
+{
+	void Back ();
+	void Cancel ();
+}
+
+public static class IUIManager_Extensions
+{
+	public static UIView GetActionBarView (this IUIManager This, LoginFlowState state);
+	public static UIView GetBodyView (this IUIManager This, LoginFlowState state);
+	public static ButtonType GetButtonType (this IUIManager This, LoginFlowState state);
+	public static UIView GetFooterView (this IUIManager This, LoginFlowState state);
+	public static UIView GetHeaderView (this IUIManager This, LoginFlowState state);
+	public static TextPosition GetTextPosition (this IUIManager This, LoginFlowState state);
+	public static Theme GetTheme (this IUIManager This);
+	public static void SetActionController (this IUIManager This, IActionController actionController);
+	public static void SetError (this IUIManager This, NSError error);
+}
+```
+
+Each UIView returned by these methods corresponds to a section on the UI:
+
+<img height=400 src="https://scontent.fgdl4-1.fna.fbcdn.net/v/t39.2365-6/17636471_619551801572363_5108454034805620736_n.png?_nc_cat=0&_nc_eui2=v1%3AAeHWJE1kZC2qBWJwEG_PkfgrY6l4VUv8BPelHMUsnVU_M9qFm2nc_qNWt3SJoE_JsdHunkszYoKik6ScjYpgFVBoih_9j6Zsre2hszmZPGAaWw&oh=c4d343550cd4ce2efbc59cda6e42e44c&oe=5B9D8EB5" />
+
+If you do not wish to customize a section of the UI, simply either do not implement the method, or return `null` to fall back to the default view for that portion of the screen.
+
+The `IActionController` is the means to communicate back to Account Kit whether we want to go back to the previous screen or cancel the login flow. You'll need to maintain a handle to this action controlled inside your UI manager if you wish to perform these actions.
+
+The following code shows how to implement an advanced UI manager:
+
+```csharp
+public class MyUIManager : NSObject, IUIManager {
+	public ButtonType ConfirmButtonType { get; private set; }
+	public ButtonType EntryButtonType { get; private set; }
+	public Theme Theme { get; set; }
+
+	IActionController actionController;
+
+	[Export ("setActionController:")]
+	void SetActionController (IActionController actionController)
+	{
+		this.actionController = actionController;
+	}
+
+	[Export ("buttonTypeForState:")]
+	ButtonType GetButtonType (LoginFlowState state)
+	{
+		switch (state) {
+		case LoginFlowState.CodeInput:
+			return ConfirmButtonType;
+		case LoginFlowState.PhoneNumberInput:
+		case LoginFlowState.EmailInput:
+			return EntryButtonType;
+		default:
+			return ButtonType.Default;
+		}
+	}
+}
+```
+
+This example changes the text on the "submit" button of the email or phone number input to be `EntryButtonType` and for the code verification screen to be `ConfirmButtonType`, and leaves all the other buttons to be the default value for Account Kit.
+
+### Localization
+
+Localization support is also provided by the SDK. The [supported languages][7] are packaged with the SDK. You don't need anything else to display text in the appropriate locale.
+
+---
+
+# Configuring Country Code Availability for SMS
+
+By default, the Account Kit SDK allows users to enter a phone number for any country code supported by Account Kit. For the list of supported country codes, see [SMS Country Codes][8]. You can customize availability by setting either a country code whitelist or a country code blacklist in the `LoginViewController`. The following table shows the possible combinations of lists and the results:
+
+| Lists                     | Result |
+|---------------------------|--------|
+| No whitelist or blacklist | All country codes supported by Account Kit are available. |
+| Whilelist                 | Only country codes in the whitelist are available. |
+| Blacklist                 | All country codes supported by Account Kit except those in the blacklist are available. |
+| Whitelist and blacklist   | Only the country codes in the whitelist that are not also in the blacklist are available. Note that the blacklist takes priority for codes that are in both lists. |
+
+## Whitelisting Country Codes
+
+Whitelisting a set of countries restricts the country code selector to only those countries in the whitelist. Specify a whitelist array in `loginViewController.WhitelistedCountryCodes`.
+
+The value is an array of 2-letter country codes as defined by **ISO 3166-1 Alpha 2**. The following example restricts availability to just the **US +1** and the **Netherlands +31**:
+
+```csharp
+void PrepareLoginViewController (IViewController controller)
+{
+	...
+	loginViewController.WhitelistedCountryCodes = new [] { "US", "NL" };
+	...
+}
+```
+
+## Blacklisting Country Codes
+
+Blacklisting a set of countries allows a user to use all of Account Kit's supported countries except those defined in the blacklist. Set a blacklist in `loginViewController.BlacklistedCountryCodes`.
+
+Just like the whitelist, the value is an array of short country codes as defined by **ISO 3166-1 Alpha 2**. The following example allows access everywhere that Account Kit is supported, except **ID +62**:
+
+```csharp
+void PrepareLoginViewController (IViewController controller)
+{
+	...
+	loginViewController.BlacklistedCountryCodes = new [] { "ID" };
+	...
+}
+```
+
+### Default Country Code
+
+You can configure your default country code by setting a country code in `loginViewController.DefaultCountryCode`. The following example sets the default country code to the **US +1**:
+
+```csharp
+void PrepareLoginViewController (IViewController controller)
+{
+	...
+	loginViewController.DefaultCountryCode = "US";
+	...
+}
+```
 
 [1]: https://developers.facebook.com/apps/
 [2]: https://developers.facebook.com/docs/accountkit/accesstokens
@@ -333,3 +580,6 @@ The following images of email and SMS screens show the classic skin without a ba
 [4]: https://developers.facebook.com/docs/accountkit/appeventsanalytics
 [5]: https://developers.facebook.com/docs/accountkit/graphapi#at-validation
 [6]: https://developers.facebook.com/docs/accountkit/bestpractices/#customizeui
+[7]: https://developers.facebook.com/docs/accountkit/languages
+[8]: https://developers.facebook.com/docs/accountkit/countrycodes
+[note_icon]: https://cdn3.iconfinder.com/data/icons/UltimateGnome/22x22/apps/gnome-app-install-star.png
