@@ -321,10 +321,11 @@ namespace Facebook.CoreKit {
 
 		// -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options;
 		[Export ("application:openURL:options:")]
-		bool OpenUrl (UIApplication application, NSUrl url, NSDictionary<NSString, NSObject> options);
-
-		[Wrap ("OpenUrl (application, url, NSDictionary<NSString, NSObject>.FromObjectsAndKeys (options.Values, options.Keys, options.Keys.Length))")]
 		bool OpenUrl (UIApplication application, NSUrl url, NSDictionary options);
+
+		[Obsolete ("This will be removed in future versions, please, use OpenUrl (UIApplication, NSUrl, NSDictionary) overload method instead.")]
+		[Wrap ("OpenUrl (application, url, NSDictionary.FromObjectsAndKeys (options.Values, options.Keys, options.Keys.Length))")]
+		bool OpenUrl (UIApplication application, NSUrl url, NSDictionary<NSString, NSObject> options);
 
 		// -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 		[Export ("application:didFinishLaunchingWithOptions:")]
