@@ -3,7 +3,9 @@
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
-var SDK_VERSION = "4.27.2";
+var SDK_VERSION = "4.28.1";
+var XAMARIN_FIX_VERSION = "0";
+var SDK_FULL_VERSION = $"{SDK_VERSION}.{XAMARIN_FIX_VERSION}";
 var SDK_URL = string.Format ("https://origincache.facebook.com/developers/resources/?id=FBAudienceNetwork-{0}.zip", SDK_VERSION);
 var SDK_FILE = "FBAudienceNetwork.zip";
 var SDK_PATH = "./externals/FBAudienceNetwork";
@@ -33,7 +35,7 @@ var buildSpec = new BuildSpec () {
 	},
 
 	NuGets = new [] {
-		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.AudienceNetwork.iOS.nuspec", BuildsOn = BuildPlatforms.Mac},
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.AudienceNetwork.iOS.nuspec", Version = SDK_FULL_VERSION, BuildsOn = BuildPlatforms.Mac},
 	},
 
 	Components = new [] {
