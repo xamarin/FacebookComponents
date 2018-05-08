@@ -5,7 +5,7 @@ var TARGET = Argument ("t", Argument ("target", "Default"));
 
 var SDK_VERSION = "4.32.0";
 var XAMARIN_FIX_VERSION = "0";
-var NUGET_POSTFIX = "-alpha"; 
+var NUGET_POSTFIX = ""; 
 var XAMARIN_FULL_VERSION = $"{SDK_VERSION}.{XAMARIN_FIX_VERSION}{NUGET_POSTFIX}";
 var SDK_URL = "https://origincache.facebook.com/developers/resources/?id=facebook-ios-sdk-current.zip";
 var SDK_FILE = string.Format ("FacebookSDKs-iOS-{0}.zip", SDK_VERSION);
