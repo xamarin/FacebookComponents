@@ -14,10 +14,13 @@ namespace Facebook.CoreKit {
 		AccessToken NewToken { get; }
 
 		[Export ("FBSDKAccessTokenDidChangeUserID")]
-		string DidChangeUserIdToken { get; }
+		bool DidChangeUserIdToken { get; }
 
 		[Export ("FBSDKAccessTokenChangeOldKey")]
 		AccessToken OldToken { get; }
+
+		[Export ("FBSDKAccessTokenDidExpire")]
+		bool DidExpireKey { get; }
 	}
 
 	// @interface FBSDKAccessToken : NSObject <FBSDKCopying, NSSecureCoding>
@@ -38,6 +41,10 @@ namespace Facebook.CoreKit {
 
 		[Field ("FBSDKAccessTokenChangeOldKey", "__Internal")]
 		NSString OldTokenKey { get; }
+
+		// FBSDK_EXTERN NSString *const FBSDKAccessTokenDidExpire;
+		[Field ("FBSDKAccessTokenDidExpire", "__Internal")]
+		NSString DidExpireKey { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * appID;
 		[Export ("appID")]
@@ -67,6 +74,10 @@ namespace Facebook.CoreKit {
 		[Export ("userID", ArgumentSemantic.Copy)]
 		string UserID { get; }
 
+		// @property (readonly, assign, nonatomic, getter = isExpired) BOOL expired;
+		[Export ("isExpired", ArgumentSemantic.Assign)]
+		bool IsExpired { get; }
+
 		// -(instancetype)initWithTokenString:(NSString *)tokenString permissions:(NSArray *)permissions declinedPermissions:(NSArray *)declinedPermissions appID:(NSString *)appID userID:(NSString *)userID expirationDate:(NSDate *)expirationDate refreshDate:(NSDate *)refreshDate __attribute__((objc_designated_initializer));
 		[DesignatedInitializer]
 		[Export ("initWithTokenString:permissions:declinedPermissions:appID:userID:expirationDate:refreshDate:")]
@@ -85,6 +96,11 @@ namespace Facebook.CoreKit {
 		[Static]
 		[Export ("currentAccessToken")]
 		AccessToken CurrentAccessToken { get; set; }
+
+		// + (BOOL)currentAccessTokenIsActive;
+		[Static]
+		[Export ("currentAccessTokenIsActive")]
+		bool CurrentAccessTokenIsActive { get; }
 
 		// + (void)refreshCurrentAccessToken:(FBSDKGraphRequestHandler)completionHandler;
 		[Static]
@@ -1043,6 +1059,98 @@ namespace Facebook.CoreKit {
 }
 
 namespace Facebook.LoginKit {
+	// @interface FBSDKDeviceLoginCodeInfo : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FBSDKDeviceLoginCodeInfo")]
+	interface DeviceLoginCodeInfo {
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull identifier;
+		[Export ("identifier")]
+		string Identifier { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull loginCode;
+		[Export ("loginCode")]
+		string LoginCode { get; }
+
+		// @property (readonly, copy, nonatomic) NSURL * _Nonnull verificationURL;
+		[Export ("verificationURL", ArgumentSemantic.Copy)]
+		NSUrl VerificationUrl { get; }
+
+		// @property (readonly, copy, nonatomic) NSDate * _Nonnull expirationDate;
+		[Export ("expirationDate", ArgumentSemantic.Copy)]
+		NSDate ExpirationDate { get; }
+
+		// @property (readonly, assign, nonatomic) NSUInteger pollingInterval;
+		[Export ("pollingInterval")]
+		nuint PollingInterval { get; }
+	}
+
+	interface IDeviceLoginManagerDelegate { }
+
+	// @protocol FBSDKDeviceLoginManagerDelegate <NSObject>
+	[Model]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "FBSDKDeviceLoginManagerDelegate")]
+	interface DeviceLoginManagerDelegate {
+		// @required -(void)deviceLoginManager:(FBSDKDeviceLoginManager * _Nonnull)loginManager startedWithCodeInfo:(FBSDKDeviceLoginCodeInfo * _Nonnull)codeInfo;
+		[Abstract]
+		[EventArgs ("DeviceLoginManagerStarted")]
+		[Export ("deviceLoginManager:startedWithCodeInfo:")]
+		void Started (DeviceLoginManager loginManager, DeviceLoginCodeInfo codeInfo);
+
+		// @required -(void)deviceLoginManager:(FBSDKDeviceLoginManager * _Nonnull)loginManager completedWithResult:(FBSDKDeviceLoginManagerResult * _Nullable)result error:(NSError * _Nullable)error;
+		[Abstract]
+		[EventArgs ("DeviceLoginManagerCompleted")]
+		[Export ("deviceLoginManager:completedWithResult:error:")]
+		void Completed (DeviceLoginManager loginManager, [NullAllowed] DeviceLoginManagerResult result, [NullAllowed] NSError error);
+	}
+
+	// @interface FBSDKDeviceLoginManager : NSObject <NSNetServiceDelegate>
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject),
+		   Name = "FBSDKDeviceLoginManager",
+		   Delegates = new [] { "Delegate" },
+	           Events = new [] { typeof (DeviceLoginManagerDelegate) })]
+	interface DeviceLoginManager : INSNetServiceDelegate {
+		// -(instancetype _Nonnull)initWithPermissions:(NSArray<NSString *> * _Nullable)permissions enableSmartLogin:(BOOL)enableSmartLogin __attribute__((objc_designated_initializer));
+		[Export ("initWithPermissions:enableSmartLogin:")]
+		[DesignatedInitializer]
+		IntPtr Constructor ([NullAllowed] string [] permissions, bool enableSmartLogin);
+
+		// @property (nonatomic, weak) id<FBSDKDeviceLoginManagerDelegate> _Nullable delegate;
+		[NullAllowed]
+		[Export ("delegate", ArgumentSemantic.Weak)]
+		IDeviceLoginManagerDelegate Delegate { get; set; }
+
+		// @property (readonly, copy, nonatomic) NSArray<NSString *> * _Nullable permissions;
+		[NullAllowed, Export ("permissions", ArgumentSemantic.Copy)]
+		string [] Permissions { get; }
+
+		// @property (copy, nonatomic) NSURL * _Nullable redirectURL;
+		[NullAllowed, Export ("redirectURL", ArgumentSemantic.Copy)]
+		NSUrl RedirectUrl { get; set; }
+
+		// -(void)start;
+		[Export ("start")]
+		void Start ();
+
+		// -(void)cancel;
+		[Export ("cancel")]
+		void Cancel ();
+	}
+
+	// @interface FBSDKDeviceLoginManagerResult : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FBSDKDeviceLoginManagerResult")]
+	interface DeviceLoginManagerResult {
+		// @property (readonly, nonatomic, strong) FBSDKAccessToken * _Nullable accessToken;
+		[NullAllowed, Export ("accessToken", ArgumentSemantic.Strong)]
+		CoreKit.AccessToken AccessToken { get; }
+
+		// @property (readonly, getter = isCancelled, assign, nonatomic) BOOL cancelled;
+		[Export ("isCancelled")]
+		bool IsCancelled { get; }
+	}
+
 	// @interface FBSDKLoginButton : FBSDKButton
 	[BaseType (typeof (CoreKit.Button),
 		Name = "FBSDKLoginButton",

@@ -70,6 +70,15 @@ namespace Facebook.LoginKit
 	}
 
 	[Native]
+	public enum DeviceLoginErrorSubcode : ulong
+	{
+		ExcessivePollingErrorSubcode = 1349172,
+		AuthorizationDeclinedErrorSubcode = 1349173,
+		AuthorizationPendingErrorSubcode = 1349174,
+		CodeExpiredErrorSubcode = 1349152
+	}
+
+	[Native]
 	public enum DefaultAudience : ulong
 	{
 		Friends = 0,
