@@ -58,7 +58,7 @@
     <NativeReference Include="..\..\externals\FBAudienceNetwork.framework">
       <Kind>Framework</Kind>
       <ForceLoad>True</ForceLoad>
-      <Frameworks>AudioToolbox AVFoundation CoreGraphics CoreImage CoreMedia OpenGLES Security StoreKit UIKit Foundation CoreVideo</Frameworks>
+      <Frameworks>AudioToolbox AVFoundation CoreGraphics CoreImage CoreMedia OpenGLES Security StoreKit UIKit Foundation CoreVideo QuartzCore</Frameworks>
       <WeakFrameworks>AdSupport CoreMotion SafariServices WebKit</WeakFrameworks>
       <LinkerFlags>-lc++ -lxml2</LinkerFlags>
     </NativeReference>
