@@ -36,8 +36,12 @@ var buildSpec = new BuildSpec () {
 	},
 
 	NuGets = new [] {
-		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.AccountKit.iOS.nuspec", Version = XAMARIN_FULL_VERSION, BuildsOn = BuildPlatforms.Mac},
-	}
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.AccountKit.iOS.nuspec", Version = XAMARIN_FULL_VERSION, BuildsOn = BuildPlatforms.Mac },
+	},
+
+	Components = new [] {
+		new Component { ManifestDirectory = "./component", BuildsOn = BuildPlatforms.Mac },
+	},
 };
 
 Task ("externals")
