@@ -1,0 +1,27 @@
+﻿<metadata>
+  <attr path="/api/package[@name='com.facebook.accountkit']" name="managedName">Xamarin.Facebook.AccountKit</attr>
+  <attr path="/api/package[@name='com.facebook.accountkit.internal']" name="managedName">Xamarin.Facebook.AccountKit.Internal</attr>
+  <attr path="/api/package[@name='com.facebook.accountkit.ui']" name="managedName">Xamarin.Facebook.AccountKit.UI</attr>
+  <attr path="/api/package[@name='com.facebook.accountkit.ui']/class[@name='AccountKitLoginResultImpl']" name="managedName">AccountKitLoginResult</attr>
+
+  <attr path="/api/package[@name='com.facebook.accountkit.ui']/interface[@name='UIManagerStub']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.facebook.accountkit.ui']/interface[@name='ContentController']" name="visibility">public</attr>
+  <!--<attr path="/api/package[@name='com.facebook.accountkit']/interface[@name='AccountKitCallback']" name="visibility">public</attr>-->
+ 
+  <!--<attr path="/api/package[@name='com.facebook.accountkit.ui']/class[@name='AccountKitActivityBase']" name="visibility">public</attr>-->
+  <attr path="/api/package[@name='com.facebook.accountkit.ui']/class[@name='ContentFragment']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.facebook.accountkit.ui']/class[@name='LoginFragment']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.facebook.accountkit.ui']/class[@name='TitleFragmentFactory']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.facebook.accountkit.ui']/class[@name='ViewStateFragment']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.facebook.accountkit.ui']/class[@name='AccountKitLoginResultImpl']" name="visibility">public</attr>
+ 
+  <attr path="/api/package[@name='com.facebook.accountkit.ui']/class[@name='ViewStateFragment']/field[@name='TAG']" name="managedName">TAG</attr>
+
+  <!--<remove-node path="/api/package[contains(@name,'com.facebook.accountkit.internal')]" />-->
+
+  <!--Added this in the additions.cs, did not want a parallel class, going to use AccountKitLoginResultImpl instead-->
+  <remove-node path="/api/package[@name='com.facebook.accountkit.ui']/interface[@name='CountryCodeSpinner.OnSpinnerEventsListener']" />
+  <remove-node path="/api/package[@name='com.facebook.accountkit.internal']/*[not(@name='InternalAccountKitError') and not(@name='UpdateStatus')]" />
+  <remove-node path="/api/package[@name='com.facebook.accountkit']/interface[@name='AccountKitLoginResult']/field[@name='RESULT_KEY']" />
+
+</metadata>
