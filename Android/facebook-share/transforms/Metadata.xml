@@ -1,0 +1,6 @@
+<metadata>
+    <attr path="/api/package[@name='com.facebook']" name="managedName">Xamarin.Facebook</attr>
+    <attr path="/api/package[@name='com.facebook.messenger']" name="managedName">Xamarin.Facebook.Messenger</attr>
+    
+    <attr path="/api/package[@name='com.facebook']/class[@name='GraphRequestBatch']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]" name="managedReturn">Java.Lang.Object</attr>
+</metadata>

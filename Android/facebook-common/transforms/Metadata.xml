@@ -1,0 +1,11 @@
+<metadata>
+    <attr path="/api/package[@name='com.facebook']" name="managedName">Facebook</attr>
+    
+    <!--<attr path="/api/package[@name='com.facebook']/class[@name='GraphRequestAsyncTask']/method[@name='doInBackground' and count(parameter)=1 and parameter[1][@type='java.lang.Void...']]/parameter[1]" name="managedType">params Java.Lang.Object[]</attr>
+    <attr path="/api/package[@name='com.facebook']/class[@name='GraphRequestAsyncTask']/method[@name='doInBackground' and count(parameter)=1 and parameter[1][@type='java.lang.Void...']]" name="managedReturn">Java.Lang.Object</attr>
+-->
+    <remove-node path="/api/package[@name='com.facebook']/class[@name='GraphRequestAsyncTask']/method[@name='doInBackground' and count(parameter)=1 and parameter[1][@type='java.lang.Void...']]" />
+    
+    <attr path="/api/package[@name='com.facebook']/class[@name='GraphRequestBatch']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]" name="managedReturn">Java.Lang.Object</attr>
+    
+</metadata>

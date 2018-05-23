@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>MonoAndroid81</TargetFrameworks>
+    <IsBindingProject>true</IsBindingProject>
+
+    <AssemblyName>Xamarin.Facebook.Notifications.Android</AssemblyName>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+    <AndroidUseIntermediateDesignerFile>True</AndroidUseIntermediateDesignerFile>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Xamarin.Facebook.Notifications.Android</PackageId>
+    <Title>Xamarin Facebook Android - Notifications</Title>
+    <Summary>Xamarin.Android bindings for Facebook Android - Notifications</Summary>
+    <Description>Xamarin.Android bindings for Facebook Android - Notifications</Description>
+    <PackageTags>Xamarin Android Xamarin.Android Facebook</PackageTags>
+    <Authors>Xamarin Inc.</Authors>
+    <Owners>Xamarin Inc.</Owners>
+    <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
+    <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865581</PackageProjectUrl>
+    <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865585</PackageLicenseUrl>
+    
+    <PackageIconUrl>https://raw.githubusercontent.com/xamarin/FacebookComponents/master/icons/facebook-android_128x128.png</PackageIconUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AndroidClassParser>class-parse</AndroidClassParser>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <TransformFile Include="transforms\*.xml" />
+  </ItemGroup>
+    
+  <ItemGroup>
+    <_AndroidDocumentationPath Include="..\externals\notifications-javadoc.jar" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfo.cs" />
+    <Compile Include="additions\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <LibraryProjectZip Include="..\externals\notifications.aar" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="27.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.3.1" PrivateAssets="All" />
+  </ItemGroup>
+
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+</Project>

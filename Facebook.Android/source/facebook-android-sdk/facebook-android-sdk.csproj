@@ -1,0 +1,69 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>MonoAndroid81</TargetFramework>
+    <IsBindingProject>true</IsBindingProject>
+
+    <AssemblyName>Xamarin.Facebook.Android</AssemblyName>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+    <AndroidUseIntermediateDesignerFile>True</AndroidUseIntermediateDesignerFile>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Xamarin.Facebook.Android</PackageId>
+    <Title>Xamarin Facebook Android - SDK</Title>
+    <Summary>Xamarin.Android bindings for Facebook Android - SDK</Summary>
+    <Description>Xamarin.Android bindings for Facebook Android - SDK</Description>
+    <PackageTags>Xamarin Android Xamarin.Android Facebook</PackageTags>
+    <Authors>Xamarin Inc.</Authors>
+    <Owners>Xamarin Inc.</Owners>
+    <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
+    <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865581</PackageProjectUrl>
+    <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865585</PackageLicenseUrl>
+    
+    <PackageIconUrl>https://raw.githubusercontent.com/xamarin/FacebookComponents/master/icons/facebook-android_128x128.png</PackageIconUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AndroidClassParser>class-parse</AndroidClassParser>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <TransformFile Include="transforms\*.xml" />
+  </ItemGroup>
+    
+  <PropertyGroup>
+    <Java8DocPaths>..\..\externals\facebook-android-sdk-docs\</Java8DocPaths>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <LibraryProjectZip Include="..\..\externals\facebook-android-sdk.aar" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.4.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\facebook-core\facebook-core.csproj" />
+    <ProjectReference Include="..\facebook-common\facebook-common.csproj" />
+    <ProjectReference Include="..\facebook-login\facebook-login.csproj" />
+    <ProjectReference Include="..\facebook-share\facebook-share.csproj" />
+    <ProjectReference Include="..\facebook-places\facebook-places.csproj" />
+    <ProjectReference Include="..\facebook-applinks\facebook-applinks.csproj" />
+    <ProjectReference Include="..\facebook-messenger\facebook-messenger.csproj" />
+  </ItemGroup>
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+</Project>

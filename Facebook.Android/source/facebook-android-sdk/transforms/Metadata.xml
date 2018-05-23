@@ -1,0 +1,4 @@
+<metadata>
+    <attr path="/api/package[@name='com.facebook']" name="managedName">Xamarin.Facebook</attr>
+    <attr path="/api/package[@name='com.facebook.all']" name="managedName">Xamarin.Facebook.All</attr>
+</metadata>

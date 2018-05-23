@@ -1,0 +1,11 @@
+<metadata>
+    <attr path="/api/package[@name='com.facebook']" name="managedName">Xamarin.Facebook</attr>
+    <attr path="/api/package[@name='com.facebook.login']" name="managedName">Xamarin.Facebook.Login</attr>
+    <attr path="/api/package[@name='com.facebook.login.widget']" name="managedName">Xamarin.Facebook.Login.Widget</attr>
+    <attr path="/api/package[@name='com.facebook.appevents']" name="managedName">Xamarin.Facebook.AppEvents</attr>
+    <attr path="/api/package[@name='com.facebook.appevents.internal']" name="managedName">Xamarin.Facebook.AppEvents.Internal</attr>
+    <attr path="/api/package[@name='com.facebook.core']" name="managedName">Xamarin.Facebook.Core</attr>
+    <attr path="/api/package[@name='com.facebook.internal']" name="managedName">Xamarin.Facebook.Internal</attr>
+
+    <attr path="/api/package[@name='com.facebook']/class[@name='GraphRequestBatch']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]" name="managedReturn">Java.Lang.Object</attr>
+</metadata>
