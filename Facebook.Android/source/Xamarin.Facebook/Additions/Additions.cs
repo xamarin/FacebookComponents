@@ -13,7 +13,7 @@ namespace Xamarin.Facebook
     }
 }
 
-namespace Xamarin.Facebook.Share.Model
+/*namespace Xamarin.Facebook.Share.Model
 {
     public partial class ShareContent 
     {
@@ -273,5 +273,5 @@ namespace Xamarin.Facebook.Share
 			return OrderedModeHandlers.ToList();
 		}	
 	}
-}
+}*/
 
