@@ -69,6 +69,27 @@ Task ("libs")
  		.WithTarget("Build"));
 });
 
+Task ("samples")
+	.IsDependentOn("libs")
+	.Does(() =>
+{
+	var samples = new string[] { 
+		"./samples/AudienceNetworkSample.sln",
+		"./samples/HelloFacebookSample.sln",
+		"./samples/MessengerSendSample.sln",
+	};
+
+	foreach (var sampleSln in samples) {
+		MSBuild(sampleSln, c => 
+	 		c.SetConfiguration("Release")
+ 			.WithTarget("Restore"));
+
+		MSBuild(sampleSln, c => 
+			c.SetConfiguration("Release")
+			.WithTarget("Build"));
+	}
+});
+
 Task ("nuget")
 	.IsDependentOn("libs")
 	.Does(() =>
