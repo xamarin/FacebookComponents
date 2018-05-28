@@ -4,8 +4,8 @@
 - Name: FacebookAndroid
   BuildScript: ./Facebook.Android/build.cake
   TriggerPaths: [ Facebook.Android ]
-  MacBuildTargets: [ samples, nuget, component ]
-  WindowsBuildTargets: [ samples, nuget, component ]
+  MacBuildTargets: [ nuget ]
+  WindowsBuildTargets: [ nuget ]
 - Name: FacebookiOS
   BuildScript: ./Facebook.iOS/build.cake
   TriggerPaths: [ Facebook.iOS ]
