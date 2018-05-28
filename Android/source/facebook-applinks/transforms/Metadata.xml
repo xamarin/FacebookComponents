@@ -1,5 +1,0 @@
-<metadata>
-    <attr path="/api/package[@name='com.facebook']" name="managedName">Facebook</attr>
-    <attr path="/api/package[@name='com.facebook.applinks']" name="managedName">Facebook.AppLinks</attr>
-
-</metadata>
