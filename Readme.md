@@ -1,13 +1,6 @@
 # Xamarin Components for Facebook
 
-Xamarin creates and maintains Xamarin.Android and Xamarin.iOS bindings for Facebook SDKs, including:
-
-| Name                          | Component Store            | NuGet                          |
-|-------------------------------|----------------------------|--------------------------------|
-| [Facebook.Android][1]         | [facebookandroid][11]      | [Xamarin.Facebook.Android][21] |
-| [Facebook.AudienceNetwork][2] | [fbaudiencenetworkios][12] | NA                             |
-| [Facebook.iOS][3]             | [facebookios][13]          | [Xamarin.Facebook.iOS][23]     |
-
+Xamarin creates and maintains Xamarin.Android and Xamarin.iOS bindings for Facebook SDKs.
 
 ## Building
 
@@ -19,7 +12,7 @@ The build script for this project uses [Cake][32].  To run the build, you can us
 
 ```
 cd Facebook.iOS
-sh ../build.sh -target libs
+sh ../build.sh --target=libs
 ```
 
 The bootstrapper script will automatically download Cake.exe and all the required tools and files into the `./tools/` folder.
@@ -30,7 +23,6 @@ The following targets can be specified:
  - `externals` downloads and builds the external dependencies
  - `samples` builds all of the samples (depends on `libs`)
  - `nuget` builds the nuget packages (depends on `libs`)
- - `component` builds the xamarin components (depends on `samples` and `nuget`)
  - `clean` cleans up everything
 
 

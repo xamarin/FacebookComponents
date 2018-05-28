@@ -1,0 +1,18 @@
+<metadata>
+    <attr path="/api/package[@name='com.facebook']" name="managedName">Xamarin.Facebook</attr>
+    <attr path="/api/package[@name='com.facebook.accountkit']" name="managedName">Xamarin.Facebook.AccountKit</attr>
+    <attr path="/api/package[@name='com.facebook.accountkit.ui']" name="managedName">Xamarin.Facebook.AccountKit.UI</attr>
+
+    <remove-node path="/api/package[contains(@name, 'com.facebook.accountkit.internal')]" />
+
+    <attr path="/api/package[@name='com.facebook.accountkit.ui']/class[@name='TitleFragmentFactory']" name="visibility">public</attr>
+    <attr path="/api/package[@name='com.facebook.accountkit.ui']/class[@name='ViewStateFragment']" name="visibility">public</attr>
+    <attr path="/api/package[@name='com.facebook.accountkit.ui']/class[@name='LoginFragment']" name="visibility">public</attr>
+    <attr path="/api/package[@name='com.facebook.accountkit.ui']/class[@name='ContentFragment']" name="visibility">public</attr>
+
+    <remove-node path="/api/package[@name='com.facebook.accountkit.ui']/class[@name='ContentControllerBase']" />
+    <remove-node path="/api/package[@name='com.facebook.accountkit.ui']/interface[@name='AdvancedUIManager']" />
+
+    <remove-node path="/api/package[@name='com.facebook.accountkit.ui']/interface[@name='UIManager']/implements" />
+
+</metadata>
