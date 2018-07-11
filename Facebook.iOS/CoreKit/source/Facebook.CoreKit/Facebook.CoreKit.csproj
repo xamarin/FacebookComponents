@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B88D7C7-6E76-4D0D-8DBE-B3F0A5D6B8A0}</ProjectGuid>
+    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Facebook.CoreKit</RootNamespace>
+    <AssemblyName>Facebook.CoreKit</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="FBSDKCoreKit.linkwith.cs">
+      <DependentUpon>FBSDKCoreKit.a</DependentUpon>
+    </Compile>
+    <Compile Include="Loader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="Structs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="..\..\externals\Bolts.a">
+      <Link>Bolts.a</Link>
+    </ObjcBindingNativeLibrary>
+    <ObjcBindingNativeLibrary Include="..\..\externals\FBSDKCoreKit.a">
+      <Link>FBSDKCoreKit.a</Link>
+    </ObjcBindingNativeLibrary>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\af.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\af.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\ar.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\ar.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\bn.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\bn.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\cs.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\cs.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\da.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\da.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\de.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\de.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\el.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\el.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\en.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\en.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\en_GB.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\en_GB.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\es.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\es.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\es_ES.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\es_ES.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\fi.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\fi.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\fil.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\fil.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\fr.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\fr.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\gu.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\gu.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\he.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\he.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\hi.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\hi.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\hr.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\hr.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\hu.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\hu.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\id.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\id.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\it.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\it.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\ja.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\ja.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\kn.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\kn.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\ko.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\ko.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\ml.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\ml.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\mr.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\mr.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\ms.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\ms.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\nb.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\nb.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\nl.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\nl.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\pa.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\pa.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\pl.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\pl.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\pt.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\pt.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\pt_PT.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\pt_PT.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\ru.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\ru.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\sk.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\sk.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\sv.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\sv.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\ta.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\ta.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\te.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\te.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\th.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\th.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\tr.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\tr.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\vi.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\vi.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\zh.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\zh.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\zh_Hant_HK.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\zh_Hant_HK.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\externals\FacebookSDKStrings.bundle\Resources\zh_Hant_TW.lproj\FacebookSDK.strings">
+      <Link>Resources\FacebookSDKStrings.bundle\Resources\zh_Hant_TW.lproj\FacebookSDK.strings</Link>
+    </BundleResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+</Project>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Xamarin.Facebook.iOS.CoreKit</id>
+    <title>Facebook CoreKit SDK for Xamarin iOS</title>
+    <version>$version$</version>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>C# binding for Facebook CoreKit's official SDK</description>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <projectUrl>https://go.microsoft.com/fwlink/?linkid=865580</projectUrl>
+    <licenseUrl>https://go.microsoft.com/fwlink/?linkid=865584</licenseUrl>
+    <iconUrl>https://raw.githubusercontent.com/xamarin/FacebookComponents/master/icons/facebook-ios_128x128.png</iconUrl>
+  </metadata>
+  <files>
+    <!-- iOS Unified -->
+    <file src="output/unified/Facebook.dll" target="lib/Xamarin.iOS10" />
+    <file src="External-Dependency-Info.txt" target="THIRD-PARTY-NOTICES.txt" />
+  </files>
+</package>
