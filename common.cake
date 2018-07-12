@@ -84,18 +84,3 @@ void BuildXCodeFatLibrary(FilePath xcodeProject, string target, Archs archs, str
 	
 	RunLipoCreate(workingDirectory, fatLibrary, archsPathsBuilt.ToArray ());
 }
-
-void InvokeOtherFacebookModules (string [] otherPaths, string target)
-{
-	if (otherPaths == null)
-		return;
-
-	var cakeSettings = new CakeSettings { 
-			ToolPath = GetCakeToolPath (),
-			Arguments = new Dictionary<string, string> { { "target", target } },
-		};
-
-	// Run the script from the subfolder
-	foreach (var module in otherPaths)
-		CakeExecuteScript ($"../{module}/build.cake", cakeSettings);
-}
