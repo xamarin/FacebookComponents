@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facebook.PlacesKit", "Facebook.PlacesKit\Facebook.PlacesKit.csproj", "{30556F40-CE2F-413B-9031-5A7A037AE1C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facebook.CoreKit", "..\..\CoreKit\source\Facebook.CoreKit\Facebook.CoreKit.csproj", "{5B88D7C7-6E76-4D0D-8DBE-B3F0A5D6B8A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30556F40-CE2F-413B-9031-5A7A037AE1C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30556F40-CE2F-413B-9031-5A7A037AE1C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30556F40-CE2F-413B-9031-5A7A037AE1C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30556F40-CE2F-413B-9031-5A7A037AE1C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B88D7C7-6E76-4D0D-8DBE-B3F0A5D6B8A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B88D7C7-6E76-4D0D-8DBE-B3F0A5D6B8A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B88D7C7-6E76-4D0D-8DBE-B3F0A5D6B8A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B88D7C7-6E76-4D0D-8DBE-B3F0A5D6B8A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
