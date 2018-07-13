@@ -1,7 +1,7 @@
 
 #load "../common.cake"
 
-var FB_VERSION = "4.33.0";
+var FB_VERSION = "4.34.0";
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
