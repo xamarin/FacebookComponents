@@ -22,13 +22,13 @@ var IOS_PODS = new List<string> {
 var buildSpec = new BuildSpec () {
 	Libs = new ISolutionBuilder [] {
 		new DefaultSolutionBuilder {
-			SolutionPath = "./source/Facebook.LoginKit/Facebook.LoginKit.sln",
+			SolutionPath = "./source/Facebook.LoginKit.sln",
 			Configuration = "Release",
 			BuildsOn = BuildPlatforms.Mac,
 			OutputFiles = new [] { 
 				new OutputFileCopy {
-					FromFile = "./source/Facebook.LoginKit/bin/unified/Release/Facebook.LoginKit.dll",
-					ToDirectory = "./output/unified/"
+					FromFile = "./source/Facebook.LoginKit/bin/Release/Facebook.LoginKit.dll",
+					ToDirectory = "./output/"
 				}
 			}
 		}	

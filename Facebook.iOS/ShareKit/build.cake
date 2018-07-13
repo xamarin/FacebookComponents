@@ -22,13 +22,13 @@ var IOS_PODS = new List<string> {
 var buildSpec = new BuildSpec () {
 	Libs = new ISolutionBuilder [] {
 		new DefaultSolutionBuilder {
-			SolutionPath = "./source/Facebook.ShareKit/Facebook.ShareKit.sln",
+			SolutionPath = "./source/Facebook.ShareKit.sln",
 			Configuration = "Release",
 			BuildsOn = BuildPlatforms.Mac,
 			OutputFiles = new [] { 
 				new OutputFileCopy {
-					FromFile = "./source/Facebook.ShareKit/bin/unified/Release/Facebook.ShareKit.dll",
-					ToDirectory = "./output/unified/"
+					FromFile = "./source/Facebook.ShareKit/bin/Release/Facebook.ShareKit.dll",
+					ToDirectory = "./output/"
 				}
 			}
 		}	

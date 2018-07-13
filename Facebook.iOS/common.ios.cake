@@ -9,7 +9,7 @@ string [] MyDependencies = null;
 
 Task ("externals")
 	.IsDependentOn ("externals-base")
-	.WithCriteria (!FileExists ("./externals/FBSDKLoginKit.a"))
+	.WithCriteria (!DirectoryExists ("./externals"))
 	.Does (() => 
 {
 	InvokeOtherFacebookModules (MyDependencies, "externals");
@@ -39,7 +39,37 @@ Task ("clean").IsDependentOn ("clean-base").Does (() =>
 			Recursive = true,
 			Force = true
 		});
+
+	if (DirectoryExists ("../../tmp-nugets"))
+		DeleteDirectory ("../../tmp-nugets", new DeleteDirectorySettings {
+			Recursive = true,
+			Force = true
+		});
 });
+
+Task ("tmp-nuget").IsDependentOn ("libs").Does (() => 
+{
+	InvokeOtherFacebookModules (MyDependencies, "tmp-nuget");
+
+	if (buildSpec.NuGets == null || buildSpec.NuGets.Length == 0)
+		return;
+
+	var newList = new List<NuGetInfo> ();
+
+	foreach (var nuget in buildSpec.NuGets) {
+		newList.Add (new NuGetInfo {
+			BuildsOn = nuget.BuildsOn,
+			NuSpec = nuget.NuSpec,
+			RequireLicenseAcceptance = nuget.RequireLicenseAcceptance,
+			Version = nuget.Version,
+			OutputDirectory = "../../tmp-nugets",
+		});
+	}
+
+	PackNuGets (newList.ToArray ());
+});
+
+Task ("component").IsDependentOn ("nuget").IsDependentOn ("tmp-nuget").IsDependentOn ("component-base");
 
 void InvokeOtherFacebookModules (string [] otherPaths, string target)
 {

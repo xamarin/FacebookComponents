@@ -15,7 +15,7 @@ packages:
     - Xamarin.Facebook.iOS.CoreKit, Version=4.33.0.0
 libraries:
   ios-unified:
-    - ../output/unified/Facebook.CoreKit.dll
+    - ../output/Facebook.CoreKit.dll
 samples:
   - name: "CoreKit iOS Sample"
     path: "../samples/CoreKitSample/CoreKitSample.sln"
@@ -26,7 +26,7 @@ samples:
         packages:
           - Xamarin.Facebook.iOS.CoreKit
 no_build: true
-local-nuget-repo: ../../output
+local-nuget-repo: ../../../tmp-nugets
 additional-files:
   - source: "../External-Dependency-Info.txt"
     destination: "THIRD-PARTY-NOTICES.txt"

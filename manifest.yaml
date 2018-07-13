@@ -6,8 +6,20 @@
   TriggerPaths: [ Facebook.Android ]
   MacBuildTargets: [ nuget, samples ]
   WindowsBuildTargets: [ nuget, samples ]
-- Name: FacebookiOS
+- Name: Facebook.iOS
   BuildScript: ./Facebook.iOS/build.cake
+  TriggerPaths: [ Facebook.iOS ]
+  MacBuildTargets: [ samples, nuget, component ]
+- Name: Facebook.iOS.CoreKit
+  BuildScript: ./Facebook.iOS/CoreKit/build.cake
+  TriggerPaths: [ Facebook.iOS ]
+  MacBuildTargets: [ samples, nuget, component ]
+- Name: Facebook.iOS.LoginKit
+  BuildScript: ./Facebook.iOS/LoginKit/build.cake
+  TriggerPaths: [ Facebook.iOS ]
+  MacBuildTargets: [ samples, nuget, component ]
+- Name: Facebook.iOS.ShareKit
+  BuildScript: ./Facebook.iOS/ShareKit/build.cake
   TriggerPaths: [ Facebook.iOS ]
   MacBuildTargets: [ samples, nuget, component ]
 - Name: FacebookiOSAudienceNetwork

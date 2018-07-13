@@ -15,7 +15,7 @@ packages:
     - Xamarin.Facebook.iOS.ShareKit, Version=4.33.0.0
 libraries:
   ios-unified:
-    - ../output/unified/Facebook.ShareKit.dll
+    - ../output/Facebook.ShareKit.dll
 samples:
   - name: "ShareKit iOS Sample"
     path: "../samples/ShareKitSample/ShareKitSample.sln"
@@ -28,9 +28,7 @@ samples:
           - Xamarin.Facebook.iOS.ShareKit
           - Xamarin.Facebook.iOS.CoreKit
 no_build: true
-local-nuget-repo: ../../output
-screenshots:
-  - screenshots/screenshot1.png
+local-nuget-repo: ../../../tmp-nugets
 additional-files:
   - source: "../External-Dependency-Info.txt"
     destination: "THIRD-PARTY-NOTICES.txt"
