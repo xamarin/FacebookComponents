@@ -8,7 +8,7 @@ var FACEBOOK_IOS_SDK_VERSION = "4.33.0";
 var FACEBOOK_IOS_XAMARIN_FIX_VERSION = "0";
 var FACEBOOK_IOS_FULL_VERSION = $"{FACEBOOK_IOS_SDK_VERSION}.{FACEBOOK_IOS_XAMARIN_FIX_VERSION}";
 
-string [] IOS_TARGETS = { "FBSDKLoginKit" };
+string [] IOS_TARGETS = { "FBSDKShareKit" };
 
 var IOS_PODS = new List<string> {
 	"source 'https://github.com/CocoaPods/Specs.git'",
@@ -22,12 +22,12 @@ var IOS_PODS = new List<string> {
 var buildSpec = new BuildSpec () {
 	Libs = new ISolutionBuilder [] {
 		new DefaultSolutionBuilder {
-			SolutionPath = "./source/Facebook.LoginKit/Facebook.LoginKit.sln",
+			SolutionPath = "./source/Facebook.ShareKit/Facebook.ShareKit.sln",
 			Configuration = "Release",
 			BuildsOn = BuildPlatforms.Mac,
 			OutputFiles = new [] { 
 				new OutputFileCopy {
-					FromFile = "./source/Facebook.LoginKit/bin/unified/Release/Facebook.LoginKit.dll",
+					FromFile = "./source/Facebook.ShareKit/bin/unified/Release/Facebook.ShareKit.dll",
 					ToDirectory = "./output/unified/"
 				}
 			}
@@ -35,11 +35,11 @@ var buildSpec = new BuildSpec () {
 	},
 
 	Samples = new ISolutionBuilder [] {
-		new IOSSolutionBuilder { SolutionPath = "./samples/LoginKitSample/LoginKitSample.sln", Configuration = "Release", BuildsOn = BuildPlatforms.Mac }, 
+		new IOSSolutionBuilder { SolutionPath = "./samples/ShareKitSample/ShareKitSample.sln", Configuration = "Release", BuildsOn = BuildPlatforms.Mac }, 
 	},
 
 	NuGets = new [] {
-		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.iOS.LoginKit.nuspec", Version = FACEBOOK_IOS_FULL_VERSION, BuildsOn = BuildPlatforms.Mac},
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.iOS.ShareKit.nuspec", Version = FACEBOOK_IOS_FULL_VERSION, BuildsOn = BuildPlatforms.Mac},
 	},
 
 	Components = new [] {

@@ -15,7 +15,7 @@
   </metadata>
   <files>
     <!-- iOS Unified -->
-    <file src="output/unified/Facebook.dll" target="lib/Xamarin.iOS10" />
+    <file src="output/unified/Facebook.CoreKit.dll" target="lib/Xamarin.iOS10" />
     <file src="External-Dependency-Info.txt" target="THIRD-PARTY-NOTICES.txt" />
   </files>
 </package>

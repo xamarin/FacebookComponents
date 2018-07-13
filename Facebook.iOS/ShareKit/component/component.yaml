@@ -1,10 +1,10 @@
 version: 4.33.0.0
-name: Facebook LoginKit for iOS
-id: facebookiosloginkit
+name: Facebook ShareKit iOS SDK
+id: facebookiossharekit
 publisher: Xamarin Inc
 publisher-url: https://xamarin.com/
 src-url: https://github.com/facebook/facebook-ios-sdk
-summary: Official Xamarin Facebook SDK for iOS to access Facebook Platform with features like Login, Share and Message Dialog, App Links, and Graph API
+summary: Official Xamarin Facebook SDK for iOS to access Facebook Platform's Sharing Features
 is_shell: true
 icons:
   - ../../../icons/facebook-ios_128x128.png
@@ -12,23 +12,25 @@ icons:
 license: ../License.md
 packages:
   ios-unified:
-    - Xamarin.Facebook.iOS.LoginKit, Version=4.33.0.0
+    - Xamarin.Facebook.iOS.ShareKit, Version=4.33.0.0
 libraries:
   ios-unified:
-    - ../output/unified/Facebook.LoginKit.dll
+    - ../output/unified/Facebook.ShareKit.dll
 samples:
-  - name: "LoginKit iOS Sample"
-    path: "../samples/LoginKitSample/LoginKitSample.sln"
+  - name: "ShareKit iOS Sample"
+    path: "../samples/ShareKitSample/ShareKitSample.sln"
     removeProjects:
-      - Facebook.LoginKit
+      - Facebook.ShareKit
       - Facebook.CoreKit
     installNuGets:
-      - project: LoginKitSample
+      - project: ShareKitSample
         packages:
-          - Xamarin.Facebook.iOS.LoginKit
+          - Xamarin.Facebook.iOS.ShareKit
           - Xamarin.Facebook.iOS.CoreKit
 no_build: true
 local-nuget-repo: ../../output
+screenshots:
+  - screenshots/screenshot1.png
 additional-files:
   - source: "../External-Dependency-Info.txt"
     destination: "THIRD-PARTY-NOTICES.txt"
