@@ -23,7 +23,6 @@
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
     <MtouchProfiling>true</MtouchProfiling>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchI18n>
     </MtouchI18n>
   </PropertyGroup>
@@ -37,7 +36,6 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchI18n>
     </MtouchI18n>
   </PropertyGroup>
@@ -50,7 +48,6 @@
     <MtouchArch>i386, x86_64</MtouchArch>
     <ConsolePause>false</ConsolePause>
     <MtouchLink>None</MtouchLink>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchI18n>
     </MtouchI18n>
   </PropertyGroup>
@@ -70,7 +67,6 @@
     <MtouchDebug>true</MtouchDebug>
     <IpaPackageName>
     </IpaPackageName>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchI18n>
     </MtouchI18n>
     <MtouchFastDev>false</MtouchFastDev>
@@ -102,9 +98,25 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\source\Facebook\Facebook.csproj">
-      <Project>{B6F34C95-4E37-44F3-AB6A-3DD7DBB61789}</Project>
-      <Name>Facebook</Name>
+    <ProjectReference Include="..\..\..\CoreKit\source\Facebook.CoreKit\Facebook.CoreKit.csproj">
+      <Project>{5B88D7C7-6E76-4D0D-8DBE-B3F0A5D6B8A0}</Project>
+      <Name>Facebook.CoreKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\LoginKit\source\Facebook.LoginKit\Facebook.LoginKit.csproj">
+      <Project>{8C6EFD7E-1512-4976-8E47-CF189BF6CB90}</Project>
+      <Name>Facebook.LoginKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\MessengerShareKit\source\Facebook.MessengerShareKit\Facebook.MessengerShareKit.csproj">
+      <Project>{B1F41424-944E-49B8-9BEB-3F1D4B17731A}</Project>
+      <Name>Facebook.MessengerShareKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\PlacesKit\source\Facebook.PlacesKit\Facebook.PlacesKit.csproj">
+      <Project>{30556F40-CE2F-413B-9031-5A7A037AE1C9}</Project>
+      <Name>Facebook.PlacesKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ShareKit\source\Facebook.ShareKit\Facebook.ShareKit.csproj">
+      <Project>{170FAF51-4DF1-4271-B843-3257D285E864}</Project>
+      <Name>Facebook.ShareKit</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

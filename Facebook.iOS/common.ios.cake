@@ -9,10 +9,12 @@ string [] MyDependencies = null;
 
 Task ("externals")
 	.IsDependentOn ("externals-base")
-	.WithCriteria (!DirectoryExists ("./externals"))
 	.Does (() => 
 {
 	InvokeOtherFacebookModules (MyDependencies, "externals");
+
+	if (IOS_PODS == null || DirectoryExists ("./externals"))
+		return;
 
 	EnsureDirectoryExists ("./externals");
 

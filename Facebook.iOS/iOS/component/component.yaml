@@ -7,15 +7,12 @@ src-url: https://github.com/facebook/facebook-ios-sdk
 summary: Build great social experiences and get more installs by adding Facebook to your app.
 is_shell: true
 icons:
-  - ../../icons/facebook-ios_128x128.png
-  - ../../icons/facebook-ios_512x512.png
+  - ../../../icons/facebook-ios_128x128.png
+  - ../../../icons/facebook-ios_512x512.png
 license: ../License.md
 packages:
   ios-unified:
     - Xamarin.Facebook.iOS, Version=4.33.0.0
-libraries:
-  ios-unified:
-    - ../output/unified/Facebook.dll
 samples:
   - name: "iOS Unified Sample"
     path: "../samples/FacebookiOSSample/FacebookiOSSample.sln"
@@ -25,6 +22,11 @@ samples:
       - project: FacebookiOSSample
         packages:
           - Xamarin.Facebook.iOS
+          - Xamarin.Facebook.iOS.MessengerShareKit
+          - Xamarin.Facebook.iOS.ShareKit
+          - Xamarin.Facebook.iOS.PlacesKit
+          - Xamarin.Facebook.iOS.LoginKit
+          - Xamarin.Facebook.iOS.CoreKit
   - name: "HelloFacebook Sample"
     path: "../samples/HelloFacebook/HelloFacebook.sln"
     removeProjects:
@@ -33,10 +35,12 @@ samples:
       - project: HelloFacebook
         packages:
           - Xamarin.Facebook.iOS
+          - Xamarin.Facebook.iOS.MessengerShareKit
+          - Xamarin.Facebook.iOS.ShareKit
+          - Xamarin.Facebook.iOS.PlacesKit
+          - Xamarin.Facebook.iOS.LoginKit
+          - Xamarin.Facebook.iOS.CoreKit
 no_build: true
-local-nuget-repo: ../output
+local-nuget-repo: ../../../tmp-nugets
 screenshots:
   - screenshots/screenshot1.png
-additional-files:
-  - source: "../External-Dependency-Info.txt"
-    destination: "THIRD-PARTY-NOTICES.txt"

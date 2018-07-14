@@ -28,7 +28,7 @@ namespace HelloFacebook
 			// If you set true, you can handle the user profile info once is logged into FB with the Profile.Notifications.ObserveDidChange notification,
 			// If you set false, you need to get the user Profile info by hand with a GraphRequest
 			Profile.EnableUpdatesOnAccessTokenChange (true);
-			Settings.AppID = appId;
+			Settings.AppId = appId;
 			Settings.DisplayName = appName;
 
 			// This method verifies if you have been logged into the app before, and keep you logged in after you reopen or kill your app.

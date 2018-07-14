@@ -7,7 +7,7 @@
   MacBuildTargets: [ nuget, samples ]
   WindowsBuildTargets: [ nuget, samples ]
 - Name: Facebook.iOS
-  BuildScript: ./Facebook.iOS/build.cake
+  BuildScript: ./Facebook.iOS/iOS/build.cake
   TriggerPaths: [ Facebook.iOS ]
   MacBuildTargets: [ samples, nuget, component ]
 - Name: Facebook.iOS.CoreKit
