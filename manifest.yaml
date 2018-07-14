@@ -18,8 +18,12 @@
   BuildScript: ./Facebook.iOS/LoginKit/build.cake
   TriggerPaths: [ Facebook.iOS ]
   MacBuildTargets: [ samples, nuget, component ]
+- Name: Facebook.iOS.MessengerShareKit
+  BuildScript: ./Facebook.iOS/MessengerShareKit/build.cake
+  TriggerPaths: [ Facebook.iOS ]
+  MacBuildTargets: [ samples, nuget, component ]
 - Name: Facebook.iOS.PlacesKit
-  BuildScript: ./Facebook.iOS/LoginKit/build.cake
+  BuildScript: ./Facebook.iOS/PlacesKit/build.cake
   TriggerPaths: [ Facebook.iOS ]
   MacBuildTargets: [ samples, nuget, component ]
 - Name: Facebook.iOS.ShareKit
