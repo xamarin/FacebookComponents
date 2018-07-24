@@ -6,15 +6,15 @@ publisher-url: https://xamarin.com/
 src-url: https://developers.facebook.com/products/audience-network/
 summary: Monetize your app with Facebook ads.
 icons:
-  - ../../icons/facebook-audiencenetwork-ios_128x128.png
-  - ../../icons/facebook-audiencenetwork-ios_512x512.png
+  - ../../../icons/facebook-audiencenetwork-ios_128x128.png
+  - ../../../icons/facebook-audiencenetwork-ios_512x512.png
 license: ../License.md
 packages:
   ios-unified:
-    - Xamarin.Facebook.AudienceNetwork.iOS, Version=4.27.2.0
+    - Xamarin.Facebook.AudienceNetwork.iOS, Version=4.28.1.0
 libraries:
   ios-unified:
-    - ../output/unified/Facebook.AudienceNetwork.dll
+    - ../output/Facebook.AudienceNetwork.dll
 samples:
   - name: "FBAudienceNetwork iOS Unified Sample"
     path: "../samples/FBAudienceNetworkSample/FBAudienceNetworkSample.sln"
@@ -25,7 +25,7 @@ samples:
         packages:
           - Xamarin.Facebook.AudienceNetwork.iOS
 no_build: true
-local-nuget-repo: ../output
+local-nuget-repo: ../../../tmp-nugets
 additional-files:
   - source: "../External-Dependency-Info.txt"
     destination: "THIRD-PARTY-NOTICES.txt"

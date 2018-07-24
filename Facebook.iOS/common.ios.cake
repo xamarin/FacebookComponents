@@ -9,7 +9,7 @@ string [] MY_DEPENDENCIES = null;
 
 string SDK_VERSION = null;
 string XAMARIN_FIX_VERSION = null;
-string FULL_VERSION = null;
+string SDK_FULL_VERSION = null;
 
 // Variables for get Facebook binaries from Cocoapods
 string IOS_PLATFORM = null;
@@ -55,8 +55,6 @@ Task ("externals")
 		Unzip ($"./externals/{SDK_FILE}", SDK_PATH);
 
 		CopyDirectory ($"{SDK_PATH}/{SDK_FRAMEWORK}", $"./externals/{SDK_FRAMEWORK}");
-
-		DeleteDirectory (SDK_PATH, true);
 	}
 });
 

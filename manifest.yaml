@@ -30,9 +30,9 @@
   BuildScript: ./Facebook.iOS/ShareKit/build.cake
   TriggerPaths: [ Facebook.iOS ]
   MacBuildTargets: [ samples, nuget, component ]
-- Name: FacebookiOSAudienceNetwork
-  BuildScript: ./Facebook.AudienceNetwork.iOS/build.cake
-  TriggerPaths: [ Facebook.AudienceNetwork.iOS ]
+- Name: Facebook.iOS.AudienceNetwork
+  BuildScript: ./Facebook.iOS/AudienceNetwork/build.cake
+  TriggerPaths: [ Facebook.iOS ]
   MacBuildTargets: [ samples, nuget, component ]
 - Name: FacebookiOSAccountKit
   BuildScript: ./Facebook.AccountKit.iOS/build.cake

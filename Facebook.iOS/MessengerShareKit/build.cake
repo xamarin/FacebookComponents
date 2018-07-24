@@ -5,7 +5,7 @@ var TARGET = Argument ("t", Argument ("target", "Default"));
 
 SDK_VERSION = "1.3.2";
 XAMARIN_FIX_VERSION = "0";
-FULL_VERSION = $"{SDK_VERSION}.{XAMARIN_FIX_VERSION}";
+SDK_FULL_VERSION = $"{SDK_VERSION}.{XAMARIN_FIX_VERSION}";
 
 IOS_PLATFORM = "7.0";
 IOS_TARGETS = new [] { "FBSDKMessengerShareKit" };
@@ -38,7 +38,7 @@ var buildSpec = new BuildSpec () {
 	},
 
 	NuGets = new [] {
-		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.iOS.MessengerShareKit.nuspec", Version = FULL_VERSION, BuildsOn = BuildPlatforms.Mac},
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.iOS.MessengerShareKit.nuspec", Version = SDK_FULL_VERSION, BuildsOn = BuildPlatforms.Mac},
 	},
 
 	Components = new [] {
