@@ -3,19 +3,18 @@
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
-var IOS_PLATFORM = "7.0";
-var FACEBOOK_IOS_SDK_VERSION = "4.33.0";
-var FACEBOOK_IOS_XAMARIN_FIX_VERSION = "0";
-var FACEBOOK_IOS_FULL_VERSION = $"{FACEBOOK_IOS_SDK_VERSION}.{FACEBOOK_IOS_XAMARIN_FIX_VERSION}";
+SDK_VERSION = "4.33.0";
+XAMARIN_FIX_VERSION = "0";
+FULL_VERSION = $"{SDK_VERSION}.{XAMARIN_FIX_VERSION}";
 
-string [] IOS_TARGETS = { "FBSDKPlacesKit" };
-
-var IOS_PODS = new List<string> {
+IOS_PLATFORM = "7.0";
+IOS_TARGETS = new [] { "FBSDKPlacesKit" };
+IOS_PODS = new List<string> {
 	"source 'https://github.com/CocoaPods/Specs.git'",
 	$"platform :ios, '{IOS_PLATFORM}'",
 	"install! 'cocoapods', :integrate_targets => false",
 	$"target '{IOS_TARGETS [0]}' do",
-	$"\tpod '{IOS_TARGETS [0]}', '{FACEBOOK_IOS_SDK_VERSION}'",
+	$"\tpod '{IOS_TARGETS [0]}', '{SDK_VERSION}'",
 	"end",
 };
 
@@ -39,7 +38,7 @@ var buildSpec = new BuildSpec () {
 	},
 
 	NuGets = new [] {
-		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.iOS.PlacesKit.nuspec", Version = FACEBOOK_IOS_FULL_VERSION, BuildsOn = BuildPlatforms.Mac},
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.iOS.PlacesKit.nuspec", Version = FULL_VERSION, BuildsOn = BuildPlatforms.Mac},
 	},
 
 	Components = new [] {
@@ -47,7 +46,7 @@ var buildSpec = new BuildSpec () {
 	},
 };
 
-MyDependencies = new [] { "CoreKit" };
+MY_DEPENDENCIES = new [] { "CoreKit" };
 
 SetupXamarinBuildTasks (buildSpec, Tasks, Task);
 

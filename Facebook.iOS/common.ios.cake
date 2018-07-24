@@ -5,36 +5,64 @@
 #addin nuget:?package=Cake.Xamarin&version=3.0.0
 #addin nuget:?package=Cake.FileHelpers&version=3.0.0
 
-string [] MyDependencies = null;
+string [] MY_DEPENDENCIES = null;
+
+string SDK_VERSION = null;
+string XAMARIN_FIX_VERSION = null;
+string FULL_VERSION = null;
+
+// Variables for get Facebook binaries from Cocoapods
+string IOS_PLATFORM = null;
+string [] IOS_TARGETS = null;
+List<string> IOS_PODS = null;
+
+// Variables for get Facebook binaries from Official Facebook's URL
+string SDK_URL = null;
+string SDK_FILE = null;
+string SDK_PATH = null;
+string SDK_FRAMEWORK = null;
 
 Task ("externals")
 	.IsDependentOn ("externals-base")
 	.Does (() => 
 {
-	InvokeOtherFacebookModules (MyDependencies, "externals");
+	InvokeOtherFacebookModules (MY_DEPENDENCIES, "externals");
 
-	if (IOS_PODS == null || DirectoryExists ("./externals"))
+	if (DirectoryExists ("./externals") || (IOS_PODS == null && SDK_URL == null))
 		return;
 
 	EnsureDirectoryExists ("./externals");
 
-	if (CocoaPodVersion () < new System.Version (1, 0))
-		IOS_PODS.RemoveAt (2);
+	if (IOS_PODS != null) {
+		if (CocoaPodVersion () < new System.Version (1, 0))
+			IOS_PODS.RemoveAt (2);
 
-	FileWriteLines ("./externals/Podfile", IOS_PODS.ToArray ());
+		FileWriteLines ("./externals/Podfile", IOS_PODS.ToArray ());
 
-	CocoaPodInstall ("./externals", new CocoaPodInstallSettings { });
-	
-	if (DirectoryExists ("./externals/Pods/FBSDKCoreKit"))
-		CopyDirectory ("./externals/Pods/FBSDKCoreKit/FacebookSDKStrings.bundle", "./externals/FacebookSDKStrings.bundle");
+		CocoaPodInstall ("./externals", new CocoaPodInstallSettings { });
+		
+		if (DirectoryExists ("./externals/Pods/FBSDKCoreKit"))
+			CopyDirectory ("./externals/Pods/FBSDKCoreKit/FacebookSDKStrings.bundle", "./externals/FacebookSDKStrings.bundle");
 
-	foreach (var target in IOS_TARGETS)
-		BuildXCodeFatLibrary ("./Pods/Pods.xcodeproj", target, Archs.Simulator | Archs.Simulator64 | Archs.ArmV7 | Archs.Arm64, target, $"{target}.a", null, target);
+		foreach (var target in IOS_TARGETS)
+			BuildXCodeFatLibrary ("./Pods/Pods.xcodeproj", target, Archs.Simulator | Archs.Simulator64 | Archs.ArmV7 | Archs.Arm64, target, $"{target}.a", null, target);
+	} else if (SDK_URL != null) {
+		DownloadFile (SDK_URL, $"./externals/{SDK_FILE}", new Cake.Xamarin.Build.DownloadFileSettings
+		{
+			UserAgent = "curl/7.43.0"
+		});
+
+		Unzip ($"./externals/{SDK_FILE}", SDK_PATH);
+
+		CopyDirectory ($"{SDK_PATH}/{SDK_FRAMEWORK}", $"./externals/{SDK_FRAMEWORK}");
+
+		DeleteDirectory (SDK_PATH, true);
+	}
 });
 
 Task ("clean").IsDependentOn ("clean-base").Does (() => 
 {
-	InvokeOtherFacebookModules (MyDependencies, "clean");
+	InvokeOtherFacebookModules (MY_DEPENDENCIES, "clean");
 
 	if (DirectoryExists ("./externals"))
 		DeleteDirectory ("./externals", new DeleteDirectorySettings {
@@ -51,7 +79,7 @@ Task ("clean").IsDependentOn ("clean-base").Does (() =>
 
 Task ("tmp-nuget").IsDependentOn ("libs").Does (() => 
 {
-	InvokeOtherFacebookModules (MyDependencies, "tmp-nuget");
+	InvokeOtherFacebookModules (MY_DEPENDENCIES, "tmp-nuget");
 
 	if (buildSpec.NuGets == null || buildSpec.NuGets.Length == 0)
 		return;

@@ -3,12 +3,9 @@
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
-var facebookiOSSdkVersion = "4.33.0";
-var facebookiOSXamarinFixVersion = "0";
-var facebookiOSFullVersion = $"{facebookiOSSdkVersion}.{facebookiOSXamarinFixVersion}";
-
-string [] IOS_TARGETS = null;
-List<string> IOS_PODS = null;
+SDK_VERSION = "4.33.0";
+XAMARIN_FIX_VERSION = "0";
+FULL_VERSION = $"{SDK_VERSION}.{XAMARIN_FIX_VERSION}";
 
 var buildSpec = new BuildSpec () {
 	Samples = new ISolutionBuilder [] {
@@ -26,7 +23,7 @@ var buildSpec = new BuildSpec () {
 	},
 
 	NuGets = new [] {
-		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.iOS.nuspec", Version = facebookiOSFullVersion, BuildsOn = BuildPlatforms.Mac},
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.iOS.nuspec", Version = FULL_VERSION, BuildsOn = BuildPlatforms.Mac},
 	},
 
 	Components = new [] {
@@ -34,7 +31,7 @@ var buildSpec = new BuildSpec () {
 	},
 };
 
-MyDependencies = new [] { "CoreKit", "LoginKit", "PlacesKit", "ShareKit", "MessengerShareKit" };
+MY_DEPENDENCIES = new [] { "CoreKit", "LoginKit", "PlacesKit", "ShareKit", "MessengerShareKit" };
 
 SetupXamarinBuildTasks (buildSpec, Tasks, Task);
 
