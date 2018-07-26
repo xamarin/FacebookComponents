@@ -10,6 +10,14 @@
   BuildScript: ./Facebook.iOS/iOS/build.cake
   TriggerPaths: [ Facebook.iOS ]
   MacBuildTargets: [ samples, nuget, component ]
+- Name: Facebook.iOS.AccountKit
+  BuildScript: ./Facebook.iOS/AccountKit/build.cake
+  TriggerPaths: [ Facebook.iOS ]
+  MacBuildTargets: [ samples, nuget, component ]
+- Name: Facebook.iOS.AudienceNetwork
+  BuildScript: ./Facebook.iOS/AudienceNetwork/build.cake
+  TriggerPaths: [ Facebook.iOS ]
+  MacBuildTargets: [ samples, nuget, component ]
 - Name: Facebook.iOS.CoreKit
   BuildScript: ./Facebook.iOS/CoreKit/build.cake
   TriggerPaths: [ Facebook.iOS ]
@@ -29,12 +37,4 @@
 - Name: Facebook.iOS.ShareKit
   BuildScript: ./Facebook.iOS/ShareKit/build.cake
   TriggerPaths: [ Facebook.iOS ]
-  MacBuildTargets: [ samples, nuget, component ]
-- Name: Facebook.iOS.AudienceNetwork
-  BuildScript: ./Facebook.iOS/AudienceNetwork/build.cake
-  TriggerPaths: [ Facebook.iOS ]
-  MacBuildTargets: [ samples, nuget, component ]
-- Name: FacebookiOSAccountKit
-  BuildScript: ./Facebook.AccountKit.iOS/build.cake
-  TriggerPaths: [ Facebook.AccountKit.iOS ]
   MacBuildTargets: [ samples, nuget, component ]

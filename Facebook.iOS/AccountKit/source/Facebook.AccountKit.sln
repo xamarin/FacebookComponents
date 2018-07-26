@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facebook.AccountKit", "Facebook.AccountKit.csproj", "{EBD6BF8D-69F1-4611-A778-6A2C2E8D79BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facebook.AccountKit", "Facebook.AccountKit/Facebook.AccountKit.csproj", "{EBD6BF8D-69F1-4611-A778-6A2C2E8D79BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
