@@ -3,10 +3,6 @@
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
-SDK_VERSION = "4.32.0";
-XAMARIN_FIX_VERSION = "0";
-SDK_FULL_VERSION = $"{SDK_VERSION}.{XAMARIN_FIX_VERSION}";
-
 SDK_URL = $"https://origincache.facebook.com/developers/resources/?id=FacebookSDKs-iOS-{SDK_VERSION}.zip";
 SDK_FILE = $"FacebookSDKs.zip";
 SDK_PATH = $"./externals/FacebookSDKs";
