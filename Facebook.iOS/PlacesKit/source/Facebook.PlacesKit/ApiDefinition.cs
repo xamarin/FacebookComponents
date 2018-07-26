@@ -25,10 +25,6 @@ namespace Facebook.PlacesKit {
 		[Field ("FBSDKPlacesFieldKeyCheckins", "__Internal")]
 		NSString Checkins { get; }
 
-		// extern NSString *const FBSDKPlacesFieldKeyContext;
-		[Field ("FBSDKPlacesFieldKeyContext", "__Internal")]
-		NSString Context { get; }
-
 		// extern NSString *const FBSDKPlacesFieldKeyConfidence;
 		[Field ("FBSDKPlacesFieldKeyConfidence", "__Internal")]
 		NSString Confidence { get; }
@@ -76,6 +72,10 @@ namespace Facebook.PlacesKit {
 		// extern NSString *const FBSDKPlacesFieldKeyOverallStarRating;
 		[Field ("FBSDKPlacesFieldKeyOverallStarRating", "__Internal")]
 		NSString OverallStarRating { get; }
+
+		// extern NSString *const FBSDKPlacesFieldKeyPage;
+		[Field ("FBSDKPlacesFieldKeyPage", "__Internal")]
+		NSString Page { get; }
 
 		// extern NSString *const FBSDKPlacesFieldKeyParking;
 		[Field ("FBSDKPlacesFieldKeyParking", "__Internal")]
