@@ -5,6 +5,7 @@ using CoreGraphics;
 using Foundation;
 using ObjCRuntime;
 using UIKit;
+using WebKit;
 
 namespace Facebook.CoreKit {
 	interface AccessTokenDidChangeEventArgs {
@@ -330,6 +331,12 @@ namespace Facebook.CoreKit {
 		[Static]
 		[Export ("updateUserProperties:handler:")]
 		void UpdateUserProperties (NSDictionary properties, [NullAllowed]GraphRequestHandler handler);
+
+		// +(void)augmentHybridWKWebView:(WKWebView *)webView;
+		[Unavailable (PlatformName.TvOS)]
+		[Static]
+		[Export ("augmentHybridWKWebView:")]
+		void AugmentHybrid (WKWebView webView);
 	}
 
 	// @interface FBSDKApplicationDelegate : NSObject
