@@ -58,6 +58,25 @@ Task ("externals")
 	}
 });
 
+Task ("libs")
+	.IsDependentOn("externals")
+	.IsDependentOn("ci-setup")
+	.Does(() =>
+{
+	foreach (var lib in buildSpec.Libs) {
+		lib.BuildSolution ();
+		lib.CopyOutput ();
+        }
+});
+
+Task ("ci-setup")
+	.WithCriteria (!BuildSystem.IsLocalBuild)
+	.Does (() => 
+{
+	var glob = "./**/AssemblyInfo.cs";
+	ReplaceTextInFiles(glob, "{SDK_FULL_VERSION}", SDK_FULL_VERSION);
+});
+
 Task ("clean").IsDependentOn ("clean-base").Does (() => 
 {
 	InvokeOtherFacebookModules (MY_DEPENDENCIES, "clean");
@@ -75,7 +94,9 @@ Task ("clean").IsDependentOn ("clean-base").Does (() =>
 		});
 });
 
-Task ("tmp-nuget").IsDependentOn ("libs").Does (() => 
+Task ("tmp-nuget").
+	IsDependentOn ("libs")
+	.Does (() => 
 {
 	InvokeOtherFacebookModules (MY_DEPENDENCIES, "tmp-nuget");
 
@@ -97,7 +118,10 @@ Task ("tmp-nuget").IsDependentOn ("libs").Does (() =>
 	PackNuGets (newList.ToArray ());
 });
 
-Task ("component").IsDependentOn ("nuget").IsDependentOn ("tmp-nuget").IsDependentOn ("component-base");
+Task ("component")
+	.IsDependentOn ("nuget")
+	.IsDependentOn ("tmp-nuget")
+	.IsDependentOn ("component-base");
 
 void InvokeOtherFacebookModules (string [] otherPaths, string target)
 {
