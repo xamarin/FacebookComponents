@@ -4,6 +4,7 @@ using UIKit;
 using Foundation;
 using ObjCRuntime;
 using CoreGraphics;
+using Photos;
 
 namespace Facebook.ShareKit {
 	// @interface FBSDKAppGroupAddDialog : NSObject
@@ -1077,6 +1078,15 @@ namespace Facebook.ShareKit {
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKShareVideo")]
 	interface ShareVideo : CoreKit.ICopying, INSSecureCoding {
+		// + (instancetype)videoWithVideoAsset:(PHAsset *)videoAsset;
+		[Static]
+		[Export ("videoWithVideoAsset:")]
+		ShareVideo From ([NullAllowed] PHAsset videoAsset);
+
+		// + (instancetype)videoWithVideoAsset:(PHAsset *)videoAsset previewPhoto:(FBSDKSharePhoto *)previewPhoto;
+		[Static]
+		[Export ("videoWithVideoAsset:previewPhoto:")]
+		ShareVideo From ([NullAllowed] PHAsset videoAsset, [NullAllowed] SharePhoto previewPhoto);
 
 		// +(instancetype)videoWithVideoURL:(NSURL *)videoURL;
 		[Static]
@@ -1087,6 +1097,11 @@ namespace Facebook.ShareKit {
 		[Static]
 		[Export ("videoWithVideoURL:previewPhoto:")]
 		ShareVideo From ([NullAllowed] NSUrl videoURL, [NullAllowed] SharePhoto previewPhoto);
+
+		// @property (nonatomic, copy) PHAsset *videoAsset;
+		[NullAllowed]
+		[Export ("videoAsset", ArgumentSemantic.Copy)]
+		PHAsset VideoAsset { get; set; }
 
 		// @property (copy, nonatomic) NSURL * videoURL;
 		[NullAllowed]
