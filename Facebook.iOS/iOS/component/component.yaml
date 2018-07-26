@@ -22,11 +22,11 @@ samples:
       - project: FacebookiOSSample
         packages:
           - Xamarin.Facebook.iOS
-          - Xamarin.Facebook.iOS.MessengerShareKit
-          - Xamarin.Facebook.iOS.ShareKit
-          - Xamarin.Facebook.iOS.PlacesKit
-          - Xamarin.Facebook.iOS.LoginKit
-          - Xamarin.Facebook.iOS.CoreKit
+          - Xamarin.Facebook.MessengerShareKit.iOS
+          - Xamarin.Facebook.ShareKit.iOS
+          - Xamarin.Facebook.PlacesKit.iOS
+          - Xamarin.Facebook.LoginKit.iOS
+          - Xamarin.Facebook.CoreKit.iOS
   - name: "HelloFacebook Sample"
     path: "../samples/HelloFacebook/HelloFacebook.sln"
     removeProjects:
@@ -35,11 +35,11 @@ samples:
       - project: HelloFacebook
         packages:
           - Xamarin.Facebook.iOS
-          - Xamarin.Facebook.iOS.MessengerShareKit
-          - Xamarin.Facebook.iOS.ShareKit
-          - Xamarin.Facebook.iOS.PlacesKit
-          - Xamarin.Facebook.iOS.LoginKit
-          - Xamarin.Facebook.iOS.CoreKit
+          - Xamarin.Facebook.MessengerShareKit.iOS
+          - Xamarin.Facebook.ShareKit.iOS
+          - Xamarin.Facebook.PlacesKit.iOS
+          - Xamarin.Facebook.LoginKit.iOS
+          - Xamarin.Facebook.CoreKit.iOS
 no_build: true
 local-nuget-repo: ../../../tmp-nugets
 screenshots:

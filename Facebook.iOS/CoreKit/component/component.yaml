@@ -12,7 +12,7 @@ icons:
 license: ../License.md
 packages:
   ios-unified:
-    - Xamarin.Facebook.iOS.CoreKit, Version=4.33.0.0
+    - Xamarin.Facebook.CoreKit.iOS, Version=4.33.0.0
 libraries:
   ios-unified:
     - ../output/Facebook.CoreKit.dll
@@ -24,7 +24,7 @@ samples:
     installNuGets:
       - project: CoreKitSample
         packages:
-          - Xamarin.Facebook.iOS.CoreKit
+          - Xamarin.Facebook.CoreKit.iOS
 no_build: true
 local-nuget-repo: ../../../tmp-nugets
 additional-files:

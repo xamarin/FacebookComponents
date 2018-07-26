@@ -7,9 +7,9 @@
 
 string [] MY_DEPENDENCIES = null;
 
-string SDK_VERSION = null;
-string XAMARIN_FIX_VERSION = null;
-string SDK_FULL_VERSION = null;
+string SDK_VERSION = "4.33.0";
+string XAMARIN_FIX_VERSION = "0";
+string SDK_FULL_VERSION = $"{SDK_VERSION}.{XAMARIN_FIX_VERSION}";
 
 // Variables for get Facebook binaries from Cocoapods
 string IOS_PLATFORM = null;

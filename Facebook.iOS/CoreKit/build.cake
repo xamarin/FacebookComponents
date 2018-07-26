@@ -3,9 +3,6 @@
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
-SDK_VERSION = "4.33.0";
-XAMARIN_FIX_VERSION = "0";
-SDK_FULL_VERSION = $"{SDK_VERSION}.{XAMARIN_FIX_VERSION}";
 var BOLTS_VERSION = "1.8.4";
 
 IOS_PLATFORM = "7.0";
@@ -39,7 +36,7 @@ var buildSpec = new BuildSpec () {
 	},
 
 	NuGets = new [] {
-		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.iOS.CoreKit.nuspec", Version = SDK_FULL_VERSION, BuildsOn = BuildPlatforms.Mac},
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.CoreKit.iOS.nuspec", Version = SDK_FULL_VERSION, BuildsOn = BuildPlatforms.Mac},
 	},
 
 	Components = new [] {

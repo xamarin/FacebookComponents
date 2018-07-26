@@ -12,7 +12,7 @@ icons:
 license: ../License.md
 packages:
   ios-unified:
-    - Xamarin.Facebook.iOS.MessengerShareKit, Version=1.3.2.0
+    - Xamarin.Facebook.MessengerShareKit.iOS, Version=1.3.2.0
 libraries:
   ios-unified:
     - ../output/Facebook.MessengerShareKit.dll
@@ -24,7 +24,7 @@ samples:
     installNuGets:
       - project: MessengerShareKitSample
         packages:
-          - Xamarin.Facebook.iOS.MessengerShareKit
+          - Xamarin.Facebook.MessengerShareKit.iOS
 no_build: true
 local-nuget-repo: ../../../tmp-nugets
 additional-files:

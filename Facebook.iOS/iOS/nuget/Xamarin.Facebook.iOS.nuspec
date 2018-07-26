@@ -14,11 +14,11 @@
     <iconUrl>https://raw.githubusercontent.com/xamarin/FacebookComponents/master/icons/facebook-ios_128x128.png</iconUrl>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
-        <dependency id="Xamarin.Facebook.iOS.MessengerShareKit" version="1.3.2.0" />
-        <dependency id="Xamarin.Facebook.iOS.ShareKit" version="4.33.0.0" />
-        <dependency id="Xamarin.Facebook.iOS.PlacesKit" version="4.33.0.0" />
-        <dependency id="Xamarin.Facebook.iOS.LoginKit" version="4.33.0.0" />
-        <dependency id="Xamarin.Facebook.iOS.CoreKit" version="4.33.0.0" />
+        <dependency id="Xamarin.Facebook.MessengerShareKit.iOS" version="1.3.2.0" />
+        <dependency id="Xamarin.Facebook.ShareKit.iOS" version="4.33.0.0" />
+        <dependency id="Xamarin.Facebook.PlacesKit.iOS" version="4.33.0.0" />
+        <dependency id="Xamarin.Facebook.LoginKit.iOS" version="4.33.0.0" />
+        <dependency id="Xamarin.Facebook.CoreKit.iOS" version="4.33.0.0" />
       </group>
     </dependencies>
   </metadata>

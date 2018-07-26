@@ -3,10 +3,6 @@
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
-SDK_VERSION = "4.33.0";
-XAMARIN_FIX_VERSION = "0";
-SDK_FULL_VERSION = $"{SDK_VERSION}.{XAMARIN_FIX_VERSION}";
-
 var buildSpec = new BuildSpec () {
 	Samples = new ISolutionBuilder [] {
 		new IOSSolutionBuilder {
