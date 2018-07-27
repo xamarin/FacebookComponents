@@ -9,12 +9,12 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>C# binding for Facebook LoginKit's official SDK</description>
     <copyright>© Microsoft Corporation. All rights reserved.</copyright>
-    <projectUrl>https://go.microsoft.com/fwlink/?linkid=865580</projectUrl>
-    <licenseUrl>https://go.microsoft.com/fwlink/?linkid=865584</licenseUrl>
+    <projectUrl>https://go.microsoft.com/fwlink/?linkid=2007321</projectUrl>
+    <licenseUrl>https://go.microsoft.com/fwlink/?linkid=2007137</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/xamarin/FacebookComponents/master/icons/facebook-ios_128x128.png</iconUrl>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
-        <dependency id="Xamarin.Facebook.CoreKit.iOS" version="4.33.0.0" />
+        <dependency id="Xamarin.Facebook.CoreKit.iOS" version="4.34.0.0" />
       </group>
     </dependencies>
   </metadata>
