@@ -3,16 +3,10 @@
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
-IOS_PLATFORM = "7.0";
-IOS_TARGETS = new [] { "FBSDKPlacesKit" };
-IOS_PODS = new List<string> {
-	"source 'https://github.com/CocoaPods/Specs.git'",
-	$"platform :ios, '{IOS_PLATFORM}'",
-	"install! 'cocoapods', :integrate_targets => false",
-	$"target '{IOS_TARGETS [0]}' do",
-	$"\tpod '{IOS_TARGETS [0]}', '{SDK_VERSION}'",
-	"end",
-};
+SDK_URL = $"https://origincache.facebook.com/developers/resources/?id=FacebookSDKs-iOS-{SDK_VERSION}.zip";
+SDK_FILE = $"FacebookSDKs.zip";
+SDK_PATH = $"./externals/FacebookSDKs";
+SDK_FRAMEWORKS = new [] { "FBSDKPlacesKit" };
 
 var buildSpec = new BuildSpec () {
 	Libs = new ISolutionBuilder [] {
