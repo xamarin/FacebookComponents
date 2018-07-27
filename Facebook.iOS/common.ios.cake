@@ -20,7 +20,8 @@ List<string> IOS_PODS = null;
 string SDK_URL = null;
 string SDK_FILE = null;
 string SDK_PATH = null;
-string SDK_FRAMEWORK = null;
+string [] SDK_FRAMEWORKS = { };
+string [] SDK_BUNDLES = { };
 
 Task ("externals")
 	.IsDependentOn ("externals-base")
@@ -54,7 +55,11 @@ Task ("externals")
 
 		Unzip ($"./externals/{SDK_FILE}", SDK_PATH);
 
-		CopyDirectory ($"{SDK_PATH}/{SDK_FRAMEWORK}", $"./externals/{SDK_FRAMEWORK}");
+		foreach (var framework in SDK_FRAMEWORKS)
+			CopyDirectory ($"{SDK_PATH}/{framework}.framework", $"./externals/{framework}.framework");
+		
+		foreach (var bundle in SDK_BUNDLES)
+			CopyDirectory ($"{SDK_PATH}/{bundle}.bundle", $"./externals/{bundle}.bundle");
 	}
 });
 
