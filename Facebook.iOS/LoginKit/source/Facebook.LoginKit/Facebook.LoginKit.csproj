@@ -34,9 +34,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Loader.cs" />
-    <Compile Include="FBSDKLoginKit.linkwith.cs">
-      <DependentUpon>FBSDKLoginKit.a</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
@@ -51,9 +48,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ObjcBindingNativeLibrary Include="..\..\externals\FBSDKLoginKit.a">
-      <Link>FBSDKLoginKit.a</Link>
-    </ObjcBindingNativeLibrary>
+    <NativeReference Include="..\..\externals\FBSDKLoginKit.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+      <WeakFrameworks>Accounts CoreLocation Social Security QuartzCore CoreGraphics UIKit Foundation AudioToolbox</WeakFrameworks>
+      <LinkerFlags>-ObjC</LinkerFlags>
+    </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>
