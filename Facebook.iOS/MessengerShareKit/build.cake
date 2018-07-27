@@ -3,20 +3,14 @@
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
+SDK_URL = $"https://origincache.facebook.com/developers/resources/?id=FacebookSDKs-iOS-{SDK_VERSION}.zip";
+SDK_FILE = $"FacebookSDKs.zip";
+SDK_PATH = $"./externals/FacebookSDKs";
+SDK_FRAMEWORKS = new [] { "FBSDKMessengerShareKit" };
+
 SDK_VERSION = "1.3.2";
 XAMARIN_FIX_VERSION = "0";
 SDK_FULL_VERSION = $"{SDK_VERSION}.{XAMARIN_FIX_VERSION}";
-
-IOS_PLATFORM = "7.0";
-IOS_TARGETS = new [] { "FBSDKMessengerShareKit" };
-IOS_PODS = new List<string> {
-	"source 'https://github.com/CocoaPods/Specs.git'",
-	$"platform :ios, '{IOS_PLATFORM}'",
-	"install! 'cocoapods', :integrate_targets => false",
-	$"target '{IOS_TARGETS [0]}' do",
-	$"\tpod '{IOS_TARGETS [0]}', '{SDK_VERSION}'",
-	"end",
-};
 
 var buildSpec = new BuildSpec () {
 	Libs = new ISolutionBuilder [] {
