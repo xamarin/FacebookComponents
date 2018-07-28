@@ -52,9 +52,8 @@
       <Kind>Framework</Kind>
       <ForceLoad>True</ForceLoad>
       <Frameworks>UIKit Foundation AudioToolbox CoreGraphics CoreLocation Accounts Security Social</Frameworks>
-      <LinkerFlags></LinkerFlags>
+      <LinkerFlags>-ObjC</LinkerFlags>
       <WeakFrameworks>QuartzCore</WeakFrameworks>
-      <SmartLink>False</SmartLink>
     </NativeReference>
   </ItemGroup>
   <ItemGroup>
