@@ -21,7 +21,7 @@ var BUILD_TARGETS = Argument ("targets", Argument ("build-targets", Argument ("b
 	.Split (new [] { ",", ";" }, StringSplitOptions.RemoveEmptyEntries);
 
 
-var FORCE_BUILD = Argument ("force", Argument ("forcebuild", Argument ("force-build", "true"))).ToLower ().Equals ("true");
+var FORCE_BUILD = Argument ("force", Argument ("forcebuild", Argument ("force-build", "false"))).ToLower ().Equals ("true");
 
 // Print out environment variables to console
 var ENV_VARS = EnvironmentVariables ();
