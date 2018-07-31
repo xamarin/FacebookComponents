@@ -1,0 +1,32 @@
+version: 4.34.0.0
+name: Facebook Notifications for iOS
+id: facebookiosnotifications
+publisher: Xamarin Inc
+publisher-url: https://xamarin.com/
+src-url: https://github.com/facebook/FBNotifications/
+summary: Official Xamarin Facebook In-App Notifications Framework
+is_shell: true
+icons:
+  - ../../../icons/facebook-ios_128x128.png
+  - ../../../icons/facebook-ios_512x512.png
+license: ../License.md
+packages:
+  ios-unified:
+    - Xamarin.Facebook.Notifications.iOS, Version=4.34.0.0
+libraries:
+  ios-unified:
+    - ../output/Facebook.Notifications.dll
+samples:
+  - name: "Notifications iOS Sample"
+    path: "../samples/NotificationsSample/NotificationsSample.sln"
+    removeProjects:
+      - Facebook.Notifications
+    installNuGets:
+      - project: NotificationsSample
+        packages:
+          - Xamarin.Facebook.Notifications.iOS
+no_build: true
+local-nuget-repo: ../../../tmp-nugets
+additional-files:
+  - source: "../External-Dependency-Info.txt"
+    destination: "THIRD-PARTY-NOTICES.txt"
