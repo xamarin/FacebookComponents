@@ -6,6 +6,7 @@ using Foundation;
 using Facebook.AudienceNetwork;
 using CoreGraphics;
 using System.Collections.Generic;
+using ObjCRuntime;
 
 namespace FBAudienceNetworkSample
 {
@@ -62,7 +63,6 @@ namespace FBAudienceNetworkSample
 		void AddNativeAd (UIAlertAction obj)
 		{
 			nativeAd = new NativeAd (AdPlacementIds.Native) { Delegate = this };
-			nativeAd.MediaCachePolicy = NativeAdsCachePolicy.All;
 			nativeAd.LoadAd ();
 		}
 
@@ -124,15 +124,14 @@ namespace FBAudienceNetworkSample
 			} else {
 				var cell = tableView.DequeueReusableCell (NativeAdTableViewCell.Key, indexPath) as NativeAdTableViewCell;
 
-				// Wire up UIView with the native ad; only call to action button and media view will be clickable.
-				customNativeAd.NativeAd.RegisterView (cell.AdView, this, new UIView [] { cell.CoverMediaViewAd, cell.AdCallToActionButton });
+				customNativeAd.NativeAd.UnregisterView ();
 
-				// Create native UI using the ad metadata.
-				cell.CoverMediaViewAd.NativeAd = customNativeAd.NativeAd;
+				// Wire up UIView with the native ad; only call to action button and media view will be clickable.
+				customNativeAd.NativeAd.RegisterView (cell.AdView, cell.CoverMediaViewAd, cell.IconViewAd, this, new UIView [] { cell.CoverMediaViewAd, cell.AdCallToActionButton });
 
 				// Render native ads onto UIView
-				cell.AdTitle = customNativeAd.NativeAd.Title;
-				cell.AdBody = customNativeAd.NativeAd.Body;
+				cell.AdTitle = customNativeAd.NativeAd.AdvertiserName;
+				cell.AdBody = customNativeAd.NativeAd.BodyText;
 				cell.AdSocialContext = customNativeAd.NativeAd.SocialContext;
 				cell.Sponsored = "Sponsored";
 				cell.AdCallToActionButton.SetTitle (customNativeAd.NativeAd.CallToAction, UIControlState.Normal);
@@ -190,18 +189,12 @@ namespace FBAudienceNetworkSample
 				customNativeAds.Add (customNativeAd);
 			}
 
-			if (!customNativeAd.IsTemplate) {
-				InsertRow ();
-				return;
-			}
+			InsertRow ();
 
-			customNativeAd.NativeAd.Icon.LoadImageAsync (HandleAdImageCompletion);
-
-			void HandleAdImageCompletion (UIImage imageLoaded)
-			{
-				customNativeAd.AdImage = imageLoaded;
-				InsertRow ();
-			}
+			//if (!customNativeAd.IsTemplate) {
+				
+			//	return;
+			//}
 
 			//// Native Ad Template Logic
 			//var nativeAdView = NativeAdView.From (nativeAd, NativeAdViewType.GenericHeight300);

@@ -52,38 +52,62 @@ namespace Facebook.AudienceNetwork
 		CarouselImgSquareLink
 	}
 
-	[Flags]
-	[Native]
-	public enum NativeAdsCachePolicy : long
+	[StructLayout (LayoutKind.Sequential)]
+	public struct AdSize
 	{
-		None = 1 << 0,
-		Icon = 1 << 1,
-		CoverImage = 1 << 2,
-		Video = 1 << 3,
-		AdChoices = 1 << 4,
-		All = Icon | CoverImage | Video | AdChoices
-	}
+		public CGSize Size;
 
-	[Native]
-	public enum NativeAdViewType : long
-	{
-		GenericHeight100 = 1,
-		GenericHeight120,
-		GenericHeight300,
-		GenericHeight400,
+		public AdSize (CGSize size)
+		{
+			Size = size;
+		}
 	}
-
 
 	[StructLayout (LayoutKind.Sequential)]
 	public struct AdStarRating
 	{
 		public nfloat Value;
 		public nint Scale;
+
+		public AdStarRating (nfloat value, nint scale)
+		{
+			Value = value;
+			Scale = scale;
+		}
 	}
 
-	[StructLayout (LayoutKind.Sequential)]
-	public struct AdSize
+	[Native]
+	public enum NativeAdsCachePolicy : long
 	{
-		public CGSize Size;
+		None,
+		All
+	}
+
+	[Native]
+	public enum NativeAdViewType : long
+	{
+		GenericHeight300 = 3,
+		GenericHeight400 = 4,
+	}
+
+	[Native]
+	public enum NativeBannerAdViewType : long
+	{
+		GenericHeight100 = 1,
+		GenericHeight120
+	}
+
+	[Native]
+	public enum NativeAdViewTag : ulong
+	{
+		Icon = 5,
+		Title,
+		CoverImage,
+		Subtitle,
+		Body,
+		CallToAction,
+		SocialContext,
+		ChoicesIcon,
+		Media
 	}
 }

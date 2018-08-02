@@ -1,108 +1,100 @@
 // WARNING
 //
-// This file has been generated automatically by Visual Studio from the outlets and
-// actions declared in your storyboard file.
-// Manual changes to this file will not be maintained.
+// This file has been generated automatically by Visual Studio to store outlets and
+// actions made in the UI designer. If it is removed, they will be lost.
+// Manual changes to this file may not be handled correctly.
 //
 using Foundation;
-using System;
 using System.CodeDom.Compiler;
 
 namespace FBAudienceNetworkSample
 {
-    [Register ("NativeAdTableViewCell")]
-    partial class NativeAdTableViewCell
-    {
-        [Outlet]
-        Facebook.AudienceNetwork.AdChoicesView AdChoiceView { get; set; }
+	[Register ("NativeAdTableViewCell")]
+	partial class NativeAdTableViewCell
+	{
+		[Outlet]
+		Facebook.AudienceNetwork.AdChoicesView AdChoiceView { get; set; }
 
+		[Outlet]
+		Facebook.AudienceNetwork.MediaView AdCoverMediaView { get; set; }
 
-        [Outlet]
-        Facebook.AudienceNetwork.MediaView AdCoverMediaView { get; set; }
+		[Outlet]
+		Facebook.AudienceNetwork.AdIconView AdIconView { get; set; }
 
+		[Outlet]
+		UIKit.UIButton BtnAdCallToAction { get; set; }
 
-        [Outlet]
-        UIKit.UIButton BtnAdCallToAction { get; set; }
+		[Outlet]
+		UIKit.UILabel LblAdBody { get; set; }
 
+		[Outlet]
+		UIKit.UILabel LblAdSocialContext { get; set; }
 
-        [Outlet]
-        UIKit.UIImageView ImgAdIcon { get; set; }
+		[Outlet]
+		UIKit.UILabel LblAdTitle { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UILabel LblSocialContext { get; set; }
 
-        [Outlet]
-        UIKit.UILabel LblAdBody { get; set; }
+		[Outlet]
+		UIKit.UILabel LblSponsored { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIView View { get; set; }
+		
+		void ReleaseDesignerOutlets ()
+		{
+			if (AdChoiceView != null) {
+				AdChoiceView.Dispose ();
+				AdChoiceView = null;
+			}
 
-        [Outlet]
-        UIKit.UILabel LblAdSocialContext { get; set; }
+			if (AdCoverMediaView != null) {
+				AdCoverMediaView.Dispose ();
+				AdCoverMediaView = null;
+			}
 
+			if (BtnAdCallToAction != null) {
+				BtnAdCallToAction.Dispose ();
+				BtnAdCallToAction = null;
+			}
 
-        [Outlet]
-        UIKit.UILabel LblAdTitle { get; set; }
+			if (AdIconView != null) {
+				AdIconView.Dispose ();
+				AdIconView = null;
+			}
 
+			if (LblAdBody != null) {
+				LblAdBody.Dispose ();
+				LblAdBody = null;
+			}
 
-        [Outlet]
-        UIKit.UILabel LblSponsored { get; set; }
+			if (LblAdSocialContext != null) {
+				LblAdSocialContext.Dispose ();
+				LblAdSocialContext = null;
+			}
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel LblSocialContext { get; set; }
+			if (LblAdTitle != null) {
+				LblAdTitle.Dispose ();
+				LblAdTitle = null;
+			}
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIView View { get; set; }
+			if (LblSponsored != null) {
+				LblSponsored.Dispose ();
+				LblSponsored = null;
+			}
 
-        void ReleaseDesignerOutlets ()
-        {
-            if (AdChoiceView != null) {
-                AdChoiceView.Dispose ();
-                AdChoiceView = null;
-            }
+			if (LblSocialContext != null) {
+				LblSocialContext.Dispose ();
+				LblSocialContext = null;
+			}
 
-            if (AdCoverMediaView != null) {
-                AdCoverMediaView.Dispose ();
-                AdCoverMediaView = null;
-            }
-
-            if (BtnAdCallToAction != null) {
-                BtnAdCallToAction.Dispose ();
-                BtnAdCallToAction = null;
-            }
-
-            if (ImgAdIcon != null) {
-                ImgAdIcon.Dispose ();
-                ImgAdIcon = null;
-            }
-
-            if (LblAdBody != null) {
-                LblAdBody.Dispose ();
-                LblAdBody = null;
-            }
-
-            if (LblAdSocialContext != null) {
-                LblAdSocialContext.Dispose ();
-                LblAdSocialContext = null;
-            }
-
-            if (LblAdTitle != null) {
-                LblAdTitle.Dispose ();
-                LblAdTitle = null;
-            }
-
-            if (LblSocialContext != null) {
-                LblSocialContext.Dispose ();
-                LblSocialContext = null;
-            }
-
-            if (LblSponsored != null) {
-                LblSponsored.Dispose ();
-                LblSponsored = null;
-            }
-
-            if (View != null) {
-                View.Dispose ();
-                View = null;
-            }
-        }
-    }
+			if (View != null) {
+				View.Dispose ();
+				View = null;
+			}
+		}
+	}
 }

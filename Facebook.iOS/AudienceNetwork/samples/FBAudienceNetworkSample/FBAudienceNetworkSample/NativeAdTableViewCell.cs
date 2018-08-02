@@ -15,10 +15,7 @@ namespace FBAudienceNetworkSample
 		public MediaView CoverMediaViewAd { get => AdCoverMediaView; }
 		public AdChoicesView ChoiceViewAd { get => AdChoiceView; }
 		public UIButton AdCallToActionButton { get => BtnAdCallToAction; }
-		public UIImage AdIcon { 
-			get => ImgAdIcon.Image; 
-			set => ImgAdIcon.Image = value; 
-		}
+		public AdIconView IconViewAd { get => AdIconView; }
 		public string AdTitle { 
 			get => LblAdTitle.Text; 
 			set => LblAdTitle.Text = value; 

@@ -60,7 +60,7 @@
       <ForceLoad>True</ForceLoad>
       <Frameworks>AudioToolbox AVFoundation CoreGraphics CoreImage CoreMedia OpenGLES Security StoreKit UIKit Foundation CoreVideo QuartzCore</Frameworks>
       <WeakFrameworks>AdSupport CoreMotion SafariServices WebKit</WeakFrameworks>
-      <LinkerFlags>-lc++ -lxml2</LinkerFlags>
+      <LinkerFlags>-ObjC -lc++ -lxml2</LinkerFlags>
     </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />

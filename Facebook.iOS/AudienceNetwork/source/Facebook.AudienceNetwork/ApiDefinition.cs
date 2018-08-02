@@ -26,9 +26,7 @@ namespace Facebook.AudienceNetwork
 	// @interface FBAdChoicesView : UIView
 	[DisableDefaultCtor]
 	[BaseType (typeof (UIView), Name = "FBAdChoicesView")]
-	interface AdChoicesView
-	{
-
+	interface AdChoicesView {
 		// @property (readonly, nonatomic, weak) UILabel * label;
 		[Export ("label", ArgumentSemantic.Weak)]
 		UILabel Label { get; }
@@ -41,31 +39,39 @@ namespace Facebook.AudienceNetwork
 		[Export ("expandable")]
 		bool Expandable { [Bind ("isExpandable")] get; set; }
 
-		// @property (nonatomic, weak, readwrite) FBNativeAd *nativeAd;
-		[Export ("nativeAd", ArgumentSemantic.Weak)]
+		// @property (readwrite, nonatomic, weak) FBNativeAdBase * _Nullable nativeAd;
 		[NullAllowed]
-		NativeAd NativeAd { get; set; }
+		[Export ("nativeAd", ArgumentSemantic.Weak)]
+		NativeAdBase NativeAd { get; set; }
 
 		// @property (nonatomic, assign, readwrite) UIRectCorner corner;
 		[Export ("corner", ArgumentSemantic.Assign)]
 		UIRectCorner Corner { get; set; }
+
+		// @property (assign, readwrite, nonatomic) UIEdgeInsets insets;
+		[Export ("insets", ArgumentSemantic.Assign)]
+		UIEdgeInsets Insets { get; set; }
 
 		// @property (nonatomic, weak, readwrite, nullable) UIViewController *rootViewController;
 		[NullAllowed]
 		[Export ("rootViewController", ArgumentSemantic.Weak)]
 		UIViewController RootViewController { get; set; }
 
+		// @property (readonly, assign, nonatomic) FBNativeAdViewTag nativeAdViewTag;
+		[Export ("nativeAdViewTag", ArgumentSemantic.Assign)]
+		NativeAdViewTag NativeAdViewTag { get; }
+
 		// -(instancetype)initWithNativeAd:(FBNativeAd *)nativeAd;
 		[Export ("initWithNativeAd:")]
-		IntPtr Constructor (NativeAd nativeAd);
+		IntPtr Constructor (NativeAdBase nativeAd);
 
 		// - (nonnull instancetype)initWithNativeAd:(nonnull FBNativeAd *)nativeAd expandable:(BOOL)expandable;
 		[Export ("initWithNativeAd:expandable:")]
-		IntPtr Constructor (NativeAd nativeAd, bool expandable);
+		IntPtr Constructor (NativeAdBase nativeAd, bool expandable);
 
-		// -(instancetype)initWithViewController:(UIViewController *)viewController adChoicesIcon:(FBAdImage *)adChoicesIcon adChoicesLinkURL:(NSURL *)adChoicesLinkURL attributes:(FBNativeAdViewAttributes *)attributes __attribute__((objc_designated_initializer));
-		[Export ("initWithViewController:adChoicesIcon:attributes:")]
-		IntPtr Constructor ([NullAllowed] UIViewController viewController, AdImage adChoicesIcon, [NullAllowed] NativeAdViewAttributes attributes);
+		// -(instancetype _Nonnull)initWithNativeAd:(FBNativeAdBase * _Nonnull)nativeAd expandable:(BOOL)expandable attributes:(FBNativeAdViewAttributes * _Nullable)attributes;
+		[Export ("initWithNativeAd:expandable:attributes:")]
+		IntPtr Constructor (NativeAdBase nativeAd, bool expandable, [NullAllowed] NativeAdViewAttributes attributes);
 
 		// -(void)updateFrameFromSuperview;
 		[Export ("updateFrameFromSuperview")]
@@ -80,10 +86,47 @@ namespace Facebook.AudienceNetwork
 		void UpdateFrameFromSuperview (UIRectCorner corner, UIEdgeInsets insets);
 	}
 
+	// @interface FBAdIconView : UIView
+	[BaseType (typeof (UIView), Name = "FBAdIconView")]
+	interface AdIconView {
+		[Export ("initWithFrame:")]
+		IntPtr Constructor (CGRect frame);
+
+		// @property (readonly, assign, nonatomic) FBNativeAdViewTag nativeAdViewTag;
+		[Export ("nativeAdViewTag", ArgumentSemantic.Assign)]
+		NativeAdViewTag NativeAdViewTag { get; }
+	}
+
+	delegate void AdImageCompletionHandler ([NullAllowed] UIImage imageLoaded);
+
+	// @interface FBAdImage : NSObject
+	[BaseType (typeof (NSObject), Name = "FBAdImage")]
+	interface AdImage {
+		// @property (readonly, copy, nonatomic) NSURL * url;
+		[Export ("url", ArgumentSemantic.Copy)]
+		NSUrl Url { get; }
+
+		// @property (readonly, assign, nonatomic) NSInteger width;
+		[Export ("width")]
+		nint Width { get; }
+
+		// @property (readonly, assign, nonatomic) NSInteger height;
+		[Export ("height")]
+		nint Height { get; }
+
+		// -(instancetype)initWithURL:(NSURL *)url width:(NSInteger)width height:(NSInteger)height __attribute__((objc_designated_initializer));
+		[DesignatedInitializer]
+		[Export ("initWithURL:width:height:")]
+		IntPtr Constructor (NSUrl url, nint width, nint height);
+
+		// -(void)loadImageAsyncWithBlock:(void (^ _Nullable)(UIImage * _Nullable))block;
+		[Export ("loadImageAsyncWithBlock:")]
+		void LoadImageAsync ([NullAllowed] AdImageCompletionHandler block);
+	}
+
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBAdSettings")]
-	interface AdSettings
-	{
+	interface AdSettings {
 		[Field ("FBAudienceNetworkErrorDomain", "__Internal")]
 		NSString AdsErrorDomain { get; }
 
@@ -110,6 +153,11 @@ namespace Facebook.AudienceNetwork
 		[Static]
 		[Export ("bidderToken")]
 		string BidderToken { get; }
+
+		// @property (readonly, copy, nonatomic, class) NSString * _Nonnull routingToken;
+		[Static]
+		[Export ("routingToken")]
+		string RoutingToken { get; }
 
 		[Static]
 		[Export ("isTestMode")]
@@ -145,15 +193,24 @@ namespace Facebook.AudienceNetwork
 		void SetMediationService (string service);
 
 		// + (NSString *)urlPrefix;
+		// + (void)setUrlPrefix:(NSString *)urlPrefix;
+		[Advice ("This property should never be used in production.")]
+		[Static]
+		[NullAllowed]
+		[Export ("urlPrefix")]
+		string UrlPrefix { get; set; }
+
+		[Obsolete ("Use UrlPrefix property instead. This will be removed in future versions.")]
 		[Advice ("This method should never be used in production.")]
 		[Static]
 		[return: NullAllowed]
-		[Export ("urlPrefix")]
+		[Wrap ("UrlPrefix")]
 		string GetUrlPrefix ();
 
+		[Obsolete ("Use UrlPrefix property instead. This will be removed in future versions.")]
 		[Advice ("This method should never be used in production.")]
 		[Static]
-		[Export ("setUrlPrefix:")]
+		[Wrap ("UrlPrefix = urlPrefix")]
 		void SetUrlPrefix ([NullAllowed] string urlPrefix);
 
 		// +(FBAdLogLevel)getLogLevel;
@@ -174,8 +231,7 @@ namespace Facebook.AudienceNetwork
 	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "FBAdLoggingDelegate")]
-	interface AdLoggingDelegate
-	{
+	interface AdLoggingDelegate {
 		// @required -(void)logAtLevel:(FBAdLogLevel)level withFileName:(NSString * _Nonnull)fileName withLineNumber:(int)lineNumber withThreadId:(long)threadId withBody:(NSString * _Nonnull)body;
 		[Abstract]
 		[Export ("logAtLevel:withFileName:withLineNumber:withThreadId:withBody:")]
@@ -183,8 +239,7 @@ namespace Facebook.AudienceNetwork
 	}
 
 	[Static]
-	interface AdSizes
-	{
+	interface AdSizes {
 		[Internal]
 		[Field ("kFBAdSize320x50", "__Internal")]
 		IntPtr _kFBAdSize320x50 { get; }
@@ -206,11 +261,33 @@ namespace Facebook.AudienceNetwork
 		IntPtr _kFBAdSizeHeight250Rectangle { get; }
 	}
 
+	// @interface FBAdStarRatingView : UIView
+	[Obsolete]
+	[BaseType (typeof (UIView), Name = "FBAdStarRatingView")]
+	interface AdStarRatingView {
+		[Export ("initWithFrame:")]
+		IntPtr Constructor (CGRect frame);
+
+		// @property (nonatomic) struct FBAdStarRating rating;
+		[Export ("rating", ArgumentSemantic.Assign)]
+		AdStarRating Rating { get; set; }
+
+		// @property (nonatomic, strong) UIColor * primaryColor;
+		[Export ("primaryColor", ArgumentSemantic.Strong)]
+		UIColor PrimaryColor { get; set; }
+
+		// @property (nonatomic, strong) UIColor * secondaryColor;
+		[Export ("secondaryColor", ArgumentSemantic.Strong)]
+		UIColor SecondaryColor { get; set; }
+
+		// -(instancetype)initWithFrame:(CGRect)frame withStarRating:(struct FBAdStarRating)starRating __attribute__((objc_designated_initializer));
+		[Export ("initWithFrame:withStarRating:")]
+		IntPtr Constructor (CGRect frame, AdStarRating starRating);
+	}
+
 	[DisableDefaultCtor]
 	[BaseType (typeof (UIView), Name = "FBAdView")]
-	interface AdView
-	{
-
+	interface AdView {
 		[DesignatedInitializer]
 		[Export ("initWithPlacementID:adSize:rootViewController:")]
 		IntPtr Constructor (string placementId, AdSize adSize, [NullAllowed] UIViewController rootViewController);
@@ -223,6 +300,7 @@ namespace Facebook.AudienceNetwork
 		void LoadAd (string bidPayload);
 
 		// -(void)disableAutoRefresh;
+		[Obsolete ("Autorefresh is disabled by default.")]
 		[Export ("disableAutoRefresh")]
 		void DisableAutoRefresh ();
 
@@ -233,22 +311,22 @@ namespace Facebook.AudienceNetwork
 		[Export ("rootViewController", ArgumentSemantic.Weak)]
 		UIViewController RootViewController { get; }
 
+		// @property (readonly, getter = isAdValid, nonatomic) BOOL adValid;
+		[Export ("isAdValid")]
+		bool IsAdValid { get; }
+
 		[NullAllowed]
 		[Export ("delegate", ArgumentSemantic.Weak)]
 		IAdViewDelegate Delegate { get; set; }
 
 	}
 
-	interface IAdViewDelegate
-	{
-	}
+	interface IAdViewDelegate { }
 
 	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "FBAdViewDelegate")]
-	interface AdViewDelegate
-	{
-
+	interface AdViewDelegate {
 		[Export ("adViewDidClick:")]
 		void AdViewDidClick (AdView adView);
 
@@ -272,8 +350,7 @@ namespace Facebook.AudienceNetwork
 	// @interface FBInstreamAdView : UIView
 	[DisableDefaultCtor]
 	[BaseType (typeof (UIView), Name = "FBInstreamAdView")]
-	interface InstreamAdView
-	{
+	interface InstreamAdView {
 		// @property (readonly, getter = isAdValid, nonatomic) BOOL adValid;
 		[Export ("adValid")]
 		bool IsAdValid { [Bind ("isAdValid")] get; }
@@ -317,8 +394,7 @@ namespace Facebook.AudienceNetwork
 	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "FBInstreamAdViewDelegate")]
-	interface InstreamAdViewDelegate
-	{
+	interface InstreamAdViewDelegate {
 		// @required -(void)adViewDidLoad:(FBInstreamAdView * _Nonnull)adView;
 		[Abstract]
 		[Export ("adViewDidLoad:")]
@@ -345,9 +421,7 @@ namespace Facebook.AudienceNetwork
 
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBInterstitialAd")]
-	interface InterstitialAd
-	{
-		
+	interface InterstitialAd {
 		[Export ("placementID")]
 		string PlacementId { get; }
 
@@ -379,17 +453,12 @@ namespace Facebook.AudienceNetwork
 		bool ShowAdFromRootViewController (UIViewController rootViewController);
 	}
 
-	interface IInterstitialAdDelegate
-	{
-
-	}
+	interface IInterstitialAdDelegate { }
 
 	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "FBInterstitialAdDelegate")]
-	interface InterstitialAdDelegate
-	{
-
+	interface InterstitialAdDelegate {
 		[Export ("interstitialAdDidClick:")]
 		void InterstitialAdDidClick (InterstitialAd interstitialAd);
 
@@ -411,9 +480,8 @@ namespace Facebook.AudienceNetwork
 	}
 
 	// @interface FBMediaView : UIView
-	[BaseType (typeof (UIView), Name = "FBMediaView")]
-	interface MediaView
-	{
+	[BaseType (typeof (AdIconView), Name = "FBMediaView")]
+	interface MediaView {
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (CGRect frame);
 
@@ -422,30 +490,30 @@ namespace Facebook.AudienceNetwork
 		[Export ("delegate", ArgumentSemantic.Weak)]
 		IMediaViewDelegate Delegate { get; set; }
 
-		// -(instancetype)initWithNativeAd:(FBNativeAd *)nativeAd;
-		[Export ("initWithNativeAd:")]
-		IntPtr Constructor (NativeAd nativeAd);
-
-		// @property (nonatomic, strong) FBNativeAd * nativeAd;
-		[Export ("nativeAd", ArgumentSemantic.Strong)]
-		NativeAd NativeAd { get; set; }
-
 		// @property (nonatomic, strong, nonnull) FBMediaViewVideoRenderer *videoRenderer;
 		[Export ("videoRenderer", ArgumentSemantic.Strong)]
 		MediaViewVideoRenderer VideoRenderer { get; set; }
 
 		// @property (readonly, assign, nonatomic) float volume;
-		[Obsolete]
 		[Export ("volume")]
 		float Volume { get; }
 
-		// @property (nonatomic, assign, getter=isAutoplayEnabled) BOOL autoplayEnabled;
-		[Export ("autoplayEnabled")]
-		bool AutoplayEnabled { [Bind ("isAutoplayEnabled")] get; set; }
+		// @property (nonatomic, readonly, getter=isAutoplayEnabled) BOOL autoplayEnabled;
+		[Export ("isAutoplayEnabled")]
+		bool IsAutoplayEnabled { get; }
+
+		[Obsolete ("Use IsAutoplayEnabled property instead. This will be removed in future versions.")]
+		[Wrap ("IsAutoplayEnabled")]
+		bool AutoplayEnabled { get; }
 
 		// @property (readonly, assign, nonatomic) CGFloat aspectRatio;
 		[Export ("aspectRatio")]
 		nfloat AspectRatio { get; }
+
+		// @property (readonly, assign, nonatomic) FBNativeAdViewTag nativeAdViewTag;
+		[New]
+		[Export ("nativeAdViewTag", ArgumentSemantic.Assign)]
+		NativeAdViewTag NativeAdViewTag { get; }
 
 		// -(void)applyNaturalWidth;
 		[Export ("applyNaturalWidth")]
@@ -456,17 +524,13 @@ namespace Facebook.AudienceNetwork
 		void ApplyNaturalHeight ();
 	}
 
-	interface IMediaViewDelegate
-	{
-
-	}
+	interface IMediaViewDelegate { }
 
 	// @protocol FBMediaViewDelegate <NSObject>
 	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "FBMediaViewDelegate")]
-	interface MediaViewDelegate
-	{
+	interface MediaViewDelegate {
 		// @optional -(void)mediaViewDidLoad:(FBMediaView *)mediaView;
 		[Export ("mediaViewDidLoad:")]
 		void MediaViewDidLoad (MediaView mediaView);
@@ -499,8 +563,7 @@ namespace Facebook.AudienceNetwork
 	// @interface FBMediaViewVideoRenderer : UIView
 	[DisableDefaultCtor]
 	[BaseType (typeof (UIView), Name = "FBMediaViewVideoRenderer")]
-	interface MediaViewVideoRenderer
-	{
+	interface MediaViewVideoRenderer {
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (CGRect frame);
 
@@ -591,96 +654,37 @@ namespace Facebook.AudienceNetwork
 	}
 
 	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FBNativeAd")]
-	interface NativeAd
-	{
-
-		[Export ("placementID")]
-		string PlacementId { get; }
-
-		[Obsolete]
-		[Export ("starRating", ArgumentSemantic.Assign)]
-		AdStarRating StarRating { get; }
-
-		[Export ("title")]
-		string Title { get; }
-
-		[Export ("subtitle")]
-		string Subtitle { get; }
-
-		[Export ("socialContext")]
-		string SocialContext { get; }
-
-		[Export ("callToAction")]
-		string CallToAction { get; }
-
-		[Export ("icon", ArgumentSemantic.Retain)]
-		AdImage Icon { get; }
-
-		[Export ("coverImage", ArgumentSemantic.Retain)]
-		AdImage CoverImage { get; }
-
-		// @property (nonatomic, copy, readonly, nullable) NSString *rawBody;
-		[NullAllowed]
-		[Export ("rawBody")]
-		string RawBody { get; }
-
-		[Export ("body")]
-		string Body { get; }
-
-		// @property (nonatomic, strong, readonly, nullable) FBAdImage *adChoicesIcon;
-		[Export ("adChoicesIcon", ArgumentSemantic.Strong)]
-		AdImage AdChoicesIcon { get; }
-
-		// @property (nonatomic, copy, readonly, nullable) NSURL *adChoicesLinkURL;
-		[Export ("adChoicesLinkURL", ArgumentSemantic.Copy)]
-		NSUrl AdChoicesLinkUrl { get; }
-
-		// @property (nonatomic, copy, readonly, nullable) NSString *adChoicesText;
-		[Export ("adChoicesText", ArgumentSemantic.Copy)]
-		string AdChoicesText { get; }
-
-		[Export ("mediaCachePolicy", ArgumentSemantic.Assign)]
-		NativeAdsCachePolicy MediaCachePolicy { get; set; }
-
+	[BaseType (typeof (NativeAdBase), Name = "FBNativeAd")]
+	interface NativeAd {
 		[NullAllowed]
 		[Export ("delegate", ArgumentSemantic.Weak)]
 		INativeAdDelegate Delegate { get; set; }
 
-		[DesignatedInitializer]
 		[Export ("initWithPlacementID:")]
 		IntPtr Constructor (string placementId);
 
-		[Export ("registerViewForInteraction:withViewController:")]
-		void RegisterView (UIView view, [NullAllowed] UIViewController viewController);
+		// - (void)registerViewForInteraction:(UIView *)view mediaView:(FBMediaView*) mediaView iconView:(nullable FBAdIconView *)iconView viewController:(nullable UIViewController *)viewController;
+		[Export ("registerViewForInteraction:mediaView:iconView:viewController:")]
+		void RegisterView (UIView view, MediaView mediaView, [NullAllowed] AdIconView iconView, [NullAllowed] UIViewController viewController);
 
-		[Export ("registerViewForInteraction:withViewController:withClickableViews:")]
-		void RegisterView (UIView view, [NullAllowed] UIViewController viewController, UIView [] clickableViews);
+		// - (void)registerViewForInteraction:(UIView *)view mediaView:(FBMediaView*) mediaView iconView:(nullable FBAdIconView *)iconView viewController:(nullable UIViewController *)viewController clickableViews:(nullable NSArray<UIView*> *)clickableViews;
+		[Export ("registerViewForInteraction:mediaView:iconView:viewController:clickableViews:")]
+		void RegisterView (UIView view, MediaView mediaView, [NullAllowed] AdIconView iconView, [NullAllowed] UIViewController viewController, [NullAllowed] UIView [] clickableViews);
 
-		[Export ("unregisterView")]
-		void UnregisterView ();
+		// -(void)registerViewForInteraction:(UIView * _Nonnull)view mediaView:(FBMediaView * _Nonnull)mediaView iconImageView:(UIImageView * _Nullable)iconImageView viewController:(UIViewController * _Nullable)viewController;
+		[Export ("registerViewForInteraction:mediaView:iconImageView:viewController:")]
+		void RegisterView (UIView view, MediaView mediaView, [NullAllowed] UIImageView iconImageView, [NullAllowed] UIViewController viewController);
 
-		[PostGet ("IsAdValid")]
-		[Export ("loadAd")]
-		void LoadAd ();
+		// -(void)registerViewForInteraction:(UIView * _Nonnull)view mediaView:(FBMediaView * _Nonnull)mediaView iconImageView:(UIImageView * _Nullable)iconImageView viewController:(UIViewController * _Nullable)viewController clickableViews:(NSArray<UIView *> * _Nullable)clickableViews;
+		[Export ("registerViewForInteraction:mediaView:iconImageView:viewController:clickableViews:")]
+		void RegisterView (UIView view, MediaView mediaView, [NullAllowed] UIImageView iconImageView, [NullAllowed] UIViewController viewController, [NullAllowed] UIView [] clickableViews);
 
-		// - (void) loadAdWithBidPayload:(NSString*) bidPayload;
-		[PostGet ("IsAdValid")]
-		[Export ("loadAdWithBidPayload:")]
-		void LoadAd (string bidPayload);
-
-		[Export ("isAdValid")]
-		bool IsAdValid { get; }
-
-		[Export ("getAdNetwork", ArgumentSemantic.Copy)]
-		[NullAllowed]
-		string AdNetwork { get; }
+		// -(void)downloadMedia;
+		[Export ("downloadMedia")]
+		void DownloadMedia ();
 	}
 
-	interface INativeAdDelegate
-	{
-
-	}
+	interface INativeAdDelegate { }
 
 	[Model (AutoGeneratedName = true)]
 	[Protocol]
@@ -689,6 +693,10 @@ namespace Facebook.AudienceNetwork
 	{
 		[Export ("nativeAdDidLoad:")]
 		void NativeAdDidLoad (NativeAd nativeAd);
+
+		// @optional -(void)nativeAdDidDownloadMedia:(FBNativeAd * _Nonnull)nativeAd;
+		[Export ("nativeAdDidDownloadMedia:")]
+		void NativeAdDidDownloadMedia (NativeAd nativeAd);
 
 		[Export ("nativeAd:didFailWithError:")]
 		void NativeAdDidFail (NativeAd nativeAd, NSError error);
@@ -703,54 +711,183 @@ namespace Facebook.AudienceNetwork
 		void NativeAdWillLogImpression(NativeAd nativeAd);
 	}
 
-	delegate void AdImageCompletionHandler ([NullAllowed] UIImage imageLoaded);
+	// @interface FBNativeAdBase : NSObject
+	[BaseType (typeof (NSObject), Name = "FBNativeAdBase")]
+	interface NativeAdBase {
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull placementID;
+		[Export ("placementID")]
+		string PlacementId { get; }
 
-	[DisableDefaultCtor]
-	[BaseType (typeof (NSObject), Name = "FBAdImage")]
-	interface AdImage
-	{
+		// @property (readonly, assign, nonatomic) struct FBAdStarRating starRating __attribute__((deprecated("")));
+		[Export ("starRating", ArgumentSemantic.Assign)]
+		AdStarRating StarRating { get; }
 
-		[Export ("url", ArgumentSemantic.Copy)]
-		NSUrl Url { get; }
+		// @property (readonly, copy, nonatomic) NSString * _Nullable headline;
+		[NullAllowed]
+		[Export ("headline")]
+		string Headline { get; }
 
-		[Export ("width", ArgumentSemantic.Assign)]
-		nint Width { get; }
+		// @property (readonly, copy, nonatomic) NSString * _Nullable linkDescription;
+		[NullAllowed]
+		[Export ("linkDescription")]
+		string LinkDescription { get; }
 
-		[Export ("height", ArgumentSemantic.Assign)]
-		nint Height { get; }
+		// @property (readonly, copy, nonatomic) NSString * _Nullable advertiserName;
+		[NullAllowed]
+		[Export ("advertiserName")]
+		string AdvertiserName { get; }
 
-		[Export ("initWithURL:width:height:")]
-		IntPtr Constructor (NSUrl url, nint width, nint height);
+		// @property (readonly, copy, nonatomic) NSString * _Nullable socialContext;
+		[NullAllowed]
+		[Export ("socialContext")]
+		string SocialContext { get; }
 
-		// -(void)loadImageAsyncWithBlock:(void (^)(UIImage *))block;
-		[Export ("loadImageAsyncWithBlock:")]
-		void LoadImageAsync (AdImageCompletionHandler completionHandler);
+		// @property (readonly, copy, nonatomic) NSString * _Nullable callToAction;
+		[NullAllowed]
+		[Export ("callToAction")]
+		string CallToAction { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nullable rawBodyText;
+		[NullAllowed]
+		[Export ("rawBodyText")]
+		string RawBodyText { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nullable bodyText;
+		[NullAllowed]
+		[Export ("bodyText")]
+		string BodyText { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nullable sponsoredTranslation;
+		[NullAllowed]
+		[Export ("sponsoredTranslation")]
+		string SponsoredTranslation { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nullable adTranslation;
+		[NullAllowed]
+		[Export ("adTranslation")]
+		string AdTranslation { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nullable promotedTranslation;
+		[NullAllowed]
+		[Export ("promotedTranslation")]
+		string PromotedTranslation { get; }
+
+		// @property (readonly, nonatomic, strong) FBAdImage * _Nullable adChoicesIcon;
+		[NullAllowed]
+		[Export ("adChoicesIcon", ArgumentSemantic.Strong)]
+		AdImage AdChoicesIcon { get; }
+
+		// @property (readonly, assign, nonatomic) CGFloat aspectRatio;
+		[Export ("aspectRatio")]
+		nfloat AspectRatio { get; }
+
+		// @property (readonly, copy, nonatomic) NSURL * _Nullable adChoicesLinkURL;
+		[NullAllowed]
+		[Export ("adChoicesLinkURL", ArgumentSemantic.Copy)]
+		NSUrl AdChoicesLinkUrl { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nullable adChoicesText;
+		[NullAllowed]
+		[Export ("adChoicesText")]
+		string AdChoicesText { get; }
+
+		// @property (readonly, nonatomic) FBNativeAdsCachePolicy mediaCachePolicy;
+		[Export ("mediaCachePolicy")]
+		NativeAdsCachePolicy MediaCachePolicy { get; }
+
+		// @property (readonly, getter = isAdValid, nonatomic) BOOL adValid;
+		[Export ("isAdValid")]
+		bool IsAdValid { get; }
+
+		// @property (readonly, getter = getAdNetwork, copy, nonatomic) NSString * _Nullable adNetwork;
+		[NullAllowed]
+		[Export ("getAdNetwork")]
+		string AdNetwork { get; }
+
+		// @property (readonly, getter = isRegistered, nonatomic) BOOL registered;
+		[Export ("isRegistered")]
+		bool IsRegistered { get; }
+
+		// -(void)unregisterView;
+		[Export ("unregisterView")]
+		void UnregisterView ();
+
+		// -(void)loadAd;
+		[Export ("loadAd")]
+		void LoadAd ();
+
+		// -(void)loadAdWithMediaCachePolicy:(FBNativeAdsCachePolicy)mediaCachePolicy;
+		[Export ("loadAdWithMediaCachePolicy:")]
+		void LoadAd (NativeAdsCachePolicy mediaCachePolicy);
+
+		// -(void)loadAdWithBidPayload:(NSString * _Nonnull)bidPayload;
+		[Export ("loadAdWithBidPayload:")]
+		void LoadAd (string bidPayload);
+
+		// -(void)loadAdWithBidPayload:(NSString * _Nonnull)bidPayload mediaCachePolicy:(FBNativeAdsCachePolicy)mediaCachePolicy;
+		[Export ("loadAdWithBidPayload:mediaCachePolicy:")]
+		void LoadAd (string bidPayload, NativeAdsCachePolicy mediaCachePolicy);
 	}
 
-	// @interface FBAdStarRatingView : UIView
-	[Obsolete]
-	[BaseType (typeof (UIView), Name = "FBAdStarRatingView")]
-	interface AdStarRatingView
-	{
+	// @interface FBNativeAdBaseView : UIView
+	[BaseType (typeof (UIView), Name = "FBNativeAdBaseView")]
+	interface NativeAdBaseView {
+		// @property (nonatomic, weak) UIViewController * _Nullable rootViewController;
+		[NullAllowed]
+		[Export ("rootViewController", ArgumentSemantic.Weak)]
+		UIViewController RootViewController { get; set; }
+	}
 
-		[Export ("initWithFrame:")]
-		IntPtr Constructor (CGRect frame);
+	// @interface FBNativeAdCollectionViewAdProvider : NSObject
+	[BaseType (typeof (NSObject), Name = "FBNativeAdCollectionViewAdProvider")]
+	interface NativeAdCollectionViewAdProvider {
+		// @property (nonatomic, weak) id<FBNativeAdDelegate> _Nullable delegate;
+		[NullAllowed]
+		[Export ("delegate", ArgumentSemantic.Weak)]
+		INativeAdDelegate Delegate { get; set; }
 
-		// @property (nonatomic) struct FBAdStarRating rating;
-		[Export ("rating", ArgumentSemantic.Assign)]
-		AdStarRating Rating { get; set; }
+		// -(instancetype _Nonnull)initWithManager:(FBNativeAdsManager * _Nonnull)manager __attribute__((objc_designated_initializer));
+		[Export ("initWithManager:")]
+		[DesignatedInitializer]
+		IntPtr Constructor (NativeAdsManager manager);
 
-		// @property (nonatomic, strong) UIColor * primaryColor;
-		[Export ("primaryColor", ArgumentSemantic.Strong)]
-		UIColor PrimaryColor { get; set; }
+		// -(FBNativeAd * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView nativeAdForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+		[Export ("collectionView:nativeAdForRowAtIndexPath:")]
+		NativeAd GetNativeAdForRow (UICollectionView collectionView, NSIndexPath indexPath);
 
-		// @property (nonatomic, strong) UIColor * secondaryColor;
-		[Export ("secondaryColor", ArgumentSemantic.Strong)]
-		UIColor SecondaryColor { get; set; }
+		// -(BOOL)isAdCellAtIndexPath:(NSIndexPath * _Nonnull)indexPath forStride:(NSUInteger)stride;
+		[Export ("isAdCellAtIndexPath:forStride:")]
+		bool IsAdCellAtIndexPath (NSIndexPath indexPath, nuint stride);
 
-		// -(instancetype)initWithFrame:(CGRect)frame withStarRating:(struct FBAdStarRating)starRating __attribute__((objc_designated_initializer));
-		[Export ("initWithFrame:withStarRating:")]
-		IntPtr Constructor (CGRect frame, AdStarRating starRating);
+		// -(NSIndexPath * _Nonnull)adjustNonAdCellIndexPath:(NSIndexPath * _Nonnull)indexPath forStride:(NSUInteger)stride;
+		[return: NullAllowed]
+		[Export ("adjustNonAdCellIndexPath:forStride:")]
+		NSIndexPath AdjustNonAdCellIndexPath (NSIndexPath indexPath, nuint stride);
+
+		// -(NSUInteger)adjustCount:(NSUInteger)count forStride:(NSUInteger)stride;
+		[Export ("adjustCount:forStride:")]
+		nuint AdjustCount (nuint count, nuint stride);
+	}
+
+	// @interface FBNativeAdCollectionViewCellProvider : FBNativeAdCollectionViewAdProvider
+	[BaseType (typeof (NativeAdCollectionViewAdProvider), Name = "FBNativeAdCollectionViewCellProvider")]
+	interface NativeAdCollectionViewCellProvider {
+		// -(instancetype _Nonnull)initWithManager:(FBNativeAdsManager * _Nonnull)manager forType:(FBNativeAdViewType)type;
+		[Export ("initWithManager:forType:")]
+		IntPtr Constructor (NativeAdsManager manager, NativeAdViewType type);
+
+		// -(instancetype _Nonnull)initWithManager:(FBNativeAdsManager * _Nonnull)manager forType:(FBNativeAdViewType)type forAttributes:(FBNativeAdViewAttributes * _Nonnull)attributes __attribute__((objc_designated_initializer));
+		[Export ("initWithManager:forType:forAttributes:")]
+		[DesignatedInitializer]
+		IntPtr Constructor (NativeAdsManager manager, NativeAdViewType type, NativeAdViewAttributes attributes);
+
+		// -(UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+		[Export ("collectionView:cellForItemAtIndexPath:")]
+		UICollectionViewCell GetCell (UICollectionView collectionView, NSIndexPath indexPath);
+
+		// -(CGFloat)collectionView:(UICollectionView * _Nonnull)collectionView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+		[Export ("collectionView:heightForRowAtIndexPath:")]
+		nfloat GetHeightForRow (UICollectionView collectionView, NSIndexPath indexPath);
 	}
 
 	delegate UIView NativeAdScrollViewViewProviderHandler (NativeAd nativeAd, nuint position);
@@ -758,8 +895,7 @@ namespace Facebook.AudienceNetwork
 	// @interface FBNativeAdScrollView : UIView
 	[DisableDefaultCtor]
 	[BaseType (typeof (UIView), Name = "FBNativeAdScrollView")]
-	interface NativeAdScrollView
-	{
+	interface NativeAdScrollView {
 		// @property (readonly, assign, nonatomic) NSUInteger maximumNativeAdCount;
 		[Export ("maximumNativeAdCount", ArgumentSemantic.Assign)]
 		nuint MaximumNativeAdCount { get; }
@@ -808,17 +944,13 @@ namespace Facebook.AudienceNetwork
 		IntPtr Constructor (NativeAdsManager manager, NativeAdScrollViewViewProviderHandler childViewProviderHandler, nuint maximumNativeAdCount);
 	}
 
-	interface INativeAdsManagerDelegate
-	{
-
-	}
+	interface INativeAdsManagerDelegate { }
 
 	// @protocol FBNativeAdsManagerDelegate <NSObject>
 	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "FBNativeAdsManagerDelegate")]
-	interface NativeAdsManagerDelegate
-	{
+	interface NativeAdsManagerDelegate {
 		// @required -(void)nativeAdsLoaded;
 		[Abstract]
 		[Export ("nativeAdsLoaded")]
@@ -874,8 +1006,7 @@ namespace Facebook.AudienceNetwork
 	// @interface FBNativeAdTableViewAdProvider : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBNativeAdTableViewAdProvider")]
-	interface NativeAdTableViewAdProvider
-	{
+	interface NativeAdTableViewAdProvider {
 		// @property (nonatomic, weak) id<FBNativeAdDelegate> delegate;
 		[NullAllowed]
 		[Export ("delegate", ArgumentSemantic.Weak)]
@@ -895,6 +1026,7 @@ namespace Facebook.AudienceNetwork
 		bool IsAdCell (NSIndexPath indexPath, nuint stride);
 
 		// -(NSIndexPath *)adjustNonAdCellIndexPath:(NSIndexPath *)indexPath forStride:(NSUInteger)stride;
+		[return: NullAllowed]
 		[Export ("adjustNonAdCellIndexPath:forStride:")]
 		NSIndexPath AdjustNonAdCell (NSIndexPath indexPath, nuint stride);
 
@@ -933,7 +1065,7 @@ namespace Facebook.AudienceNetwork
 
 	// @interface FBNativeAdView : UIView
 	[DisableDefaultCtor]
-	[BaseType (typeof (UIView), Name = "FBNativeAdView")]
+	[BaseType (typeof (NativeAdBaseView), Name = "FBNativeAdView")]
 	interface NativeAdView
 	{
 		// @property (readonly, assign, nonatomic) FBNativeAdViewType type;
@@ -944,11 +1076,6 @@ namespace Facebook.AudienceNetwork
 		[Static]
 		[Export ("nativeAdViewWithNativeAd:withType:")]
 		NativeAdView From (NativeAd nativeAd, NativeAdViewType type);
-
-		// @property (nonatomic, weak) UIViewController * viewController;
-		[NullAllowed]
-		[Export ("rootViewController", ArgumentSemantic.Weak)]
-		UIViewController RootViewController { get; set; }
 
 		// +(instancetype)nativeAdViewWithNativeAd:(FBNativeAd *)nativeAd withType:(FBNativeAdViewType)type withAttributes:(FBNativeAdViewAttributes *)attributes;
 		[Static]
@@ -1013,62 +1140,99 @@ namespace Facebook.AudienceNetwork
 		[Export ("autoplayEnabled")]
 		bool AutoplayEnabled { [Bind ("isAutoplayEnabled")] get; set; }
 
+		////////////////////////////////////////////////////////////////////////
+		// From @interface FBNativeAdView (FBNativeAdViewAttributes) Category //
+		////////////////////////////////////////////////////////////////////////
+
 		// +(instancetype)defaultAttributesForType:(FBNativeAdViewType)type;
 		[Static]
 		[Export ("defaultAttributesForType:")]
 		NativeAdViewAttributes DefaultAttributes (NativeAdViewType type);
 	}
 
-	// @interface FBNativeAdCollectionViewAdProvider : NSObject
-	[BaseType (typeof (NSObject), Name = "FBNativeAdCollectionViewAdProvider")]
-	interface NativeAdCollectionViewAdProvider
-	{
-		// @property (nonatomic, weak) id<FBNativeAdDelegate> _Nullable delegate;
-		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
-		INativeAdDelegate Delegate { get; set; }
+	// @interface FBNativeBannerAd : FBNativeAdBase
+	[BaseType (typeof (NativeAdBase), Name = "FBNativeBannerAd")]
+	interface NativeBannerAd {
+		// @property (nonatomic, weak) id<FBNativeBannerAdDelegate> _Nullable delegate;
+		[NullAllowed]
+		[Export ("delegate", ArgumentSemantic.Weak)]
+		INativeBannerAdDelegate Delegate { get; set; }
 
-		// -(instancetype _Nonnull)initWithManager:(FBNativeAdsManager * _Nonnull)manager __attribute__((objc_designated_initializer));
-		[Export ("initWithManager:")]
-		[DesignatedInitializer]
-		IntPtr Constructor (NativeAdsManager manager);
+		// -(instancetype _Nonnull)initWithPlacementID:(NSString * _Nonnull)placementID;
+		[Export ("initWithPlacementID:")]
+		IntPtr Constructor (string placementId);
 
-		// -(FBNativeAd * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView nativeAdForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-		[Export ("collectionView:nativeAdForRowAtIndexPath:")]
-		NativeAd GetNativeAdForRow (UICollectionView collectionView, NSIndexPath indexPath);
+		// -(void)registerViewForInteraction:(UIView * _Nonnull)view iconView:(FBAdIconView * _Nonnull)iconView viewController:(UIViewController * _Nullable)viewController;
+		[Export ("registerViewForInteraction:iconView:viewController:")]
+		void RegisterView (UIView view, AdIconView iconView, [NullAllowed] UIViewController viewController);
 
-		// -(BOOL)isAdCellAtIndexPath:(NSIndexPath * _Nonnull)indexPath forStride:(NSUInteger)stride;
-		[Export ("isAdCellAtIndexPath:forStride:")]
-		bool IsAdCellAtIndexPath (NSIndexPath indexPath, nuint stride);
+		// -(void)registerViewForInteraction:(UIView * _Nonnull)view iconView:(FBAdIconView * _Nonnull)iconView viewController:(UIViewController * _Nullable)viewController clickableViews:(NSArray<UIView *> * _Nullable)clickableViews;
+		[Export ("registerViewForInteraction:iconView:viewController:clickableViews:")]
+		void RegisterView (UIView view, AdIconView iconView, [NullAllowed] UIViewController viewController, [NullAllowed] UIView [] clickableViews);
 
-		// -(NSIndexPath * _Nonnull)adjustNonAdCellIndexPath:(NSIndexPath * _Nonnull)indexPath forStride:(NSUInteger)stride;
-		[Export ("adjustNonAdCellIndexPath:forStride:")]
-		NSIndexPath AdjustNonAdCellIndexPath (NSIndexPath indexPath, nuint stride);
-
-		// -(NSUInteger)adjustCount:(NSUInteger)count forStride:(NSUInteger)stride;
-		[Export ("adjustCount:forStride:")]
-		nuint AdjustCount (nuint count, nuint stride);
+		// -(void)downloadMedia;
+		[Export ("downloadMedia")]
+		void DownloadMedia ();
 	}
 
-	// @interface FBNativeAdCollectionViewCellProvider : FBNativeAdCollectionViewAdProvider
-	[BaseType (typeof (NativeAdCollectionViewAdProvider), Name = "FBNativeAdCollectionViewCellProvider")]
-	interface NativeAdCollectionViewCellProvider
-	{
-		// -(instancetype _Nonnull)initWithManager:(FBNativeAdsManager * _Nonnull)manager forType:(FBNativeAdViewType)type;
-		[Export ("initWithManager:forType:")]
-		IntPtr Constructor (NativeAdsManager manager, NativeAdViewType type);
+	interface INativeBannerAdDelegate { }
 
-		// -(instancetype _Nonnull)initWithManager:(FBNativeAdsManager * _Nonnull)manager forType:(FBNativeAdViewType)type forAttributes:(FBNativeAdViewAttributes * _Nonnull)attributes __attribute__((objc_designated_initializer));
-		[Export ("initWithManager:forType:forAttributes:")]
-		[DesignatedInitializer]
-		IntPtr Constructor (NativeAdsManager manager, NativeAdViewType type, NativeAdViewAttributes attributes);
+	// @protocol FBNativeBannerAdDelegate <NSObject>
+	[Model (AutoGeneratedName = true)]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "FBNativeBannerAdDelegate")]
+	interface NativeBannerAdDelegate {
+		// @optional -(void)nativeBannerAdDidLoad:(FBNativeBannerAd * _Nonnull)nativeBannerAd;
+		[Export ("nativeBannerAdDidLoad:")]
+		void NativeBannerAdDidLoad (NativeBannerAd nativeBannerAd);
 
-		// -(UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-		[Export ("collectionView:cellForItemAtIndexPath:")]
-		UICollectionViewCell GetCell (UICollectionView collectionView, NSIndexPath indexPath);
+		// @optional -(void)nativeBannerAdDidDownloadMedia:(FBNativeBannerAd * _Nonnull)nativeBannerAd;
+		[Export ("nativeBannerAdDidDownloadMedia:")]
+		void NativeBannerAdDidDownloadMedia (NativeBannerAd nativeBannerAd);
 
-		// -(CGFloat)collectionView:(UICollectionView * _Nonnull)collectionView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-		[Export ("collectionView:heightForRowAtIndexPath:")]
-		nfloat GetHeightForRow (UICollectionView collectionView, NSIndexPath indexPath);
+		// @optional -(void)nativeBannerAdWillLogImpression:(FBNativeBannerAd * _Nonnull)nativeBannerAd;
+		[Export ("nativeBannerAdWillLogImpression:")]
+		void NativeBannerAdWillLogImpression (NativeBannerAd nativeBannerAd);
+
+		// @optional -(void)nativeBannerAd:(FBNativeBannerAd * _Nonnull)nativeBannerAd didFailWithError:(NSError * _Nonnull)error;
+		[Export ("nativeBannerAd:didFailWithError:")]
+		void NativeBannerAdDidFail (NativeBannerAd nativeBannerAd, NSError error);
+
+		// @optional -(void)nativeBannerAdDidClick:(FBNativeBannerAd * _Nonnull)nativeBannerAd;
+		[Export ("nativeBannerAdDidClick:")]
+		void NativeBannerAdDidClick (NativeBannerAd nativeBannerAd);
+
+		// @optional -(void)nativeBannerAdDidFinishHandlingClick:(FBNativeBannerAd * _Nonnull)nativeBannerAd;
+		[Export ("nativeBannerAdDidFinishHandlingClick:")]
+		void NativeBannerAdDidFinishHandlingClick (NativeBannerAd nativeBannerAd);
+	}
+
+	// @interface FBNativeBannerAdView : FBNativeAdBaseView
+	[BaseType (typeof (NativeAdBaseView), Name = "FBNativeBannerAdView")]
+	[DisableDefaultCtor]
+	interface NativeBannerAdView {
+		// @property (readonly, assign, nonatomic) FBNativeBannerAdViewType type;
+		[Export ("type", ArgumentSemantic.Assign)]
+		NativeBannerAdViewType Type { get; }
+
+		// +(instancetype _Nonnull)nativeBannerAdViewWithNativeBannerAd:(FBNativeBannerAd * _Nonnull)nativeBannerAd withType:(FBNativeBannerAdViewType)type;
+		[Static]
+		[Export ("nativeBannerAdViewWithNativeBannerAd:withType:")]
+		NativeBannerAdView From (NativeBannerAd nativeBannerAd, NativeBannerAdViewType type);
+
+		// +(instancetype _Nonnull)nativeBannerAdViewWithNativeBannerAd:(FBNativeBannerAd * _Nonnull)nativeBannerAd withType:(FBNativeBannerAdViewType)type withAttributes:(FBNativeAdViewAttributes * _Nonnull)attributes;
+		[Static]
+		[Export ("nativeBannerAdViewWithNativeBannerAd:withType:withAttributes:")]
+		NativeBannerAdView From (NativeBannerAd nativeBannerAd, NativeBannerAdViewType type, NativeAdViewAttributes attributes);
+
+		//////////////////////////////////////////////////////////////////////////////
+		// From @interface FBNativeBannerAdView (FBNativeAdViewAttributes) Category //
+		//////////////////////////////////////////////////////////////////////////////
+
+		// +(instancetype _Nonnull)defaultAttributesForBannerType:(FBNativeBannerAdViewType)type;
+		[Static]
+		[Export ("defaultAttributesForBannerType:")]
+		NativeAdViewAttributes Create (NativeBannerAdViewType type);
 	}
 
 	// @interface FBRewardedVideoAd : NSObject
@@ -1089,7 +1253,8 @@ namespace Facebook.AudienceNetwork
 		CMTime Duration { get; }
 
 		// @property (nonatomic, weak) id<FBRewardedVideoAdDelegate> _Nullable delegate;
-		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
+		[NullAllowed]
+		[Export ("delegate", ArgumentSemantic.Weak)]
 		IRewardedVideoAdDelegate Delegate { get; set; }
 
 		// @property (readonly, getter = isAdValid, nonatomic) BOOL adValid;
@@ -1168,5 +1333,17 @@ namespace Facebook.AudienceNetwork
 		// @optional -(void)rewardedVideoAdServerFailed:(FBRewardedVideoAd * _Nonnull)rewardedVideoAd;
 		[Export ("rewardedVideoAdServerRewardDidFail:")]
 		void RewardedVideoAdServerRewardDidFail (RewardedVideoAd rewardedVideoAd);
+	}
+
+	// @interface FBNativeAdViewTag (UIView)
+	[Category]
+	[BaseType (typeof (UIView))]
+	interface UIView_NativeAdViewTag {
+		// @property (assign, nonatomic) FBNativeAdViewTag nativeAdViewTag;
+		[Export ("nativeAdViewTag")]
+		NativeAdViewTag GetNativeAdViewTag ();
+
+		[Export ("setNativeAdViewTag:")]
+		void SetNativeAdViewTag (NativeAdViewTag nativeAdViewTag);
 	}
 }

@@ -31,7 +31,7 @@ Let's implement the following native ad placement. You will create the following
 * **View #7:** ad body
 * **View #8:** ad call to action button
 
-![adImage](https://scontent.fgdl4-1.fna.fbcdn.net/v/t39.2365-6/15119831_604335559772201_4765472987522531328_n.png?oh=22c58081ee60e967200d36ad28fcfe81&oe=5B4D8C88)
+![adImage](https://scontent.fgdl4-1.fna.fbcdn.net/v/t39.2365-6/15119831_604335559772201_4765472987522531328_n.png?_nc_cat=0&oh=6c08c32196ca96a990c82218896875ce&oe=5C134D88)
 
 ## Step 1: Create Native Ad Views in Storyboard
 
@@ -39,14 +39,14 @@ Let's implement the following native ad placement. You will create the following
 
 > ![information_icon] _If you want to use the Xcode designer instead of Visual Studio designer to create the Native Ad View, plaese, read the first step of this [guide][4]._
 
-1. Open the **MainStoryboard.storyboard** file in Visual Studio and add a `UIView` element to the main View element and name it to `AdUIView`. In addition, add an `ImgAdIcon` (UIImageView), `LblAdTitle` (UILabel), `AdCoverMediaView` (FBMediaView), `LblAdSocialContext` (UILabel), `BtnAdCallToActiona` (UIButton), `AdChoiceView` (FBAdChoicesView), `LblAdBody` (UILabel), `LblSponsored` (UILabel) under `AdUIView` as illustrated in the image below.
+1. Open the **MainStoryboard.storyboard** file in Visual Studio and add a `UIView` element to the main View element and name it to `AdUIView`. In addition, add an `AdIconView` (FBAdIconView), `LblAdTitle` (UILabel), `AdCoverMediaView` (FBMediaView), `LblAdSocialContext` (UILabel), `BtnAdCallToActiona` (UIButton), `AdChoiceView` (FBAdChoicesView), `LblAdBody` (UILabel), `LblSponsored` (UILabel) under `AdUIView` as illustrated in the image below.
 
 	<image src="./screenshots/1.png" width="800" />
 
 2. Add the necessary constraints to the view.
 3. Build and run the project. You should see from your device or simulator empty content as follows: 
 
-	<image src="https://scontent.fgdl4-1.fna.fbcdn.net/v/t39.2365-6/15186225_1112058292183318_3645203031185686528_n.png?oh=115fbf575ca427d6f747b93fc3fffbba&oe=5B3EC0E7" height="500" />
+	<image src="https://scontent.fgdl4-1.fna.fbcdn.net/v/t39.2365-6/15186225_1112058292183318_3645203031185686528_n.png?_nc_cat=0&oh=4b9a21932ab72ae77feb403ffc7b0b7c&oe=5C0481E7" height="500" />
 
 Now that you have created all the UI elements to show native ads, the next step is to load the native ad and bind the contents to the UI elements.
 
@@ -74,27 +74,18 @@ Now that you have created all the UI elements to show native ads, the next step 
 		base.ViewDidLoad ();
 		// Perform any additional setup after loading the view, typically from a nib.
 
-		nativeAd = new NativeAd ("Native_Placement_Id") { 
-			Delegate = this,
-			MediaCachePolicy = NativeAdsCachePolicy.All
-		};
+		// Instantiate a NativeAd object. 
+		// NOTE: the placement ID will eventually identify this as your App, you can ignore it for
+		// now, while you are testing and replace it later when you have signed up.
+		// While you are using this temporary code you will only get test ads and if you release
+		// your code like this to the App Store your users will not receive ads (you will get a no fill error).
+
+		nativeAd = new NativeAd ("Native_Placement_Id") { Delegate = this };
 		nativeAd.LoadAd ();
 	}
 	```
 
 	Replace `Native_Placement_Id` with your own placement id string. If you don't have a placement id or don't know how to get one, you can refer to the [Getting Started Guide][5].
-
-	Set `MediaCachePolicy` to be `NativeAdsCachePolicy.All`. This will configure native ad to wait to call `NativeAdDidLoad` until all ad assets are loaded.
-
-	Audience Network supports five cache options in native ads as defined in their framework:
-
-	| Cache Constants | Description                            |
-	|-----------------|----------------------------------------|
-	| None            | No pre-caching, default                |
-	| Icon            | Pre-cache ad icon                      |
-	| Image           | Pre-cache ad images                    |
-	| Video           | Pre-cache ad video                     |
-	| All             | Pre-cache all (icon, images and video) |
 
 3. The next step is to show ad when content is ready. You would need to implement `NativeAdDidLoad` method in `ViewController` file:
 
@@ -102,39 +93,28 @@ Now that you have created all the UI elements to show native ads, the next step 
 	[Export ("nativeAdDidLoad:")]
 	public void NativeAdDidLoad (NativeAd nativeAd)
 	{
-		if (this.nativeAd != null)
-			nativeAd.UnregisterView ();
-
 		this.nativeAd = nativeAd;
 
-		// Wire up UIView with the native ad; only call to action button and media view will be clickable.
-		nativeAd.RegisterView (AdUIView, this, new UIView [] { BtnAdCallToAction, AdCoverMediaView });
+		if (this.nativeAd != null && this.nativeAd.IsAdValid)
+			nativeAd.UnregisterView ();
 
-		// Create native UI using the ad metadata.
-		AdCoverMediaView.NativeAd = nativeAd;
+		// Wire up UIView with the native ad; only call to action button and media view will be clickable.
+		nativeAd.RegisterView (AdUIView, AdCoverMediaView, AdIconView, this, new UIView [] { BtnAdCallToAction, AdCoverMediaView });
 
 		// Render native ads onto UIView
-		LblAdTitle.Text = this.nativeAd.Title;
-		LblAdBody.Text = this.nativeAd.Body;
+		LblAdTitle.Text = this.nativeAd.AdvertiserName;
+		LblAdBody.Text = this.nativeAd.BodyText;
 		LblAdSocialContext.Text = this.nativeAd.SocialContext;
-		LblSponsored.Text = "Sponsored";
+		LblSponsored.Text = this.nativeAd.SponsoredTranslation;
 		BtnAdCallToAction.SetTitle (this.nativeAd.CallToAction, UIControlState.Normal);
-		AdChoiceView.NativeAd = nativeAd;
+		AdChoiceView.NativeAd = this.nativeAd;
 		AdChoiceView.Corner = UIRectCorner.TopRight;
-
-		this.nativeAd.Icon.LoadImageAsync (HandleAdImageCompletion);
-
-		void HandleAdImageCompletion (UIImage imageLoaded) => ImgAdIcon.Image = imageLoaded;
 	}
 	```
 
 	First, you will need to check if there is an existing `nativeAd` object. If there is, you will need to call `UnregisterView` method. Then you will call `nativeAd.RegisterView` method.
 
 	What `RegisterView` mainly does is register what views will be tappable and what the delegate is to notify when a registered view is tapped. In this case, `BtnAdCallToAction` and `AdCoverMediaView` will be tappable and when the view is tapped, ViewController will be notified through `INativeAdDelegate` interface. 
-
-	`AdCoverMediaView` contains the media content, either picture or video, of the ad. You will need to call `NativeAd` property to set the content of `nativeAd` to the view. 
-
-	You will call `LoadImageAsync` method to asynchronously load the image content of the ad icon.
 
 	### Controlling Clickable Area
 
@@ -144,7 +124,7 @@ Now that you have created all the UI elements to show native ads, the next step 
 
 4. Choose your build target to be device and run the above code, you should see something like this:
 
-	<image src="https://scontent.fgdl4-1.fna.fbcdn.net/v/t39.2365-6/15186234_216025858806976_1785369809903419392_n.png?oh=9da8d2b4be92b4b2569ec0fceff2c571&oe=5B10EF36" height="500" />
+	<image src="https://scontent.fgdl4-1.fna.fbcdn.net/v/t39.2365-6/15186234_216025858806976_1785369809903419392_n.png?_nc_cat=0&oh=8f13489aad1ba6845e08544a270d0ce8&oe=5BD6B036" height="500" />
 
 > ![information_icon] _When running ads in the simulator, change the setting to test mode to view test ads. Please go to [How to Use Test Mode][7] for more information._
 
@@ -165,10 +145,7 @@ In the example above, the media content of the ad is shown in `AdCoverMediaView`
 	public void NativeAdDidLoad (NativeAd nativeAd)
 	{
 		// ...
-		
-		AdCoverMediaView.NativeAd = nativeAd;
 		AdCoverMediaView.Delegate = this;
-
 		// ...
 	}
 	```
@@ -224,6 +201,66 @@ public void NativeAdDidFail (NativeAd nativeAd, NSError error)
 	Console.WriteLine ($"Native ad failed to load with error: {error.LocalizedDescription}");
 }
 ```
+
+## Step 6: Load Ad without Auto Cache
+
+1. We strongly recommend to leave media caching on by default in all cases. However, we allow you to override the default. Please be very careful if you decide to override our default media caching.
+
+	```csharp
+	public partial class ViewController : UIViewController, INativeAdDelegate, IMediaViewDelegate {
+
+		public override void ViewDidLoad ()
+		{
+			base.ViewDidLoad ();
+			// Perform any additional setup after loading the view, typically from a nib.
+
+			// Instantiate a NativeAd object. 
+			// NOTE: the placement ID will eventually identify this as your App, you can ignore it for
+			// now, while you are testing and replace it later when you have signed up.
+			// While you are using this temporary code you will only get test ads and if you release
+			// your code like this to the App Store your users will not receive ads (you will get a no fill error).
+
+			nativeAd = new NativeAd ("Native_Placement_Id") { Delegate = this };
+			nativeAd.LoadAd (NativeAdsCachePolicy.None);
+		}
+
+	}
+	```
+
+2. First, you will need to manually download all media for the native ad.
+
+	```csharp
+	[Export ("nativeAdDidLoad:")]
+	public void NativeAdDidLoad (NativeAd nativeAd)
+	{
+		AdCoverMediaView.Delegate = this;
+		nativeAd.DownloadMedia ();
+		this.nativeAd = nativeAd;
+	}
+	```
+
+3. Next, you should only call `RegisterView` and display ad after `MediaViewDidLoad` callback. All media has to be loaded and displayed for an eligible impression.
+
+	```csharp
+	[Export ("nativeAdDidLoad:")]
+	public void NativeAdDidLoad (NativeAd nativeAd)
+	{
+		if (this.nativeAd != null && this.nativeAd.IsAdValid)
+			this.nativeAd.UnregisterView ();
+
+		// Wire up UIView with the native ad; only call to action button and media view will be clickable.
+		nativeAd.RegisterView (AdUIView, AdCoverMediaView, AdIconView, this, new UIView [] { BtnAdCallToAction, AdCoverMediaView });
+
+		// Render native ads onto UIView
+		LblAdTitle.Text = this.nativeAd.AdvertiserName;
+		LblAdBody.Text = this.nativeAd.BodyText;
+		LblAdSocialContext.Text = this.nativeAd.SocialContext;
+		LblSponsored.Text = this.nativeAd.SponsoredTranslation;
+		BtnAdCallToAction.SetTitle (this.nativeAd.CallToAction, UIControlState.Normal);
+		AdChoiceView.NativeAd = this.nativeAd;
+		AdChoiceView.Corner = UIRectCorner.TopRight;
+	}
+	```
 
 ---
 
