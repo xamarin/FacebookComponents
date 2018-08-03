@@ -7,7 +7,7 @@
 
 string [] MY_DEPENDENCIES = null;
 
-string SDK_VERSION = "4.34.0";
+string SDK_VERSION = "4.35.0";
 string XAMARIN_FIX_VERSION = "0";
 string SDK_FULL_VERSION = $"{SDK_VERSION}.{XAMARIN_FIX_VERSION}";
 

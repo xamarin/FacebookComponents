@@ -327,6 +327,11 @@ namespace Facebook.CoreKit {
 		[Wrap ("UserId")]
 		string UserID { get; set; }
 
+		// + (void)clearUserID;
+		[Static]
+		[Export ("clearUserID")]
+		void ClearUserId ();
+
 		// +(void)updateUserProperties:(NSDictionary *)properties handler:(FBSDKGraphRequestHandler)handler;
 		[Static]
 		[Export ("updateUserProperties:handler:")]
@@ -930,6 +935,13 @@ namespace Facebook.CoreKit {
 		[Static]
 		[Export ("autoLogAppEventsEnabled")]
 		NSNumber _AutoLogAppEventsEnabled { get; set; }
+
+		// + (NSNumber*) codelessDebugLogEnabled;
+		// + (void)setCodelessDebugLogEnabled:(NSNumber *)CodelessDebugLogEnabled;
+		[Internal]
+		[Static]
+		[Export ("codelessDebugLogEnabled")]
+		NSNumber _CodelessDebugLogEnabled { get; set; }
 
 		// +(BOOL)limitEventAndDataUsage;
 		// +(void)setLimitEventAndDataUsage:(BOOL)limitEventAndDataUsage;
