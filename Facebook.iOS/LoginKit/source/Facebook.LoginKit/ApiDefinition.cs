@@ -183,6 +183,10 @@ namespace Facebook.LoginKit {
 	[BaseType (typeof (NSObject), Name = "FBSDKLoginManager")]
 	interface LoginManager {
 
+		// @property (strong, nonatomic) NSString *authType;
+		[Export ("authType", ArgumentSemantic.Strong)]
+		string AuthType { get; set; }
+
 		// @property (assign, nonatomic) FBSDKDefaultAudience defaultAudience;
 		[Export ("defaultAudience", ArgumentSemantic.Assign)]
 		DefaultAudience DefaultAudience { get; set; }
