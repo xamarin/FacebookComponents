@@ -192,8 +192,8 @@ void BuildGroups (List<BuildGroup> buildGroups, List<string> names, List<string>
 
 		Information ("[BUILD_DESC]{0}{1}[/BUILD_DESC]", groupsNameList, branchInfo);
 
-		Information ("Updating Cocoapods Spec repo before building...");
-		CocoaPodRepoUpdate();
+		// Information ("Updating Cocoapods Spec repo before building...");
+		// CocoaPodRepoUpdate();
 
 		foreach (var buildGroup in groupsToBuild) {
 			Information ("Building {0} with Targets {1}", buildGroup.Name, string.Join (",", buildGroup.BuildTargets));
