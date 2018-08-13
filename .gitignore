@@ -7,3 +7,4 @@ externals
 *.userprefs
 *.DS_Store
 .vs/
+tmp-nugets/

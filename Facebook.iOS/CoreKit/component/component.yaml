@@ -1,0 +1,32 @@
+version: 4.35.0.0
+name: Facebook CoreKit for iOS
+id: facebookioscorekit
+publisher: Xamarin Inc
+publisher-url: https://xamarin.com/
+src-url: https://github.com/facebook/facebook-ios-sdk
+summary: Official Xamarin Facebook SDK for iOS to access Facebook Platform's core features
+is_shell: true
+icons:
+  - ../../../icons/facebook-ios_128x128.png
+  - ../../../icons/facebook-ios_512x512.png
+license: ../License.md
+packages:
+  ios-unified:
+    - Xamarin.Facebook.CoreKit.iOS, Version=4.35.0.0
+libraries:
+  ios-unified:
+    - ../output/Facebook.CoreKit.dll
+samples:
+  - name: "CoreKit iOS Sample"
+    path: "../samples/CoreKitSample/CoreKitSample.sln"
+    removeProjects:
+      - Facebook.CoreKit
+    installNuGets:
+      - project: CoreKitSample
+        packages:
+          - Xamarin.Facebook.CoreKit.iOS
+no_build: true
+local-nuget-repo: ../../../tmp-nugets
+additional-files:
+  - source: "../External-Dependency-Info.txt"
+    destination: "THIRD-PARTY-NOTICES.txt"

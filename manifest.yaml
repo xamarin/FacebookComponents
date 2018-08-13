@@ -6,15 +6,43 @@
   TriggerPaths: [ Facebook.Android ]
   MacBuildTargets: [ nuget, samples ]
   WindowsBuildTargets: [ nuget, samples ]
-- Name: FacebookiOS
-  BuildScript: ./Facebook.iOS/build.cake
-  TriggerPaths: [ Facebook.iOS ]
+- Name: Facebook.iOS
+  BuildScript: ./Facebook.iOS/iOS/build.cake
+  TriggerPaths: [ Facebook.iOS/iOS ]
   MacBuildTargets: [ samples, nuget, component ]
-- Name: FacebookiOSAudienceNetwork
-  BuildScript: ./Facebook.AudienceNetwork.iOS/build.cake
-  TriggerPaths: [ Facebook.AudienceNetwork.iOS ]
+- Name: Facebook.iOS.AccountKit
+  BuildScript: ./Facebook.iOS/AccountKit/build.cake
+  TriggerPaths: [ Facebook.iOS/AccountKit ]
   MacBuildTargets: [ samples, nuget, component ]
-- Name: FacebookiOSAccountKit
-  BuildScript: ./Facebook.AccountKit.iOS/build.cake
-  TriggerPaths: [ Facebook.AccountKit.iOS ]
+- Name: Facebook.iOS.AudienceNetwork
+  BuildScript: ./Facebook.iOS/AudienceNetwork/build.cake
+  TriggerPaths: [ Facebook.iOS/AudienceNetwork ]
+  MacBuildTargets: [ samples, nuget, component ]
+- Name: Facebook.iOS.CoreKit
+  BuildScript: ./Facebook.iOS/CoreKit/build.cake
+  TriggerPaths: [ Facebook.iOS/CoreKit ]
+  MacBuildTargets: [ samples, nuget, component ]
+- Name: Facebook.iOS.LoginKit
+  BuildScript: ./Facebook.iOS/LoginKit/build.cake
+  TriggerPaths: [ Facebook.iOS/LoginKit ]
+  MacBuildTargets: [ samples, nuget, component ]
+- Name: Facebook.iOS.MarketingKit
+  BuildScript: ./Facebook.iOS/MarketingKit/build.cake
+  TriggerPaths: [ Facebook.iOS/MarketingKit ]
+  MacBuildTargets: [ samples, nuget, component ]
+- Name: Facebook.iOS.MessengerShareKit
+  BuildScript: ./Facebook.iOS/MessengerShareKit/build.cake
+  TriggerPaths: [ Facebook.iOS/MessengerShareKit ]
+  MacBuildTargets: [ samples, nuget, component ]
+- Name: Facebook.iOS.Notifications
+  BuildScript: ./Facebook.iOS/Notifications/build.cake
+  TriggerPaths: [ Facebook.iOS/Notifications ]
+  MacBuildTargets: [ samples, nuget, component ]
+- Name: Facebook.iOS.PlacesKit
+  BuildScript: ./Facebook.iOS/PlacesKit/build.cake
+  TriggerPaths: [ Facebook.iOS/PlacesKit ]
+  MacBuildTargets: [ samples, nuget, component ]
+- Name: Facebook.iOS.ShareKit
+  BuildScript: ./Facebook.iOS/ShareKit/build.cake
+  TriggerPaths: [ Facebook.iOS/ShareKit ]
   MacBuildTargets: [ samples, nuget, component ]
