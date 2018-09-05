@@ -29,6 +29,10 @@ var buildSpec = new BuildSpec () {
 
 MY_DEPENDENCIES = new [] { "CoreKit", "LoginKit", "PlacesKit", "ShareKit", "MessengerShareKit" };
 
+Task ("pre-nuget-base").IsDependeeOf ("nuget-base").Does (() => {
+	StartProcess("touch", new ProcessSettings { Arguments = "_._" });
+});
+
 SetupXamarinBuildTasks (buildSpec, Tasks, Task);
 
 RunTarget (TARGET);
