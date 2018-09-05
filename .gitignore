@@ -8,3 +8,4 @@ externals
 *.DS_Store
 .vs/
 tmp-nugets/
+_._
