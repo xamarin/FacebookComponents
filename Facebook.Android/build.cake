@@ -18,7 +18,7 @@ var ARTIFACTS = new List<ArtifactInfo> {
 	new ArtifactInfo("facebook-loginkit", FB_VERSION),
 	new ArtifactInfo("facebook-marketing", FB_VERSION),
 	// This needs to stay preview until google play services comes out of preview
-	new ArtifactInfo("account-kit-sdk", FB_VERSION + "-preview"),
+	new ArtifactInfo("account-kit-sdk", FB_VERSION, FB_VERSION + "-preview"),
 	new ArtifactInfo("audience-network-sdk", "5.0.0"),
 	new ArtifactInfo("notifications", "1.0.2")
 };
