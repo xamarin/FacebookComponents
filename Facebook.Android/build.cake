@@ -70,7 +70,8 @@ Task ("libs")
 
 	MSBuild("./Xamarin.Facebook.sln", c => 
 		c.SetConfiguration("Release")
- 		.WithTarget("Build"));
+ 		.WithTarget("Build")
+		.WithProperty("DesignTimeBuild", "false"));
 });
 
 Task ("samples")
@@ -90,7 +91,8 @@ Task ("samples")
 
 		MSBuild(sampleSln, c => 
 			c.SetConfiguration("Release")
-			.WithTarget("Build"));
+			.WithTarget("Build")
+			.WithProperty("DesignTimeBuild", "false"));
 	}
 });
 
@@ -107,6 +109,7 @@ Task ("nuget")
 			c.SetConfiguration("Release")
 			.WithProperty("PackageVersion", art.Version)
 			.WithProperty("PackageOutputPath", "../../output/")
+			.WithProperty("DesignTimeBuild", "false")
  			.WithTarget("Pack"));	
 	}
 });
