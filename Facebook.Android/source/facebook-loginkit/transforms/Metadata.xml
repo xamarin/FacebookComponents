@@ -1,0 +1,5 @@
+<metadata>
+    <attr path="/api/package[@name='com.facebook']" name="managedName">Xamarin.Facebook</attr>
+    <attr path="/api/package[@name='com.facebook.loginkit']" name="managedName">Xamarin.Facebook.LoginKit</attr>
+    <attr path="/api/package[@name='com.facebook.loginkit.widget']" name="managedName">Xamarin.Facebook.LoginKit.Widget</attr>
+</metadata>
