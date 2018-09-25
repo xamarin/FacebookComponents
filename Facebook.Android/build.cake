@@ -79,7 +79,6 @@ Task ("samples")
 	.Does(() =>
 {
 	var samples = new string[] { 
-		"./samples/AudienceNetworkSample.sln",
 		"./samples/HelloFacebookSample.sln",
 		"./samples/MessengerSendSample.sln",
 	};
