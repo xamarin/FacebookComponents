@@ -2,6 +2,9 @@
     <attr path="/api/package[@name='com.facebook']" name="managedName">Xamarin.Facebook</attr>
     <attr path="/api/package[@name='com.facebook.appevents']" name="managedName">Xamarin.Facebook.AppEvents</attr>
     <attr path="/api/package[@name='com.facebook.appevents.internal']" name="managedName">Xamarin.Facebook.AppEvents.Internal</attr>
+    <attr path="/api/package[@name='com.facebook.appevents.codeless']" name="managedName">Xamarin.Facebook.AppEvents.Codeless</attr>
+    <attr path="/api/package[@name='com.facebook.appevents.codeless.internal']" name="managedName">Xamarin.Facebook.AppEvents.Codeless.Internal</attr>
+
     <attr path="/api/package[@name='com.facebook.core']" name="managedName">Xamarin.Facebook.Core</attr>
     <attr path="/api/package[@name='com.facebook.internal']" name="managedName">Xamarin.Facebook.Internal</attr>
     <attr path="/api/package[@name='com.facebook.login']" name="managedName">Xamarin.Facebook.Login</attr>

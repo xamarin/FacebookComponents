@@ -68,10 +68,5 @@
     <PackageReference Include="MSBuild.Sdk.Extras" Version="1.4.0" PrivateAssets="All" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="Xamarin.GooglePlayServices.Ads">
-      <HintPath>..\..\..\..\.nuget\packages\xamarin.googleplayservices.ads\60.1142.1\lib\MonoAndroid80\Xamarin.GooglePlayServices.Ads.dll</HintPath>
-    </Reference>
-  </ItemGroup>
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>

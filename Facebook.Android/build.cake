@@ -1,7 +1,7 @@
 
 #load "../common.cake"
 
-var FB_VERSION = "4.34.0";
+var FB_VERSION = "4.36.0";
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
@@ -14,9 +14,13 @@ var ARTIFACTS = new List<ArtifactInfo> {
 	new ArtifactInfo("facebook-places", FB_VERSION),
 	new ArtifactInfo("facebook-applinks", FB_VERSION),
 	new ArtifactInfo("facebook-messenger", FB_VERSION),
-	new ArtifactInfo("account-kit-sdk", "4.28.0"),
-	new ArtifactInfo("audience-network-sdk", "4.28.1"),
-	new ArtifactInfo("notifications", "1.0.2"),
+	new ArtifactInfo("facebook-livestreaming", FB_VERSION),
+	new ArtifactInfo("facebook-loginkit", FB_VERSION),
+	new ArtifactInfo("facebook-marketing", FB_VERSION),
+	// This needs to stay preview until google play services comes out of preview
+	new ArtifactInfo("account-kit-sdk", FB_VERSION, FB_VERSION + "-preview"),
+	new ArtifactInfo("audience-network-sdk", "5.0.0"),
+	new ArtifactInfo("notifications", "1.0.2")
 };
 
 class ArtifactInfo
@@ -66,7 +70,8 @@ Task ("libs")
 
 	MSBuild("./Xamarin.Facebook.sln", c => 
 		c.SetConfiguration("Release")
- 		.WithTarget("Build"));
+ 		.WithTarget("Build")
+		.WithProperty("DesignTimeBuild", "false"));
 });
 
 Task ("samples")
@@ -74,7 +79,6 @@ Task ("samples")
 	.Does(() =>
 {
 	var samples = new string[] { 
-		"./samples/AudienceNetworkSample.sln",
 		"./samples/HelloFacebookSample.sln",
 		"./samples/MessengerSendSample.sln",
 	};
@@ -86,7 +90,8 @@ Task ("samples")
 
 		MSBuild(sampleSln, c => 
 			c.SetConfiguration("Release")
-			.WithTarget("Build"));
+			.WithTarget("Build")
+			.WithProperty("DesignTimeBuild", "false"));
 	}
 });
 
@@ -103,6 +108,7 @@ Task ("nuget")
 			c.SetConfiguration("Release")
 			.WithProperty("PackageVersion", art.Version)
 			.WithProperty("PackageOutputPath", "../../output/")
+			.WithProperty("DesignTimeBuild", "false")
  			.WithTarget("Pack"));	
 	}
 });

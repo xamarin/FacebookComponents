@@ -5,7 +5,7 @@
     <TargetFrameworks>MonoAndroid81</TargetFrameworks>
     <IsBindingProject>true</IsBindingProject>
 
-    <AssemblyName>Xamarin.Facebook.AccountKit.Android</AssemblyName>
+    <AssemblyName>Xamarin.Facebook.LoginKit.Android</AssemblyName>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
@@ -14,10 +14,10 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>Xamarin.Facebook.AccountKit.Android</PackageId>
-    <Title>Xamarin Facebook Android - Account Kit</Title>
-    <Summary>Xamarin.Android bindings for Facebook Android - Account Kit</Summary>
-    <Description>Xamarin.Android bindings for Facebook Android - Account Kit</Description>
+    <PackageId>Xamarin.Facebook.LoginKit.Android</PackageId>
+    <Title>Xamarin Facebook Android - LoginKit</Title>
+    <Summary>Xamarin.Android bindings for Facebook Android - LoginKit</Summary>
+    <Description>Xamarin.Android bindings for Facebook Android - LoginKit</Description>
     <PackageTags>Xamarin Android Xamarin.Android Facebook</PackageTags>
     <Authors>Xamarin Inc.</Authors>
     <Owners>Xamarin Inc.</Owners>
@@ -37,8 +37,12 @@
     <TransformFile Include="transforms\*.xml" />
   </ItemGroup>
     
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfo.cs" />
+  </ItemGroup>
+
   <PropertyGroup>
-    <Java8DocPaths>..\..\externals\account-kit-sdk-docs\</Java8DocPaths>
+    <Java8DocPaths>..\..\externals\facebook-loginkit-docs\</Java8DocPaths>
   </PropertyGroup>
 
   <ItemGroup>
@@ -46,23 +50,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="..\AssemblyInfo.cs" />
+    <LibraryProjectZip Include="..\..\externals\facebook-loginkit.aar" />
   </ItemGroup>
 
   <ItemGroup>
-    <LibraryProjectZip Include="..\..\externals\account-kit-sdk.aar" />
+    <ProjectReference Include="..\facebook-login\facebook-login.csproj" />
+    <ProjectReference Include="..\account-kit-sdk\account-kit-sdk.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Android.Support.Annotations" Version="27.0.2" />
-    <PackageReference Include="Xamarin.Android.Support.v4" Version="27.0.2" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="27.0.2" />
-    <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2" />
-
-    <PackageReference Include="Xamarin.GooglePlayServices.Auth.Api.Phone" Version="70.1501.0-preview2" />
-    <PackageReference Include="Xamarin.GooglePlayServices.Auth" Version="70.1501.0-preview2" />
-
-    <PackageReference Include="Xamarin.Google.LibPhoneNumber" Version="8.9.13" />
   </ItemGroup>
 
   <ItemGroup>
