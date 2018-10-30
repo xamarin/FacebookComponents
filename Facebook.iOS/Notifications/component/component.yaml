@@ -1,4 +1,4 @@
-version: 4.34.0.0
+version: 1.0.1.1
 name: Facebook Notifications for iOS
 id: facebookiosnotifications
 publisher: Xamarin Inc
@@ -12,7 +12,7 @@ icons:
 license: ../License.md
 packages:
   ios-unified:
-    - Xamarin.Facebook.Notifications.iOS, Version=4.34.0.0
+    - Xamarin.Facebook.Notifications.iOS, Version=1.0.1.1
 libraries:
   ios-unified:
     - ../output/Facebook.Notifications.dll
