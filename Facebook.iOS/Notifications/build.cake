@@ -9,7 +9,7 @@ SDK_PATH = $"./externals/FacebookSDKs";
 SDK_FRAMEWORKS = new [] { "FBNotifications" };
 
 SDK_VERSION = "1.0.1";
-XAMARIN_FIX_VERSION = "0";
+XAMARIN_FIX_VERSION = "1";
 SDK_FULL_VERSION = $"{SDK_VERSION}.{XAMARIN_FIX_VERSION}";
 
 var buildSpec = new BuildSpec () {
@@ -27,7 +27,7 @@ var buildSpec = new BuildSpec () {
 	},
 
 	Samples = new ISolutionBuilder [] {
-		new IOSSolutionBuilder { SolutionPath = "./samples/NotificationsSample/NotificationsSample.sln", Configuration = "Release", BuildsOn = BuildPlatforms.Mac }, 
+		new IOSSolutionBuilder { SolutionPath = "./samples/NotificationsSample/NotificationsSample.sln", Configuration = "Release", RequireLicenseAcceptance = true, BuildsOn = BuildPlatforms.Mac }, 
 	},
 
 	NuGets = new [] {
