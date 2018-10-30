@@ -86,6 +86,237 @@ namespace Facebook.AudienceNetwork
 		void UpdateFrameFromSuperview (UIRectCorner corner, UIEdgeInsets insets);
 	}
 
+	[Static]
+	interface AdExtraHintKeywords {
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordAccessories;
+		[Field ("FBAdExtraHintKeywordAccessories", "__Internal")]
+		NSString Accessories { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordArtHistory;
+		[Field ("FBAdExtraHintKeywordArtHistory", "__Internal")]
+		NSString ArtHistory { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordAutomotive;
+		[Field ("FBAdExtraHintKeywordAutomotive", "__Internal")]
+		NSString Automotive { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordBeauty;
+		[Field ("FBAdExtraHintKeywordBeauty", "__Internal")]
+		NSString Beauty { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordBiology;
+		[Field ("FBAdExtraHintKeywordBiology", "__Internal")]
+		NSString Biology { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordBoardGames;
+		[Field ("FBAdExtraHintKeywordBoardGames", "__Internal")]
+		NSString BoardGames { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordBusinessSoftware;
+		[Field ("FBAdExtraHintKeywordBusinessSoftware", "__Internal")]
+		NSString BusinessSoftware { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordBuyingSellingHomes;
+		[Field ("FBAdExtraHintKeywordBuyingSellingHomes", "__Internal")]
+		NSString BuyingSellingHomes { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordCats;
+		[Field ("FBAdExtraHintKeywordCats", "__Internal")]
+		NSString Cats { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordCelebrities;
+		[Field ("FBAdExtraHintKeywordCelebrities", "__Internal")]
+		NSString Celebrities { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordClothing;
+		[Field ("FBAdExtraHintKeywordClothing", "__Internal")]
+		NSString Clothing { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordComicBooks;
+		[Field ("FBAdExtraHintKeywordComicBooks", "__Internal")]
+		NSString ComicBooks { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordDesktopVideo;
+		[Field ("FBAdExtraHintKeywordDesktopVideo", "__Internal")]
+		NSString DesktopVideo { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordDogs;
+		[Field ("FBAdExtraHintKeywordDogs", "__Internal")]
+		NSString Dogs { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordEducation;
+		[Field ("FBAdExtraHintKeywordEducation", "__Internal")]
+		NSString Education { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordEmail;
+		[Field ("FBAdExtraHintKeywordEmail", "__Internal")]
+		NSString Email { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordEntertainment;
+		[Field ("FBAdExtraHintKeywordEntertainment", "__Internal")]
+		NSString Entertainment { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordFamilyParenting;
+		[Field ("FBAdExtraHintKeywordFamilyParenting", "__Internal")]
+		NSString FamilyParenting { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordFashion;
+		[Field ("FBAdExtraHintKeywordFashion", "__Internal")]
+		NSString Fashion { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordFineArt;
+		[Field ("FBAdExtraHintKeywordFineArt", "__Internal")]
+		NSString FineArt { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordFoodDrink;
+		[Field ("FBAdExtraHintKeywordFoodDrink", "__Internal")]
+		NSString FoodDrink { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordFrenchCuisine;
+		[Field ("FBAdExtraHintKeywordFrenchCuisine", "__Internal")]
+		NSString FrenchCuisine { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordGovernment;
+		[Field ("FBAdExtraHintKeywordGovernment", "__Internal")]
+		NSString Government { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordHealthFitness;
+		[Field ("FBAdExtraHintKeywordHealthFitness", "__Internal")]
+		NSString HealthFitness { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordHobbies;
+		[Field ("FBAdExtraHintKeywordHobbies", "__Internal")]
+		NSString Hobbies { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordHomeGarden;
+		[Field ("FBAdExtraHintKeywordHomeGarden", "__Internal")]
+		NSString HomeGarden { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordHumor;
+		[Field ("FBAdExtraHintKeywordHumor", "__Internal")]
+		NSString Humor { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordInternetTechnology;
+		[Field ("FBAdExtraHintKeywordInternetTechnology", "__Internal")]
+		NSString InternetTechnology { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordLargeAnimals;
+		[Field ("FBAdExtraHintKeywordLargeAnimals", "__Internal")]
+		NSString LargeAnimals { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordLaw;
+		[Field ("FBAdExtraHintKeywordLaw", "__Internal")]
+		NSString Law { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordLegalIssues;
+		[Field ("FBAdExtraHintKeywordLegalIssues", "__Internal")]
+		NSString LegalIssues { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordLiterature;
+		[Field ("FBAdExtraHintKeywordLiterature", "__Internal")]
+		NSString Literature { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordMarketing;
+		[Field ("FBAdExtraHintKeywordMarketing", "__Internal")]
+		NSString Marketing { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordMovies;
+		[Field ("FBAdExtraHintKeywordMovies", "__Internal")]
+		NSString Movies { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordMusic;
+		[Field ("FBAdExtraHintKeywordMusic", "__Internal")]
+		NSString Music { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordNews;
+		[Field ("FBAdExtraHintKeywordNews", "__Internal")]
+		NSString News { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordPersonalFinance;
+		[Field ("FBAdExtraHintKeywordPersonalFinance", "__Internal")]
+		NSString PersonalFinance { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordPets;
+		[Field ("FBAdExtraHintKeywordPets", "__Internal")]
+		NSString Pets { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordPhotography;
+		[Field ("FBAdExtraHintKeywordPhotography", "__Internal")]
+		NSString Photography { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordPolitics;
+		[Field ("FBAdExtraHintKeywordPolitics", "__Internal")]
+		NSString Politics { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordRealEstate;
+		[Field ("FBAdExtraHintKeywordRealEstate", "__Internal")]
+		NSString RealEstate { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordRoleplayingGames;
+		[Field ("FBAdExtraHintKeywordRoleplayingGames", "__Internal")]
+		NSString RoleplayingGames { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordScience;
+		[Field ("FBAdExtraHintKeywordScience", "__Internal")]
+		NSString Science { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordShopping;
+		[Field ("FBAdExtraHintKeywordShopping", "__Internal")]
+		NSString Shopping { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordSociety;
+		[Field ("FBAdExtraHintKeywordSociety", "__Internal")]
+		NSString Society { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordSports;
+		[Field ("FBAdExtraHintKeywordSports", "__Internal")]
+		NSString Sports { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordTechnology;
+		[Field ("FBAdExtraHintKeywordTechnology", "__Internal")]
+		NSString Technology { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordTelevision;
+		[Field ("FBAdExtraHintKeywordTelevision", "__Internal")]
+		NSString Television { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordTravel;
+		[Field ("FBAdExtraHintKeywordTravel", "__Internal")]
+		NSString Travel { get; }
+
+		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordVideoComputerGames;
+		[Field ("FBAdExtraHintKeywordVideoComputerGames", "__Internal")]
+		NSString VideoComputerGames { get; }
+	}
+
+	// @interface FBAdExtraHint : NSObject
+	[BaseType (typeof (NSObject), Name = "FBAdExtraHint")]
+	interface AdExtraHint {
+		// @property (copy, nonatomic) NSString * _Nullable UISpec;
+		[NullAllowed, Export ("UISpec")]
+		string UISpec { get; set; }
+
+		// @property (copy, nonatomic) NSString * _Nullable contentURL;
+		[NullAllowed, Export ("contentURL")]
+		string ContentUrl { get; set; }
+
+		// @property (copy, nonatomic) NSString * _Nullable extraData;
+		[NullAllowed, Export ("extraData")]
+		string ExtraData { get; set; }
+
+		// -(instancetype _Nonnull)initWithKeywords:(NSArray<FBAdExtraHintKeyword> * _Nonnull)keywords;
+		[Export ("initWithKeywords:")]
+		IntPtr Constructor (string [] keywords);
+
+		// -(void)addKeyword:(FBAdExtraHintKeyword _Nonnull)keyword;
+		[Export ("addKeyword:")]
+		void AddKeyword (string keyword);
+
+		// -(void)removeKeyword:(FBAdExtraHintKeyword _Nonnull)keyword;
+		[Export ("removeKeyword:")]
+		void RemoveKeyword (string keyword);
+	}
+
 	// @interface FBAdIconView : UIView
 	[BaseType (typeof (UIView), Name = "FBAdIconView")]
 	interface AdIconView {
@@ -319,6 +550,10 @@ namespace Facebook.AudienceNetwork
 		[Export ("delegate", ArgumentSemantic.Weak)]
 		IAdViewDelegate Delegate { get; set; }
 
+		// @property (nonatomic, strong) FBAdExtraHint * _Nullable extraHint;
+		[NullAllowed]
+		[Export ("extraHint", ArgumentSemantic.Strong)]
+		AdExtraHint ExtraHint { get; set; }
 	}
 
 	interface IAdViewDelegate { }
@@ -368,6 +603,11 @@ namespace Facebook.AudienceNetwork
 		[Obsolete ("Use PlacementId property instead. This will be removed in future versions.")]
 		[Wrap ("PlacementId")]
 		string PlacementID { get; }
+
+		// @property (nonatomic, strong) FBAdExtraHint * _Nullable extraHint;
+		[NullAllowed]
+		[Export ("extraHint", ArgumentSemantic.Strong)]
+		AdExtraHint ExtraHint { get; set; }
 
 		// -(instancetype _Nullable)initWithPlacementID:(NSString * _Nonnull)placementID __attribute__((objc_designated_initializer));
 		[DesignatedInitializer]
@@ -428,6 +668,11 @@ namespace Facebook.AudienceNetwork
 		[NullAllowed]
 		[Export ("delegate", ArgumentSemantic.Weak)]
 		IInterstitialAdDelegate Delegate { get; set; }
+
+		// @property (nonatomic, strong) FBAdExtraHint * _Nullable extraHint;
+		[NullAllowed]
+		[Export ("extraHint", ArgumentSemantic.Strong)]
+		AdExtraHint ExtraHint { get; set; }
 
 		[Export ("initWithPlacementID:")]
 		[DesignatedInitializer]
@@ -791,6 +1036,10 @@ namespace Facebook.AudienceNetwork
 		[Export ("adChoicesText")]
 		string AdChoicesText { get; }
 
+		// @property (readonly, assign, nonatomic) FBAdFormatType adFormatType;
+		[Export ("adFormatType", ArgumentSemantic.Assign)]
+		AdFormatType AdFormatType { get; }
+
 		// @property (readonly, nonatomic) FBNativeAdsCachePolicy mediaCachePolicy;
 		[Export ("mediaCachePolicy")]
 		NativeAdsCachePolicy MediaCachePolicy { get; }
@@ -807,6 +1056,11 @@ namespace Facebook.AudienceNetwork
 		// @property (readonly, getter = isRegistered, nonatomic) BOOL registered;
 		[Export ("isRegistered")]
 		bool IsRegistered { get; }
+
+		// @property (nonatomic, strong) FBAdExtraHint * _Nullable extraHint;
+		[NullAllowed]
+		[Export ("extraHint", ArgumentSemantic.Strong)]
+		AdExtraHint ExtraHint { get; set; }
 
 		// -(void)unregisterView;
 		[Export ("unregisterView")]
@@ -845,6 +1099,11 @@ namespace Facebook.AudienceNetwork
 		[NullAllowed]
 		[Export ("delegate", ArgumentSemantic.Weak)]
 		INativeAdDelegate Delegate { get; set; }
+
+		// @property (nonatomic, strong) FBAdExtraHint * _Nullable extraHint;
+		[NullAllowed]
+		[Export ("extraHint", ArgumentSemantic.Strong)]
+		AdExtraHint ExtraHint { get; set; }
 
 		// -(instancetype _Nonnull)initWithManager:(FBNativeAdsManager * _Nonnull)manager __attribute__((objc_designated_initializer));
 		[Export ("initWithManager:")]
@@ -984,6 +1243,11 @@ namespace Facebook.AudienceNetwork
 		[Export ("valid")]
 		bool Valid { [Bind ("isValid")] get; }
 
+		// @property (nonatomic, strong) FBAdExtraHint * _Nullable extraHint;
+		[NullAllowed]
+		[Export ("extraHint", ArgumentSemantic.Strong)]
+		AdExtraHint ExtraHint { get; set; }
+
 		// -(instancetype)initWithPlacementID:(NSString *)placementID forNumAdsRequested:(NSUInteger)numAdsRequested;
 		[DesignatedInitializer]
 		[Export ("initWithPlacementID:forNumAdsRequested:")]
@@ -1011,6 +1275,11 @@ namespace Facebook.AudienceNetwork
 		[NullAllowed]
 		[Export ("delegate", ArgumentSemantic.Weak)]
 		INativeAdDelegate Delegate { get; set; }
+
+		// @property (nonatomic, strong) FBAdExtraHint * _Nullable extraHint;
+		[NullAllowed]
+		[Export ("extraHint", ArgumentSemantic.Strong)]
+		AdExtraHint ExtraHint { get; set; }
 
 		// -(instancetype)initWithManager:(FBNativeAdsManager *)manager;
 		[DesignatedInitializer]
@@ -1260,6 +1529,11 @@ namespace Facebook.AudienceNetwork
 		// @property (readonly, getter = isAdValid, nonatomic) BOOL adValid;
 		[Export ("adValid")]
 		bool AdValid { [Bind ("isAdValid")] get; }
+
+		// @property (nonatomic, strong) FBAdExtraHint * _Nullable extraHint;
+		[NullAllowed]
+		[Export ("extraHint", ArgumentSemantic.Strong)]
+		AdExtraHint ExtraHint { get; set; }
 
 		// -(instancetype _Nonnull)initWithPlacementID:(NSString * _Nonnull)placementID;
 		[Export ("initWithPlacementID:")]

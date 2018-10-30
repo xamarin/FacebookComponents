@@ -77,6 +77,14 @@ namespace Facebook.AudienceNetwork
 	}
 
 	[Native]
+	public enum AdFormatType : long {
+		Unknown = 0,
+		Image,
+		Video,
+		Carousel
+	}
+
+	[Native]
 	public enum NativeAdsCachePolicy : long
 	{
 		None,
