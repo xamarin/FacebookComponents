@@ -53,6 +53,10 @@ namespace Facebook.CoreKit {
 		[Wrap ("AppId")]
 		string AppID { get; }
 
+		// @property (readonly, copy, nonatomic) NSDate * dataAccessExpirationDate;
+		[Export ("dataAccessExpirationDate", ArgumentSemantic.Copy)]
+		NSDate DataAccessExpirationDate { get; }
+
 		// @property (readonly, copy, nonatomic) NSSet * declinedPermissions;
 		[Export ("declinedPermissions", ArgumentSemantic.Copy)]
 		NSSet DeclinedPermissions { get; }
@@ -85,10 +89,19 @@ namespace Facebook.CoreKit {
 		[Export ("isExpired", ArgumentSemantic.Assign)]
 		bool IsExpired { get; }
 
+		// @property (readonly, getter = isDataAccessExpired, assign, nonatomic) BOOL dataAccessExpired;
+		[Export ("isDataAccessExpired")]
+		bool IsDataAccessExpired { get; }
+
 		// -(instancetype)initWithTokenString:(NSString *)tokenString permissions:(NSArray *)permissions declinedPermissions:(NSArray *)declinedPermissions appID:(NSString *)appID userID:(NSString *)userID expirationDate:(NSDate *)expirationDate refreshDate:(NSDate *)refreshDate __attribute__((objc_designated_initializer));
 		[DesignatedInitializer]
 		[Export ("initWithTokenString:permissions:declinedPermissions:appID:userID:expirationDate:refreshDate:")]
 		IntPtr Constructor (string tokenString, [NullAllowed] string [] permissions, [NullAllowed] string [] declinedPermissions, string appId, string userId, [NullAllowed] NSDate expirationDate, [NullAllowed] NSDate refreshDate);
+
+		// -(instancetype)initWithTokenString:(NSString *)tokenString permissions:(NSArray *)permissions declinedPermissions:(NSArray *)declinedPermissions appID:(NSString *)appID userID:(NSString *)userID expirationDate:(NSDate *)expirationDate refreshDate:(NSDate *)refreshDate dataAccessExpirationDate:(NSDate *)dataAccessExpirationDate __attribute__((objc_designated_initializer));
+		[DesignatedInitializer]
+		[Export ("initWithTokenString:permissions:declinedPermissions:appID:userID:expirationDate:refreshDate:dataAccessExpirationDate:")]
+		IntPtr Constructor (string tokenString, [NullAllowed] string [] permissions, [NullAllowed] string [] declinedPermissions, string appId, string userId, [NullAllowed] NSDate expirationDate, [NullAllowed] NSDate refreshDate, [NullAllowed] NSDate dataAccessExpirationDate);
 
 		// -(BOOL)hasGranted:(NSString *)permission;
 		[Export ("hasGranted:")]
@@ -96,6 +109,10 @@ namespace Facebook.CoreKit {
 
 		// -(BOOL)isEqualToAccessToken:(FBSDKAccessToken *)token;
 		[Export ("isEqualToAccessToken:")]
+		bool Equals (AccessToken token);
+
+		[Obsolete ("Use Equals (AccessToken) overload method instead. This will be removed in future version.")]
+		[Wrap ("Equals (token)")]
 		bool IsEqualToAccessToken (AccessToken token);
 
 		// +(FBSDKAccessToken *)currentAccessToken;
@@ -177,6 +194,46 @@ namespace Facebook.CoreKit {
 		[Field ("FBSDKAppEventNameViewedContent", "__Internal")]
 		NSString ViewedContentEventNameKey { get; }
 
+		// extern NSString *const FBSDKAppEventNameContact;
+		[Field ("FBSDKAppEventNameContact", "__Internal")]
+		NSString NameContactEventNameKey { get; }
+
+		// extern NSString *const FBSDKAppEventNameCustomizeProduct;
+		[Field ("FBSDKAppEventNameCustomizeProduct", "__Internal")]
+		NSString CustomizeProductEventNameKey { get; }
+
+		// extern NSString *const FBSDKAppEventNameDonate;
+		[Field ("FBSDKAppEventNameDonate", "__Internal")]
+		NSString DonateEventNameKey { get; }
+
+		// extern NSString *const FBSDKAppEventNameFindLocation;
+		[Field ("FBSDKAppEventNameFindLocation", "__Internal")]
+		NSString FindLocationEventNameKey { get; }
+
+		// extern NSString *const FBSDKAppEventNameSchedule;
+		[Field ("FBSDKAppEventNameSchedule", "__Internal")]
+		NSString ScheduleEventNameKey { get; }
+
+		// extern NSString *const FBSDKAppEventNameStartTrial;
+		[Field ("FBSDKAppEventNameStartTrial", "__Internal")]
+		NSString StartTrialEventNameKey { get; }
+
+		// extern NSString *const FBSDKAppEventNameSubmitApplication;
+		[Field ("FBSDKAppEventNameSubmitApplication", "__Internal")]
+		NSString SubmitApplicationEventNameKey { get; }
+
+		// extern NSString *const FBSDKAppEventNameSubscribe;
+		[Field ("FBSDKAppEventNameSubscribe", "__Internal")]
+		NSString NameSubscribeEventNameKey { get; }
+
+		// extern NSString *const FBSDKAppEventNameAdImpression;
+		[Field ("FBSDKAppEventNameAdImpression", "__Internal")]
+		NSString AdImpressionEventNameKey { get; }
+
+		// extern NSString *const FBSDKAppEventNameAdClick;
+		[Field ("FBSDKAppEventNameAdClick", "__Internal")]
+		NSString AdClickEventNameKey { get; }
+
 		// extern NSString *const FBSDKAppEventParameterNameContent;
 		[Field ("FBSDKAppEventParameterNameContent", "__Internal")]
 		NSString ContentParameterNameKey { get; }
@@ -233,6 +290,14 @@ namespace Facebook.CoreKit {
 		[Field ("FBSDKAppEventParameterValueNo", "__Internal")]
 		NSString NoParameterValueKey { get; }
 
+		// extern NSString *const FBSDKAppEventParameterNameAdType;
+		[Field ("FBSDKAppEventParameterNameAdType", "__Internal")]
+		NSString AdTypeParameterNameKey { get; }
+
+		// extern NSString *const FBSDKAppEventParameterNameOrderID;
+		[Field ("FBSDKAppEventParameterNameOrderID", "__Internal")]
+		NSString OrderIdParameterNameKey { get; }
+
 		// +(void)logEvent:(NSString *)eventName;
 		[Static]
 		[Export ("logEvent:")]
@@ -283,6 +348,11 @@ namespace Facebook.CoreKit {
 		[Export ("logPushNotificationOpen:action:")]
 		void LogPushNotificationOpen (NSDictionary payload, string action);
 
+		// +(void)logProductItem:(NSString *)itemID availability:(FBSDKProductAvailability)availability condition:(FBSDKProductCondition)condition description:(NSString *)description imageLink:(NSString *)imageLink link:(NSString *)link title:(NSString *)title priceAmount:(double)priceAmount currency:(NSString *)currency gtin:(NSString *)gtin mpn:(NSString *)mpn brand:(NSString *)brand parameters:(NSDictionary *)parameters;
+		[Static]
+		[Export ("logProductItem:availability:condition:description:imageLink:link:title:priceAmount:currency:gtin:mpn:brand:parameters:")]
+		void LogProductItem (string itemId, ProductAvailability availability, ProductCondition condition, string description, string imageLink, string link, string title, double priceAmount, string currency, string gtin, string mpn, string brand, NSDictionary parameters);
+
 		// +(void)activateApp;
 		[Static]
 		[Export ("activateApp")]
@@ -332,6 +402,22 @@ namespace Facebook.CoreKit {
 		[Export ("clearUserID")]
 		void ClearUserId ();
 
+		// +(void)setUserEmail:(NSString * _Nullable)email firstName:(NSString * _Nullable)firstName lastName:(NSString * _Nullable)lastName phone:(NSString * _Nullable)phone dateOfBirth:(NSString * _Nullable)dateOfBirth gender:(NSString * _Nullable)gender city:(NSString * _Nullable)city state:(NSString * _Nullable)state zip:(NSString * _Nullable)zip country:(NSString * _Nullable)country;
+		[Static]
+		[Export ("setUserEmail:firstName:lastName:phone:dateOfBirth:gender:city:state:zip:country:")]
+		void SetUserEmail ([NullAllowed] string email, [NullAllowed] string firstName, [NullAllowed] string lastName, [NullAllowed] string phone, [NullAllowed] string dateOfBirth, [NullAllowed] string gender, [NullAllowed] string city, [NullAllowed] string state, [NullAllowed] string zip, [NullAllowed] string country);
+
+		// +(NSString *)getUserData;
+		[Static]
+		[NullAllowed]
+		[Export ("getUserData")]
+		string GetUserData ();
+
+		// +(void)clearUserData;
+		[Static]
+		[Export ("clearUserData")]
+		void ClearUserData ();
+
 		// +(void)updateUserProperties:(NSDictionary *)properties handler:(FBSDKGraphRequestHandler)handler;
 		[Static]
 		[Export ("updateUserProperties:handler:")]
@@ -342,6 +428,16 @@ namespace Facebook.CoreKit {
 		[Static]
 		[Export ("augmentHybridWKWebView:")]
 		void AugmentHybrid (WKWebView webView);
+
+		// +(void)setIsUnityInit:(BOOL)isUnityInit;
+		[Static]
+		[Export ("setIsUnityInit:")]
+		void SetIsUnityInit (bool isUnityInit);
+
+		// +(void)sendEventBindingsToUnity;
+		[Static]
+		[Export ("sendEventBindingsToUnity")]
+		void SendEventBindingsToUnity ();
 	}
 
 	// @interface FBSDKApplicationDelegate : NSObject
@@ -371,19 +467,275 @@ namespace Facebook.CoreKit {
 		bool FinishedLaunching ([NullAllowed] UIApplication application, [NullAllowed] NSDictionary launchOptions);
 	}
 
+	// @interface FBSDKAppLink : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FBSDKAppLink")]
+	interface AppLink {
+		// extern NSString *const _Nonnull FBSDKAppLinkVersion;
+		[Field ("FBSDKAppLinkVersion", "__Internal")]
+		NSString Version { get; }
+
+		// +(instancetype _Nonnull)appLinkWithSourceURL:(NSURL * _Nonnull)sourceURL targets:(NSArray<FBSDKAppLinkTarget *> * _Nonnull)targets webURL:(NSURL * _Nullable)webURL;
+		[Static]
+		[Export ("appLinkWithSourceURL:targets:webURL:")]
+		AppLink Create (NSUrl sourceUrl, AppLinkTarget [] targets, [NullAllowed] NSUrl webUrl);
+
+		// @property (readonly, nonatomic, strong) NSURL * _Nonnull sourceURL;
+		[Export ("sourceURL", ArgumentSemantic.Strong)]
+		NSUrl SourceUrl { get; }
+
+		// @property (readonly, copy, nonatomic) NSArray<FBSDKAppLinkTarget *> * _Nonnull targets;
+		[Export ("targets", ArgumentSemantic.Copy)]
+		AppLinkTarget [] Targets { get; }
+
+		// @property (readonly, nonatomic, strong) NSURL * _Nullable webURL;
+		[NullAllowed, Export ("webURL", ArgumentSemantic.Strong)]
+		NSUrl WebUrl { get; }
+	}
+
+	// typedef void (^FBSDKAppLinkNavigationHandler)(FBSDKAppLinkNavigationType, NSError * _Nullable);
+	delegate void AppLinkNavigationHandler (AppLinkNavigationType navType, [NullAllowed] NSError error);
+
+	// @interface FBSDKAppLinkNavigation : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FBSDKAppLinkNavigation")]
+	interface AppLinkNavigation {
+		// @property (readonly, copy, nonatomic) NSDictionary<NSString *,id> * _Nonnull extras;
+		[Export ("extras", ArgumentSemantic.Copy)]
+		NSDictionary<NSString, NSObject> Extras { get; }
+
+		// @property (readonly, copy, nonatomic) NSDictionary<NSString *,id> * _Nonnull appLinkData;
+		[Export ("appLinkData", ArgumentSemantic.Copy)]
+		NSDictionary<NSString, NSObject> AppLinkData { get; }
+
+		// @property (readonly, nonatomic, strong) FBSDKAppLink * _Nonnull appLink;
+		[Export ("appLink", ArgumentSemantic.Strong)]
+		AppLink AppLink { get; }
+
+		// +(instancetype _Nonnull)navigationWithAppLink:(FBSDKAppLink * _Nonnull)appLink extras:(NSDictionary<NSString *,id> * _Nonnull)extras appLinkData:(NSDictionary<NSString *,id> * _Nonnull)appLinkData;
+		[Static]
+		[Export ("navigationWithAppLink:extras:appLinkData:")]
+		AppLinkNavigation Create (AppLink appLink, NSDictionary<NSString, NSObject> extras, NSDictionary<NSString, NSObject> appLinkData);
+
+		// +(NSDictionary<NSString *,NSDictionary<NSString *,NSString *> *> * _Nonnull)callbackAppLinkDataForAppWithName:(NSString * _Nonnull)appName url:(NSString * _Nonnull)url;
+		[Static]
+		[Export ("callbackAppLinkDataForAppWithName:url:")]
+		NSDictionary<NSString, NSDictionary<NSString, NSString>> GetCallbackAppLinkData (string appName, string url);
+
+		// -(FBSDKAppLinkNavigationType)navigate:(NSError * _Nullable * _Nullable)error;
+		[Export ("navigate:")]
+		AppLinkNavigationType Navigate ([NullAllowed] out NSError error);
+
+		// +(void)resolveAppLink:(NSURL * _Nonnull)destination handler:(FBSDKAppLinkFromURLHandler _Nonnull)handler;
+		[Async]
+		[Static]
+		[Export ("resolveAppLink:handler:")]
+		void ResolveAppLink (NSUrl destination, AppLinkFromUrlHandler handler);
+
+		// +(void)resolveAppLink:(NSURL * _Nonnull)destination resolver:(id<FBSDKAppLinkResolving> _Nonnull)resolver handler:(FBSDKAppLinkFromURLHandler _Nonnull)handler;
+		[Async]
+		[Static]
+		[Export ("resolveAppLink:resolver:handler:")]
+		void ResolveAppLink (NSUrl destination, IAppLinkResolving resolver, AppLinkFromUrlHandler handler);
+
+		// +(FBSDKAppLinkNavigationType)navigateToAppLink:(FBSDKAppLink * _Nonnull)link error:(NSError * _Nullable * _Nullable)error;
+		[Static]
+		[Export ("navigateToAppLink:error:")]
+		AppLinkNavigationType Navigate (AppLink link, [NullAllowed] out NSError error);
+
+		// +(FBSDKAppLinkNavigationType)navigationTypeForLink:(FBSDKAppLink * _Nonnull)link;
+		[Static]
+		[Export ("navigationTypeForLink:")]
+		AppLinkNavigationType GetNavigationType (AppLink link);
+
+		// -(FBSDKAppLinkNavigationType)navigationType;
+		[Export ("navigationType")]
+		AppLinkNavigationType GetNavigationType ();
+
+		// +(void)navigateToURL:(NSURL * _Nonnull)destination handler:(FBSDKAppLinkNavigationHandler _Nonnull)handler;
+		[Async]
+		[Static]
+		[Export ("navigateToURL:handler:")]
+		void Navigate (NSUrl destination, AppLinkNavigationHandler handler);
+
+		// +(void)navigateToURL:(NSURL * _Nonnull)destination resolver:(id<FBSDKAppLinkResolving> _Nonnull)resolver handler:(FBSDKAppLinkNavigationHandler _Nonnull)handler;
+		[Async]
+		[Static]
+		[Export ("navigateToURL:resolver:handler:")]
+		void Navigate (NSUrl destination, IAppLinkResolving resolver, AppLinkNavigationHandler handler);
+
+		// +(id<FBSDKAppLinkResolving> _Nonnull)defaultResolver;
+		// +(void)setDefaultResolver:(id<FBSDKAppLinkResolving> _Nonnull)resolver;
+		[Static]
+		[Export ("defaultResolver")]
+		IAppLinkResolving DefaultResolver { get; set; }
+	}
+
 	// @interface FBSDKAppLinkResolver : NSObject<BFAppLinkResolving>
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKAppLinkResolver")]
-	interface AppLinkResolver : AppLinkResolving {
+	interface AppLinkResolver : AppLinkResolving, BFAppLinkResolving {
 
 		// - (BFTask *)appLinksFromURLsInBackground:(NSArray *)urls;
+		[Obsolete ("Use GetAppLinks method instead.")]
 		[Export ("appLinksFromURLsInBackground:")]
 		Task AppLinksInBackground (NSUrl [] urls);
+
+		// -(void)appLinksFromURLs:(NSArray<NSURL *> *)urls handler:(FBSDKAppLinksFromURLArrayHandler)handler __attribute__((availability(ios_app_extension, unavailable)));
+		[Async]
+		[Export ("appLinksFromURLs:handler:")]
+		void GetAppLinks (NSUrl [] urls, AppLinksFromUrlArrayHandler handler);
 
 		// + (instancetype)resolver;
 		[Static]
 		[Export ("resolver")]
 		AppLinkResolver Resolver { get; }
+	}
+
+	// typedef void (^FBSDKAppLinkFromURLHandler)(FBSDKAppLink * _Nullable, NSError * _Nullable);
+	delegate void AppLinkFromUrlHandler ([NullAllowed] AppLink appLink, [NullAllowed] NSError error);
+
+	// typedef void (^FBSDKAppLinksFromURLArrayHandler)(NSDictionary<NSURL *,FBSDKAppLink *> * _Nonnull, NSError * _Nullable);
+	delegate void AppLinksFromUrlArrayHandler (NSDictionary<NSUrl, NSObject> appLinks, [NullAllowed] NSError error);
+
+	interface IAppLinkResolving { }
+
+	// @protocol FBSDKAppLinkResolving <NSObject>
+	[Model (AutoGeneratedName = true)]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "FBSDKAppLinkResolving")]
+	interface AppLinkResolving {
+		// @required -(void)appLinkFromURL:(NSURL * _Nonnull)url handler:(FBSDKAppLinkFromURLHandler _Nonnull)handler __attribute__((availability(ios_app_extension, unavailable)));
+		[Abstract]
+		[Export ("appLinkFromURL:handler:")]
+		void Handler (NSUrl url, AppLinkFromUrlHandler handler);
+	}
+
+	interface IAppLinkReturnToRefererControllerDelegate { }
+
+	// @protocol FBSDKAppLinkReturnToRefererControllerDelegate <NSObject>
+	[Model (AutoGeneratedName = true)]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "FBSDKAppLinkReturnToRefererControllerDelegate")]
+	interface AppLinkReturnToRefererControllerDelegate {		// @optional -(void)returnToRefererController:(FBSDKAppLinkReturnToRefererController * _Nonnull)controller willNavigateToAppLink:(FBSDKAppLink * _Nonnull)appLink;
+		[EventArgs ("AppLinkReturnToRefererControllerWillNavigateToAppLink")]
+		[Export ("returnToRefererController:willNavigateToAppLink:")]
+		void WillNavigateToAppLink (AppLinkReturnToRefererController controller, AppLink appLink);
+
+		// @optional -(void)returnToRefererController:(FBSDKAppLinkReturnToRefererController * _Nonnull)controller didNavigateToAppLink:(FBSDKAppLink * _Nonnull)url type:(FBSDKAppLinkNavigationType)type;
+		[EventArgs ("AppLinkReturnToRefererControllerNavigatedToAppLink")]
+		[EventName ("NavigatedToAppLink")]
+		[Export ("returnToRefererController:didNavigateToAppLink:type:")]
+		void DidNavigateToAppLink (AppLinkReturnToRefererController controller, AppLink url, AppLinkNavigationType type);
+	}
+
+	// @interface FBSDKAppLinkReturnToRefererController : NSObject <FBSDKAppLinkReturnToRefererViewDelegate>
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject),
+		   Name = "FBSDKAppLinkReturnToRefererController",
+		   Delegates = new [] { "Delegate" },
+	           Events = new [] { typeof (AppLinkReturnToRefererControllerDelegate) })]
+	interface AppLinkReturnToRefererController : AppLinkReturnToRefererViewDelegate {
+		[NullAllowed]
+		[Export ("delegate", ArgumentSemantic.Weak)]
+		IAppLinkReturnToRefererControllerDelegate Delegate { get; set; }
+
+		// @property (nonatomic, strong) FBSDKAppLinkReturnToRefererView * _Nonnull view;
+		[Export ("view", ArgumentSemantic.Strong)]
+		AppLinkReturnToRefererView View { get; set; }
+
+		// -(instancetype _Nonnull)initForDisplayAboveNavController:(UINavigationController * _Nonnull)navController;
+		[DesignatedInitializer]
+		[Export ("init")]
+		IntPtr Constructor ();
+
+		// -(instancetype _Nonnull)initForDisplayAboveNavController:(UINavigationController * _Nonnull)navController;
+		[Export ("initForDisplayAboveNavController:")]
+		IntPtr Constructor (UINavigationController navController);
+
+		// -(void)removeFromNavController;
+		[Export ("removeFromNavController")]
+		void RemoveFromNavController ();
+
+		// -(void)showViewForRefererAppLink:(FBSDKAppLink * _Nonnull)refererAppLink;
+		[Export ("showViewForRefererAppLink:")]
+		void ShowView (AppLink refererAppLink);
+
+		// -(void)showViewForRefererURL:(NSURL * _Nonnull)url;
+		[Export ("showViewForRefererURL:")]
+		void ShowView (NSUrl url);
+
+		// -(void)closeViewAnimated:(BOOL)animated;
+		[Export ("closeViewAnimated:")]
+		void CloseView (bool animated);
+	}
+
+	interface IAppLinkReturnToRefererViewDelegate { }
+
+	// @protocol FBSDKAppLinkReturnToRefererViewDelegate <NSObject>
+	[Model (AutoGeneratedName = true)]
+	[Protocol]
+	[BaseType (typeof (NSObject), Name = "FBSDKAppLinkReturnToRefererViewDelegate")]
+	interface AppLinkReturnToRefererViewDelegate {
+		// @required -(void)returnToRefererViewDidTapInsideCloseButton:(FBSDKAppLinkReturnToRefererView * _Nonnull)view;
+		[Abstract]
+		[EventArgs ("AppLinkReturnToRefererViewInsideCloseButtonTapped")]
+		[EventName ("InsideCloseButtonTapped")]
+		[Export ("returnToRefererViewDidTapInsideCloseButton:")]
+		void DidTapInsideCloseButton (AppLinkReturnToRefererView view);
+
+		// @required -(void)returnToRefererViewDidTapInsideLink:(FBSDKAppLinkReturnToRefererView * _Nonnull)view link:(FBSDKAppLink * _Nonnull)link;
+		[Abstract]
+		[EventArgs ("AppLinkReturnToRefererViewInsideLinkTapped")]
+		[EventName ("InsideLinkTapped")]
+		[Export ("returnToRefererViewDidTapInsideLink:link:")]
+		void DidTapInsideLink (AppLinkReturnToRefererView view, AppLink link);
+	}
+
+	// @interface FBSDKAppLinkReturnToRefererView : UIView
+	[BaseType (typeof (UIView), Name = "FBSDKAppLinkReturnToRefererView")]
+	interface AppLinkReturnToRefererView {
+		[NullAllowed]
+		[Export ("delegate", ArgumentSemantic.Weak)]
+		IAppLinkReturnToRefererViewDelegate Delegate { get; set; }
+
+		// @property (nonatomic, strong) UIColor * _Nonnull textColor;
+		[Export ("textColor", ArgumentSemantic.Strong)]
+		UIColor TextColor { get; set; }
+
+		// @property (nonatomic, strong) FBSDKAppLink * _Nonnull refererAppLink;
+		[Export ("refererAppLink", ArgumentSemantic.Strong)]
+		AppLink RefererAppLink { get; set; }
+
+		// @property (assign, nonatomic) FBSDKIncludeStatusBarInSize includeStatusBarInSize;
+		[Export ("includeStatusBarInSize", ArgumentSemantic.Assign)]
+		IncludeStatusBarInSize IncludeStatusBarInSize { get; set; }
+
+		// @property (assign, nonatomic) BOOL closed;
+		[Export ("closed")]
+		bool Closed { get; set; }
+	}
+
+	// @interface FBSDKAppLinkTarget : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FBSDKAppLinkTarget")]
+	interface AppLinkTarget {
+		// +(instancetype _Nonnull)appLinkTargetWithURL:(NSURL * _Nonnull)url appStoreId:(NSString * _Nullable)appStoreId appName:(NSString * _Nonnull)appName;
+		[Static]
+		[Export ("appLinkTargetWithURL:appStoreId:appName:")]
+		AppLinkTarget Create (NSUrl url, [NullAllowed] string appStoreId, string appName);
+
+		// @property (readonly, nonatomic, strong) NSURL * _Nonnull URL;
+		[Export ("URL", ArgumentSemantic.Strong)]
+		NSUrl URL { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nullable appStoreId;
+		[NullAllowed, Export ("appStoreId")]
+		string AppStoreId { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull appName;
+		[Export ("appName")]
+		string AppName { get; }
 	}
 
 	// typedef void (^FBSDKDeferredAppLinkHandler)(NSURL *, NSError *);
@@ -424,7 +776,6 @@ namespace Facebook.CoreKit {
 
 	[Static]
 	interface Errors {
-
 		// extern NSString *const FBSDKErrorDomain;
 		[Field ("FBSDKErrorDomain", "__Internal")]
 		NSString DomainKey { get; }
@@ -454,25 +805,45 @@ namespace Facebook.CoreKit {
 		NSString LocalizedTitleKey { get; }
 
 		// extern NSString *const FBSDKGraphRequestErrorCategoryKey;
+		[Obsolete ("Use GraphRequestErrors.ErrorKey static property instead.")]
 		[Field ("FBSDKGraphRequestErrorCategoryKey", "__Internal")]
 		NSString CategoryKey { get; }
 
 		// extern NSString *const FBSDKGraphRequestErrorGraphErrorCode;
+		[Obsolete ("Use GraphRequestErrors.GraphErrorCodeKey static property instead.")]
 		[Field ("FBSDKGraphRequestErrorGraphErrorCode", "__Internal")]
 		NSString GraphErrorCode { get; }
 
 		// extern NSString *const FBSDKGraphRequestErrorGraphErrorSubcode;
+		[Obsolete ("Use GraphRequestErrors.GraphErrorSubcodeKey static property instead.")]
 		[Field ("FBSDKGraphRequestErrorGraphErrorSubcode", "__Internal")]
 		NSString GraphErrorSubcode { get; }
+	}
 
-		// extern NSString *const FBSDKGraphRequestErrorHTTPStatusCodeKey;
+	[Static]
+	interface GraphRequestErrors {
+		// extern const NSErrorUserInfoKey FBSDKGraphRequestErrorKey;
+		[Field ("FBSDKGraphRequestErrorKey", "__Internal")]
+		NSString ErrorKey { get; }
+
+		// extern const NSErrorUserInfoKey FBSDKGraphRequestErrorGraphErrorCodeKey;
+		[Field ("FBSDKGraphRequestErrorGraphErrorCodeKey", "__Internal")]
+		NSString GraphErrorCodeKey { get; }
+
+		// extern const NSErrorUserInfoKey FBSDKGraphRequestErrorGraphErrorSubcodeKey;
+		[Field ("FBSDKGraphRequestErrorGraphErrorSubcodeKey", "__Internal")]
+		NSString GraphErrorSubcodeKey { get; }
+
+		// extern const NSErrorUserInfoKey FBSDKGraphRequestErrorHTTPStatusCodeKey;
 		[Field ("FBSDKGraphRequestErrorHTTPStatusCodeKey", "__Internal")]
 		NSString HttpStatusCodeKey { get; }
 
-		// extern NSString *const FBSDKGraphRequestErrorParsedJSONResponseKey;
+		// extern const NSErrorUserInfoKey FBSDKGraphRequestErrorParsedJSONResponseKey;
 		[Field ("FBSDKGraphRequestErrorParsedJSONResponseKey", "__Internal")]
-		NSString ParsedJSONResponseKey { get; }
+		NSString ParsedJsonResponseKey { get; }
 	}
+
+	interface IErrorRecoveryAttempting { }
 
 	// @protocol FBSDKErrorRecoveryAttempting <NSObject>
 	[Model (AutoGeneratedName = true)]
@@ -482,12 +853,10 @@ namespace Facebook.CoreKit {
 		// @required -(void)attemptRecoveryFromError:(NSError *)error optionIndex:(NSUInteger)recoveryOptionIndex delegate:(id)delegate didRecoverSelector:(SEL)didRecoverSelector contextInfo:(void *)contextInfo;
 		[Abstract]
 		[Export ("attemptRecoveryFromError:optionIndex:delegate:didRecoverSelector:contextInfo:")]
-		unsafe void AttemptRecovery (NSError error, nuint recoveryOptionIndex, NSObject aDelegate, Selector didRecoverSelector, NSObject contextInfo);
+		void AttemptRecovery (NSError error, nuint recoveryOptionIndex, NSObject aDelegate, Selector didRecoverSelector, IntPtr contextInfo);
 	}
 
-	interface ICopying {
-
-	}
+	interface ICopying { }
 
 	// @protocol FBSDKCopying <NSCopying, NSObject>
 	[Model (AutoGeneratedName = true)]
@@ -501,9 +870,7 @@ namespace Facebook.CoreKit {
 		NSObject Copy ();
 	}
 
-	interface IGraphErrorRecoveryProcessorDelegate {
-
-	}
+	interface IGraphErrorRecoveryProcessorDelegate { }
 
 	// @protocol FBSDKGraphErrorRecoveryProcessorDelegate <NSObject>
 	[Model (AutoGeneratedName = true)]
@@ -642,8 +1009,8 @@ namespace Facebook.CoreKit {
 		[Export ("delegate", ArgumentSemantic.Weak)]
 		IGraphRequestConnectionDelegate Delegate { get; set; }
 
-		// @property (nonatomic) NSTimeInterval timeout;
-		[Export ("timeout")]
+		// @property (assign, nonatomic) NSTimeInterval timeout;
+		[Export ("timeout", ArgumentSemantic.Assign)]
 		double Timeout { get; set; }
 
 		// @property (readonly, retain, nonatomic) NSHTTPURLResponse * URLResponse;
@@ -704,6 +1071,51 @@ namespace Facebook.CoreKit {
 		// @property (readonly, copy, nonatomic) NSString * filename;
 		[Export ("filename", ArgumentSemantic.Copy)]
 		string Filename { get; }
+	}
+
+	interface MeasurementEventArgs {
+		[Export ("FBSDKMeasurementEventNameKey")]
+		string EventName { get; }
+
+		[Export ("FBSDKMeasurementEventArgsKey")]
+		NSDictionary EventArgs { get; }
+	}
+
+	// @interface FBSDKMeasurementEvent : NSObject
+	[BaseType (typeof (NSObject), Name = "FBSDKMeasurementEvent")]
+	interface MeasurementEvent {
+		// extern const NSNotificationName _Nonnull FBSDKMeasurementEventNotification;
+		[Notification (typeof (MeasurementEventArgs))]
+		[Field ("FBSDKMeasurementEventNotification", "__Internal")]
+		NSString EventNotification { get; }
+
+		// extern NSString *const _Nonnull FBSDKMeasurementEventNameKey;
+		[Field ("FBSDKMeasurementEventNameKey", "__Internal")]
+		NSString EventNameKey { get; }
+
+		// extern NSString *const _Nonnull FBSDKMeasurementEventArgsKey;
+		[Field ("FBSDKMeasurementEventArgsKey", "__Internal")]
+		NSString EventArgsKey { get; }
+
+		// extern NSString *const _Nonnull FBSDKAppLinkParseEventName;
+		[Notification]
+		[Field ("FBSDKAppLinkParseEventName", "__Internal")]
+		NSString AppLinkParseEventName { get; }
+
+		// extern NSString *const _Nonnull FBSDKAppLinkNavigateInEventName;
+		[Notification]
+		[Field ("FBSDKAppLinkNavigateInEventName", "__Internal")]
+		NSString AppLinkNavigateInEventName { get; }
+
+		// extern NSString *const _Nonnull FBSDKAppLinkNavigateOutEventName;
+		[Notification]
+		[Field ("FBSDKAppLinkNavigateOutEventName", "__Internal")]
+		NSString AppLinkNavigateOutEventName { get; }
+
+		// extern NSString *const _Nonnull FBSDKAppLinkNavigateBackToReferrerEventName;
+		[Notification]
+		[Field ("FBSDKAppLinkNavigateBackToReferrerEventName", "__Internal")]
+		NSString AppLinkNavigateBackToReferrerEventName { get; }
 	}
 
 	interface IMutableCopying { }
@@ -812,6 +1224,10 @@ namespace Facebook.CoreKit {
 
 		// -(BOOL)isEqualToProfile:(FBSDKProfile *)profile;
 		[Export ("isEqualToProfile:")]
+		bool Equals (Profile profile);
+
+		[Obsolete ("Use Equals (Profile) overload method instead. This will be removed in future version.")]
+		[Wrap ("Equals (profile)")]
 		bool IsEqualToProfile (Profile profile);
 	}
 
@@ -1018,6 +1434,49 @@ namespace Facebook.CoreKit {
 		void MakeFriends (AccessToken first, AccessToken second, TestUsersManagerRemoveTestAccountHandler callback);
 	}
 
+	// @interface FBSDKURL : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FBSDKURL")]
+	interface Url {
+		// +(FBSDKURL * _Nonnull)URLWithURL:(NSURL * _Nonnull)url;
+		[Static]
+		[Export ("URLWithURL:")]
+		Url Create (NSUrl url);
+
+		// +(FBSDKURL * _Nonnull)URLWithInboundURL:(NSURL * _Nonnull)url sourceApplication:(NSString * _Nonnull)sourceApplication;
+		[Static]
+		[Export ("URLWithInboundURL:sourceApplication:")]
+		Url Create (NSUrl url, string sourceApplication);
+
+		// @property (readonly, nonatomic, strong) NSURL * _Nonnull targetURL;
+		[Export ("targetURL", ArgumentSemantic.Strong)]
+		NSUrl TargetUrl { get; }
+
+		// @property (readonly, nonatomic, strong) NSDictionary<NSString *,id> * _Nonnull targetQueryParameters;
+		[Export ("targetQueryParameters", ArgumentSemantic.Strong)]
+		NSDictionary<NSString, NSObject> TargetQueryParameters { get; }
+
+		// @property (readonly, nonatomic, strong) NSDictionary<NSString *,id> * _Nonnull appLinkData;
+		[Export ("appLinkData", ArgumentSemantic.Strong)]
+		NSDictionary<NSString, NSObject> AppLinkData { get; }
+
+		// @property (readonly, nonatomic, strong) NSDictionary<NSString *,id> * _Nonnull appLinkExtras;
+		[Export ("appLinkExtras", ArgumentSemantic.Strong)]
+		NSDictionary<NSString, NSObject> AppLinkExtras { get; }
+
+		// @property (readonly, nonatomic, strong) FBSDKAppLink * _Nonnull appLinkReferer;
+		[Export ("appLinkReferer", ArgumentSemantic.Strong)]
+		AppLink AppLinkReferer { get; }
+
+		// @property (readonly, nonatomic, strong) NSURL * _Nonnull inputURL;
+		[Export ("inputURL", ArgumentSemantic.Strong)]
+		NSUrl InputUrl { get; }
+
+		// @property (readonly, nonatomic, strong) NSDictionary<NSString *,id> * _Nonnull inputQueryParameters;
+		[Export ("inputQueryParameters", ArgumentSemantic.Strong)]
+		NSDictionary<NSString, NSObject> InputQueryParameters { get; }
+	}
+
 	// @interface FBSDKUtility : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKUtility")]
@@ -1026,11 +1485,21 @@ namespace Facebook.CoreKit {
 		// +(NSDictionary *)dictionaryWithQueryString:(NSString *)queryString;
 		[Static]
 		[Export ("dictionaryWithQueryString:")]
+		NSDictionary CreateDictionary (string queryString);
+
+		[Obsolete ("Use CreateDictionary method instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("CreateDictionary (queryString)")]
 		NSDictionary DictionaryWithQueryString (string queryString);
 
 		// +(NSString *)queryStringWithDictionary:(NSDictionary *)dictionary error:(NSError **)errorRef;
 		[Static]
 		[Export ("queryStringWithDictionary:error:")]
+		string CreateQueryString ([NullAllowed] NSDictionary dictionary, out NSError errorRef);
+
+		[Obsolete ("Use CreateQueryString method instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("CreateQueryString (dictionary, out errorRef)")]
 		string QueryStringWithDictionary ([NullAllowed] NSDictionary dictionary, out NSError errorRef);
 
 		// +(NSString *)URLDecode:(NSString *)value;
@@ -1064,7 +1533,14 @@ namespace Facebook.CoreKit {
 		void StopGcdTimer (DispatchSource timer);
 	}
 
-	#region Facebook.Bolts
+	// @interface FBSDKWebViewAppLinkResolver : NSObject <FBSDKAppLinkResolving>
+	[BaseType (typeof (NSObject), Name = "FBSDKWebViewAppLinkResolver")]
+	interface WebViewAppLinkResolver : AppLinkResolving {
+		// +(instancetype _Nonnull)sharedInstance;
+		[Static]
+		[Export ("sharedInstance")]
+		WebViewAppLinkResolver SharedInstance { get; }
+	}
 
 	// This just binds what is needed to work
 	[BaseType (typeof (NSObject), Name = "BFTask")]
@@ -1090,20 +1566,17 @@ namespace Facebook.CoreKit {
 		bool IsCompleted { get; }
 	}
 
-	interface IAppLinkResolving {
+	interface IBFAppLinkResolving { }
 
-	}
-
+	[Obsolete ("Use Facebook.CoreKit.IAppLinkResolving interface instead.")]
 	[Model (AutoGeneratedName = true)]
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "BFAppLinkResolving")]
-	interface AppLinkResolving {
+	interface BFAppLinkResolving {
 
 		// @required -(BFTask *)appLinkFromURLInBackground:(NSURL *)url;
 		[Abstract]
 		[Export ("appLinkFromURLInBackground:")]
 		Task AppLinkInBackground (NSUrl url);
 	}
-
-	#endregion
 }
