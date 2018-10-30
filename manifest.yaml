@@ -34,10 +34,10 @@
   BuildScript: ./Facebook.iOS/MessengerShareKit/build.cake
   TriggerPaths: [ Facebook.iOS/MessengerShareKit ]
   MacBuildTargets: [ samples, nuget, component ]
-- Name: Facebook.iOS.Notifications
-  BuildScript: ./Facebook.iOS/Notifications/build.cake
-  TriggerPaths: [ Facebook.iOS/Notifications ]
-  MacBuildTargets: [ samples, nuget, component ]
+# - Name: Facebook.iOS.Notifications
+#   BuildScript: ./Facebook.iOS/Notifications/build.cake
+#   TriggerPaths: [ Facebook.iOS/Notifications ]
+#   MacBuildTargets: [ samples, nuget, component ]
 - Name: Facebook.iOS.PlacesKit
   BuildScript: ./Facebook.iOS/PlacesKit/build.cake
   TriggerPaths: [ Facebook.iOS/PlacesKit ]
