@@ -67,6 +67,15 @@ namespace Facebook.ShareKit
 	}
 
 	[Native]
+	public enum ShareError : long {
+		Reserved = 200,
+		OpenGraph,
+		DialogNotAvailable,
+		Unknown
+	}
+
+	[Obsolete ("Use ShareError enum instead.")]
+	[Native]
 	public enum ShareErrorCode : long
 	{
 		Reserved = 200,
@@ -107,5 +116,16 @@ namespace Facebook.ShareKit
 		Full = 0,
 		Tall,
 		Compact
+	}
+
+	[Flags]
+	[Native]
+	public enum ShareBridgeOptions : ulong {
+		Default = 0,
+		PhotoAsset = 1 << 0,
+		PhotoImageURL = 1 << 1,
+		VideoAsset = 1 << 2,
+		VideoData = 1 << 3,
+		WebHashtag = 1 << 4
 	}
 }
