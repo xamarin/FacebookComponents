@@ -13,6 +13,28 @@ namespace Facebook.LoginKit
 	}
 
 	[Native]
+	public enum LoginError : long {
+		Reserved = 300,
+		Unknown,
+		PasswordChanged,
+		UserCheckpointed,
+		UserMismatch,
+		UnconfirmedUser,
+		SystemAccountAppDisabled,
+		SystemAccountUnavailable,
+		BadChallengeString
+	}
+
+	[Native]
+	public enum DeviceLoginError : long {
+		ExcessivePolling = 1349172,
+		AuthorizationDeclined = 1349173,
+		AuthorizationPending = 1349174,
+		CodeExpired = 1349152
+	}
+
+	[Obsolete ("Use LoginError enum instead.")]
+	[Native]
 	public enum LoginErrorCode : long
 	{
 		Reserved = 300,
@@ -26,6 +48,7 @@ namespace Facebook.LoginKit
 		BadChallengeString
 	}
 
+	[Obsolete ("Use DeviceLoginError enum instead.")]
 	[Native]
 	public enum DeviceLoginErrorSubcode : ulong
 	{
