@@ -314,7 +314,7 @@ namespace Facebook.AudienceNetwork
 
 		// -(void)removeKeyword:(FBAdExtraHintKeyword _Nonnull)keyword;
 		[Export ("removeKeyword:")]
-		void RemoveKeyword (string keyword);
+		void RemoveKeyword (NSString keyword);
 	}
 
 	// @interface FBAdIconView : UIView
