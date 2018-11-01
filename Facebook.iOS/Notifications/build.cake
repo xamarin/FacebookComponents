@@ -9,7 +9,7 @@ SDK_PATH = $"./externals/FacebookSDKs";
 SDK_FRAMEWORKS = new [] { "FBNotifications" };
 
 SDK_VERSION = "1.0.1";
-XAMARIN_FIX_VERSION = "0";
+XAMARIN_FIX_VERSION = "1";
 SDK_FULL_VERSION = $"{SDK_VERSION}.{XAMARIN_FIX_VERSION}";
 
 var buildSpec = new BuildSpec () {
@@ -31,7 +31,7 @@ var buildSpec = new BuildSpec () {
 	},
 
 	NuGets = new [] {
-		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.Notifications.iOS.nuspec", Version = SDK_FULL_VERSION, BuildsOn = BuildPlatforms.Mac},
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.Notifications.iOS.nuspec", Version = SDK_FULL_VERSION, RequireLicenseAcceptance = true, BuildsOn = BuildPlatforms.Mac},
 	},
 
 	Components = new [] {

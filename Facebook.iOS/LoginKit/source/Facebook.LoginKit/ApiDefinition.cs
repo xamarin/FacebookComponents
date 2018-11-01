@@ -217,6 +217,10 @@ namespace Facebook.LoginKit {
 		[Export ("logInWithPublishPermissions:fromViewController:handler:")]
 		void LogInWithPublishPermissions ([NullAllowed] string [] permissions, [NullAllowed] UIViewController fromViewController, LoginManagerRequestTokenHandler handler);
 
+		// -(void)reauthorizeDataAccess:(UIViewController *)fromViewController handler:(FBSDKLoginManagerRequestTokenHandler)handler;
+		[Export ("reauthorizeDataAccess:handler:")]
+		void ReauthorizeDataAccess (UIViewController fromViewController, LoginManagerRequestTokenHandler handler);
+
 		// -(void)logOut;
 		[Export ("logOut")]
 		void LogOut ();
@@ -229,6 +233,7 @@ namespace Facebook.LoginKit {
 	}
 
 	// @interface FBSDKLoginManagerLoginResult : NSObject
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKLoginManagerLoginResult")]
 	interface LoginManagerLoginResult {
 

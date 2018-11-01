@@ -3,6 +3,14 @@ using Foundation;
 using CoreFoundation;
 namespace Facebook.CoreKit
 {
+	public static partial class Errors {
+		[Obsolete ("Use GraphRequestErrors.HttpStatusCodeKey static property instead. This will be removed in future versions.")]
+		public static NSString HttpStatusCodeKey { get; } = GraphRequestErrors.HttpStatusCodeKey;
+
+		[Obsolete ("Use GraphRequestErrors.ParsedJsonResponseKey static property instead. This will be removed in future versions.")]
+		public static NSString ParsedJSONResponseKey { get; } = GraphRequestErrors.ParsedJsonResponseKey;
+	}
+
 	public partial class Settings
 	{
 		public static bool AutoLogAppEventsEnabled {
