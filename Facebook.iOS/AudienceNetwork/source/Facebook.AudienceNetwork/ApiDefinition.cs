@@ -306,7 +306,7 @@ namespace Facebook.AudienceNetwork
 
 		// -(instancetype _Nonnull)initWithKeywords:(NSArray<FBAdExtraHintKeyword> * _Nonnull)keywords;
 		[Export ("initWithKeywords:")]
-		IntPtr Constructor (string [] keywords);
+		IntPtr Constructor (NSString [] keywords);
 
 		// -(void)addKeyword:(FBAdExtraHintKeyword _Nonnull)keyword;
 		[Export ("addKeyword:")]
