@@ -310,7 +310,7 @@ namespace Facebook.AudienceNetwork
 
 		// -(void)addKeyword:(FBAdExtraHintKeyword _Nonnull)keyword;
 		[Export ("addKeyword:")]
-		void AddKeyword (string keyword);
+		void AddKeyword (NSString keyword);
 
 		// -(void)removeKeyword:(FBAdExtraHintKeyword _Nonnull)keyword;
 		[Export ("removeKeyword:")]
