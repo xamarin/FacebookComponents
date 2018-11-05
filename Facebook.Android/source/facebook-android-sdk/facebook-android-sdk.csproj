@@ -19,8 +19,8 @@
     <Summary>Xamarin.Android bindings for Facebook Android - SDK</Summary>
     <Description>Xamarin.Android bindings for Facebook Android - SDK</Description>
     <PackageTags>Xamarin Android Xamarin.Android Facebook</PackageTags>
-    <Authors>Xamarin Inc.</Authors>
-    <Owners>Xamarin Inc.</Owners>
+    <Authors>Microsoft</Authors>
+    <Owners>Microsoft</Owners>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865581</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865585</PackageLicenseUrl>

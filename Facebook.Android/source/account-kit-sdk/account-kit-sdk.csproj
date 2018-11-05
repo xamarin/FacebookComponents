@@ -11,6 +11,7 @@
     <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
     <AndroidUseIntermediateDesignerFile>True</AndroidUseIntermediateDesignerFile>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <TargetFramework>_8.1</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -19,12 +20,11 @@
     <Summary>Xamarin.Android bindings for Facebook Android - Account Kit</Summary>
     <Description>Xamarin.Android bindings for Facebook Android - Account Kit</Description>
     <PackageTags>Xamarin Android Xamarin.Android Facebook</PackageTags>
-    <Authors>Xamarin Inc.</Authors>
-    <Owners>Xamarin Inc.</Owners>
+    <Authors>Microsoft</Authors>
+    <Owners>Microsoft</Owners>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865581</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865585</PackageLicenseUrl>
-    
     <PackageIconUrl>https://raw.githubusercontent.com/xamarin/FacebookComponents/master/icons/facebook-android_128x128.png</PackageIconUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
@@ -41,6 +41,18 @@
     <Java8DocPaths>..\..\externals\account-kit-sdk-docs\</Java8DocPaths>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <IntermediateOutputPath>obj\Debug</IntermediateOutputPath>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;_;_8_1</DefineConstants>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <IntermediateOutputPath>obj\Release</IntermediateOutputPath>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE;RELEASE;_;_8_1</DefineConstants>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
   </ItemGroup>
