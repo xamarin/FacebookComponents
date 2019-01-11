@@ -459,17 +459,17 @@ namespace Facebook.AccountKit {
 		void LogOut ();
 
 		// -(void)logOut:(AKFLogoutHandler _Nullable)handler;
+		[Async]
 		[Export ("logOut:")]
 		void LogOut ([NullAllowed] LogoutHandler handler);
 
 		// -(void)requestAccount:(AKFRequestAccountHandler _Nonnull)handler;
+		[Async]
 		[Export ("requestAccount:")]
 		void RequestAccount (RequestAccountHandler handler);
 
 		// -(UIViewController<AKFViewController> * _Nonnull)viewControllerForEmailLogin;
 		[Export ("viewControllerForEmailLogin")]
-		//[Verify(MethodToProperty)]
-		//ViewController ViewControllerForEmailLogin { get; }
 		UIViewController GetViewControllerForEmailLogin ();
 
 		// -(UIViewController<AKFViewController> * _Nonnull)viewControllerForEmailLoginWithEmail:(NSString * _Nullable)email state:(NSString * _Nullable)state;
@@ -478,8 +478,6 @@ namespace Facebook.AccountKit {
 
 		// -(UIViewController<AKFViewController> * _Nonnull)viewControllerForPhoneLogin;
 		[Export ("viewControllerForPhoneLogin")]
-		//[Verify(MethodToProperty)]
-		//ViewController ViewControllerForPhoneLogin { get; }
 		UIViewController GetViewControllerForPhoneLogin ();
 
 		// -(UIViewController<AKFViewController> * _Nonnull)viewControllerForPhoneLoginWithPhoneNumber:(AKFPhoneNumber * _Nullable)phoneNumber state:(NSString * _Nullable)state;
@@ -488,8 +486,6 @@ namespace Facebook.AccountKit {
 
 		// -(UIViewController<AKFViewController> * _Nullable)viewControllerForLoginResume;
 		[NullAllowed, Export ("viewControllerForLoginResume")]
-		//[Verify(MethodToProperty)]
-		//ViewController ViewControllerForLoginResume { get; }
 		UIViewController GetViewControllerForLoginResume ();
 	}
 
@@ -523,9 +519,12 @@ namespace Facebook.AccountKit {
 		bool Equals (PhoneNumber phoneNumber);
 
 		// -(NSString * _Nonnull)stringRepresentation;
+		[New]
 		[Export ("stringRepresentation")]
-		//[Verify(MethodToProperty)]
-		//string StringRepresentation { get; }
+		string ToString ();
+
+		[Obsolete ("Use ToString method instead. This will be removed in future versions.")]
+		[Wrap ("ToString ()")]
 		string GetStringRepresentation ();
 	}
 
@@ -536,7 +535,6 @@ namespace Facebook.AccountKit {
 		// +(void)setClientToken:(NSString * _Nonnull)clientToken;
 		[Static]
 		[Export ("clientToken")]
-		//[Verify(MethodToProperty)]
 		string ClientToken { get; set; }
 	}
 
