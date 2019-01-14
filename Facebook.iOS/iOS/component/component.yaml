@@ -1,4 +1,4 @@
-version: 4.38.0.0
+version: 4.39.1.0
 name: Facebook iOS SDK
 id: facebookios
 publisher: Xamarin Inc
@@ -12,7 +12,7 @@ icons:
 license: ../License.md
 packages:
   ios-unified:
-    - Xamarin.Facebook.iOS, Version=4.38.0.0
+    - Xamarin.Facebook.iOS, Version=4.39.1.0
 samples:
   - name: "iOS Unified Sample"
     path: "../samples/FacebookiOSSample/FacebookiOSSample.sln"
