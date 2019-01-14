@@ -22,7 +22,6 @@ samples:
       - project: FacebookiOSSample
         packages:
           - Xamarin.Facebook.iOS
-          - Xamarin.Facebook.MessengerShareKit.iOS
           - Xamarin.Facebook.ShareKit.iOS
           - Xamarin.Facebook.PlacesKit.iOS
           - Xamarin.Facebook.LoginKit.iOS
@@ -35,7 +34,6 @@ samples:
       - project: HelloFacebook
         packages:
           - Xamarin.Facebook.iOS
-          - Xamarin.Facebook.MessengerShareKit.iOS
           - Xamarin.Facebook.ShareKit.iOS
           - Xamarin.Facebook.PlacesKit.iOS
           - Xamarin.Facebook.LoginKit.iOS
