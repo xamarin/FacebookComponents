@@ -24,6 +24,7 @@ samples:
           - Xamarin.Facebook.iOS
           - Xamarin.Facebook.ShareKit.iOS
           - Xamarin.Facebook.PlacesKit.iOS
+          - Xamarin.Facebook.MarketingKit.iOS
           - Xamarin.Facebook.LoginKit.iOS
           - Xamarin.Facebook.CoreKit.iOS
   - name: "HelloFacebook Sample"
@@ -36,6 +37,7 @@ samples:
           - Xamarin.Facebook.iOS
           - Xamarin.Facebook.ShareKit.iOS
           - Xamarin.Facebook.PlacesKit.iOS
+          - Xamarin.Facebook.MarketingKit.iOS
           - Xamarin.Facebook.LoginKit.iOS
           - Xamarin.Facebook.CoreKit.iOS
 no_build: true

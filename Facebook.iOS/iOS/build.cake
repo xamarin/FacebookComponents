@@ -27,7 +27,7 @@ var buildSpec = new BuildSpec () {
 	},
 };
 
-MY_DEPENDENCIES = new [] { "CoreKit", "LoginKit", "PlacesKit", "ShareKit" };
+MY_DEPENDENCIES = new [] { "CoreKit", "LoginKit", "MarketingKit", "PlacesKit", "ShareKit" };
 
 Task ("pre-nuget-base").IsDependeeOf ("nuget-base").Does (() => {
 	StartProcess("touch", new ProcessSettings { Arguments = "_._" });
