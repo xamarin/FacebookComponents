@@ -7,7 +7,7 @@ using CoreGraphics;
 using Photos;
 
 namespace Facebook.ShareKit {
-	// @interface FBSDKAppGroupAddDialog : NSObject
+	// @interface FBSDKppGroupAddDialog : NSObject
 	[BaseType (typeof (NSObject),
 		Name = "FBSDKAppGroupAddDialog",
 		Delegates = new [] { "Delegate" },
@@ -1143,6 +1143,15 @@ namespace Facebook.ShareKit {
 		[Obsolete ("Use Equals (ShareVideo) overload method instead. This will be removed in future versions.")]
 		[Wrap ("Equals (video)")]
 		bool IsEqualToShareVideo (ShareVideo video);
+	}
+
+	// @interface FBSDKShareVideo (PHAsset)
+	[Category]
+	[BaseType (typeof (PHAsset))]
+	interface PHAsset_FBSDKShareVideo {
+		// @property (readonly, copy, nonatomic) NSURL * videoURL;
+		[Export ("videoURL")]
+		NSUrl GetVideoUrl ();
 	}
 
 	// @interface FBSDKShareVideoContent : NSObject <FBSDKSharingContent>
