@@ -14,7 +14,7 @@
     <iconUrl>https://raw.githubusercontent.com/xamarin/FacebookComponents/master/icons/facebook-ios_128x128.png</iconUrl>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
-        <dependency id="Xamarin.Facebook.CoreKit.iOS" version="4.35.0.0" />
+        <dependency id="Xamarin.Facebook.CoreKit.iOS" version="4.39.1.0" />
       </group>
     </dependencies>
   </metadata>

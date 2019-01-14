@@ -22,5 +22,10 @@ namespace Facebook.CoreKit
 			get { return _CodelessDebugLogEnabled.Int32Value == 1; }
 			set { _CodelessDebugLogEnabled = NSNumber.FromInt32 (value ? 1 : 0); }
 		}
+
+		public static bool AdvertiserIdCollectionEnabled {
+			get { return _AdvertiserIdCollectionEnabled.Int32Value == 1; }
+			set { _AdvertiserIdCollectionEnabled = NSNumber.FromInt32 (value ? 1 : 0); }
+		}
 	}
 }
