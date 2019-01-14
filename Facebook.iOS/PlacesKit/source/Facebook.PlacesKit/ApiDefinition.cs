@@ -217,6 +217,7 @@ namespace Facebook.PlacesKit {
 	[BaseType (typeof (NSObject), Name = "FBSDKPlacesManager")]
 	interface PlacesManager {
 		// -(void)generatePlaceSearchRequestForSearchTerm:(NSString * _Nullable)searchTerm categories:(NSArray<NSString *> * _Nullable)categories fields:(NSArray<NSString *> * _Nullable)fields distance:(CLLocationDistance)distance cursor:(NSString * _Nullable)cursor completion:(FBSDKPlaceGraphRequestCompletion _Nonnull)completion;
+		[Async (ResultTypeName = "PlaceGraphRequestResult")]
 		[Export ("generatePlaceSearchRequestForSearchTerm:categories:fields:distance:cursor:completion:")]
 		void GeneratePlaceSearchRequest ([NullAllowed] string searchTerm, [NullAllowed] string [] categories, [NullAllowed] string [] fields, double distance, [NullAllowed] string cursor, PlaceGraphRequestCompletionHandler completion);
 
@@ -226,10 +227,12 @@ namespace Facebook.PlacesKit {
 		CoreKit.GraphRequest GeneratePlaceSearchRequest ([NullAllowed] CLLocation location, [NullAllowed] string searchTerm, [NullAllowed] string [] categories, [NullAllowed] string [] fields, double distance, [NullAllowed] string cursor);
 
 		// -(void)generateCurrentPlaceRequestWithMinimumConfidenceLevel:(FBSDKPlaceLocationConfidence)minimumConfidence fields:(NSArray<NSString *> * _Nullable)fields completion:(FBSDKCurrentPlaceGraphRequestCompletion _Nonnull)completion;
+		[Async]
 		[Export ("generateCurrentPlaceRequestWithMinimumConfidenceLevel:fields:completion:")]
 		void GenerateCurrentPlaceRequest (PlaceLocationConfidence minimumConfidence, [NullAllowed] string [] fields, CurrentPlaceGraphRequestCompletionHandler completion);
 
 		// -(void)generateCurrentPlaceRequestForCurrentLocation:(CLLocation * _Nonnull)currentLocation withMinimumConfidenceLevel:(FBSDKPlaceLocationConfidence)minimumConfidence fields:(NSArray<NSString *> * _Nullable)fields completion:(FBSDKCurrentPlaceGraphRequestCompletion _Nonnull)completion;
+		[Async]
 		[Export ("generateCurrentPlaceRequestForCurrentLocation:withMinimumConfidenceLevel:fields:completion:")]
 		void GenerateCurrentPlaceRequest (CLLocation currentLocation, PlaceLocationConfidence minimumConfidence, [NullAllowed] string [] fields, CurrentPlaceGraphRequestCompletionHandler completion);
 
