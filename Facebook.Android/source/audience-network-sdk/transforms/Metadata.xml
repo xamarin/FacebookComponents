@@ -6,6 +6,7 @@
     <remove-node path="/api/package[@name='com.facebook']/class[@name='GraphRequestAsyncTask']/method[@name='doInBackground' and count(parameter)=1 and parameter[1][@type='java.lang.Void...']]" />
     
     <attr path="/api/package[@name='com.facebook']/class[@name='GraphRequestBatch']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]" name="managedReturn">Java.Lang.Object</attr>
+    <attr path="/api/package[@name='com.facebook.ads']/class[@name='MediaView']" name="extends">android.widget.RelativeLayout</attr>
 
     <remove-node path="/api/package[contains(@name, 'com.facebook.ads.internal')]" />
     <remove-node path="/api/package[contains(@name, 'com.facebook.ads.a')]" />
