@@ -519,7 +519,7 @@ namespace Facebook.AccountKit {
 		bool Equals (PhoneNumber phoneNumber);
 
 		// -(NSString * _Nonnull)stringRepresentation;
-		[New]
+		[Override]
 		[Export ("stringRepresentation")]
 		string ToString ();
 

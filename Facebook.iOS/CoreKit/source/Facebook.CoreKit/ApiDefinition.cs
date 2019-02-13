@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using CoreFoundation;
 using CoreGraphics;
@@ -549,7 +549,7 @@ namespace Facebook.CoreKit {
 		void LogEvent (NSString eventName);
 
 		[Static]
-		[Wrap ("var ptr = NSString.CreateNative (eventName);\nLogEvent (NSString.FromHandle (ptr));\nNSString.ReleaseNative (ptr)")]
+		[Wrap ("LogEvent (new NSString (eventName))")]
 		void LogEvent (string eventName);
 
 		// +(void)logEvent:(NSString *)eventName valueToSum:(double)valueToSum;
@@ -558,7 +558,7 @@ namespace Facebook.CoreKit {
 		void LogEvent (NSString eventName, double valueToSum);
 
 		[Static]
-		[Wrap ("var ptr = NSString.CreateNative (eventName);\nLogEvent (NSString.FromHandle (ptr), valueToSum);\nNSString.ReleaseNative (ptr)")]
+		[Wrap ("LogEvent (new NSString (eventName), valueToSum)")]
 		void LogEvent (string eventName, double valueToSum);
 
 		// +(void)logEvent:(NSString *)eventName parameters:(NSDictionary *)parameters;
@@ -1719,7 +1719,7 @@ namespace Facebook.CoreKit {
 		void AddTestAccount (NSSet permissions, TestUsersManagerRetrieveTestAccountTokensHandler handler);
 
 		// -(void)removeTestAccount:(NSString *)userId completionHandler:(FBSDKTestUsersManagerRemoveTestAccountHandler)handler;
-		// TODO: Resport this. If the framework contains a Task class, it will conflict with the System.Threading.Task class
+		// TODO: Report this. If the framework contains a Task class, it will conflict with the System.Threading.Tasks.Task class
 		//[Async]
 		[Export ("removeTestAccount:completionHandler:")]
 		void RemoveTestAccount (string userId, TestUsersManagerRemoveTestAccountHandler handler);
