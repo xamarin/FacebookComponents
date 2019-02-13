@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using CoreFoundation;
 using CoreGraphics;
@@ -35,14 +35,14 @@ namespace Facebook.CoreKit {
 		[Field ("FBSDKAccessTokenChangeNewKey", "__Internal")]
 		NSString NewTokenKey { get; }
 
-		[Field ("FBSDKAccessTokenDidChangeUserID", "__Internal")]
+		[Field ("FBSDKAccessTokenDidChangeUserIDKey", "__Internal")]
 		NSString UserIdKey { get; }
 
 		[Field ("FBSDKAccessTokenChangeOldKey", "__Internal")]
 		NSString OldTokenKey { get; }
 
 		// FBSDK_EXTERN NSString *const FBSDKAccessTokenDidExpire;
-		[Field ("FBSDKAccessTokenDidExpire", "__Internal")]
+		[Field ("FBSDKAccessTokenDidExpireKey", "__Internal")]
 		NSString DidExpireKey { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * appID;
@@ -128,8 +128,253 @@ namespace Facebook.CoreKit {
 
 		// + (void)refreshCurrentAccessToken:(FBSDKGraphRequestHandler)completionHandler;
 		[Static]
+		[Async (ResultTypeName = "GraphRequestResult")]
 		[Export ("refreshCurrentAccessToken:")]
 		void RefreshCurrentAccessToken (GraphRequestHandler completionHandler);
+	}
+
+	[Static]
+	interface AppEventName {
+		// extern NSString *const FBSDKAppEventNameAchievedLevel;
+		[Field ("FBSDKAppEventNameAchievedLevel", "__Internal")]
+		NSString AchievedLevel { get; }
+
+		// extern NSString *const FBSDKAppEventNameAddedPaymentInfo;
+		[Field ("FBSDKAppEventNameAddedPaymentInfo", "__Internal")]
+		NSString AddedPaymentInfo { get; }
+
+		// extern NSString *const FBSDKAppEventNameAddedToCart;
+		[Field ("FBSDKAppEventNameAddedToCart", "__Internal")]
+		NSString AddedToCart { get; }
+
+		// extern NSString *const FBSDKAppEventNameAddedToWishlist;
+		[Field ("FBSDKAppEventNameAddedToWishlist", "__Internal")]
+		NSString AddedToWishlist { get; }
+
+		// extern NSString *const FBSDKAppEventNameCompletedRegistration;
+		[Field ("FBSDKAppEventNameCompletedRegistration", "__Internal")]
+		NSString CompletedRegistration { get; }
+
+		// extern NSString *const FBSDKAppEventNameCompletedTutorial;
+		[Field ("FBSDKAppEventNameCompletedTutorial", "__Internal")]
+		NSString CompletedTutorial { get; }
+
+		// extern NSString *const FBSDKAppEventNameInitiatedCheckout;
+		[Field ("FBSDKAppEventNameInitiatedCheckout", "__Internal")]
+		NSString InitiatedCheckout { get; }
+
+		// extern NSString *const FBSDKAppEventNameRated;
+		[Field ("FBSDKAppEventNameRated", "__Internal")]
+		NSString Rated { get; }
+
+		// extern NSString *const FBSDKAppEventNameSearched;
+		[Field ("FBSDKAppEventNameSearched", "__Internal")]
+		NSString Searched { get; }
+
+		// extern NSString *const FBSDKAppEventNameSpentCredits;
+		[Field ("FBSDKAppEventNameSpentCredits", "__Internal")]
+		NSString SpentCredits { get; }
+
+		// extern NSString *const FBSDKAppEventNameUnlockedAchievement;
+		[Field ("FBSDKAppEventNameUnlockedAchievement", "__Internal")]
+		NSString UnlockedAchievement { get; }
+
+		// extern NSString *const FBSDKAppEventNameViewedContent;
+		[Field ("FBSDKAppEventNameViewedContent", "__Internal")]
+		NSString ViewedContent { get; }
+
+		// extern NSString *const FBSDKAppEventNameContact;
+		[Field ("FBSDKAppEventNameContact", "__Internal")]
+		NSString Contact { get; }
+
+		// extern NSString *const FBSDKAppEventNameCustomizeProduct;
+		[Field ("FBSDKAppEventNameCustomizeProduct", "__Internal")]
+		NSString CustomizeProduct { get; }
+
+		// extern NSString *const FBSDKAppEventNameDonate;
+		[Field ("FBSDKAppEventNameDonate", "__Internal")]
+		NSString Donate { get; }
+
+		// extern NSString *const FBSDKAppEventNameFindLocation;
+		[Field ("FBSDKAppEventNameFindLocation", "__Internal")]
+		NSString FindLocation { get; }
+
+		// extern NSString *const FBSDKAppEventNameSchedule;
+		[Field ("FBSDKAppEventNameSchedule", "__Internal")]
+		NSString Schedule { get; }
+
+		// extern NSString *const FBSDKAppEventNameStartTrial;
+		[Field ("FBSDKAppEventNameStartTrial", "__Internal")]
+		NSString StartTrial { get; }
+
+		// extern NSString *const FBSDKAppEventNameSubmitApplication;
+		[Field ("FBSDKAppEventNameSubmitApplication", "__Internal")]
+		NSString SubmitApplication { get; }
+
+		// extern NSString *const FBSDKAppEventNameSubscribe;
+		[Field ("FBSDKAppEventNameSubscribe", "__Internal")]
+		NSString Subscribe { get; }
+
+		// extern NSString *const FBSDKAppEventNameAdImpression;
+		[Field ("FBSDKAppEventNameAdImpression", "__Internal")]
+		NSString AdImpression { get; }
+
+		// extern NSString *const FBSDKAppEventNameAdClick;
+		[Field ("FBSDKAppEventNameAdClick", "__Internal")]
+		NSString AdClick { get; }
+	}
+
+	[Static]
+	interface AppEventParameterName {
+		// extern NSString *const FBSDKAppEventParameterNameContent;
+		[Field ("FBSDKAppEventParameterNameContent", "__Internal")]
+		NSString Content { get; }
+
+		// extern NSString *const FBSDKAppEventParameterNameContentID;
+		[Field ("FBSDKAppEventParameterNameContentID", "__Internal")]
+		NSString ContentID { get; }
+
+		// extern NSString *const FBSDKAppEventParameterNameContentType;
+		[Field ("FBSDKAppEventParameterNameContentType", "__Internal")]
+		NSString ContentType { get; }
+
+		// extern NSString *const FBSDKAppEventParameterNameCurrency;
+		[Field ("FBSDKAppEventParameterNameCurrency", "__Internal")]
+		NSString Currency { get; }
+
+		// extern NSString *const FBSDKAppEventParameterNameDescription;
+		[Field ("FBSDKAppEventParameterNameDescription", "__Internal")]
+		NSString Description { get; }
+
+		// extern NSString *const FBSDKAppEventParameterNameLevel;
+		[Field ("FBSDKAppEventParameterNameLevel", "__Internal")]
+		NSString Level { get; }
+
+		// extern NSString *const FBSDKAppEventParameterNameMaxRatingValue;
+		[Field ("FBSDKAppEventParameterNameMaxRatingValue", "__Internal")]
+		NSString MaxRatingValue { get; }
+
+		// extern NSString *const FBSDKAppEventParameterNameNumItems;
+		[Field ("FBSDKAppEventParameterNameNumItems", "__Internal")]
+		NSString NumItems { get; }
+
+		// extern NSString *const FBSDKAppEventParameterNamePaymentInfoAvailable;
+		[Field ("FBSDKAppEventParameterNamePaymentInfoAvailable", "__Internal")]
+		NSString PaymentInfoAvailable { get; }
+
+		// extern NSString *const FBSDKAppEventParameterNameRegistrationMethod;
+		[Field ("FBSDKAppEventParameterNameRegistrationMethod", "__Internal")]
+		NSString RegistrationMethod { get; }
+
+		// extern NSString *const FBSDKAppEventParameterNameSearchString;
+		[Field ("FBSDKAppEventParameterNameSearchString", "__Internal")]
+		NSString SearchString { get; }
+
+		// extern NSString *const FBSDKAppEventParameterNameSuccess;
+		[Field ("FBSDKAppEventParameterNameSuccess", "__Internal")]
+		NSString Success { get; }
+
+		// extern NSString *const FBSDKAppEventParameterNameAdType;
+		[Field ("FBSDKAppEventParameterNameAdType", "__Internal")]
+		NSString AdType { get; }
+
+		// extern NSString *const FBSDKAppEventParameterNameOrderID;
+		[Field ("FBSDKAppEventParameterNameOrderID", "__Internal")]
+		NSString OrderId { get; }
+	}
+
+	[Static]
+	interface AppEventParameterProduct {
+		// extern NSString *const FBSDKAppEventParameterProductCustomLabel0;
+		[Field ("FBSDKAppEventParameterProductCustomLabel0", "__Internal")]
+		NSString CustomLabel0 { get; }
+
+		// extern NSString *const FBSDKAppEventParameterProductCustomLabel1;
+		[Field ("FBSDKAppEventParameterProductCustomLabel1", "__Internal")]
+		NSString CustomLabel1 { get; }
+
+		// extern NSString *const FBSDKAppEventParameterProductCustomLabel2;
+		[Field ("FBSDKAppEventParameterProductCustomLabel2", "__Internal")]
+		NSString CustomLabel2 { get; }
+
+		// extern NSString *const FBSDKAppEventParameterProductCustomLabel3;
+		[Field ("FBSDKAppEventParameterProductCustomLabel3", "__Internal")]
+		NSString CustomLabel3 { get; }
+
+		// extern NSString *const FBSDKAppEventParameterProductCustomLabel4;
+		[Field ("FBSDKAppEventParameterProductCustomLabel4", "__Internal")]
+		NSString CustomLabel4 { get; }
+
+		// extern NSString *const FBSDKAppEventParameterProductAppLinkIOSUrl;
+		[Field ("FBSDKAppEventParameterProductAppLinkIOSUrl", "__Internal")]
+		NSString AppLinkiOSUrl { get; }
+
+		// extern NSString *const FBSDKAppEventParameterProductAppLinkIOSAppStoreID;
+		[Field ("FBSDKAppEventParameterProductAppLinkIOSAppStoreID", "__Internal")]
+		NSString AppLinkiOSAppStoreId { get; }
+
+		// extern NSString *const FBSDKAppEventParameterProductAppLinkIOSAppName;
+		[Field ("FBSDKAppEventParameterProductAppLinkIOSAppName", "__Internal")]
+		NSString AppLinkiOSAppName { get; }
+
+		// extern NSString *const FBSDKAppEventParameterProductAppLinkIPhoneUrl;
+		[Field ("FBSDKAppEventParameterProductAppLinkIPhoneUrl", "__Internal")]
+		NSString AppLinkiPhoneUrl { get; }
+
+		// extern NSString *const FBSDKAppEventParameterProductAppLinkIPhoneAppStoreID;
+		[Field ("FBSDKAppEventParameterProductAppLinkIPhoneAppStoreID", "__Internal")]
+		NSString AppLinkiPhoneAppStoreId { get; }
+
+		// extern NSString *const FBSDKAppEventParameterProductAppLinkIPhoneAppName;
+		[Field ("FBSDKAppEventParameterProductAppLinkIPhoneAppName", "__Internal")]
+		NSString AppLinkiPhoneAppName { get; }
+
+		// extern NSString *const FBSDKAppEventParameterProductAppLinkIPadUrl;
+		[Field ("FBSDKAppEventParameterProductAppLinkIPadUrl", "__Internal")]
+		NSString AppLinkiPadUrl { get; }
+
+		// extern NSString *const FBSDKAppEventParameterProductAppLinkIPadAppStoreID;
+		[Field ("FBSDKAppEventParameterProductAppLinkIPadAppStoreID", "__Internal")]
+		NSString AppLinkiPadAppStoreId { get; }
+
+		// extern NSString *const FBSDKAppEventParameterProductAppLinkIPadAppName;
+		[Field ("FBSDKAppEventParameterProductAppLinkIPadAppName", "__Internal")]
+		NSString AppLinkiPadAppName { get; }
+
+		// extern NSString *const FBSDKAppEventParameterProductAppLinkAndroidUrl;
+		[Field ("FBSDKAppEventParameterProductAppLinkAndroidUrl", "__Internal")]
+		NSString AppLinkAndroidUrl { get; }
+
+		// extern NSString *const FBSDKAppEventParameterProductAppLinkAndroidPackage;
+		[Field ("FBSDKAppEventParameterProductAppLinkAndroidPackage", "__Internal")]
+		NSString AppLinkAndroidPackage { get; }
+
+		// extern NSString *const FBSDKAppEventParameterProductAppLinkAndroidAppName;
+		[Field ("FBSDKAppEventParameterProductAppLinkAndroidAppName", "__Internal")]
+		NSString AppLinkAndroidAppName { get; }
+
+		// extern NSString *const FBSDKAppEventParameterProductAppLinkWindowsPhoneUrl;
+		[Field ("FBSDKAppEventParameterProductAppLinkWindowsPhoneUrl", "__Internal")]
+		NSString AppLinkWindowsPhoneUrl { get; }
+
+		// extern NSString *const FBSDKAppEventParameterProductAppLinkWindowsPhoneAppID;
+		[Field ("FBSDKAppEventParameterProductAppLinkWindowsPhoneAppID", "__Internal")]
+		NSString AppLinkWindowsPhoneAppId { get; }
+
+		// extern NSString *const FBSDKAppEventParameterProductAppLinkWindowsPhoneAppName;
+		[Field ("FBSDKAppEventParameterProductAppLinkWindowsPhoneAppName", "__Internal")]
+		NSString AppLinkWindowsPhoneAppName { get; }
+	}
+
+	[Static]
+	interface AppEventParameterValue {
+		// extern NSString *const FBSDKAppEventParameterValueYes;
+		[Field ("FBSDKAppEventParameterValueYes", "__Internal")]
+		NSString Yes { get; }
+
+		// extern NSString *const FBSDKAppEventParameterValueNo;
+		[Field ("FBSDKAppEventParameterValueNo", "__Internal")]
+		NSString No { get; }
 	}
 
 	// @interface FBSDKAppEvents : NSObject
@@ -146,166 +391,174 @@ namespace Facebook.CoreKit {
 		[Field ("FBSDKAppEventsOverrideAppIDBundleKey", "__Internal")]
 		NSString OverrideAppIdBundleKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameAchievedLevel;
-		[Field ("FBSDKAppEventNameAchievedLevel", "__Internal")]
+		[Obsolete ("Use the AppEventName.AchievedLevel property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.AchievedLevel")]
 		NSString AchievedLevelEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameAddedPaymentInfo;
-		[Field ("FBSDKAppEventNameAddedPaymentInfo", "__Internal")]
+		[Obsolete ("Use the AppEventName.AddedPaymentInfo property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.AddedPaymentInfo")]
 		NSString AddedPaymentInfoEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameAddedToCart;
-		[Field ("FBSDKAppEventNameAddedToCart", "__Internal")]
+		[Obsolete ("Use the AppEventName.AddedToCart property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.AddedToCart")]
 		NSString AddedToCartEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameAddedToWishlist;
-		[Field ("FBSDKAppEventNameAddedToWishlist", "__Internal")]
+		[Obsolete ("Use the AppEventName.AddedToWishlist property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.AddedToWishlist")]
 		NSString AddedToWishlistEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameCompletedRegistration;
-		[Field ("FBSDKAppEventNameCompletedRegistration", "__Internal")]
+		[Obsolete ("Use the AppEventName.CompletedRegistration property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.CompletedRegistration")]
 		NSString CompletedRegistrationEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameCompletedTutorial;
-		[Field ("FBSDKAppEventNameCompletedTutorial", "__Internal")]
+		[Obsolete ("Use the AppEventName.CompletedTutorial property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.CompletedTutorial")]
 		NSString CompletedTutorialEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameInitiatedCheckout;
-		[Field ("FBSDKAppEventNameInitiatedCheckout", "__Internal")]
+		[Obsolete ("Use the AppEventName.InitiatedCheckout property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.InitiatedCheckout")]
 		NSString InitiatedCheckoutEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameRated;
-		[Field ("FBSDKAppEventNameRated", "__Internal")]
+		[Obsolete ("Use the AppEventName.Rated property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.Rated")]
 		NSString RatedEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameSearched;
-		[Field ("FBSDKAppEventNameSearched", "__Internal")]
+		[Obsolete ("Use the AppEventName.Searched property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.Searched")]
 		NSString SearchedEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameSpentCredits;
-		[Field ("FBSDKAppEventNameSpentCredits", "__Internal")]
+		[Obsolete ("Use the AppEventName.SpentCredits property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.SpentCredits")]
 		NSString SpentCreditsEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameUnlockedAchievement;
-		[Field ("FBSDKAppEventNameUnlockedAchievement", "__Internal")]
+		[Obsolete ("Use the AppEventName.UnlockedAchievement property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.UnlockedAchievement")]
 		NSString UnlockedAchievementEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameViewedContent;
-		[Field ("FBSDKAppEventNameViewedContent", "__Internal")]
+		[Obsolete ("Use the AppEventName.ViewedContent property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.ViewedContent")]
 		NSString ViewedContentEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameContact;
-		[Field ("FBSDKAppEventNameContact", "__Internal")]
+		[Obsolete ("Use the AppEventName.Contact property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.Contact")]
 		NSString NameContactEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameCustomizeProduct;
-		[Field ("FBSDKAppEventNameCustomizeProduct", "__Internal")]
+		[Obsolete ("Use the AppEventName.CustomizeProduct property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.CustomizeProduct")]
 		NSString CustomizeProductEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameDonate;
-		[Field ("FBSDKAppEventNameDonate", "__Internal")]
+		[Obsolete ("Use the AppEventName.Donate property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.Donate")]
 		NSString DonateEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameFindLocation;
-		[Field ("FBSDKAppEventNameFindLocation", "__Internal")]
+		[Obsolete ("Use the AppEventName.FindLocation property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.FindLocation")]
 		NSString FindLocationEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameSchedule;
-		[Field ("FBSDKAppEventNameSchedule", "__Internal")]
+		[Obsolete ("Use the AppEventName.Schedule property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.Schedule")]
 		NSString ScheduleEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameStartTrial;
-		[Field ("FBSDKAppEventNameStartTrial", "__Internal")]
+		[Obsolete ("Use the AppEventName.StartTrial property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.StartTrial")]
 		NSString StartTrialEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameSubmitApplication;
-		[Field ("FBSDKAppEventNameSubmitApplication", "__Internal")]
+		[Obsolete ("Use the AppEventName.SubmitApplication property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.SubmitApplication")]
 		NSString SubmitApplicationEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameSubscribe;
-		[Field ("FBSDKAppEventNameSubscribe", "__Internal")]
+		[Obsolete ("Use the AppEventName.Subscribe property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.Subscribe")]
 		NSString NameSubscribeEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameAdImpression;
-		[Field ("FBSDKAppEventNameAdImpression", "__Internal")]
+		[Obsolete ("Use the AppEventName.AdImpression property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.AdImpression")]
 		NSString AdImpressionEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventNameAdClick;
-		[Field ("FBSDKAppEventNameAdClick", "__Internal")]
+		[Obsolete ("Use the AppEventName.AdClick property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventName.AdClick")]
 		NSString AdClickEventNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventParameterNameContent;
-		[Field ("FBSDKAppEventParameterNameContent", "__Internal")]
+		[Obsolete ("Use the AppEventParameterName.Content property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventParameterName.Content")]
 		NSString ContentParameterNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventParameterNameContentID;
-		[Field ("FBSDKAppEventParameterNameContentID", "__Internal")]
+		[Obsolete ("Use the AppEventParameterName.ContentID property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventParameterName.ContentID")]
 		NSString ContentIdParameterNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventParameterNameContentType;
-		[Field ("FBSDKAppEventParameterNameContentType", "__Internal")]
+		[Obsolete ("Use the AppEventParameterName.ContentType property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventParameterName.ContentType")]
 		NSString ContentTypeParameterNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventParameterNameCurrency;
-		[Field ("FBSDKAppEventParameterNameCurrency", "__Internal")]
+		[Obsolete ("Use the AppEventParameterName.Currency property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventParameterName.Currency")]
 		NSString CurrencyParameterNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventParameterNameDescription;
-		[Field ("FBSDKAppEventParameterNameDescription", "__Internal")]
+		[Obsolete ("Use the AppEventParameterName.Description property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventParameterName.Description")]
 		NSString DescriptionParameterNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventParameterNameLevel;
-		[Field ("FBSDKAppEventParameterNameLevel", "__Internal")]
+		[Obsolete ("Use the AppEventParameterName.Level property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventParameterName.Level")]
 		NSString LevelParameterNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventParameterNameMaxRatingValue;
-		[Field ("FBSDKAppEventParameterNameMaxRatingValue", "__Internal")]
+		[Obsolete ("Use the AppEventParameterName.MaxRatingValue property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventParameterName.MaxRatingValue")]
 		NSString MaxRatingValueParameterNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventParameterNameNumItems;
-		[Field ("FBSDKAppEventParameterNameNumItems", "__Internal")]
+		[Obsolete ("Use the AppEventParameterName.NumItems property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventParameterName.NumItems")]
 		NSString NumItemsParameterNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventParameterNamePaymentInfoAvailable;
-		[Field ("FBSDKAppEventParameterNamePaymentInfoAvailable", "__Internal")]
+		[Obsolete ("Use the AppEventParameterName.PaymentInfoAvailable property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventParameterName.PaymentInfoAvailable")]
 		NSString PaymentInfoAvailableParameterNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventParameterNameRegistrationMethod;
-		[Field ("FBSDKAppEventParameterNameRegistrationMethod", "__Internal")]
+		[Obsolete ("Use the AppEventParameterName.RegistrationMethod property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventParameterName.RegistrationMethod")]
 		NSString RegistrationMethodParameterNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventParameterNameSearchString;
-		[Field ("FBSDKAppEventParameterNameSearchString", "__Internal")]
+		[Obsolete ("Use the AppEventParameterName.SearchString property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventParameterName.SearchString")]
 		NSString SearchStringParameterNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventParameterNameSuccess;
-		[Field ("FBSDKAppEventParameterNameSuccess", "__Internal")]
+		[Obsolete ("Use the AppEventParameterName.Success property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventParameterName.Success")]
 		NSString SuccessParameterNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventParameterValueYes;
-		[Field ("FBSDKAppEventParameterValueYes", "__Internal")]
+		[Obsolete ("Use the AppEventParameterValue.Yes property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventParameterValue.Yes")]
 		NSString YesParameterValueKey { get; }
 
-		// extern NSString *const FBSDKAppEventParameterValueNo;
-		[Field ("FBSDKAppEventParameterValueNo", "__Internal")]
+		[Obsolete ("Use the the AppEventParameterValue.No property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventParameterValue.No")]
 		NSString NoParameterValueKey { get; }
 
-		// extern NSString *const FBSDKAppEventParameterNameAdType;
-		[Field ("FBSDKAppEventParameterNameAdType", "__Internal")]
+		[Obsolete ("Use the AppEventParameterName.AdType property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventParameterName.AdType")]
 		NSString AdTypeParameterNameKey { get; }
 
-		// extern NSString *const FBSDKAppEventParameterNameOrderID;
-		[Field ("FBSDKAppEventParameterNameOrderID", "__Internal")]
+		[Obsolete ("Use the AppEventParameterName.OrderId property instead. This will be removed in future versions.")]
+		[Wrap ("AppEventParameterName.OrderId")]
 		NSString OrderIdParameterNameKey { get; }
 
 		// +(void)logEvent:(NSString *)eventName;
 		[Static]
 		[Export ("logEvent:")]
+		void LogEvent (NSString eventName);
+
+		[Static]
+		[Wrap ("LogEvent (new NSString (eventName))")]
 		void LogEvent (string eventName);
 
 		// +(void)logEvent:(NSString *)eventName valueToSum:(double)valueToSum;
 		[Static]
 		[Export ("logEvent:valueToSum:")]
+		void LogEvent (NSString eventName, double valueToSum);
+
+		[Static]
+		[Wrap ("LogEvent (new NSString (eventName), valueToSum)")]
 		void LogEvent (string eventName, double valueToSum);
 
 		// +(void)logEvent:(NSString *)eventName parameters:(NSDictionary *)parameters;
@@ -363,6 +616,11 @@ namespace Facebook.CoreKit {
 		[Export ("setPushNotificationsDeviceToken:")]
 		void SetPushNotificationsDeviceToken (NSData deviceToken);
 
+		// +(void)setPushNotificationsDeviceTokenString:(NSString *)deviceTokenString;
+		[Static]
+		[Export ("setPushNotificationsDeviceTokenString:")]
+		void SetPushNotificationsDeviceToken (string deviceTokenString);
+
 		// +(FBSDKAppEventsFlushBehavior)flushBehavior;
 		// +(void)setFlushBehavior:(FBSDKAppEventsFlushBehavior)flushBehavior;
 		[Static]
@@ -405,7 +663,7 @@ namespace Facebook.CoreKit {
 		// +(void)setUserEmail:(NSString * _Nullable)email firstName:(NSString * _Nullable)firstName lastName:(NSString * _Nullable)lastName phone:(NSString * _Nullable)phone dateOfBirth:(NSString * _Nullable)dateOfBirth gender:(NSString * _Nullable)gender city:(NSString * _Nullable)city state:(NSString * _Nullable)state zip:(NSString * _Nullable)zip country:(NSString * _Nullable)country;
 		[Static]
 		[Export ("setUserEmail:firstName:lastName:phone:dateOfBirth:gender:city:state:zip:country:")]
-		void SetUserEmail ([NullAllowed] string email, [NullAllowed] string firstName, [NullAllowed] string lastName, [NullAllowed] string phone, [NullAllowed] string dateOfBirth, [NullAllowed] string gender, [NullAllowed] string city, [NullAllowed] string state, [NullAllowed] string zip, [NullAllowed] string country);
+		void SetUserEmail (string email, string firstName, string lastName, string phone, string dateOfBirth, string gender, string city, string state, string zip, string country);
 
 		// +(NSString *)getUserData;
 		[Static]
@@ -420,8 +678,9 @@ namespace Facebook.CoreKit {
 
 		// +(void)updateUserProperties:(NSDictionary *)properties handler:(FBSDKGraphRequestHandler)handler;
 		[Static]
+		[Async (ResultTypeName = "GraphRequestResult")]
 		[Export ("updateUserProperties:handler:")]
-		void UpdateUserProperties (NSDictionary properties, [NullAllowed]GraphRequestHandler handler);
+		void UpdateUserProperties (NSDictionary properties, [NullAllowed] GraphRequestHandler handler);
 
 		// +(void)augmentHybridWKWebView:(WKWebView *)webView;
 		[Unavailable (PlatformName.TvOS)]
@@ -512,6 +771,10 @@ namespace Facebook.CoreKit {
 		[Export ("appLink", ArgumentSemantic.Strong)]
 		AppLink AppLink { get; }
 
+		// -(FBSDKAppLinkNavigationType)navigationType;
+		[Export ("navigationType")]
+		AppLinkNavigationType GetNavigationType ();
+
 		// +(instancetype _Nonnull)navigationWithAppLink:(FBSDKAppLink * _Nonnull)appLink extras:(NSDictionary<NSString *,id> * _Nonnull)extras appLinkData:(NSDictionary<NSString *,id> * _Nonnull)appLinkData;
 		[Static]
 		[Export ("navigationWithAppLink:extras:appLinkData:")]
@@ -547,10 +810,6 @@ namespace Facebook.CoreKit {
 		[Static]
 		[Export ("navigationTypeForLink:")]
 		AppLinkNavigationType GetNavigationType (AppLink link);
-
-		// -(FBSDKAppLinkNavigationType)navigationType;
-		[Export ("navigationType")]
-		AppLinkNavigationType GetNavigationType ();
 
 		// +(void)navigateToURL:(NSURL * _Nonnull)destination handler:(FBSDKAppLinkNavigationHandler _Nonnull)handler;
 		[Async]
@@ -1023,14 +1282,27 @@ namespace Facebook.CoreKit {
 		void SetDefaultConnectionTimeout (double defaultConnectionTimeout);
 
 		// -(void)addRequest:(FBSDKGraphRequest *)request completionHandler:(FBSDKGraphRequestHandler)handler;
+		[Async (ResultTypeName = "GraphRequestResult")]
 		[Export ("addRequest:completionHandler:")]
 		void AddRequest (GraphRequest request, [NullAllowed] GraphRequestHandler handler);
 
+		// -(void)addRequest:(FBSDKGraphRequest *)request batchEntryName:(NSString *)name completionHandler:(FBSDKGraphRequestHandler)handler;
+		[Async (ResultTypeName = "GraphRequestResult")]
+		[Export ("addRequest:batchEntryName:completionHandler:")]
+		void AddRequest (GraphRequest request, string name, GraphRequestHandler handler);
+
 		// -(void)addRequest:(FBSDKGraphRequest *)request completionHandler:(FBSDKGraphRequestHandler)handler batchEntryName:(NSString *)name;
+		[Obsolete ("Use the AddRequest (GraphRequest, string, GraphRequestHandler) overload method instead.")]
 		[Export ("addRequest:completionHandler:batchEntryName:")]
 		void AddRequest (GraphRequest request, [NullAllowed] GraphRequestHandler handler, string name);
 
+		// -(void)addRequest:(FBSDKGraphRequest *)request batchParameters:(NSDictionary<NSString *,id> *)batchParameters completionHandler:(FBSDKGraphRequestHandler)handler;
+		[Async (ResultTypeName = "GraphRequestResult")]
+		[Export ("addRequest:batchParameters:completionHandler:")]
+		void AddRequest (GraphRequest request, NSDictionary batchParameters, GraphRequestHandler handler);
+
 		// -(void)addRequest:(FBSDKGraphRequest *)request completionHandler:(FBSDKGraphRequestHandler)handler batchParameters:(NSDictionary *)batchParameters;
+		[Obsolete ("Use the AddRequest (GraphRequest, NSDictionary, GraphRequestHandler) overload method instead.")]
 		[Export ("addRequest:completionHandler:batchParameters:")]
 		void AddRequest (GraphRequest request, [NullAllowed] GraphRequestHandler handler, [NullAllowed] NSDictionary batchParameters);
 
@@ -1046,7 +1318,12 @@ namespace Facebook.CoreKit {
 		[Export ("setDelegateQueue:")]
 		void SetDelegateQueue (NSOperationQueue queue);
 
+		// -(void)overrideGraphAPIVersion:(NSString *)version;
+		[Export ("overrideGraphAPIVersion:")]
+		void OverrideGraphApiVersion (string version);
+
 		// -(void)overrideVersionPartWith:(NSString *)version;
+		[Obsolete ("Use the OverrideGraphApiVersion method instead.")]
 		[Export ("overrideVersionPartWith:")]
 		void OverrideVersionPart (string version);
 	}
@@ -1209,6 +1486,7 @@ namespace Facebook.CoreKit {
 		void EnableUpdatesOnAccessTokenChange (bool enable);
 
 		// + (void)loadCurrentProfileWithCompletion:(void(^)(FBSDKProfile *profile, NSError *error))completion;
+		[Async]
 		[Static]
 		[Export ("loadCurrentProfileWithCompletion:")]
 		void LoadCurrentProfile (ProfileLoadCurrentProfileHandler completion);
@@ -1359,6 +1637,13 @@ namespace Facebook.CoreKit {
 		[Export ("codelessDebugLogEnabled")]
 		NSNumber _CodelessDebugLogEnabled { get; set; }
 
+		// +(NSNumber *)advertiserIDCollectionEnabled;
+		// +(void)setAdvertiserIDCollectionEnabled:(NSNumber *)AdvertiserIDCollectionEnabled;
+		[Internal]
+		[Static]
+		[Export ("advertiserIDCollectionEnabled")]
+		NSNumber _AdvertiserIdCollectionEnabled { get; set; }
+
 		// +(BOOL)limitEventAndDataUsage;
 		// +(void)setLimitEventAndDataUsage:(BOOL)limitEventAndDataUsage;
 		[Static]
@@ -1370,8 +1655,14 @@ namespace Facebook.CoreKit {
 		[Export ("sdkVersion")]
 		string SdkVersion { get; }
 
+		// @property (copy, nonatomic, class) NSSet<NSString *> * loggingBehaviors;
+		[Static]
+		[Export ("loggingBehaviors", ArgumentSemantic.Copy)]
+		NSSet<NSString> LoggingBehaviors { get; set; }
+
 		// +(NSSet *)loggingBehavior;
 		// +(void)setLoggingBehavior:(NSSet *)loggingBehavior;
+		[Obsolete ("Use the LoggingBehaviors static property instead.")]
 		[Static]
 		[Export ("loggingBehavior")]
 		NSSet LoggingBehavior { get; set; }
@@ -1418,18 +1709,23 @@ namespace Facebook.CoreKit {
 		TestUsersManager SharedInstance (string appID, string appSecret);
 
 		// -(void)requestTestAccountTokensWithArraysOfPermissions:(NSArray *)arraysOfPermissions createIfNotFound:(BOOL)createIfNotFound completionHandler:(FBSDKTestUsersManagerRetrieveTestAccountTokensHandler)handler;
+		[Async]
 		[Export ("requestTestAccountTokensWithArraysOfPermissions:createIfNotFound:completionHandler:")]
 		void RequestTestAccount (string [] arraysOfPermissions, bool createIfNotFound, TestUsersManagerRetrieveTestAccountTokensHandler handler);
 
 		// -(void)addTestAccountWithPermissions:(NSSet *)permissions completionHandler:(FBSDKTestUsersManagerRetrieveTestAccountTokensHandler)handler;
+		[Async]
 		[Export ("addTestAccountWithPermissions:completionHandler:")]
 		void AddTestAccount (NSSet permissions, TestUsersManagerRetrieveTestAccountTokensHandler handler);
 
 		// -(void)removeTestAccount:(NSString *)userId completionHandler:(FBSDKTestUsersManagerRemoveTestAccountHandler)handler;
+		// TODO: Report this. If the framework contains a Task class, it will conflict with the System.Threading.Tasks.Task class
+		//[Async]
 		[Export ("removeTestAccount:completionHandler:")]
 		void RemoveTestAccount (string userId, TestUsersManagerRemoveTestAccountHandler handler);
 
 		// -(void)makeFriendsWithFirst:(FBSDKAccessToken *)first second:(FBSDKAccessToken *)second callback:(void (^)(NSError *))callback;
+		//[Async]
 		[Export ("makeFriendsWithFirst:second:callback:")]
 		void MakeFriends (AccessToken first, AccessToken second, TestUsersManagerRemoveTestAccountHandler callback);
 	}
