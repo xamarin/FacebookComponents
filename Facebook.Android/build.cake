@@ -19,7 +19,7 @@ var ARTIFACTS = new List<ArtifactInfo> {
 	new ArtifactInfo("facebook-marketing", "4.38.0"),
 	// This needs to stay preview until google play services comes out of preview
 	new ArtifactInfo("account-kit-sdk", "4.37.0", "4.37.0-preview"),
-	new ArtifactInfo("audience-network-sdk", "5.0.1"),
+	new ArtifactInfo("audience-network-sdk", "5.1.1"),
 	new ArtifactInfo("notifications", "1.0.2")
 };
 
