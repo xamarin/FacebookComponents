@@ -11,6 +11,11 @@ string SDK_VERSION = "4.40.0";
 string XAMARIN_FIX_VERSION = "0";
 string SDK_FULL_VERSION = $"{SDK_VERSION}.{XAMARIN_FIX_VERSION}";
 
+string EXTERNALS_FOLDER_PATH = "./../externals/";
+string SDK_FILENAME = "FacebookSDKs";
+string SDK_PATH = $"{EXTERNALS_FOLDER_PATH}{SDK_FILENAME}/";
+string SDK_ZIPNAME = $"{SDK_FILENAME}.zip";
+
 // Variables for get Facebook binaries from Cocoapods
 string IOS_PLATFORM = null;
 string [] IOS_TARGETS = null;
@@ -18,8 +23,6 @@ List<string> IOS_PODS = null;
 
 // Variables for get Facebook binaries from Official Facebook's URL
 string SDK_URL = null;
-string SDK_FILE = null;
-string SDK_PATH = null;
 string [] SDK_FRAMEWORKS = { };
 string [] SDK_BUNDLES = { };
 
@@ -29,37 +32,41 @@ Task ("externals")
 {
 	InvokeOtherFacebookModules (MY_DEPENDENCIES, "externals");
 
-	if (DirectoryExists ("./externals") || (IOS_PODS == null && SDK_URL == null))
+	if (IOS_PODS == null && SDK_URL == null)
 		return;
 
-	EnsureDirectoryExists ("./externals");
+	EnsureDirectoryExists (EXTERNALS_FOLDER_PATH);
 
 	if (IOS_PODS != null) {
+		if (FileExists ($"{EXTERNALS_FOLDER_PATH}Podfile"))
+			return;
+		
 		if (CocoaPodVersion () < new System.Version (1, 0))
 			IOS_PODS.RemoveAt (2);
 
-		FileWriteLines ("./externals/Podfile", IOS_PODS.ToArray ());
+		FileWriteLines ($"{EXTERNALS_FOLDER_PATH}Podfile", IOS_PODS.ToArray ());
 
-		CocoaPodInstall ("./externals", new CocoaPodInstallSettings { });
+		CocoaPodInstall (EXTERNALS_FOLDER_PATH, new CocoaPodInstallSettings { });
 		
-		if (DirectoryExists ("./externals/Pods/FBSDKCoreKit"))
-			CopyDirectory ("./externals/Pods/FBSDKCoreKit/FacebookSDKStrings.bundle", "./externals/FacebookSDKStrings.bundle");
+		if (DirectoryExists ($"{EXTERNALS_FOLDER_PATH}Pods/FBSDKCoreKit"))
+			CopyDirectory ($"{EXTERNALS_FOLDER_PATH}FBSDKCoreKit/FacebookSDKStrings.bundle", $"{EXTERNALS_FOLDER_PATH}FacebookSDKStrings.bundle");
 
 		foreach (var target in IOS_TARGETS)
-			BuildXCodeFatLibrary ("./Pods/Pods.xcodeproj", target, Archs.Simulator | Archs.Simulator64 | Archs.ArmV7 | Archs.Arm64, target, $"{target}.a", null, target);
+			BuildXCodeFatLibrary ($"{EXTERNALS_FOLDER_PATH}Pods/Pods.xcodeproj", target, Archs.Simulator | Archs.Simulator64 | Archs.ArmV7 | Archs.Arm64, target, $"{target}.a", null, target);
 	} else if (SDK_URL != null) {
-		DownloadFile (SDK_URL, $"./externals/{SDK_FILE}", new Cake.Xamarin.Build.DownloadFileSettings
-		{
-			UserAgent = "curl/7.43.0"
-		});
-
-		Unzip ($"./externals/{SDK_FILE}", SDK_PATH);
+		if (FileExists($"{EXTERNALS_FOLDER_PATH}{SDK_FRAMEWORKS [0]}.framework"))
+			return;
+		
+		if (!FileExists($"{EXTERNALS_FOLDER_PATH}{SDK_ZIPNAME}")) {
+			DownloadFile (SDK_URL, $"{EXTERNALS_FOLDER_PATH}{SDK_ZIPNAME}", new Cake.Xamarin.Build.DownloadFileSettings { UserAgent = "curl/7.43.0" });
+			Unzip ($"{EXTERNALS_FOLDER_PATH}{SDK_ZIPNAME}", SDK_PATH);
+		}
 
 		foreach (var framework in SDK_FRAMEWORKS)
-			CopyDirectory ($"{SDK_PATH}/{framework}.framework", $"./externals/{framework}.framework");
+			CopyDirectory ($"{SDK_PATH}/{framework}.framework", $"{EXTERNALS_FOLDER_PATH}{framework}.framework");
 		
 		foreach (var bundle in SDK_BUNDLES)
-			CopyDirectory ($"{SDK_PATH}/{bundle}.bundle", $"./externals/{bundle}.bundle");
+			CopyDirectory ($"{SDK_PATH}/{bundle}.bundle", $"{EXTERNALS_FOLDER_PATH}{bundle}.bundle");
 	}
 });
 

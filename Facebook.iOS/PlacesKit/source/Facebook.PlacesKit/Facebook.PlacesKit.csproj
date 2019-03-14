@@ -48,7 +48,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="..\..\externals\FBSDKPlacesKit.framework">
+    <NativeReference Include="..\..\..\externals\FBSDKPlacesKit.framework">
       <Kind>Framework</Kind>
       <ForceLoad>True</ForceLoad>
       <WeakFrameworks>Accounts CoreLocation Social Security Foundation</WeakFrameworks>

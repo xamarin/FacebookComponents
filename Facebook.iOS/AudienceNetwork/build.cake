@@ -8,8 +8,9 @@ XAMARIN_FIX_VERSION = "0";
 SDK_FULL_VERSION = $"{SDK_VERSION}.{XAMARIN_FIX_VERSION}";
 
 SDK_URL = $"https://origincache.facebook.com/developers/resources/?id=FBAudienceNetwork-{SDK_VERSION}.zip";
-SDK_FILE = "FBAudienceNetwork.zip";
-SDK_PATH = "./externals/FBAudienceNetwork";
+SDK_FILENAME = "FBAudienceNetwork.zip";
+SDK_PATH = $"{EXTERNALS_FOLDER_PATH}{SDK_FILENAME}/";
+SDK_ZIPNAME = $"{SDK_FILENAME}.zip";
 SDK_FRAMEWORKS = new [] { "FBAudienceNetwork" };
 
 var buildSpec = new BuildSpec () {

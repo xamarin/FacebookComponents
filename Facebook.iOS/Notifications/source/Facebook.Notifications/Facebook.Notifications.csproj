@@ -42,7 +42,7 @@
     <ObjcBindingCoreSource Include="Structs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="..\..\externals\FBNotifications.framework">
+    <NativeReference Include="..\..\..\externals\FBNotifications.framework">
       <Kind>Framework</Kind>
       <ForceLoad>True</ForceLoad>
       <Frameworks>ImageIO MobileCoreServices</Frameworks>

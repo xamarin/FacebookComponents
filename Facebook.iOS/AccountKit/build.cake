@@ -4,8 +4,6 @@
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
 SDK_URL = $"https://origincache.facebook.com/developers/resources/?id=FacebookSDKs-iOS-{SDK_VERSION}.zip";
-SDK_FILE = $"FacebookSDKs.zip";
-SDK_PATH = $"./externals/FacebookSDKs";
 SDK_FRAMEWORKS = new [] { "AccountKit" };
 SDK_BUNDLES = new [] { "AccountKitStrings" };
 
