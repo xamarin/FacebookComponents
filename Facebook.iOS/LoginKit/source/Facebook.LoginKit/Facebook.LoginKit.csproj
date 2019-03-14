@@ -48,7 +48,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="..\..\externals\FBSDKLoginKit.framework">
+    <NativeReference Include="..\..\..\externals\FBSDKLoginKit.framework">
       <Kind>Framework</Kind>
       <ForceLoad>True</ForceLoad>
       <WeakFrameworks>Accounts CoreLocation Social Security QuartzCore CoreGraphics UIKit Foundation AudioToolbox</WeakFrameworks>
