@@ -11,7 +11,7 @@ string SDK_VERSION = "4.40.0";
 string XAMARIN_FIX_VERSION = "0";
 string SDK_FULL_VERSION = $"{SDK_VERSION}.{XAMARIN_FIX_VERSION}";
 
-string EXTERNALS_FOLDER_PATH = "./../externals/";
+string EXTERNALS_FOLDER_PATH = "../externals/";
 string SDK_FILENAME = "FacebookSDKs";
 string SDK_PATH = $"{EXTERNALS_FOLDER_PATH}{SDK_FILENAME}/";
 string SDK_ZIPNAME = $"{SDK_FILENAME}.zip";
@@ -54,7 +54,7 @@ Task ("externals")
 		foreach (var target in IOS_TARGETS)
 			BuildXCodeFatLibrary ($"{EXTERNALS_FOLDER_PATH}Pods/Pods.xcodeproj", target, Archs.Simulator | Archs.Simulator64 | Archs.ArmV7 | Archs.Arm64, target, $"{target}.a", null, target);
 	} else if (SDK_URL != null) {
-		if (FileExists($"{EXTERNALS_FOLDER_PATH}{SDK_FRAMEWORKS [0]}.framework"))
+		if (DirectoryExists($"{EXTERNALS_FOLDER_PATH}{SDK_FRAMEWORKS [0]}.framework"))
 			return;
 		
 		if (!FileExists($"{EXTERNALS_FOLDER_PATH}{SDK_ZIPNAME}")) {
@@ -91,10 +91,8 @@ Task ("ci-setup")
 
 Task ("clean").IsDependentOn ("clean-base").Does (() => 
 {
-	InvokeOtherFacebookModules (MY_DEPENDENCIES, "clean");
-
-	if (DirectoryExists ("./externals"))
-		DeleteDirectory ("./externals", new DeleteDirectorySettings {
+	if (DirectoryExists ($"{EXTERNALS_FOLDER_PATH}"))
+		DeleteDirectory ($"{EXTERNALS_FOLDER_PATH}", new DeleteDirectorySettings {
 			Recursive = true,
 			Force = true
 		});
