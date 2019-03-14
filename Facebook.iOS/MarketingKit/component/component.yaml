@@ -1,4 +1,4 @@
-version: 4.39.1.0
+version: 4.40.0.0
 name: Facebook MarketingKit for iOS
 id: facebookiosmarketingkit
 publisher: Xamarin Inc
@@ -12,7 +12,7 @@ icons:
 license: ../License.md
 packages:
   ios-unified:
-    - Xamarin.Facebook.MarketingKit.iOS, Version=4.39.1.0
+    - Xamarin.Facebook.MarketingKit.iOS, Version=4.40.0.0
 libraries:
   ios-unified:
     - ../output/Facebook.MarketingKit.dll
