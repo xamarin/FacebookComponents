@@ -6,17 +6,17 @@ var FB_VERSION = "4.37.0";
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
 var ARTIFACTS = new List<ArtifactInfo> {
-	new ArtifactInfo("facebook-android-sdk", "4.38.0"),
-	new ArtifactInfo("facebook-core", "4.38.0"),
-	new ArtifactInfo("facebook-common", "4.38.0"),
-	new ArtifactInfo("facebook-login", "4.38.0"),
-	new ArtifactInfo("facebook-share", "4.38.0"),
-	new ArtifactInfo("facebook-places", "4.38.0"),
-	new ArtifactInfo("facebook-applinks", "4.38.0"),
-	new ArtifactInfo("facebook-messenger", "4.38.0"),
+	new ArtifactInfo("facebook-android-sdk", "4.40.0"),
+	new ArtifactInfo("facebook-core", "4.40.0"),
+	new ArtifactInfo("facebook-common", "4.40.0"),
+	new ArtifactInfo("facebook-login", "4.40.0"),
+	new ArtifactInfo("facebook-share", "4.40.0"),
+	new ArtifactInfo("facebook-places", "4.40.0"),
+	new ArtifactInfo("facebook-applinks", "4.40.0"),
+	new ArtifactInfo("facebook-messenger", "4.40.0"),
 	new ArtifactInfo("facebook-livestreaming", "4.36.0"),
 	new ArtifactInfo("facebook-loginkit", "4.36.0"),
-	new ArtifactInfo("facebook-marketing", "4.38.0"),
+	new ArtifactInfo("facebook-marketing", "4.40.0"),
 	// This needs to stay preview until google play services comes out of preview
 	new ArtifactInfo("account-kit-sdk", "4.37.0", "4.37.0-preview"),
 	new ArtifactInfo("audience-network-sdk", "5.1.1"),
