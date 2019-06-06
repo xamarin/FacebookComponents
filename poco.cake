@@ -46,18 +46,38 @@ struct Platform
 	#endregion
 }
 
-class Artifact
+class Artifact : IEquatable<Artifact>
 {
-	public Artifact (string id, string version, string minimunSupportedVersion, string nugetVersion = null)
+	public string Id { get; set; }
+	public string Version { get; set; }
+	public string NugetVersion { get; set; }
+	public string MinimunSupportedVersion { get; set; }
+	public string CsprojName { get; set; }
+	public uint BuildOrder { get; set; }
+	public Artifact [] Dependencies;
+
+	public Artifact (string id, string version, string minimunSupportedVersion, string nugetVersion = null, string csprojName = null, uint buildOrder = 1, Artifact [] dependencies = null)
 	{
 		Id = id;
 		Version = version;
 		MinimunSupportedVersion = minimunSupportedVersion;
 		NugetVersion = nugetVersion ?? version;
+		CsprojName = csprojName ?? id;
+		BuildOrder = buildOrder;
+		Dependencies = dependencies;
 	}
 
-	public string Id { get; set; }
-	public string Version { get; set; }
-	public string NugetVersion { get; set; }
-	public string MinimunSupportedVersion { get; set; }
+	public bool Equals (Artifact other)
+	{
+		if (Object.ReferenceEquals(other, null)) return false;
+		if (Object.ReferenceEquals(this, other)) return true;
+
+		return Id == other.Id;
+	}
+
+	public override int GetHashCode()
+	{
+		int hashCode = Id.GetHashCode();
+		return hashCode ^ hashCode;
+	}
 }

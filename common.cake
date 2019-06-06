@@ -52,7 +52,7 @@ void BuildXcodeFatFramework (FilePath xcodeProject, string target, Platform [] p
 		Warning("{0} is not available on the current platform.", "xcodebuild");
 		return;
 	}
-	
+
 	libraryTitle = libraryTitle ?? target;
 	workingDirectory = workingDirectory ?? Directory("./externals/");
 	var libraryFile = (FilePath)(librarySuffix != null ? $"{libraryTitle}.{librarySuffix}" : $"{libraryTitle}");
@@ -90,4 +90,25 @@ void BuildXcodeFatFramework (FilePath xcodeProject, string target, Platform [] p
 
 	if (libraryTitle != target)
 	    DeleteFile (fatFrameworkPath.CombineWithFilePath (target));
+}
+
+bool TargetExistsInXcodeProject (FilePath xcodeProject, string target, DirectoryPath workingDirectory = null)
+{
+	workingDirectory = workingDirectory ?? Directory("./externals/");
+
+	var processSettings = new ProcessSettings { 
+		Arguments = $"-project {workingDirectory.CombineWithFilePath (xcodeProject)} -list",
+		RedirectStandardOutput = true
+	};
+
+	using(var process = StartAndReturnProcess("xcodebuild", processSettings))
+	{
+		process.WaitForExit();
+
+		foreach (var line in process.GetStandardOutput ())
+			if (line.Contains (target))
+				return true;
+
+		return false;
+	}
 }
