@@ -101,15 +101,24 @@ Task ("externals")
 	foreach (var artifact in ARTIFACTS_FROM_PODS) {
 		CreateAndInstallPodfile (artifact);
 		BuildSdkOnPodfile (artifact);
+		UpdateVersionInCsproj (artifact);
 	}
 
 	// Call custom methods created at custom_externals_download.cake file
 	// to download frameworks and/or bundles for the artifact
-	if (SOURCES_TARGETS.Contains (ACCOUNT_KIT_ARTIFACT.CsprojName))
+	if (SOURCES_TARGETS.Contains (ACCOUNT_KIT_ARTIFACT.CsprojName)) {
 		DownloadAccountKit (ACCOUNT_KIT_ARTIFACT);
+		UpdateVersionInCsproj (ACCOUNT_KIT_ARTIFACT);
+	}
 	
-	if (SOURCES_TARGETS.Contains (AUDIENCE_NETWORK_ARTIFACT.CsprojName))
+	if (SOURCES_TARGETS.Contains (AUDIENCE_NETWORK_ARTIFACT.CsprojName)) {
 		DownloadAudienceNetwork (AUDIENCE_NETWORK_ARTIFACT);
+		UpdateVersionInCsproj (AUDIENCE_NETWORK_ARTIFACT);
+	}
+
+	if (SOURCES_TARGETS.Contains (FACEBOOK_SDKS_ARTIFACT.CsprojName)) {
+		UpdateVersionInCsproj (FACEBOOK_SDKS_ARTIFACT);
+	}
 });
 
 Task ("libs")
@@ -236,4 +245,11 @@ void BuildSdkOnPodfile (Artifact artifact)
 		foreach (var path in paths)
 			CopyDirectory (path, $"{workingDirectory}.framework");
 	}
+}
+
+void UpdateVersionInCsproj (Artifact artifact) 
+{
+	var csprojPath = $"./source/{artifact.CsprojName}/{artifact.CsprojName}.csproj";
+	XmlPoke(csprojPath, "/Project/PropertyGroup/FileVersion", artifact.NugetVersion);
+	XmlPoke(csprojPath, "/Project/PropertyGroup/PackageVersion", artifact.NugetVersion);
 }
