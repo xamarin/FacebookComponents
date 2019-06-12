@@ -12,7 +12,7 @@ namespace Facebook.CoreKit {
 		[Export ("FBSDKAccessTokenChangeNewKey")]
 		AccessToken NewToken { get; }
 
-		[Export ("FBSDKAccessTokenDidChangeUserID")]
+		[Export ("FBSDKAccessTokenDidChangeUserIDKey")]
 		bool DidChangeUserIdToken { get; }
 
 		[Export ("FBSDKAccessTokenChangeOldKey")]
@@ -45,13 +45,20 @@ namespace Facebook.CoreKit {
 		[Field ("FBSDKAccessTokenDidExpireKey", "__Internal")]
 		NSString DidExpireKey { get; }
 
+		// @property (copy, nonatomic, class) FBSDKAccessToken * _Nullable currentAccessToken;
+		[Static]
+		[NullAllowed]
+		[Export ("currentAccessToken", ArgumentSemantic.Copy)]
+		AccessToken CurrentAccessToken { get; set; }
+
+		// @property (readonly, getter = isCurrentAccessTokenActive, assign, nonatomic, class) BOOL currentAccessTokenIsActive;
+		[Static]
+		[Export ("isCurrentAccessTokenActive")]
+		bool CurrentAccessTokenIsActive { get; }
+
 		// @property (readonly, copy, nonatomic) NSString * appID;
 		[Export ("appID")]
 		string AppId { get; }
-
-		[Obsolete ("Use AppId property instead. This will be removed in future versions.")]
-		[Wrap ("AppId")]
-		string AppID { get; }
 
 		// @property (readonly, copy, nonatomic) NSDate * dataAccessExpirationDate;
 		[Export ("dataAccessExpirationDate", ArgumentSemantic.Copy)]
@@ -60,6 +67,10 @@ namespace Facebook.CoreKit {
 		// @property (readonly, copy, nonatomic) NSSet * declinedPermissions;
 		[Export ("declinedPermissions", ArgumentSemantic.Copy)]
 		NSSet DeclinedPermissions { get; }
+
+		// @property (readonly, copy, nonatomic) NSSet<NSString *> * _Nonnull expiredPermissions;
+		[Export ("expiredPermissions", ArgumentSemantic.Copy)]
+		NSSet ExpiredPermissions { get; }
 
 		// @property (readonly, copy, nonatomic) NSDate * expirationDate;
 		[Export ("expirationDate", ArgumentSemantic.Copy)]
@@ -93,15 +104,10 @@ namespace Facebook.CoreKit {
 		[Export ("isDataAccessExpired")]
 		bool IsDataAccessExpired { get; }
 
-		// -(instancetype)initWithTokenString:(NSString *)tokenString permissions:(NSArray *)permissions declinedPermissions:(NSArray *)declinedPermissions appID:(NSString *)appID userID:(NSString *)userID expirationDate:(NSDate *)expirationDate refreshDate:(NSDate *)refreshDate __attribute__((objc_designated_initializer));
+		// -(instancetype)initWithTokenString:(NSString *)tokenString permissions:(NSArray *)permissions declinedPermissions:(NSArray *)declinedPermissions expiredPermissions:(NSArray<NSString *> *)expiredPermissions appID:(NSString *)appID userID:(NSString *)userID expirationDate:(NSDate *)expirationDate refreshDate:(NSDate *)refreshDate dataAccessExpirationDate:(NSDate *)dataAccessExpirationDate __attribute__((objc_designated_initializer));
 		[DesignatedInitializer]
-		[Export ("initWithTokenString:permissions:declinedPermissions:appID:userID:expirationDate:refreshDate:")]
-		IntPtr Constructor (string tokenString, [NullAllowed] string [] permissions, [NullAllowed] string [] declinedPermissions, string appId, string userId, [NullAllowed] NSDate expirationDate, [NullAllowed] NSDate refreshDate);
-
-		// -(instancetype)initWithTokenString:(NSString *)tokenString permissions:(NSArray *)permissions declinedPermissions:(NSArray *)declinedPermissions appID:(NSString *)appID userID:(NSString *)userID expirationDate:(NSDate *)expirationDate refreshDate:(NSDate *)refreshDate dataAccessExpirationDate:(NSDate *)dataAccessExpirationDate __attribute__((objc_designated_initializer));
-		[DesignatedInitializer]
-		[Export ("initWithTokenString:permissions:declinedPermissions:appID:userID:expirationDate:refreshDate:dataAccessExpirationDate:")]
-		IntPtr Constructor (string tokenString, [NullAllowed] string [] permissions, [NullAllowed] string [] declinedPermissions, string appId, string userId, [NullAllowed] NSDate expirationDate, [NullAllowed] NSDate refreshDate, [NullAllowed] NSDate dataAccessExpirationDate);
+		[Export ("initWithTokenString:permissions:declinedPermissions:expiredPermissions:appID:userID:expirationDate:refreshDate:dataAccessExpirationDate:")]
+		IntPtr Constructor (string tokenString, string [] permissions, string [] declinedPermissions, string [] expiredPermissions, string appId, string userId, [NullAllowed] NSDate expirationDate, [NullAllowed] NSDate refreshDate, [NullAllowed] NSDate dataAccessExpirationDate);
 
 		// -(BOOL)hasGranted:(NSString *)permission;
 		[Export ("hasGranted:")]
@@ -111,270 +117,11 @@ namespace Facebook.CoreKit {
 		[Export ("isEqualToAccessToken:")]
 		bool Equals (AccessToken token);
 
-		[Obsolete ("Use Equals (AccessToken) overload method instead. This will be removed in future version.")]
-		[Wrap ("Equals (token)")]
-		bool IsEqualToAccessToken (AccessToken token);
-
-		// +(FBSDKAccessToken *)currentAccessToken;
-		// +(void)setCurrentAccessToken:(FBSDKAccessToken *)token;
-		[Static]
-		[Export ("currentAccessToken")]
-		AccessToken CurrentAccessToken { get; set; }
-
-		// + (BOOL)currentAccessTokenIsActive;
-		[Static]
-		[Export ("currentAccessTokenIsActive")]
-		bool CurrentAccessTokenIsActive { get; }
-
-		// + (void)refreshCurrentAccessToken:(FBSDKGraphRequestHandler)completionHandler;
+		// + (void)refreshCurrentAccessToken:(FBSDKGraphRequestBlockHandler)completionHandler;
 		[Static]
 		[Async (ResultTypeName = "GraphRequestResult")]
 		[Export ("refreshCurrentAccessToken:")]
-		void RefreshCurrentAccessToken (GraphRequestHandler completionHandler);
-	}
-
-	[Static]
-	interface AppEventName {
-		// extern NSString *const FBSDKAppEventNameAchievedLevel;
-		[Field ("FBSDKAppEventNameAchievedLevel", "__Internal")]
-		NSString AchievedLevel { get; }
-
-		// extern NSString *const FBSDKAppEventNameAddedPaymentInfo;
-		[Field ("FBSDKAppEventNameAddedPaymentInfo", "__Internal")]
-		NSString AddedPaymentInfo { get; }
-
-		// extern NSString *const FBSDKAppEventNameAddedToCart;
-		[Field ("FBSDKAppEventNameAddedToCart", "__Internal")]
-		NSString AddedToCart { get; }
-
-		// extern NSString *const FBSDKAppEventNameAddedToWishlist;
-		[Field ("FBSDKAppEventNameAddedToWishlist", "__Internal")]
-		NSString AddedToWishlist { get; }
-
-		// extern NSString *const FBSDKAppEventNameCompletedRegistration;
-		[Field ("FBSDKAppEventNameCompletedRegistration", "__Internal")]
-		NSString CompletedRegistration { get; }
-
-		// extern NSString *const FBSDKAppEventNameCompletedTutorial;
-		[Field ("FBSDKAppEventNameCompletedTutorial", "__Internal")]
-		NSString CompletedTutorial { get; }
-
-		// extern NSString *const FBSDKAppEventNameInitiatedCheckout;
-		[Field ("FBSDKAppEventNameInitiatedCheckout", "__Internal")]
-		NSString InitiatedCheckout { get; }
-
-		// extern NSString *const FBSDKAppEventNameRated;
-		[Field ("FBSDKAppEventNameRated", "__Internal")]
-		NSString Rated { get; }
-
-		// extern NSString *const FBSDKAppEventNameSearched;
-		[Field ("FBSDKAppEventNameSearched", "__Internal")]
-		NSString Searched { get; }
-
-		// extern NSString *const FBSDKAppEventNameSpentCredits;
-		[Field ("FBSDKAppEventNameSpentCredits", "__Internal")]
-		NSString SpentCredits { get; }
-
-		// extern NSString *const FBSDKAppEventNameUnlockedAchievement;
-		[Field ("FBSDKAppEventNameUnlockedAchievement", "__Internal")]
-		NSString UnlockedAchievement { get; }
-
-		// extern NSString *const FBSDKAppEventNameViewedContent;
-		[Field ("FBSDKAppEventNameViewedContent", "__Internal")]
-		NSString ViewedContent { get; }
-
-		// extern NSString *const FBSDKAppEventNameContact;
-		[Field ("FBSDKAppEventNameContact", "__Internal")]
-		NSString Contact { get; }
-
-		// extern NSString *const FBSDKAppEventNameCustomizeProduct;
-		[Field ("FBSDKAppEventNameCustomizeProduct", "__Internal")]
-		NSString CustomizeProduct { get; }
-
-		// extern NSString *const FBSDKAppEventNameDonate;
-		[Field ("FBSDKAppEventNameDonate", "__Internal")]
-		NSString Donate { get; }
-
-		// extern NSString *const FBSDKAppEventNameFindLocation;
-		[Field ("FBSDKAppEventNameFindLocation", "__Internal")]
-		NSString FindLocation { get; }
-
-		// extern NSString *const FBSDKAppEventNameSchedule;
-		[Field ("FBSDKAppEventNameSchedule", "__Internal")]
-		NSString Schedule { get; }
-
-		// extern NSString *const FBSDKAppEventNameStartTrial;
-		[Field ("FBSDKAppEventNameStartTrial", "__Internal")]
-		NSString StartTrial { get; }
-
-		// extern NSString *const FBSDKAppEventNameSubmitApplication;
-		[Field ("FBSDKAppEventNameSubmitApplication", "__Internal")]
-		NSString SubmitApplication { get; }
-
-		// extern NSString *const FBSDKAppEventNameSubscribe;
-		[Field ("FBSDKAppEventNameSubscribe", "__Internal")]
-		NSString Subscribe { get; }
-
-		// extern NSString *const FBSDKAppEventNameAdImpression;
-		[Field ("FBSDKAppEventNameAdImpression", "__Internal")]
-		NSString AdImpression { get; }
-
-		// extern NSString *const FBSDKAppEventNameAdClick;
-		[Field ("FBSDKAppEventNameAdClick", "__Internal")]
-		NSString AdClick { get; }
-	}
-
-	[Static]
-	interface AppEventParameterName {
-		// extern NSString *const FBSDKAppEventParameterNameContent;
-		[Field ("FBSDKAppEventParameterNameContent", "__Internal")]
-		NSString Content { get; }
-
-		// extern NSString *const FBSDKAppEventParameterNameContentID;
-		[Field ("FBSDKAppEventParameterNameContentID", "__Internal")]
-		NSString ContentID { get; }
-
-		// extern NSString *const FBSDKAppEventParameterNameContentType;
-		[Field ("FBSDKAppEventParameterNameContentType", "__Internal")]
-		NSString ContentType { get; }
-
-		// extern NSString *const FBSDKAppEventParameterNameCurrency;
-		[Field ("FBSDKAppEventParameterNameCurrency", "__Internal")]
-		NSString Currency { get; }
-
-		// extern NSString *const FBSDKAppEventParameterNameDescription;
-		[Field ("FBSDKAppEventParameterNameDescription", "__Internal")]
-		NSString Description { get; }
-
-		// extern NSString *const FBSDKAppEventParameterNameLevel;
-		[Field ("FBSDKAppEventParameterNameLevel", "__Internal")]
-		NSString Level { get; }
-
-		// extern NSString *const FBSDKAppEventParameterNameMaxRatingValue;
-		[Field ("FBSDKAppEventParameterNameMaxRatingValue", "__Internal")]
-		NSString MaxRatingValue { get; }
-
-		// extern NSString *const FBSDKAppEventParameterNameNumItems;
-		[Field ("FBSDKAppEventParameterNameNumItems", "__Internal")]
-		NSString NumItems { get; }
-
-		// extern NSString *const FBSDKAppEventParameterNamePaymentInfoAvailable;
-		[Field ("FBSDKAppEventParameterNamePaymentInfoAvailable", "__Internal")]
-		NSString PaymentInfoAvailable { get; }
-
-		// extern NSString *const FBSDKAppEventParameterNameRegistrationMethod;
-		[Field ("FBSDKAppEventParameterNameRegistrationMethod", "__Internal")]
-		NSString RegistrationMethod { get; }
-
-		// extern NSString *const FBSDKAppEventParameterNameSearchString;
-		[Field ("FBSDKAppEventParameterNameSearchString", "__Internal")]
-		NSString SearchString { get; }
-
-		// extern NSString *const FBSDKAppEventParameterNameSuccess;
-		[Field ("FBSDKAppEventParameterNameSuccess", "__Internal")]
-		NSString Success { get; }
-
-		// extern NSString *const FBSDKAppEventParameterNameAdType;
-		[Field ("FBSDKAppEventParameterNameAdType", "__Internal")]
-		NSString AdType { get; }
-
-		// extern NSString *const FBSDKAppEventParameterNameOrderID;
-		[Field ("FBSDKAppEventParameterNameOrderID", "__Internal")]
-		NSString OrderId { get; }
-	}
-
-	[Static]
-	interface AppEventParameterProduct {
-		// extern NSString *const FBSDKAppEventParameterProductCustomLabel0;
-		[Field ("FBSDKAppEventParameterProductCustomLabel0", "__Internal")]
-		NSString CustomLabel0 { get; }
-
-		// extern NSString *const FBSDKAppEventParameterProductCustomLabel1;
-		[Field ("FBSDKAppEventParameterProductCustomLabel1", "__Internal")]
-		NSString CustomLabel1 { get; }
-
-		// extern NSString *const FBSDKAppEventParameterProductCustomLabel2;
-		[Field ("FBSDKAppEventParameterProductCustomLabel2", "__Internal")]
-		NSString CustomLabel2 { get; }
-
-		// extern NSString *const FBSDKAppEventParameterProductCustomLabel3;
-		[Field ("FBSDKAppEventParameterProductCustomLabel3", "__Internal")]
-		NSString CustomLabel3 { get; }
-
-		// extern NSString *const FBSDKAppEventParameterProductCustomLabel4;
-		[Field ("FBSDKAppEventParameterProductCustomLabel4", "__Internal")]
-		NSString CustomLabel4 { get; }
-
-		// extern NSString *const FBSDKAppEventParameterProductAppLinkIOSUrl;
-		[Field ("FBSDKAppEventParameterProductAppLinkIOSUrl", "__Internal")]
-		NSString AppLinkiOSUrl { get; }
-
-		// extern NSString *const FBSDKAppEventParameterProductAppLinkIOSAppStoreID;
-		[Field ("FBSDKAppEventParameterProductAppLinkIOSAppStoreID", "__Internal")]
-		NSString AppLinkiOSAppStoreId { get; }
-
-		// extern NSString *const FBSDKAppEventParameterProductAppLinkIOSAppName;
-		[Field ("FBSDKAppEventParameterProductAppLinkIOSAppName", "__Internal")]
-		NSString AppLinkiOSAppName { get; }
-
-		// extern NSString *const FBSDKAppEventParameterProductAppLinkIPhoneUrl;
-		[Field ("FBSDKAppEventParameterProductAppLinkIPhoneUrl", "__Internal")]
-		NSString AppLinkiPhoneUrl { get; }
-
-		// extern NSString *const FBSDKAppEventParameterProductAppLinkIPhoneAppStoreID;
-		[Field ("FBSDKAppEventParameterProductAppLinkIPhoneAppStoreID", "__Internal")]
-		NSString AppLinkiPhoneAppStoreId { get; }
-
-		// extern NSString *const FBSDKAppEventParameterProductAppLinkIPhoneAppName;
-		[Field ("FBSDKAppEventParameterProductAppLinkIPhoneAppName", "__Internal")]
-		NSString AppLinkiPhoneAppName { get; }
-
-		// extern NSString *const FBSDKAppEventParameterProductAppLinkIPadUrl;
-		[Field ("FBSDKAppEventParameterProductAppLinkIPadUrl", "__Internal")]
-		NSString AppLinkiPadUrl { get; }
-
-		// extern NSString *const FBSDKAppEventParameterProductAppLinkIPadAppStoreID;
-		[Field ("FBSDKAppEventParameterProductAppLinkIPadAppStoreID", "__Internal")]
-		NSString AppLinkiPadAppStoreId { get; }
-
-		// extern NSString *const FBSDKAppEventParameterProductAppLinkIPadAppName;
-		[Field ("FBSDKAppEventParameterProductAppLinkIPadAppName", "__Internal")]
-		NSString AppLinkiPadAppName { get; }
-
-		// extern NSString *const FBSDKAppEventParameterProductAppLinkAndroidUrl;
-		[Field ("FBSDKAppEventParameterProductAppLinkAndroidUrl", "__Internal")]
-		NSString AppLinkAndroidUrl { get; }
-
-		// extern NSString *const FBSDKAppEventParameterProductAppLinkAndroidPackage;
-		[Field ("FBSDKAppEventParameterProductAppLinkAndroidPackage", "__Internal")]
-		NSString AppLinkAndroidPackage { get; }
-
-		// extern NSString *const FBSDKAppEventParameterProductAppLinkAndroidAppName;
-		[Field ("FBSDKAppEventParameterProductAppLinkAndroidAppName", "__Internal")]
-		NSString AppLinkAndroidAppName { get; }
-
-		// extern NSString *const FBSDKAppEventParameterProductAppLinkWindowsPhoneUrl;
-		[Field ("FBSDKAppEventParameterProductAppLinkWindowsPhoneUrl", "__Internal")]
-		NSString AppLinkWindowsPhoneUrl { get; }
-
-		// extern NSString *const FBSDKAppEventParameterProductAppLinkWindowsPhoneAppID;
-		[Field ("FBSDKAppEventParameterProductAppLinkWindowsPhoneAppID", "__Internal")]
-		NSString AppLinkWindowsPhoneAppId { get; }
-
-		// extern NSString *const FBSDKAppEventParameterProductAppLinkWindowsPhoneAppName;
-		[Field ("FBSDKAppEventParameterProductAppLinkWindowsPhoneAppName", "__Internal")]
-		NSString AppLinkWindowsPhoneAppName { get; }
-	}
-
-	[Static]
-	interface AppEventParameterValue {
-		// extern NSString *const FBSDKAppEventParameterValueYes;
-		[Field ("FBSDKAppEventParameterValueYes", "__Internal")]
-		NSString Yes { get; }
-
-		// extern NSString *const FBSDKAppEventParameterValueNo;
-		[Field ("FBSDKAppEventParameterValueNo", "__Internal")]
-		NSString No { get; }
+		void RefreshCurrentAccessToken ([NullAllowed] GraphRequestBlockHandler completionHandler);
 	}
 
 	// @interface FBSDKAppEvents : NSObject
@@ -391,190 +138,97 @@ namespace Facebook.CoreKit {
 		[Field ("FBSDKAppEventsOverrideAppIDBundleKey", "__Internal")]
 		NSString OverrideAppIdBundleKey { get; }
 
-		[Obsolete ("Use the AppEventName.AchievedLevel property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.AchievedLevel")]
-		NSString AchievedLevelEventNameKey { get; }
+		// @property (assign, nonatomic, class) FBSDKAppEventsFlushBehavior flushBehavior;
+		[Static]
+		[Export ("flushBehavior", ArgumentSemantic.Assign)]
+		AppEventsFlushBehavior FlushBehavior { get; set; }
 
-		[Obsolete ("Use the AppEventName.AddedPaymentInfo property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.AddedPaymentInfo")]
-		NSString AddedPaymentInfoEventNameKey { get; }
+		// @property (copy, nonatomic, class) NSString * _Nullable loggingOverrideAppID;
+		[Static]
+		[NullAllowed]
+		[Export ("loggingOverrideAppID")]
+		string LoggingOverrideAppId { get; set; }
 
-		[Obsolete ("Use the AppEventName.AddedToCart property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.AddedToCart")]
-		NSString AddedToCartEventNameKey { get; }
+		[Obsolete ("Use the LoggingOverrideAppId static property instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("LoggingOverrideAppId")]
+		string LoggingOverrideAppID { get; set; }
 
-		[Obsolete ("Use the AppEventName.AddedToWishlist property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.AddedToWishlist")]
-		NSString AddedToWishlistEventNameKey { get; }
-
-		[Obsolete ("Use the AppEventName.CompletedRegistration property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.CompletedRegistration")]
-		NSString CompletedRegistrationEventNameKey { get; }
-
-		[Obsolete ("Use the AppEventName.CompletedTutorial property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.CompletedTutorial")]
-		NSString CompletedTutorialEventNameKey { get; }
-
-		[Obsolete ("Use the AppEventName.InitiatedCheckout property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.InitiatedCheckout")]
-		NSString InitiatedCheckoutEventNameKey { get; }
-
-		[Obsolete ("Use the AppEventName.Rated property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.Rated")]
-		NSString RatedEventNameKey { get; }
-
-		[Obsolete ("Use the AppEventName.Searched property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.Searched")]
-		NSString SearchedEventNameKey { get; }
-
-		[Obsolete ("Use the AppEventName.SpentCredits property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.SpentCredits")]
-		NSString SpentCreditsEventNameKey { get; }
-
-		[Obsolete ("Use the AppEventName.UnlockedAchievement property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.UnlockedAchievement")]
-		NSString UnlockedAchievementEventNameKey { get; }
-
-		[Obsolete ("Use the AppEventName.ViewedContent property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.ViewedContent")]
-		NSString ViewedContentEventNameKey { get; }
-
-		[Obsolete ("Use the AppEventName.Contact property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.Contact")]
-		NSString NameContactEventNameKey { get; }
-
-		[Obsolete ("Use the AppEventName.CustomizeProduct property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.CustomizeProduct")]
-		NSString CustomizeProductEventNameKey { get; }
-
-		[Obsolete ("Use the AppEventName.Donate property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.Donate")]
-		NSString DonateEventNameKey { get; }
-
-		[Obsolete ("Use the AppEventName.FindLocation property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.FindLocation")]
-		NSString FindLocationEventNameKey { get; }
-
-		[Obsolete ("Use the AppEventName.Schedule property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.Schedule")]
-		NSString ScheduleEventNameKey { get; }
-
-		[Obsolete ("Use the AppEventName.StartTrial property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.StartTrial")]
-		NSString StartTrialEventNameKey { get; }
-
-		[Obsolete ("Use the AppEventName.SubmitApplication property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.SubmitApplication")]
-		NSString SubmitApplicationEventNameKey { get; }
-
-		[Obsolete ("Use the AppEventName.Subscribe property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.Subscribe")]
-		NSString NameSubscribeEventNameKey { get; }
-
-		[Obsolete ("Use the AppEventName.AdImpression property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.AdImpression")]
-		NSString AdImpressionEventNameKey { get; }
-
-		[Obsolete ("Use the AppEventName.AdClick property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventName.AdClick")]
-		NSString AdClickEventNameKey { get; }
-
-		[Obsolete ("Use the AppEventParameterName.Content property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventParameterName.Content")]
-		NSString ContentParameterNameKey { get; }
-
-		[Obsolete ("Use the AppEventParameterName.ContentID property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventParameterName.ContentID")]
-		NSString ContentIdParameterNameKey { get; }
-
-		[Obsolete ("Use the AppEventParameterName.ContentType property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventParameterName.ContentType")]
-		NSString ContentTypeParameterNameKey { get; }
-
-		[Obsolete ("Use the AppEventParameterName.Currency property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventParameterName.Currency")]
-		NSString CurrencyParameterNameKey { get; }
-
-		[Obsolete ("Use the AppEventParameterName.Description property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventParameterName.Description")]
-		NSString DescriptionParameterNameKey { get; }
-
-		[Obsolete ("Use the AppEventParameterName.Level property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventParameterName.Level")]
-		NSString LevelParameterNameKey { get; }
-
-		[Obsolete ("Use the AppEventParameterName.MaxRatingValue property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventParameterName.MaxRatingValue")]
-		NSString MaxRatingValueParameterNameKey { get; }
-
-		[Obsolete ("Use the AppEventParameterName.NumItems property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventParameterName.NumItems")]
-		NSString NumItemsParameterNameKey { get; }
-
-		[Obsolete ("Use the AppEventParameterName.PaymentInfoAvailable property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventParameterName.PaymentInfoAvailable")]
-		NSString PaymentInfoAvailableParameterNameKey { get; }
-
-		[Obsolete ("Use the AppEventParameterName.RegistrationMethod property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventParameterName.RegistrationMethod")]
-		NSString RegistrationMethodParameterNameKey { get; }
-
-		[Obsolete ("Use the AppEventParameterName.SearchString property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventParameterName.SearchString")]
-		NSString SearchStringParameterNameKey { get; }
-
-		[Obsolete ("Use the AppEventParameterName.Success property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventParameterName.Success")]
-		NSString SuccessParameterNameKey { get; }
-
-		[Obsolete ("Use the AppEventParameterValue.Yes property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventParameterValue.Yes")]
-		NSString YesParameterValueKey { get; }
-
-		[Obsolete ("Use the the AppEventParameterValue.No property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventParameterValue.No")]
-		NSString NoParameterValueKey { get; }
-
-		[Obsolete ("Use the AppEventParameterName.AdType property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventParameterName.AdType")]
-		NSString AdTypeParameterNameKey { get; }
-
-		[Obsolete ("Use the AppEventParameterName.OrderId property instead. This will be removed in future versions.")]
-		[Wrap ("AppEventParameterName.OrderId")]
-		NSString OrderIdParameterNameKey { get; }
+		// @property (copy, nonatomic, class) NSString * _Nullable userID;
+		[Static]
+		[NullAllowed]
+		[Export ("userID")]
+		string UserId { get; set; }
 
 		// +(void)logEvent:(NSString *)eventName;
+		[Protected]
 		[Static]
 		[Export ("logEvent:")]
 		void LogEvent (NSString eventName);
+
+		[Static]
+		[Wrap ("LogEvent (eventName.GetConstant ())")]
+		void LogEvent (AppEventName eventName);
 
 		[Static]
 		[Wrap ("LogEvent (new NSString (eventName))")]
 		void LogEvent (string eventName);
 
 		// +(void)logEvent:(NSString *)eventName valueToSum:(double)valueToSum;
+		[Protected]
 		[Static]
 		[Export ("logEvent:valueToSum:")]
 		void LogEvent (NSString eventName, double valueToSum);
+
+		[Static]
+		[Wrap ("LogEvent (eventName.GetConstant (), valueToSum)")]
+		void LogEvent (AppEventName eventName, double valueToSum);
 
 		[Static]
 		[Wrap ("LogEvent (new NSString (eventName), valueToSum)")]
 		void LogEvent (string eventName, double valueToSum);
 
 		// +(void)logEvent:(NSString *)eventName parameters:(NSDictionary *)parameters;
+		[Protected]
 		[Static]
 		[Export ("logEvent:parameters:")]
+		void LogEvent (NSString eventName, NSDictionary parameters);
+
+		[Static]
+		[Wrap ("LogEvent (eventName.GetConstant (), parameters)")]
+		void LogEvent (AppEventName eventName, NSDictionary parameters);
+
+		[Static]
+		[Wrap ("LogEvent (new NSString (eventName), parameters)")]
 		void LogEvent (string eventName, NSDictionary parameters);
 
 		// +(void)logEvent:(NSString *)eventName valueToSum:(double)valueToSum parameters:(NSDictionary *)parameters;
+		[Protected]
 		[Static]
 		[Export ("logEvent:valueToSum:parameters:")]
-		void LogEvent (string eventName, double valueToSum, [NullAllowed] NSDictionary parameters);
+		void LogEvent (NSString eventName, double valueToSum, NSDictionary parameters);
+
+		[Static]
+		[Wrap ("LogEvent (eventName.GetConstant (), valueToSum, parameters)")]
+		void LogEvent (AppEventName eventName, double valueToSum, NSDictionary parameters);
+
+		[Static]
+		[Wrap ("LogEvent (new NSString (eventName), valueToSum, parameters)")]
+		void LogEvent (string eventName, double valueToSum, NSDictionary parameters);
 
 		// +(void)logEvent:(NSString *)eventName valueToSum:(NSNumber *)valueToSum parameters:(NSDictionary *)parameters accessToken:(FBSDKAccessToken *)accessToken;
+		[Protected]
 		[Static]
 		[Export ("logEvent:valueToSum:parameters:accessToken:")]
-		void LogEvent (string eventName, NSNumber valueToSum, [NullAllowed] NSDictionary parameters, [NullAllowed] AccessToken accessToken);
+		void LogEvent (NSString eventName, [NullAllowed] NSNumber valueToSum, NSDictionary parameters, [NullAllowed] AccessToken accessToken);
+
+		[Static]
+		[Wrap ("LogEvent (eventName.GetConstant (), valueToSum, parameters, accessToken)")]
+		void LogEvent (AppEventName eventName, [NullAllowed] NSNumber valueToSum, NSDictionary parameters, [NullAllowed] AccessToken accessToken);
+
+		[Static]
+		[Wrap ("LogEvent (new NSString (eventName), valueToSum, parameters, accessToken)")]
+		void LogEvent (string eventName, [NullAllowed] NSNumber valueToSum, NSDictionary parameters, [NullAllowed] AccessToken accessToken);
 
 		// +(void)logPurchase:(double)purchaseAmount currency:(NSString *)currency;
 		[Static]
@@ -604,7 +258,7 @@ namespace Facebook.CoreKit {
 		// +(void)logProductItem:(NSString *)itemID availability:(FBSDKProductAvailability)availability condition:(FBSDKProductCondition)condition description:(NSString *)description imageLink:(NSString *)imageLink link:(NSString *)link title:(NSString *)title priceAmount:(double)priceAmount currency:(NSString *)currency gtin:(NSString *)gtin mpn:(NSString *)mpn brand:(NSString *)brand parameters:(NSDictionary *)parameters;
 		[Static]
 		[Export ("logProductItem:availability:condition:description:imageLink:link:title:priceAmount:currency:gtin:mpn:brand:parameters:")]
-		void LogProductItem (string itemId, ProductAvailability availability, ProductCondition condition, string description, string imageLink, string link, string title, double priceAmount, string currency, string gtin, string mpn, string brand, NSDictionary parameters);
+		void LogProductItem (string itemId, ProductAvailability availability, ProductCondition condition, string description, string imageLink, string link, string title, double priceAmount, string currency, [NullAllowed] string gtin, [NullAllowed] string mpn, [NullAllowed] string brand, [NullAllowed] NSDictionary parameters);
 
 		// +(void)activateApp;
 		[Static]
@@ -621,18 +275,6 @@ namespace Facebook.CoreKit {
 		[Export ("setPushNotificationsDeviceTokenString:")]
 		void SetPushNotificationsDeviceToken (string deviceTokenString);
 
-		// +(FBSDKAppEventsFlushBehavior)flushBehavior;
-		// +(void)setFlushBehavior:(FBSDKAppEventsFlushBehavior)flushBehavior;
-		[Static]
-		[Export ("flushBehavior")]
-		AppEventsFlushBehavior FlushBehavior { get; set; }
-
-		// +(NSString *)loggingOverrideAppID;
-		// +(void)setLoggingOverrideAppID:(NSString *)appID;
-		[Static]
-		[Export ("loggingOverrideAppID")]
-		string LoggingOverrideAppID { get; set; }
-
 		// +(void)flush;
 		[Static]
 		[Export ("flush")]
@@ -643,18 +285,6 @@ namespace Facebook.CoreKit {
 		[Export ("requestForCustomAudienceThirdPartyIDWithAccessToken:")]
 		GraphRequest RequestForCustomAudienceThirdPartyId (AccessToken accessToken);
 
-		// +(void)setUserID:(NSString *)userID;
-		// +(NSString *)userID;
-		[Static]
-		[NullAllowed]
-		[Export ("userID")]
-		string UserId { get; set; }
-
-		[Obsolete ("Use UserId property instead. This will be removed in future versions.")]
-		[Static]
-		[Wrap ("UserId")]
-		string UserID { get; set; }
-
 		// + (void)clearUserID;
 		[Static]
 		[Export ("clearUserID")]
@@ -663,11 +293,11 @@ namespace Facebook.CoreKit {
 		// +(void)setUserEmail:(NSString * _Nullable)email firstName:(NSString * _Nullable)firstName lastName:(NSString * _Nullable)lastName phone:(NSString * _Nullable)phone dateOfBirth:(NSString * _Nullable)dateOfBirth gender:(NSString * _Nullable)gender city:(NSString * _Nullable)city state:(NSString * _Nullable)state zip:(NSString * _Nullable)zip country:(NSString * _Nullable)country;
 		[Static]
 		[Export ("setUserEmail:firstName:lastName:phone:dateOfBirth:gender:city:state:zip:country:")]
-		void SetUserEmail (string email, string firstName, string lastName, string phone, string dateOfBirth, string gender, string city, string state, string zip, string country);
+		void SetUserEmail ([NullAllowed] string email, [NullAllowed] string firstName, [NullAllowed] string lastName, [NullAllowed] string phone, [NullAllowed] string dateOfBirth, [NullAllowed] string gender, [NullAllowed] string city, [NullAllowed] string state, [NullAllowed] string zip, [NullAllowed] string country);
 
 		// +(NSString *)getUserData;
 		[Static]
-		[NullAllowed]
+		[return: NullAllowed]
 		[Export ("getUserData")]
 		string GetUserData ();
 
@@ -676,11 +306,21 @@ namespace Facebook.CoreKit {
 		[Export ("clearUserData")]
 		void ClearUserData ();
 
-		// +(void)updateUserProperties:(NSDictionary *)properties handler:(FBSDKGraphRequestHandler)handler;
+		// +(void)setUserData:(NSString * _Nullable)data forType:(FBSDKAppEventUserDataType _Nonnull)type;
+		[Static]
+		[Export ("setUserData:forType:")]
+		void SetUserData ([NullAllowed] string data, string type);
+
+		// +(void)clearUserDataForType:(FBSDKAppEventUserDataType _Nonnull)type;
+		[Static]
+		[Export ("clearUserDataForType:")]
+		void ClearUserDataForType (string type);
+
+		// +(void)updateUserProperties:(NSDictionary *)properties handler:(FBSDKGraphRequestBlockHandler)handler;
 		[Static]
 		[Async (ResultTypeName = "GraphRequestResult")]
 		[Export ("updateUserProperties:handler:")]
-		void UpdateUserProperties (NSDictionary properties, [NullAllowed] GraphRequestHandler handler);
+		void UpdateUserProperties (NSDictionary properties, [NullAllowed] GraphRequestBlockHandler handler);
 
 		// +(void)augmentHybridWKWebView:(WKWebView *)webView;
 		[Unavailable (PlatformName.TvOS)]
@@ -704,32 +344,33 @@ namespace Facebook.CoreKit {
 	[BaseType (typeof (NSObject), Name = "FBSDKApplicationDelegate")]
 	interface ApplicationDelegate {
 
-		// +(instancetype)sharedInstance;
+		// @property (readonly, nonatomic, strong, class) FBSDKApplicationDelegate * _Nonnull sharedInstance;
 		[Static]
-		[Export ("sharedInstance")]
+		[Export ("sharedInstance", ArgumentSemantic.Strong)]
 		ApplicationDelegate SharedInstance { get; }
 
 		// -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
 		[Export ("application:openURL:sourceApplication:annotation:")]
-		bool OpenUrl ([NullAllowed] UIApplication application, [NullAllowed] NSUrl url, [NullAllowed] string sourceApplication, [NullAllowed] NSObject annotation);
+		bool OpenUrl (UIApplication application, NSUrl url, [NullAllowed] string sourceApplication, [NullAllowed] NSObject annotation);
 
 		// -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options;
 		[Export ("application:openURL:options:")]
 		bool OpenUrl (UIApplication application, NSUrl url, NSDictionary options);
 
-		[Obsolete ("This will be removed in future versions, please, use OpenUrl (UIApplication, NSUrl, NSDictionary) overload method instead.")]
-		[Wrap ("OpenUrl (application, url, NSDictionary.FromObjectsAndKeys (options.Values, options.Keys, options.Keys.Length))")]
-		bool OpenUrl (UIApplication application, NSUrl url, NSDictionary<NSString, NSObject> options);
-
 		// -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 		[Export ("application:didFinishLaunchingWithOptions:")]
 		bool FinishedLaunching ([NullAllowed] UIApplication application, [NullAllowed] NSDictionary launchOptions);
+
+		// +(void)initializeSDK:(NSDictionary<UIApplicationLaunchOptionsKey,id> * _Nullable)launchOptions;
+		[Static]
+		[Export ("initializeSDK:")]
+		void InitializeSdk ([NullAllowed] NSDictionary launchOptions);
 	}
 
 	// @interface FBSDKAppLink : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKAppLink")]
-	interface AppLink {
+	interface AppLink : INativeObject {
 		// extern NSString *const _Nonnull FBSDKAppLinkVersion;
 		[Field ("FBSDKAppLinkVersion", "__Internal")]
 		NSString Version { get; }
@@ -748,17 +389,23 @@ namespace Facebook.CoreKit {
 		AppLinkTarget [] Targets { get; }
 
 		// @property (readonly, nonatomic, strong) NSURL * _Nullable webURL;
-		[NullAllowed, Export ("webURL", ArgumentSemantic.Strong)]
+		[NullAllowed]
+		[Export ("webURL", ArgumentSemantic.Strong)]
 		NSUrl WebUrl { get; }
 	}
 
-	// typedef void (^FBSDKAppLinkNavigationHandler)(FBSDKAppLinkNavigationType, NSError * _Nullable);
-	delegate void AppLinkNavigationHandler (AppLinkNavigationType navType, [NullAllowed] NSError error);
+	// typedef void (^FBSDKAppLinkNavigationBlockHandler)(FBSDKAppLinkNavigationType, NSError * _Nullable);
+	delegate void AppLinkNavigationBlockHandler (AppLinkNavigationType navType, [NullAllowed] NSError error);
 
 	// @interface FBSDKAppLinkNavigation : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKAppLinkNavigation")]
 	interface AppLinkNavigation {
+		// @property (nonatomic, strong, class) id<FBSDKAppLinkResolving> _Nonnull defaultResolver;
+		[Static]
+		[Export ("defaultResolver", ArgumentSemantic.Strong)]
+		IAppLinkResolving DefaultResolver { get; set; }
+
 		// @property (readonly, copy, nonatomic) NSDictionary<NSString *,id> * _Nonnull extras;
 		[Export ("extras", ArgumentSemantic.Copy)]
 		NSDictionary<NSString, NSObject> Extras { get; }
@@ -789,17 +436,17 @@ namespace Facebook.CoreKit {
 		[Export ("navigate:")]
 		AppLinkNavigationType Navigate ([NullAllowed] out NSError error);
 
-		// +(void)resolveAppLink:(NSURL * _Nonnull)destination handler:(FBSDKAppLinkFromURLHandler _Nonnull)handler;
+		// +(void)resolveAppLink:(NSURL * _Nonnull)destination handler:(FBSDKAppLinkBlockHandler _Nonnull)handler;
 		[Async]
 		[Static]
 		[Export ("resolveAppLink:handler:")]
-		void ResolveAppLink (NSUrl destination, AppLinkFromUrlHandler handler);
+		void ResolveAppLink (NSUrl destination, AppLinkBlockHandler handler);
 
-		// +(void)resolveAppLink:(NSURL * _Nonnull)destination resolver:(id<FBSDKAppLinkResolving> _Nonnull)resolver handler:(FBSDKAppLinkFromURLHandler _Nonnull)handler;
+		// +(void)resolveAppLink:(NSURL * _Nonnull)destination resolver:(id<FBSDKAppLinkResolving> _Nonnull)resolver handler:(FBSDKAppLinkBlockHandler _Nonnull)handler;
 		[Async]
 		[Static]
 		[Export ("resolveAppLink:resolver:handler:")]
-		void ResolveAppLink (NSUrl destination, IAppLinkResolving resolver, AppLinkFromUrlHandler handler);
+		void ResolveAppLink (NSUrl destination, IAppLinkResolving resolver, AppLinkBlockHandler handler);
 
 		// +(FBSDKAppLinkNavigationType)navigateToAppLink:(FBSDKAppLink * _Nonnull)link error:(NSError * _Nullable * _Nullable)error;
 		[Static]
@@ -811,39 +458,30 @@ namespace Facebook.CoreKit {
 		[Export ("navigationTypeForLink:")]
 		AppLinkNavigationType GetNavigationType (AppLink link);
 
-		// +(void)navigateToURL:(NSURL * _Nonnull)destination handler:(FBSDKAppLinkNavigationHandler _Nonnull)handler;
+		// +(void)navigateToURL:(NSURL * _Nonnull)destination handler:(FBSDKAppLinkNavigationBlockHandler _Nonnull)handler;
 		[Async]
 		[Static]
 		[Export ("navigateToURL:handler:")]
-		void Navigate (NSUrl destination, AppLinkNavigationHandler handler);
+		void Navigate (NSUrl destination, AppLinkNavigationBlockHandler handler);
 
-		// +(void)navigateToURL:(NSURL * _Nonnull)destination resolver:(id<FBSDKAppLinkResolving> _Nonnull)resolver handler:(FBSDKAppLinkNavigationHandler _Nonnull)handler;
+		// +(void)navigateToURL:(NSURL * _Nonnull)destination resolver:(id<FBSDKAppLinkResolving> _Nonnull)resolver handler:(FBSDKAppLinkNavigationBlockHandler _Nonnull)handler;
 		[Async]
 		[Static]
 		[Export ("navigateToURL:resolver:handler:")]
-		void Navigate (NSUrl destination, IAppLinkResolving resolver, AppLinkNavigationHandler handler);
-
-		// +(id<FBSDKAppLinkResolving> _Nonnull)defaultResolver;
-		// +(void)setDefaultResolver:(id<FBSDKAppLinkResolving> _Nonnull)resolver;
-		[Static]
-		[Export ("defaultResolver")]
-		IAppLinkResolving DefaultResolver { get; set; }
+		void Navigate (NSUrl destination, IAppLinkResolving resolver, AppLinkNavigationBlockHandler handler);
 	}
 
-	// @interface FBSDKAppLinkResolver : NSObject<BFAppLinkResolving>
+	// typedef void (^FBSDKAppLinksBlock)(NSDictionary<NSURL *,FBSDKAppLink *> * _Nonnull, NSError * _Nullable);
+	delegate void AppLinksBlockHandler (NSDictionary<NSUrl, AppLink> appLinks, [NullAllowed] NSError error);
+
+	// @interface FBSDKAppLinkResolver : NSObject<AppLinkResolving>
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKAppLinkResolver")]
-	interface AppLinkResolver : AppLinkResolving, BFAppLinkResolving {
-
-		// - (BFTask *)appLinksFromURLsInBackground:(NSArray *)urls;
-		[Obsolete ("Use GetAppLinks method instead.")]
-		[Export ("appLinksFromURLsInBackground:")]
-		Task AppLinksInBackground (NSUrl [] urls);
-
+	interface AppLinkResolver : AppLinkResolving {
 		// -(void)appLinksFromURLs:(NSArray<NSURL *> *)urls handler:(FBSDKAppLinksFromURLArrayHandler)handler __attribute__((availability(ios_app_extension, unavailable)));
 		[Async]
 		[Export ("appLinksFromURLs:handler:")]
-		void GetAppLinks (NSUrl [] urls, AppLinksFromUrlArrayHandler handler);
+		void GetAppLinks (NSUrl [] urls, AppLinksBlockHandler handler);
 
 		// + (instancetype)resolver;
 		[Static]
@@ -851,11 +489,8 @@ namespace Facebook.CoreKit {
 		AppLinkResolver Resolver { get; }
 	}
 
-	// typedef void (^FBSDKAppLinkFromURLHandler)(FBSDKAppLink * _Nullable, NSError * _Nullable);
-	delegate void AppLinkFromUrlHandler ([NullAllowed] AppLink appLink, [NullAllowed] NSError error);
-
-	// typedef void (^FBSDKAppLinksFromURLArrayHandler)(NSDictionary<NSURL *,FBSDKAppLink *> * _Nonnull, NSError * _Nullable);
-	delegate void AppLinksFromUrlArrayHandler (NSDictionary<NSUrl, NSObject> appLinks, [NullAllowed] NSError error);
+	// typedef void (^FBSDKAppLinkBlock)(FBSDKAppLink * _Nullable, NSError * _Nullable);
+	delegate void AppLinkBlockHandler ([NullAllowed] AppLink appLink, [NullAllowed] NSError error);
 
 	interface IAppLinkResolving { }
 
@@ -864,10 +499,10 @@ namespace Facebook.CoreKit {
 	[Protocol]
 	[BaseType (typeof (NSObject), Name = "FBSDKAppLinkResolving")]
 	interface AppLinkResolving {
-		// @required -(void)appLinkFromURL:(NSURL * _Nonnull)url handler:(FBSDKAppLinkFromURLHandler _Nonnull)handler __attribute__((availability(ios_app_extension, unavailable)));
+		// @required -(void)appLinkFromURL:(NSURL * _Nonnull)url handler:(FBSDKAppLinkBlockHandler _Nonnull)handler __attribute__((availability(ios_app_extension, unavailable)));
 		[Abstract]
 		[Export ("appLinkFromURL:handler:")]
-		void Handler (NSUrl url, AppLinkFromUrlHandler handler);
+		void Handler (NSUrl url, AppLinkBlockHandler handler);
 	}
 
 	interface IAppLinkReturnToRefererControllerDelegate { }
@@ -972,7 +607,7 @@ namespace Facebook.CoreKit {
 
 		// @property (assign, nonatomic) BOOL closed;
 		[Export ("closed")]
-		bool Closed { get; set; }
+		bool Closed { [Bind ("isClosed")] get; set; }
 	}
 
 	// @interface FBSDKAppLinkTarget : NSObject
@@ -997,33 +632,29 @@ namespace Facebook.CoreKit {
 		string AppName { get; }
 	}
 
-	// typedef void (^FBSDKDeferredAppLinkHandler)(NSURL *, NSError *);
-	delegate void DeferredAppLinkHandler (NSUrl url, NSError error);
-	// typedef void (^FBSDKDeferredAppInviteHandler)(NSURL *url);
-	delegate void DeferredAppInviteHandler (NSUrl url);
+	// typedef void (^FBSDKURLBlock)(NSURL * _Nullable, NSError * _Nullable);
+	delegate void UrlBlockHandler (NSUrl url, NSError error);
 
 	// @interface FBSDKAppLinkUtility : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKAppLinkUtility")]
 	interface AppLinkUtility {
 
-		// +(void)fetchDeferredAppLink:(FBSDKDeferredAppLinkHandler)handler;
+		// +(void)fetchDeferredAppLink:(FBSDKUrlBlockHandler)handler;
 		[Static]
 		[Async]
 		[Export ("fetchDeferredAppLink:")]
-		void FetchDeferredAppLink (DeferredAppLinkHandler handler);
-
-		// + (BOOL)fetchDeferredAppInvite:(FBSDKDeferredAppInviteHandler)handler;
-		[Static]
-		[Export ("fetchDeferredAppInvite:")]
-		[Obsolete ("This method is no longer available and will always return NO.")]
-		bool FetchDeferredAppInvite (DeferredAppInviteHandler handler);
+		void FetchDeferredAppLink (UrlBlockHandler handler);
 
 		// + (NSString*)appInvitePromotionCodeFromURL:(NSURL*)url;
 		[Static]
 		[Export ("appInvitePromotionCodeFromURL:")]
 		string AppInvitePromotionCode (NSUrl url);
 	}
+
+	// @interface FBSDKBasicUtility : NSObject
+	[BaseType (typeof (NSObject), Name = "FBSDKBasicUtility")]
+	interface BasicUtility { }
 
 	// @interface FBSDKButton : UIButton
 	[BaseType (typeof (UIButton), Name = "FBSDKButton")]
@@ -1062,21 +693,6 @@ namespace Facebook.CoreKit {
 		// extern NSString *const FBSDKErrorLocalizedTitleKey;
 		[Field ("FBSDKErrorLocalizedTitleKey", "__Internal")]
 		NSString LocalizedTitleKey { get; }
-
-		// extern NSString *const FBSDKGraphRequestErrorCategoryKey;
-		[Obsolete ("Use GraphRequestErrors.ErrorKey static property instead.")]
-		[Field ("FBSDKGraphRequestErrorCategoryKey", "__Internal")]
-		NSString CategoryKey { get; }
-
-		// extern NSString *const FBSDKGraphRequestErrorGraphErrorCode;
-		[Obsolete ("Use GraphRequestErrors.GraphErrorCodeKey static property instead.")]
-		[Field ("FBSDKGraphRequestErrorGraphErrorCode", "__Internal")]
-		NSString GraphErrorCode { get; }
-
-		// extern NSString *const FBSDKGraphRequestErrorGraphErrorSubcode;
-		[Obsolete ("Use GraphRequestErrors.GraphErrorSubcodeKey static property instead.")]
-		[Field ("FBSDKGraphRequestErrorGraphErrorSubcode", "__Internal")]
-		NSString GraphErrorSubcode { get; }
 	}
 
 	[Static]
@@ -1102,6 +718,15 @@ namespace Facebook.CoreKit {
 		NSString ParsedJsonResponseKey { get; }
 	}
 
+	// typedef void (^FBSDKCodeBlock)();
+	delegate void CodeBlockHandler ();
+
+	// typedef void (^FBSDKErrorBlock)(NSError * _Nullable);
+	delegate void ErrorBlockHandler ([NullAllowed] NSError error);
+
+	// typedef void (^FBSDKSuccessBlock)(BOOL, NSError * _Nullable);
+	delegate void SuccessBlockHandler (bool success, [NullAllowed] NSError error);
+
 	interface IErrorRecoveryAttempting { }
 
 	// @protocol FBSDKErrorRecoveryAttempting <NSObject>
@@ -1112,7 +737,7 @@ namespace Facebook.CoreKit {
 		// @required -(void)attemptRecoveryFromError:(NSError *)error optionIndex:(NSUInteger)recoveryOptionIndex delegate:(id)delegate didRecoverSelector:(SEL)didRecoverSelector contextInfo:(void *)contextInfo;
 		[Abstract]
 		[Export ("attemptRecoveryFromError:optionIndex:delegate:didRecoverSelector:contextInfo:")]
-		void AttemptRecovery (NSError error, nuint recoveryOptionIndex, NSObject aDelegate, Selector didRecoverSelector, IntPtr contextInfo);
+		void AttemptRecovery (NSError error, nuint recoveryOptionIndex, [NullAllowed] NSObject aDelegate, Selector didRecoverSelector, IntPtr contextInfo);
 	}
 
 	interface ICopying { }
@@ -1140,11 +765,11 @@ namespace Facebook.CoreKit {
 		// @required -(void)processorDidAttemptRecovery:(FBSDKGraphErrorRecoveryProcessor *)processor didRecover:(BOOL)didRecover error:(NSError *)error;
 		[Abstract]
 		[Export ("processorDidAttemptRecovery:didRecover:error:")]
-		void DidAttemptRecovery (GraphErrorRecoveryProcessor processor, bool didRecover, NSError error);
+		void DidAttemptRecovery (GraphErrorRecoveryProcessor processor, bool didRecover, [NullAllowed] NSError error);
 
 		// @optional -(BOOL)processorWillProcessError:(FBSDKGraphErrorRecoveryProcessor *)processor error:(NSError *)error;
 		[Export ("processorWillProcessError:error:")]
-		bool WillProcessError (GraphErrorRecoveryProcessor processor, NSError error);
+		bool WillProcessError (GraphErrorRecoveryProcessor processor, [NullAllowed] NSError error);
 	}
 
 	// @interface FBSDKGraphErrorRecoveryProcessor : NSObject
@@ -1152,6 +777,7 @@ namespace Facebook.CoreKit {
 	interface GraphErrorRecoveryProcessor {
 
 		// @property (readonly, nonatomic, strong) id<FBSDKGraphErrorRecoveryProcessorDelegate> delegate;
+		[NullAllowed]
 		[Export ("delegate", ArgumentSemantic.Strong)]
 		IGraphErrorRecoveryProcessorDelegate Delegate { get; }
 
@@ -1161,32 +787,61 @@ namespace Facebook.CoreKit {
 
 		// -(void)didPresentErrorWithRecovery:(BOOL)didRecover contextInfo:(void *)contextInfo;
 		[Export ("didPresentErrorWithRecovery:contextInfo:")]
-		unsafe void ErrorPresentedWithRecovery (bool didRecover, [NullAllowed] NSObject contextInfo);
+		void ErrorPresentedWithRecovery (bool didRecover, [NullAllowed] NSObject contextInfo);
 	}
 
 	// @interface FBSDKGraphRequest : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKGraphRequest")]
 	interface GraphRequest {
+		// -(instancetype _Nonnull)initWithGraphPath:(NSString * _Nonnull)graphPath;
+		[Export ("initWithGraphPath:")]
+		IntPtr Constructor (string graphPath);
+
+		// -(instancetype _Nonnull)initWithGraphPath:(NSString * _Nonnull)graphPath HTTPMethod:(FBSDKHTTPMethod _Nonnull)method;
+		[Internal]
+		[Export ("initWithGraphPath:HTTPMethod:")]
+		IntPtr Constructor (string graphPath, NSString method);
+
+		[Wrap ("this (graphPath, method.GetConstant ())")]
+		IntPtr Constructor (string graphPath, HttpMethod method);
+
+		[Wrap ("this (graphPath, new NSString (method))")]
+		IntPtr Constructor (string graphPath, string method);
 
 		// -(instancetype)initWithGraphPath:(NSString *)graphPath parameters:(NSDictionary *)parameters;
 		[Export ("initWithGraphPath:parameters:")]
 		IntPtr Constructor (string graphPath, [NullAllowed] NSDictionary parameters);
 
 		// -(instancetype)initWithGraphPath:(NSString *)graphPath parameters:(NSDictionary *)parameters HTTPMethod:(NSString *)HTTPMethod;
+		[Internal]
 		[Export ("initWithGraphPath:parameters:HTTPMethod:")]
-		IntPtr Constructor (string graphPath, [NullAllowed] NSDictionary parameters, [NullAllowed] string httpMethod);
+		IntPtr Constructor (string graphPath, [NullAllowed] NSDictionary parameters, NSString method);
+
+		[Wrap ("this (graphPath, parameters, method.GetConstant ())")]
+		IntPtr Constructor (string graphPath, [NullAllowed] NSDictionary parameters, HttpMethod method);
+
+		[Wrap ("this (graphPath, parameters, new NSString (method))")]
+		IntPtr Constructor (string graphPath, [NullAllowed] NSDictionary parameters, string method);
 
 		// -(instancetype)initWithGraphPath:(NSString *)graphPath parameters:(NSDictionary *)parameters tokenString:(NSString *)tokenString version:(NSString *)version HTTPMethod:(NSString *)HTTPMethod __attribute__((objc_designated_initializer));
 		[DesignatedInitializer]
+		[Internal]
 		[Export ("initWithGraphPath:parameters:tokenString:version:HTTPMethod:")]
-		IntPtr Constructor (string graphPath, [NullAllowed] NSDictionary parameters, [NullAllowed] string tokenString, [NullAllowed] string version, [NullAllowed] string httpMethod);
+		IntPtr Constructor (string graphPath, [NullAllowed] NSDictionary parameters, [NullAllowed] string tokenString, [NullAllowed] string version, [NullAllowed] NSString method);
+
+		[Wrap ("this (graphPath, parameters, tokenString, version, method.GetConstant ())")]
+		IntPtr Constructor (string graphPath, [NullAllowed] NSDictionary parameters, [NullAllowed] string tokenString, [NullAllowed] string version, HttpMethod method);
+
+		[Wrap ("this (graphPath, parameters, tokenString, version, new NSString (method))")]
+		IntPtr Constructor (string graphPath, [NullAllowed] NSDictionary parameters, [NullAllowed] string tokenString, [NullAllowed] string version, string method);
 
 		// @property (readonly, nonatomic, strong) NSMutableDictionary * parameters;
-		[Export ("parameters", ArgumentSemantic.Strong)]
-		NSMutableDictionary Parameters { get; }
+		[Export ("parameters", ArgumentSemantic.Copy)]
+		NSDictionary Parameters { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * tokenString;
+		[NullAllowed]
 		[Export ("tokenString", ArgumentSemantic.Copy)]
 		string TokenString { get; }
 
@@ -1195,12 +850,9 @@ namespace Facebook.CoreKit {
 		string GraphPath { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * HTTPMethod;
+		[BindAs (typeof (HttpMethod))]
 		[Export ("HTTPMethod", ArgumentSemantic.Copy)]
-		string HttpMethod { get; }
-
-		[Obsolete ("Use HttpMethod property instead. This will be removed in future versions.")]
-		[Wrap ("HttpMethod")]
-		string HTTPMethod { get; }
+		NSString HttpMethod { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * version;
 		[Export ("version", ArgumentSemantic.Copy)]
@@ -1210,17 +862,15 @@ namespace Facebook.CoreKit {
 		[Export ("setGraphErrorRecoveryDisabled:")]
 		void SetGraphErrorRecoveryDisabled (bool disable);
 
-		// -(FBSDKGraphRequestConnection *)startWithCompletionHandler:(FBSDKGraphRequestHandler)handler;
+		// -(FBSDKGraphRequestConnection *)startWithCompletionHandler:(FBSDKGraphRequestBlockHandler)handler;
 		[Export ("startWithCompletionHandler:")]
-		GraphRequestConnection Start (GraphRequestHandler handler);
+		GraphRequestConnection Start ([NullAllowed] GraphRequestBlockHandler handler);
 	}
 
-	// typedef void (^FBSDKGraphRequestHandler)(FBSDKGraphRequestConnection *id, NSError *);
-	delegate void GraphRequestHandler (GraphRequestConnection connection, NSObject result, NSError error);
+	// typedef void (^FBSDKGraphRequestBlockHandler)(FBSDKGraphRequestConnection *id, NSError *);
+	delegate void GraphRequestBlockHandler ([NullAllowed] GraphRequestConnection connection, [NullAllowed] NSObject result, [NullAllowed] NSError error);
 
-	interface IGraphRequestConnectionDelegate {
-
-	}
+	interface IGraphRequestConnectionDelegate { }
 
 	// @protocol FBSDKGraphRequestConnectionDelegate <NSObject>
 	[Model (AutoGeneratedName = true)]
@@ -1263,6 +913,11 @@ namespace Facebook.CoreKit {
 		[Field ("FBSDKNonJSONResponseProperty", "__Internal")]
 		NSString NonJsonResponsePropertyKey { get; }
 
+		// @property (assign, nonatomic, class) NSTimeInterval defaultConnectionTimeout;
+		[Static]
+		[Export ("defaultConnectionTimeout")]
+		double DefaultConnectionTimeout { get; set; }
+
 		// @property (assign, nonatomic) id<FBSDKGraphRequestConnectionDelegate> delegate;
 		[NullAllowed]
 		[Export ("delegate", ArgumentSemantic.Weak)]
@@ -1276,35 +931,24 @@ namespace Facebook.CoreKit {
 		[Export ("URLResponse", ArgumentSemantic.Retain)]
 		NSHttpUrlResponse UrlResponse { get; }
 
-		// + (void)setDefaultConnectionTimeout:(NSTimeInterval)defaultConnectionTimeout;
-		[Static]
-		[Export ("setDefaultConnectionTimeout:")]
-		void SetDefaultConnectionTimeout (double defaultConnectionTimeout);
+		// @property (retain, nonatomic) NSOperationQueue * _Nonnull delegateQueue;
+		[Export ("delegateQueue", ArgumentSemantic.Retain)]
+		NSOperationQueue DelegateQueue { get; set; }
 
-		// -(void)addRequest:(FBSDKGraphRequest *)request completionHandler:(FBSDKGraphRequestHandler)handler;
+		// -(void)addRequest:(FBSDKGraphRequest *)request completionHandler:(FBSDKGraphRequestBlockHandler)handler;
 		[Async (ResultTypeName = "GraphRequestResult")]
 		[Export ("addRequest:completionHandler:")]
-		void AddRequest (GraphRequest request, [NullAllowed] GraphRequestHandler handler);
+		void AddRequest (GraphRequest request, GraphRequestBlockHandler handler);
 
-		// -(void)addRequest:(FBSDKGraphRequest *)request batchEntryName:(NSString *)name completionHandler:(FBSDKGraphRequestHandler)handler;
+		// -(void)addRequest:(FBSDKGraphRequest *)request batchEntryName:(NSString *)name completionHandler:(FBSDKGraphRequestBlockHandler)handler;
 		[Async (ResultTypeName = "GraphRequestResult")]
 		[Export ("addRequest:batchEntryName:completionHandler:")]
-		void AddRequest (GraphRequest request, string name, GraphRequestHandler handler);
+		void AddRequest (GraphRequest request, string name, GraphRequestBlockHandler handler);
 
-		// -(void)addRequest:(FBSDKGraphRequest *)request completionHandler:(FBSDKGraphRequestHandler)handler batchEntryName:(NSString *)name;
-		[Obsolete ("Use the AddRequest (GraphRequest, string, GraphRequestHandler) overload method instead.")]
-		[Export ("addRequest:completionHandler:batchEntryName:")]
-		void AddRequest (GraphRequest request, [NullAllowed] GraphRequestHandler handler, string name);
-
-		// -(void)addRequest:(FBSDKGraphRequest *)request batchParameters:(NSDictionary<NSString *,id> *)batchParameters completionHandler:(FBSDKGraphRequestHandler)handler;
+		// -(void)addRequest:(FBSDKGraphRequest *)request batchParameters:(NSDictionary<NSString *,id> *)batchParameters completionHandler:(FBSDKGraphRequestBlockHandler)handler;
 		[Async (ResultTypeName = "GraphRequestResult")]
 		[Export ("addRequest:batchParameters:completionHandler:")]
-		void AddRequest (GraphRequest request, NSDictionary batchParameters, GraphRequestHandler handler);
-
-		// -(void)addRequest:(FBSDKGraphRequest *)request completionHandler:(FBSDKGraphRequestHandler)handler batchParameters:(NSDictionary *)batchParameters;
-		[Obsolete ("Use the AddRequest (GraphRequest, NSDictionary, GraphRequestHandler) overload method instead.")]
-		[Export ("addRequest:completionHandler:batchParameters:")]
-		void AddRequest (GraphRequest request, [NullAllowed] GraphRequestHandler handler, [NullAllowed] NSDictionary batchParameters);
+		void AddRequest (GraphRequest request, NSDictionary batchParameters, GraphRequestBlockHandler handler);
 
 		// -(void)cancel;
 		[Export ("cancel")]
@@ -1314,18 +958,9 @@ namespace Facebook.CoreKit {
 		[Export ("start")]
 		void Start ();
 
-		// -(void)setDelegateQueue:(NSOperationQueue *)queue;
-		[Export ("setDelegateQueue:")]
-		void SetDelegateQueue (NSOperationQueue queue);
-
 		// -(void)overrideGraphAPIVersion:(NSString *)version;
 		[Export ("overrideGraphAPIVersion:")]
 		void OverrideGraphApiVersion (string version);
-
-		// -(void)overrideVersionPartWith:(NSString *)version;
-		[Obsolete ("Use the OverrideGraphApiVersion method instead.")]
-		[Export ("overrideVersionPartWith:")]
-		void OverrideVersionPart (string version);
 	}
 
 	// @interface FBSDKGraphRequestDataAttachment : NSObject
@@ -1418,8 +1053,8 @@ namespace Facebook.CoreKit {
 		Profile NewProfile { get; }
 	}
 
-	// void(^)(FBSDKProfile *profile, NSError *error))completion
-	delegate void ProfileLoadCurrentProfileHandler (Profile profile, NSError error);
+	// typedef void (^FBSDKProfileBlock)(FBSDKProfile * _Nullable, NSError * _Nullable);
+	delegate void ProfileBlockHandler ([NullAllowed] Profile profile, [NullAllowed] NSError error);
 
 	// @interface FBSDKProfile : NSObject <NSCopying, NSSecureCoding>
 	[DisableDefaultCtor]
@@ -1440,45 +1075,47 @@ namespace Facebook.CoreKit {
 		// -(instancetype)initWithUserID:(NSString *)userID firstName:(NSString *)firstName middleName:(NSString *)middleName lastName:(NSString *)lastName name:(NSString *)name linkURL:(NSURL *)linkURL refreshDate:(NSDate *)refreshDate __attribute__((objc_designated_initializer));
 		[DesignatedInitializer]
 		[Export ("initWithUserID:firstName:middleName:lastName:name:linkURL:refreshDate:")]
-		IntPtr Constructor (string userID, string firstName, string middleName, string lastName, string name, [NullAllowed] NSUrl linkUrl, [NullAllowed] NSDate refreshDate);
+		IntPtr Constructor (string userId, [NullAllowed] string firstName,[NullAllowed] string middleName,[NullAllowed] string lastName,[NullAllowed] string name, [NullAllowed] NSUrl linkUrl, [NullAllowed] NSDate refreshDate);
+
+		// @property (nonatomic, strong, class) FBSDKProfile * _Nullable currentProfile;
+		[Static]
+		[NullAllowed]
+		[Export ("currentProfile", ArgumentSemantic.Strong)]
+		Profile CurrentProfile { get; set; }
 
 		// @property (readonly, nonatomic) NSString * userID;
 		[Export ("userID")]
 		string UserId { get; }
 
-		[Obsolete ("Use UserId property instead. This will be removed in future versions.")]
-		[Wrap ("UserId")]
-		string UserID { get; }
-
 		// @property (readonly, nonatomic) NSString * firstName;
+		[NullAllowed]
 		[Export ("firstName")]
 		string FirstName { get; }
 
 		// @property (readonly, nonatomic) NSString * middleName;
+		[NullAllowed]
 		[Export ("middleName")]
 		string MiddleName { get; }
 
 		// @property (readonly, nonatomic) NSString * lastName;
+		[NullAllowed]
 		[Export ("lastName")]
 		string LastName { get; }
 
 		// @property (readonly, nonatomic) NSString * name;
+		[NullAllowed]
 		[Export ("name")]
 		string Name { get; }
 
 		// @property (readonly, nonatomic) NSURL * linkURL;
+		[NullAllowed]
 		[Export ("linkURL")]
 		NSUrl LinkUrl { get; }
 
 		// @property (readonly, nonatomic) NSDate * refreshDate;
+		[NullAllowed]
 		[Export ("refreshDate")]
 		NSDate RefreshDate { get; }
-
-		// +(FBSDKProfile *)currentProfile;
-		// +(void)setCurrentProfile:(FBSDKProfile *)profile;
-		[Static]
-		[Export ("currentProfile")]
-		Profile CurrentProfile { get; set; }
 
 		// +(void)enableUpdatesOnAccessTokenChange:(BOOL)enable;
 		[Static]
@@ -1489,24 +1126,16 @@ namespace Facebook.CoreKit {
 		[Async]
 		[Static]
 		[Export ("loadCurrentProfileWithCompletion:")]
-		void LoadCurrentProfile (ProfileLoadCurrentProfileHandler completion);
+		void LoadCurrentProfile ([NullAllowed] ProfileBlockHandler completion);
 
 		// - (NSURL *)imageURLForPictureMode:(FBSDKProfilePictureMode)mode size:(CGSize)size;
+		[return: NullAllowed]
 		[Export ("imageURLForPictureMode:size:")]
 		NSUrl ImageUrl (ProfilePictureMode mode, CGSize size);
-
-		// -(NSString *)imagePathForPictureMode:(FBSDKProfilePictureMode)mode size:(CGSize)size;
-		[Obsolete ("Use ImageUrl method instead")]
-		[Export ("imagePathForPictureMode:size:")]
-		string ImagePath (ProfilePictureMode mode, CGSize size);
 
 		// -(BOOL)isEqualToProfile:(FBSDKProfile *)profile;
 		[Export ("isEqualToProfile:")]
 		bool Equals (Profile profile);
-
-		[Obsolete ("Use Equals (Profile) overload method instead. This will be removed in future version.")]
-		[Wrap ("Equals (profile)")]
-		bool IsEqualToProfile (Profile profile);
 	}
 
 	// @interface FBSDKProfilePictureView : UIView
@@ -1528,175 +1157,104 @@ namespace Facebook.CoreKit {
 		void SetNeedsImageUpdate ();
 	}
 
-	[Static]
-	interface LoggingBehavior {
-
-		// extern NSString *const FBSDKLoggingBehaviorAccessTokens;
-		[Field ("FBSDKLoggingBehaviorAccessTokens", "__Internal")]
-		NSString AccessTokensKey { get; }
-
-		// extern NSString *const FBSDKLoggingBehaviorPerformanceCharacteristics;
-		[Field ("FBSDKLoggingBehaviorPerformanceCharacteristics", "__Internal")]
-		NSString PerformanceCharacteristicsKey { get; }
-
-		// extern NSString *const FBSDKLoggingBehaviorAppEvents;
-		[Field ("FBSDKLoggingBehaviorAppEvents", "__Internal")]
-		NSString AppEventsKey { get; }
-
-		// extern NSString *const FBSDKLoggingBehaviorInformational;
-		[Field ("FBSDKLoggingBehaviorInformational", "__Internal")]
-		NSString InformationalKey { get; }
-
-		// extern NSString *const FBSDKLoggingBehaviorCacheErrors;
-		[Field ("FBSDKLoggingBehaviorCacheErrors", "__Internal")]
-		NSString CacheErrorsKey { get; }
-
-		// extern NSString *const FBSDKLoggingBehaviorUIControlErrors;
-		[Field ("FBSDKLoggingBehaviorUIControlErrors", "__Internal")]
-		NSString UIControlErrorsKey { get; }
-
-		// extern NSString *const FBSDKLoggingBehaviorGraphAPIDebugWarning;
-		[Field ("FBSDKLoggingBehaviorGraphAPIDebugWarning", "__Internal")]
-		NSString GraphAPIDebugWarningKey { get; }
-
-		// extern NSString *const FBSDKLoggingBehaviorGraphAPIDebugInfo;
-		[Field ("FBSDKLoggingBehaviorGraphAPIDebugInfo", "__Internal")]
-		NSString GraphAPIDebugInfoKey { get; }
-
-		// extern NSString *const FBSDKLoggingBehaviorNetworkRequests;
-		[Field ("FBSDKLoggingBehaviorNetworkRequests", "__Internal")]
-		NSString NetworkRequestsKey { get; }
-
-		// extern NSString *const FBSDKLoggingBehaviorDeveloperErrors;
-		[Field ("FBSDKLoggingBehaviorDeveloperErrors", "__Internal")]
-		NSString DeveloperErrorsKey { get; }
-	}
-
 	// @interface FBSDKSettings : NSObject
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKSettings")]
 	interface Settings {
-
-		// +(NSString *)appID;
-		// +(void)setAppID:(NSString *)appID;
-		[Static]
-		[Export ("appID")]
-		string AppId { get; set; }
-
-		[Obsolete ("Use AppId property instead. This will be removed in future versions.")]
-		[Static]
-		[Wrap ("AppId")]
-		string AppID { get; set; }
-
-		// +(NSString *)appURLSchemeSuffix;
-		// +(void)setAppURLSchemeSuffix:(NSString *)appURLSchemeSuffix;
-		[Static]
-		[Export ("appURLSchemeSuffix")]
-		string AppUrlSchemeSuffix { get; set; }
-
-		// +(NSString *)clientToken;
-		// +(void)setClientToken:(NSString *)clientToken;
-		[Static]
-		[Export ("clientToken")]
-		string ClientToken { get; set; }
-
-		// +(void)setGraphErrorRecoveryDisabled:(BOOL)disableGraphErrorRecovery;
-		[Static]
-		[Export ("setGraphErrorRecoveryDisabled:")]
-		void SetGraphErrorRecoveryDisabled (bool disableGraphErrorRecovery);
-
-		// +(NSString *)displayName;
-		// +(void)setDisplayName:(NSString *)displayName;
-		[Static]
-		[Export ("displayName")]
-		string DisplayName { get; set; }
-
-		// +(NSString *)facebookDomainPart;
-		// +(void)setFacebookDomainPart:(NSString *)facebookDomainPart;
-		[Static]
-		[Export ("facebookDomainPart")]
-		string FacebookDomainPart { get; set; }
-
-		// +(CGFloat)JPEGCompressionQuality;
-		// +(void)setJPEGCompressionQuality:(CGFloat)JPEGCompressionQuality;
-		[Static]
-		[Export ("JPEGCompressionQuality")]
-		nfloat JpegCompressionQuality { get; set; }
-
-		// + (NSNumber *)autoLogAppEventsEnabled;
-		// + (void)setAutoLogAppEventsEnabled:(NSNumber*)AutoLogAppEventsEnabled;
-		[Internal]
-		[Static]
-		[Export ("autoLogAppEventsEnabled")]
-		NSNumber _AutoLogAppEventsEnabled { get; set; }
-
-		// + (NSNumber*) codelessDebugLogEnabled;
-		// + (void)setCodelessDebugLogEnabled:(NSNumber *)CodelessDebugLogEnabled;
-		[Internal]
-		[Static]
-		[Export ("codelessDebugLogEnabled")]
-		NSNumber _CodelessDebugLogEnabled { get; set; }
-
-		// +(NSNumber *)advertiserIDCollectionEnabled;
-		// +(void)setAdvertiserIDCollectionEnabled:(NSNumber *)AdvertiserIDCollectionEnabled;
-		[Internal]
-		[Static]
-		[Export ("advertiserIDCollectionEnabled")]
-		NSNumber _AdvertiserIdCollectionEnabled { get; set; }
-
-		// +(BOOL)limitEventAndDataUsage;
-		// +(void)setLimitEventAndDataUsage:(BOOL)limitEventAndDataUsage;
-		[Static]
-		[Export ("limitEventAndDataUsage")]
-		bool LimitEventAndDataUsage { get; set; }
-
-		// +(NSString *)sdkVersion;
+		// @property (readonly, copy, nonatomic, class) NSString * _Nonnull sdkVersion;
 		[Static]
 		[Export ("sdkVersion")]
 		string SdkVersion { get; }
 
-		// @property (copy, nonatomic, class) NSSet<NSString *> * loggingBehaviors;
+		// @property (readonly, copy, nonatomic, class) NSString * _Nonnull defaultGraphAPIVersion;
+		[Static]
+		[Export ("defaultGraphAPIVersion")]
+		string DefaultGraphApiVersion { get; }
+
+		// @property (assign, nonatomic, class) CGFloat JPEGCompressionQuality;
+		[Static]
+		[Export ("JPEGCompressionQuality")]
+		nfloat JpegCompressionQuality { get; set; }
+
+		// @property (getter = isAutoInitEnabled, assign, nonatomic, class) BOOL autoInitEnabled;
+		[Static]
+		[Export ("autoInitEnabled")]
+		bool AutoInitEnabled { [Bind ("isAutoInitEnabled")] get; set; }
+
+		// @property (getter = isAutoLogAppEventsEnabled, assign, nonatomic, class) BOOL autoLogAppEventsEnabled;
+		[Static]
+		[Export ("autoLogAppEventsEnabled")]
+		bool AutoLogAppEventsEnabled { [Bind ("isAutoLogAppEventsEnabled")] get; set; }
+
+		// @property (getter = isCodelessDebugLogEnabled, assign, nonatomic, class) BOOL codelessDebugLogEnabled;
+		[Static]
+		[Export ("codelessDebugLogEnabled")]
+		bool CodelessDebugLogEnabled { [Bind ("isCodelessDebugLogEnabled")] get; set; }
+
+		// @property (getter = isAdvertiserIDCollectionEnabled, assign, nonatomic, class) BOOL advertiserIDCollectionEnabled;
+		[Static]
+		[Export ("advertiserIDCollectionEnabled")]
+		bool AdvertiserIdCollectionEnabled { [Bind ("isAdvertiserIDCollectionEnabled")] get; set; }
+
+		// @property (getter = shouldLimitEventAndDataUsage, assign, nonatomic, class) BOOL limitEventAndDataUsage;
+		[Static]
+		[Export ("limitEventAndDataUsage")]
+		bool LimitEventAndDataUsage { [Bind ("shouldLimitEventAndDataUsage")] get; set; }
+
+		// @property (getter = isGraphErrorRecoveryEnabled, assign, nonatomic, class) BOOL graphErrorRecoveryEnabled;
+		[Static]
+		[Export ("graphErrorRecoveryEnabled")]
+		bool GraphErrorRecoveryEnabled { [Bind ("isGraphErrorRecoveryEnabled")] get; set; }
+
+		// @property (copy, nonatomic, class) NSString * _Null_unspecified appID;
+		[Static]
+		[Export ("appID")]
+		string AppId { get; set; }
+
+		// @property (copy, nonatomic, class) NSString * _Null_unspecified appURLSchemeSuffix;
+		[Static]
+		[Export ("appURLSchemeSuffix")]
+		string AppUrlSchemeSuffix { get; set; }
+
+		// @property (copy, nonatomic, class) NSString * _Null_unspecified clientToken;
+		[Static]
+		[Export ("clientToken")]
+		string ClientToken { get; set; }
+
+		// @property (copy, nonatomic, class) NSString * _Null_unspecified displayName;
+		[Static]
+		[Export ("displayName")]
+		string DisplayName { get; set; }
+
+		// @property (copy, nonatomic, class) NSString * _Null_unspecified facebookDomainPart;
+		[Static]
+		[Export ("facebookDomainPart")]
+		string FacebookDomainPart { get; set; }
+
+		// @property (copy, nonatomic, class) NSSet<NSString *> * _Nonnull loggingBehaviors;
+		[Internal]
 		[Static]
 		[Export ("loggingBehaviors", ArgumentSemantic.Copy)]
-		NSSet<NSString> LoggingBehaviors { get; set; }
+		NSSet _LoggingBehaviors { get; set; }
 
-		// +(NSSet *)loggingBehavior;
-		// +(void)setLoggingBehavior:(NSSet *)loggingBehavior;
-		[Obsolete ("Use the LoggingBehaviors static property instead.")]
-		[Static]
-		[Export ("loggingBehavior")]
-		NSSet LoggingBehavior { get; set; }
-
-		// +(void)enableLoggingBehavior:(NSString *)loggingBehavior;
-		[Static]
-		[Export ("enableLoggingBehavior:")]
-		void EnableLoggingBehavior (string loggingBehavior);
-
-		// +(void)disableLoggingBehavior:(NSString *)loggingBehavior;
-		[Static]
-		[Export ("disableLoggingBehavior:")]
-		void DisableLoggingBehavior (string loggingBehavior);
-
-		// +(NSString *)legacyUserDefaultTokenInformationKeyName;
-		// +(void)setLegacyUserDefaultTokenInformationKeyName:(NSString *)tokenInformationKeyName;
-		[Static]
-		[Export ("legacyUserDefaultTokenInformationKeyName")]
-		string LegacyUserDefaultTokenInformationKeyName { get; set; }
-
-		// +(void)setGraphAPIVersion:(NSString *)version;
-		// +(NSString *)graphAPIVersion;
+		// @property (copy, nonatomic, class) NSString * _Null_unspecified graphAPIVersion;
 		[Static]
 		[Export ("graphAPIVersion")]
 		string GraphApiVersion { get; set; }
 
-		[Obsolete ("Use GraphApiVersion property instead. This will be removed in future versions.")]
+		// +(void)enableLoggingBehavior:(FBSDKLoggingBehavior _Nonnull)loggingBehavior;
 		[Static]
-		[Wrap ("GraphApiVersion")]
-		string GraphAPIVersion { get; set; }
+		[Export ("enableLoggingBehavior:")]
+		void EnableLoggingBehavior ([BindAs (typeof (LoggingBehavior))] NSString loggingBehavior);
+
+		// +(void)disableLoggingBehavior:(FBSDKLoggingBehavior _Nonnull)loggingBehavior;
+		[Static]
+		[Export ("disableLoggingBehavior:")]
+		void DisableLoggingBehavior ([BindAs (typeof (LoggingBehavior))] NSString loggingBehavior);
 	}
 
-	delegate void TestUsersManagerRetrieveTestAccountTokensHandler (AccessToken [] tokens, NSError error);
-	delegate void TestUsersManagerRemoveTestAccountHandler (NSError error);
+	// typedef void (^FBSDKAccessTokensBlock)(NSArray<FBSDKAccessToken *> * _Nonnull, NSError * _Nullable);
+	delegate void AccessTokensBlockHandler (AccessToken [] tokens, [NullAllowed] NSError error);
 
 	// @interface FBSDKUtility : NSObject
 	[DisableDefaultCtor]
@@ -1706,28 +1264,27 @@ namespace Facebook.CoreKit {
 		// +(instancetype)sharedInstanceForAppID:(NSString *)appID appSecret:(NSString *)appSecret;
 		[Static]
 		[Export ("sharedInstanceForAppID:appSecret:")]
-		TestUsersManager SharedInstance (string appID, string appSecret);
+		TestUsersManager SharedInstance (string appId, string appSecret);
 
-		// -(void)requestTestAccountTokensWithArraysOfPermissions:(NSArray *)arraysOfPermissions createIfNotFound:(BOOL)createIfNotFound completionHandler:(FBSDKTestUsersManagerRetrieveTestAccountTokensHandler)handler;
+		// -(void)requestTestAccountTokensWithArraysOfPermissions:(NSArray *)arraysOfPermissions createIfNotFound:(BOOL)createIfNotFound completionHandler:(FBSDKAccessTokensBlockHandler)handler;
 		[Async]
 		[Export ("requestTestAccountTokensWithArraysOfPermissions:createIfNotFound:completionHandler:")]
-		void RequestTestAccount (string [] arraysOfPermissions, bool createIfNotFound, TestUsersManagerRetrieveTestAccountTokensHandler handler);
+		void RequestTestAccount (NSSet [] arraysOfPermissions, bool createIfNotFound, [NullAllowed] AccessTokensBlockHandler handler);
 
-		// -(void)addTestAccountWithPermissions:(NSSet *)permissions completionHandler:(FBSDKTestUsersManagerRetrieveTestAccountTokensHandler)handler;
+		// -(void)addTestAccountWithPermissions:(NSSet *)permissions completionHandler:(FBSDKAccessTokensBlockHandler)handler;
 		[Async]
 		[Export ("addTestAccountWithPermissions:completionHandler:")]
-		void AddTestAccount (NSSet permissions, TestUsersManagerRetrieveTestAccountTokensHandler handler);
+		void AddTestAccount (NSSet permissions, [NullAllowed] AccessTokensBlockHandler handler);
 
-		// -(void)removeTestAccount:(NSString *)userId completionHandler:(FBSDKTestUsersManagerRemoveTestAccountHandler)handler;
-		// TODO: Report this. If the framework contains a Task class, it will conflict with the System.Threading.Tasks.Task class
-		//[Async]
+		// -(void)removeTestAccount:(NSString * _Nonnull)userId completionHandler:(FBSDKErrorBlock _Nullable)handler;
+		[Async]
 		[Export ("removeTestAccount:completionHandler:")]
-		void RemoveTestAccount (string userId, TestUsersManagerRemoveTestAccountHandler handler);
+		void RemoveTestAccount (string userId, [NullAllowed] ErrorBlockHandler handler);
 
 		// -(void)makeFriendsWithFirst:(FBSDKAccessToken *)first second:(FBSDKAccessToken *)second callback:(void (^)(NSError *))callback;
-		//[Async]
+		[Async]
 		[Export ("makeFriendsWithFirst:second:callback:")]
-		void MakeFriends (AccessToken first, AccessToken second, TestUsersManagerRemoveTestAccountHandler callback);
+		void MakeFriends (AccessToken first, AccessToken second, [NullAllowed] ErrorBlockHandler handler);
 	}
 
 	// @interface FBSDKURL : NSObject
@@ -1827,6 +1384,12 @@ namespace Facebook.CoreKit {
 		[Static]
 		[Wrap ("_StopGcdTimer (timer.Handle)")]
 		void StopGcdTimer (DispatchSource timer);
+
+		// +(NSString * _Nullable)SHA256Hash:(NSObject * _Nullable)input;
+		[Static]
+		[return: NullAllowed]
+		[Export ("SHA256Hash:")]
+		string SHA256Hash ([NullAllowed] NSObject input);
 	}
 
 	// @interface FBSDKWebViewAppLinkResolver : NSObject <FBSDKAppLinkResolving>
@@ -1834,45 +1397,7 @@ namespace Facebook.CoreKit {
 	interface WebViewAppLinkResolver : AppLinkResolving {
 		// +(instancetype _Nonnull)sharedInstance;
 		[Static]
-		[Export ("sharedInstance")]
+		[Export ("sharedInstance", ArgumentSemantic.Strong)]
 		WebViewAppLinkResolver SharedInstance { get; }
-	}
-
-	// This just binds what is needed to work
-	[BaseType (typeof (NSObject), Name = "BFTask")]
-	interface Task {
-
-		[Export ("result", ArgumentSemantic.Strong)]
-		NSObject Result { get; }
-
-		[Export ("error", ArgumentSemantic.Strong)]
-		NSError Error { get; }
-
-		[Export ("exception", ArgumentSemantic.Strong)]
-		[Obsolete ("Task exception handling is deprecated and will be removed in a future release.")]
-		NSException Exception { get; }
-
-		[Export ("isCancelled", ArgumentSemantic.Assign)]
-		bool IsCancelled { get; }
-
-		[Export ("isFaulted", ArgumentSemantic.Assign)]
-		bool IsFaulted { get; }
-
-		[Export ("isCompleted", ArgumentSemantic.Assign)]
-		bool IsCompleted { get; }
-	}
-
-	interface IBFAppLinkResolving { }
-
-	[Obsolete ("Use Facebook.CoreKit.IAppLinkResolving interface instead.")]
-	[Model (AutoGeneratedName = true)]
-	[Protocol]
-	[BaseType (typeof (NSObject), Name = "BFAppLinkResolving")]
-	interface BFAppLinkResolving {
-
-		// @required -(BFTask *)appLinkFromURLInBackground:(NSURL *)url;
-		[Abstract]
-		[Export ("appLinkFromURLInBackground:")]
-		Task AppLinkInBackground (NSUrl url);
 	}
 }
