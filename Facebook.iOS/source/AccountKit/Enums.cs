@@ -80,17 +80,8 @@ namespace Facebook.AccountKit {
 		InvalidParameterValue = 400
 	}
 
-	[Obsolete ("Use Error enum instead.")]
 	[Native]
-	public enum ErrorCode : long {
-		NetworkConnectionError = 100,
-		ServerError = 200,
-		LoginRequestInvalidatedError = 300,
-		InvalidParameterValueError = 400
-	}
-
-	[Native]
-	public enum ServerErrorCode : long {
+	public enum ServerError : long {
 		InvalidServerParameterValueError = 201
 	}
 
@@ -114,31 +105,6 @@ namespace Facebook.AccountKit {
 	[Native]
 	public enum ServerResponseError : long {
 		InvalidConfirmationCode = 15003
-	}
-
-	[Obsolete ("Use LoginRequestError enum instead.")]
-	[Native]
-	public enum LoginRequestInvalidatedErrorCode : long {
-		LoginRequestExpiredError = 301
-	}
-
-	[Obsolete ("Use ParameterError enum instead.")]
-	[Native]
-	public enum InvalidParameterValueErrorCode : long {
-		InvalidEmailAddressError = 401,
-		InvalidPhoneNumberError = 402,
-		InvalidCodingValueError = 403,
-		InvalidAccessTokenError = 404,
-		InvalidAccountPreferenceKeyError = 405,
-		InvalidAccountPreferenceValueError = 406,
-		OperationNotSuccessful = 407,
-		InvalidUIManager = 408
-	}
-
-	[Obsolete ("Use ServerResponseError enum instead.")]
-	[Native]
-	public enum ServerResponseErrorCode : long {
-		ServerResponseErrorCodeInvalidConfirmationCode = 15003
 	}
 
 	[Native]
