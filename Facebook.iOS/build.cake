@@ -99,21 +99,21 @@ Task ("externals")
 	EnsureDirectoryExists ("./externals/");
 
 	foreach (var artifact in ARTIFACTS_FROM_PODS) {
+		UpdateVersionInCsproj (artifact);
 		CreateAndInstallPodfile (artifact);
 		BuildSdkOnPodfile (artifact);
-		UpdateVersionInCsproj (artifact);
 	}
 
 	// Call custom methods created at custom_externals_download.cake file
 	// to download frameworks and/or bundles for the artifact
 	if (SOURCES_TARGETS.Contains (ACCOUNT_KIT_ARTIFACT.CsprojName)) {
-		DownloadAccountKit (ACCOUNT_KIT_ARTIFACT);
 		UpdateVersionInCsproj (ACCOUNT_KIT_ARTIFACT);
+		DownloadAccountKit (ACCOUNT_KIT_ARTIFACT);
 	}
 	
 	if (SOURCES_TARGETS.Contains (AUDIENCE_NETWORK_ARTIFACT.CsprojName)) {
-		DownloadAudienceNetwork (AUDIENCE_NETWORK_ARTIFACT);
 		UpdateVersionInCsproj (AUDIENCE_NETWORK_ARTIFACT);
+		DownloadAudienceNetwork (AUDIENCE_NETWORK_ARTIFACT);
 	}
 
 	if (SOURCES_TARGETS.Contains (FACEBOOK_SDKS_ARTIFACT.CsprojName)) {

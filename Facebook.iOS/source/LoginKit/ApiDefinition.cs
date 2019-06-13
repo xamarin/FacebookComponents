@@ -62,7 +62,7 @@ namespace Facebook.LoginKit {
 		// -(instancetype _Nonnull)initWithPermissions:(NSArray<NSString *> * _Nullable)permissions enableSmartLogin:(BOOL)enableSmartLogin __attribute__((objc_designated_initializer));
 		[Export ("initWithPermissions:enableSmartLogin:")]
 		[DesignatedInitializer]
-		IntPtr Constructor ([NullAllowed] string [] permissions, bool enableSmartLogin);
+		IntPtr Constructor (string [] permissions, bool enableSmartLogin);
 
 		// @property (nonatomic, weak) id<FBSDKDeviceLoginManagerDelegate> _Nullable delegate;
 		[NullAllowed]
@@ -70,7 +70,7 @@ namespace Facebook.LoginKit {
 		IDeviceLoginManagerDelegate Delegate { get; set; }
 
 		// @property (readonly, copy, nonatomic) NSArray<NSString *> * _Nullable permissions;
-		[NullAllowed, Export ("permissions", ArgumentSemantic.Copy)]
+		[Export ("permissions", ArgumentSemantic.Copy)]
 		string [] Permissions { get; }
 
 		// @property (copy, nonatomic) NSURL * _Nullable redirectURL;
@@ -126,15 +126,9 @@ namespace Facebook.LoginKit {
 		[Export ("loginBehavior", ArgumentSemantic.Assign)]
 		LoginBehavior LoginBehavior { get; set; }
 
-		// @property (copy, nonatomic) NSArray * publishPermissions;
-		[NullAllowed]
-		[Export ("publishPermissions", ArgumentSemantic.Copy)]
-		string [] PublishPermissions { get; set; }
-
-		// @property (copy, nonatomic) NSArray * readPermissions;
-		[NullAllowed]
-		[Export ("readPermissions", ArgumentSemantic.Copy)]
-		string [] ReadPermissions { get; set; }
+		// @property (copy, nonatomic) NSArray<NSString *> * _Nonnull permissions;
+		[Export ("permissions", ArgumentSemantic.Copy)]
+		string [] Permissions { get; set; }
 
 		// @property (assign, nonatomic) FBSDKLoginButtonTooltipBehavior tooltipBehavior;
 		[Export ("tooltipBehavior", ArgumentSemantic.Assign)]
@@ -160,7 +154,7 @@ namespace Facebook.LoginKit {
 		[EventArgs ("LoginButtonCompleted")]
 		[EventName ("Completed")]
 		[Export ("loginButton:didCompleteWithResult:error:")]
-		void DidComplete (LoginButton loginButton, LoginManagerLoginResult result, NSError error);
+		void DidComplete (LoginButton loginButton, [NullAllowed] LoginManagerLoginResult result, [NullAllowed] NSError error);
 
 		// @required -(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton;
 		[Abstract]
@@ -175,17 +169,17 @@ namespace Facebook.LoginKit {
 		bool WillLogin (LoginButton loginButton);
 	}
 
-	// typedef void (^FBSDKLoginManagerRequestTokenHandler)(FBSDKLoginManagerLoginResult *NSError *);
-	delegate void LoginManagerRequestTokenHandler (LoginManagerLoginResult result, NSError error);
-	delegate void LoginManagerRenewSystemCredentialsHandler (ACAccountCredentialRenewResult credentials, NSError error);
+	// typedef void (^FBSDKLoginManagerLoginResultBlock)(FBSDKLoginManagerLoginResult * _Nullable, NSError * _Nullable);
+	delegate void LoginManagerLoginResultBlockHandler ([NullAllowed] LoginManagerLoginResult result, [NullAllowed] NSError error);
 
 	// @interface FBSDKLoginManager : NSObject
 	[BaseType (typeof (NSObject), Name = "FBSDKLoginManager")]
 	interface LoginManager {
 
 		// @property (strong, nonatomic) NSString *authType;
+		[BindAs (typeof (LoginAuthType))]
 		[Export ("authType", ArgumentSemantic.Strong)]
-		string AuthType { get; set; }
+		NSString AuthType { get; set; }
 
 		// @property (assign, nonatomic) FBSDKDefaultAudience defaultAudience;
 		[Export ("defaultAudience", ArgumentSemantic.Assign)]
@@ -195,41 +189,17 @@ namespace Facebook.LoginKit {
 		[Export ("loginBehavior", ArgumentSemantic.Assign)]
 		LoginBehavior LoginBehavior { get; set; }
 
-		// -(void)logInWithReadPermissions:(NSArray *)permissions handler:(FBSDKLoginManagerRequestTokenHandler)handler;
-		[Obsolete ("Use LogInWithReadPermissions (string[], UIViewController, LoginManagerRequestTokenHandler) method instead")]
-		[Async]
-		[Export ("logInWithReadPermissions:handler:")]
-		void LogInWithReadPermissions ([NullAllowed] string [] permissions, LoginManagerRequestTokenHandler handler);
+		// -(void)logInWithPermissions:(NSArray<NSString *> * _Nonnull)permissions fromViewController:(UIViewController * _Nullable)fromViewController handler:(FBSDKLoginManagerLoginResultBlock _Nullable)handler;
+		[Export ("logInWithPermissions:fromViewController:handler:")]
+		void LogIn (string [] permissions, [NullAllowed] UIViewController fromViewController, [NullAllowed] LoginManagerLoginResultBlockHandler handler);
 
-		// -(void)logInWithPublishPermissions:(NSArray *)permissions handler:(FBSDKLoginManagerRequestTokenHandler)handler;
-		[Obsolete ("Use LogInWithPublishPermissions (string[], UIViewController, LoginManagerRequestTokenHandler) method instead")]
-		[Async]
-		[Export ("logInWithPublishPermissions:handler:")]
-		void LogInWithPublishPermissions ([NullAllowed] string [] permissions, LoginManagerRequestTokenHandler handler);
-
-		// - (void)logInWithReadPermissions:(NSArray *)permissions fromViewController:(UIViewController *)fromViewController handler:(FBSDKLoginManagerRequestTokenHandler)handler;
-		[Async]
-		[Export ("logInWithReadPermissions:fromViewController:handler:")]
-		void LogInWithReadPermissions ([NullAllowed] string [] permissions, [NullAllowed] UIViewController fromViewController, LoginManagerRequestTokenHandler handler);
-
-		// - (void)logInWithPublishPermissions:(NSArray *)permissions fromViewController:(UIViewController *)fromViewController handler:(FBSDKLoginManagerRequestTokenHandler)handler;
-		[Async]
-		[Export ("logInWithPublishPermissions:fromViewController:handler:")]
-		void LogInWithPublishPermissions ([NullAllowed] string [] permissions, [NullAllowed] UIViewController fromViewController, LoginManagerRequestTokenHandler handler);
-
-		// -(void)reauthorizeDataAccess:(UIViewController *)fromViewController handler:(FBSDKLoginManagerRequestTokenHandler)handler;
+		// -(void)reauthorizeDataAccess:(UIViewController *)fromViewController handler:(FBSDKLoginManagerLoginResultBlockHandler)handler;
 		[Export ("reauthorizeDataAccess:handler:")]
-		void ReauthorizeDataAccess (UIViewController fromViewController, LoginManagerRequestTokenHandler handler);
+		void ReauthorizeDataAccess (UIViewController fromViewController, LoginManagerLoginResultBlockHandler handler);
 
 		// -(void)logOut;
 		[Export ("logOut")]
 		void LogOut ();
-
-		// +(void)renewSystemCredentials:(void (^)(ACAccountCredentialRenewResult, NSError *))handler;
-		[Static]
-		[Async]
-		[Export ("renewSystemCredentials:")]
-		void RenewSystemCredentials (LoginManagerRenewSystemCredentialsHandler handler);
 	}
 
 	// @interface FBSDKLoginManagerLoginResult : NSObject
@@ -277,9 +247,9 @@ namespace Facebook.LoginKit {
 		[Export ("delegate", ArgumentSemantic.Weak)]
 		ILoginTooltipViewDelegate Delegate { get; set; }
 
-		// @property (assign, nonatomic) BOOL forceDisplay;
+		// @property (getter = shouldForceDisplay, assign, nonatomic) BOOL forceDisplay;
 		[Export ("forceDisplay")]
-		bool ForceDisplay { get; set; }
+		bool ForceDisplay { [Bind ("shouldForceDisplay")] get; set; }
 	}
 
 	interface ILoginTooltipViewDelegate {
@@ -325,16 +295,18 @@ namespace Facebook.LoginKit {
 		TooltipColorStyle ColorStyle { get; set; }
 
 		// @property (copy, nonatomic) NSString * message;
+		[NullAllowed]
 		[Export ("message", ArgumentSemantic.Copy)]
 		string Message { get; set; }
 
 		// @property (copy, nonatomic) NSString * tagline;
+		[NullAllowed]
 		[Export ("tagline", ArgumentSemantic.Copy)]
 		string Tagline { get; set; }
 
 		// -(instancetype)initWithTagline:(NSString *)tagline message:(NSString *)message colorStyle:(FBSDKTooltipColorStyle)colorStyle;
 		[Export ("initWithTagline:message:colorStyle:")]
-		IntPtr Constructor (string tagline, string message, TooltipColorStyle colorStyle);
+		IntPtr Constructor ([NullAllowed] string tagline, [NullAllowed] string message, TooltipColorStyle colorStyle);
 
 		// -(void)presentFromView:(UIView *)anchorView;
 		[Export ("presentFromView:")]

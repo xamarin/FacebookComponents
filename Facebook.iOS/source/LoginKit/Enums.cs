@@ -1,9 +1,20 @@
 ﻿using System;
 
+using Foundation;
 using ObjCRuntime;
 
 namespace Facebook.LoginKit
 {
+	public enum LoginAuthType {
+		// extern FBSDKLoginAuthType _Nonnull FBSDKLoginAuthTypeRerequest;
+		[Field ("FBSDKLoginAuthTypeRerequest", "__Internal")]
+		Rerequest,
+
+		// extern FBSDKLoginAuthType _Nonnull FBSDKLoginAuthTypeReauthorize;
+		[Field ("FBSDKLoginAuthTypeReauthorize", "__Internal")]
+		Reauthorize
+	}
+
 	[Native]
 	public enum LoginButtonTooltipBehavior : ulong
 	{
@@ -33,31 +44,6 @@ namespace Facebook.LoginKit
 		CodeExpired = 1349152
 	}
 
-	[Obsolete ("Use LoginError enum instead.")]
-	[Native]
-	public enum LoginErrorCode : long
-	{
-		Reserved = 300,
-		Unknown,
-		PasswordChanged,
-		UserCheckpointed,
-		UserMismatch,
-		UnconfirmedUser,
-		SystemAccountAppDisabled,
-		SystemAccountUnavailable,
-		BadChallengeString
-	}
-
-	[Obsolete ("Use DeviceLoginError enum instead.")]
-	[Native]
-	public enum DeviceLoginErrorSubcode : ulong
-	{
-		ExcessivePolling = 1349172,
-		AuthorizationDeclined = 1349173,
-		AuthorizationPending = 1349174,
-		CodeExpired = 1349152
-	}
-
 	[Native]
 	public enum DefaultAudience : ulong
 	{
@@ -69,10 +55,7 @@ namespace Facebook.LoginKit
 	[Native]
 	public enum LoginBehavior : ulong
 	{
-		Native = 0,
-		Browser,
-		SystemAccount,
-		Web
+		Browser = 0
 	}
 
 	[Native]

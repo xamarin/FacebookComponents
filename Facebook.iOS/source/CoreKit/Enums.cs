@@ -353,7 +353,7 @@ namespace Facebook.CoreKit
 
 		// extern NSString *const FBSDKLoggingBehaviorDeveloperErrors;
 		[Field ("FBSDKLoggingBehaviorDeveloperErrors", "__Internal")]
-		DeveloperErrors,
+		DeveloperErrors
 	}
 
 	[Native]
