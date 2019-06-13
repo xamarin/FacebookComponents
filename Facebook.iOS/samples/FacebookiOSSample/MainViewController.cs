@@ -48,11 +48,11 @@ namespace FacebookiOSSample
 				if (e.NewProfile == null)
 					return;
 				
-				LoggedIn (e.NewProfile.UserID);
+				LoggedIn (e.NewProfile.UserId);
 			});
 
 			loginButton = new LoginButton (new CGRect (48, 0, 218, 46)) {
-				LoginBehavior = LoginBehavior.Native
+				LoginBehavior = LoginBehavior.Browser
 			};
 
 			// Handle actions once the user is logged in
@@ -296,7 +296,7 @@ namespace FacebookiOSSample
 			ShowMessageBox (title, message, "Maybe Later", new [] { "Ok" }, () => {
 				// If they let you do things, ask for a new Access Token with the new permission
 				var login = new LoginManager ();
-				login.LogInWithPublishPermissions (permissions, this, (result, error) => {
+				login.LogIn (permissions, this, (result, error) => {
 					// Handle if something went wrong with the request
 					if (error != null) {
 						new UIAlertView ("Error...", error.Description, null, "Ok", null).Show ();
@@ -354,7 +354,7 @@ namespace FacebookiOSSample
 				readPermissions.Add (permission);
 			else
 				readPermissions.Remove (permission);
-			loginButton.ReadPermissions = readPermissions.ToArray ();
+			loginButton.Permissions = readPermissions.ToArray ();
 		}
 
 		// Show the alert view

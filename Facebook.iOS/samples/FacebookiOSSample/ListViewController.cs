@@ -21,7 +21,7 @@ namespace FacebookiOSSample
 			Root = new RootElement (type == FacebookListType.Friends ? "Friendlists" : "Managed Groups");
 
 			// Depends of what you want to see, list all your groups or all your friendslist that you have
-			var request = new GraphRequest ("/" + Profile.CurrentProfile.UserID + "/" + kindListName, null, AccessToken.CurrentAccessToken.TokenString, null, "GET");
+			var request = new GraphRequest ("/" + Profile.CurrentProfile.UserId + "/" + kindListName, null, AccessToken.CurrentAccessToken.TokenString, null, HttpMethod.Get);
 			var requestConnection = new GraphRequestConnection ();
 			requestConnection.AddRequest (request, (connection, result, error) => {
 				// Handle if something went wrong
