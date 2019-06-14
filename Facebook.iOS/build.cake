@@ -125,6 +125,8 @@ Task ("libs")
 	.IsDependentOn("externals")
 	.Does(() =>
 {
+	CleanVisualStudioSolution ();
+
 	var targets = $@"source\\{string.Join (@";source\\", SOURCES_TARGETS)}";
 
 	MSBuild("./Xamarin.Facebook.sln", c => {
@@ -172,12 +174,7 @@ Task ("nuget")
 Task ("clean")
 	.Does (() => 
 {
-	MSBuild("./Xamarin.Facebook.sln", c => {
-		c.Configuration = "Release";
-		c.Restore = true;
-		c.MaxCpuCount = 0;
-		c.Targets.Add("Clean");
-	});
+	CleanVisualStudioSolution ();
 
 	var deleteDirectorySettings = new DeleteDirectorySettings {
 		Recursive = true,
@@ -189,12 +186,6 @@ Task ("clean")
 
 	if (DirectoryExists ("./output/"))
 		DeleteDirectory ("./output", deleteDirectorySettings);
-	
-	var bins = GetDirectories("./**/bin");
-	DeleteDirectories (bins, deleteDirectorySettings);
-
-	var objs = GetDirectories("./**/obj");
-	DeleteDirectories (objs, deleteDirectorySettings);
 });
 
 RunTarget (TARGET);
@@ -252,4 +243,25 @@ void UpdateVersionInCsproj (Artifact artifact)
 	var csprojPath = $"./source/{artifact.CsprojName}/{artifact.CsprojName}.csproj";
 	XmlPoke(csprojPath, "/Project/PropertyGroup/FileVersion", artifact.NugetVersion);
 	XmlPoke(csprojPath, "/Project/PropertyGroup/PackageVersion", artifact.NugetVersion);
+}
+
+void CleanVisualStudioSolution ()
+{
+	MSBuild("./Xamarin.Facebook.sln", c => {
+		c.Configuration = "Release";
+		c.Restore = true;
+		c.MaxCpuCount = 0;
+		c.Targets.Add("Clean");
+	});
+
+	var deleteDirectorySettings = new DeleteDirectorySettings {
+		Recursive = true,
+		Force = true
+	};
+
+	var bins = GetDirectories("./**/bin");
+	DeleteDirectories (bins, deleteDirectorySettings);
+
+	var objs = GetDirectories("./**/obj");
+	DeleteDirectories (objs, deleteDirectorySettings);
 }
