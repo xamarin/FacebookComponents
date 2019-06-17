@@ -49,7 +49,7 @@ namespace FacebookiOSSample
 				var parameters = new NSDictionary ("picture", UIImage.FromFile ("wolf.jpg").AsPNG (), "caption", txtMessage.Value);
 
 				// Create the request
-				var request = new GraphRequest ("/" + Profile.CurrentProfile.UserID + "/photos", parameters, AccessToken.CurrentAccessToken.TokenString, null, "POST");
+				var request = new GraphRequest ("/" + Profile.CurrentProfile.UserId + "/photos", parameters, AccessToken.CurrentAccessToken.TokenString, null, HttpMethod.Post);
 				var requestConnection = new GraphRequestConnection ();
 				requestConnection.AddRequest (request, (connection, result, error) => {
 

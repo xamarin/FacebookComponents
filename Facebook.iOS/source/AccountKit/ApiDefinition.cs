@@ -57,6 +57,92 @@ namespace Facebook.AccountKit {
 		PhoneNumber PhoneNumber { get; }
 	}
 
+	// typedef void (^AKFRequestAccountHandler)(id<AKFAccount> _Nullable, NSError * _Nullable);
+	delegate void RequestAccountHandler ([NullAllowed] IAccount account, [NullAllowed] NSError error);
+
+	// typedef void (^AKFLogoutHandler)(BOOL, NSError * _Nullable);
+	delegate void LogoutHandler (bool success, [NullAllowed] NSError error);
+
+	// @interface AKFAccountKit : NSObject
+	[BaseType (typeof (NSObject), Name = "AKFAccountKit")]
+	[DisableDefaultCtor]
+	interface AccountKit {
+		[Field ("AKFErrorDomain", "__Internal")]
+		NSString ErrorDomain { get; }
+
+		[Field ("AKFErrorDeveloperMessageKey", "__Internal")]
+		NSString ErrorDeveloperMessageKey { get; }
+
+		[Field ("AKFErrorUserMessageKey", "__Internal")]
+		NSString ErrorUserMessageKey { get; }
+
+		[Field ("AKFErrorObjectKey", "__Internal")]
+		NSString ErrorObjectKey { get; }
+
+		[Field ("AKFServerErrorDomain", "__Internal")]
+		NSString ServerErrorDomain { get; }
+
+		// +(NSString * _Nonnull)graphVersionString;
+		[Static]
+		[Export ("graphVersionString")]
+		//[Verify(MethodToProperty)]
+		string GraphVersionString { get; }
+
+		// +(NSString * _Nonnull)versionString;
+		[Static]
+		[Export ("versionString")]
+		//[Verify(MethodToProperty)]
+		string VersionString { get; }
+
+		// @property (readonly, copy, nonatomic) id<AKFAccessToken> _Nullable currentAccessToken;
+		[NullAllowed, Export ("currentAccessToken", ArgumentSemantic.Copy)]
+		IAccessToken CurrentAccessToken { get; }
+
+		// -(instancetype _Nonnull)initWithResponseType:(AKFResponseType)responseType __attribute__((objc_designated_initializer));
+		[Export ("initWithResponseType:")]
+		[DesignatedInitializer]
+		IntPtr Constructor (ResponseType responseType);
+
+		// -(void)cancelLogin;
+		[Export ("cancelLogin")]
+		void CancelLogin ();
+
+		// -(void)logOut;
+		[Export ("logOut")]
+		void LogOut ();
+
+		// -(void)logOut:(AKFLogoutHandler _Nullable)handler;
+		[Async]
+		[Export ("logOut:")]
+		void LogOut ([NullAllowed] LogoutHandler handler);
+
+		// -(void)requestAccount:(AKFRequestAccountHandler _Nonnull)handler;
+		[Async]
+		[Export ("requestAccount:")]
+		void RequestAccount (RequestAccountHandler handler);
+
+		// -(UIViewController<AKFViewController> * _Nonnull)viewControllerForEmailLogin;
+		[Export ("viewControllerForEmailLogin")]
+		UIViewController GetViewControllerForEmailLogin ();
+
+		// -(UIViewController<AKFViewController> * _Nonnull)viewControllerForEmailLoginWithEmail:(NSString * _Nullable)email state:(NSString * _Nullable)state;
+		[Export ("viewControllerForEmailLoginWithEmail:state:")]
+		UIViewController GetViewControllerForEmailLogin ([NullAllowed] string email, [NullAllowed] string state);
+
+		// -(UIViewController<AKFViewController> * _Nonnull)viewControllerForPhoneLogin;
+		[Export ("viewControllerForPhoneLogin")]
+		UIViewController GetViewControllerForPhoneLogin ();
+
+		// -(UIViewController<AKFViewController> * _Nonnull)viewControllerForPhoneLoginWithPhoneNumber:(AKFPhoneNumber * _Nullable)phoneNumber state:(NSString * _Nullable)state;
+		[Export ("viewControllerForPhoneLoginWithPhoneNumber:state:")]
+		UIViewController GetViewControllerForPhoneLogin ([NullAllowed] PhoneNumber phoneNumber, [NullAllowed] string state);
+
+		// -(UIViewController<AKFViewController> * _Nullable)viewControllerForLoginResume;
+		[return: NullAllowed]
+		[Export ("viewControllerForLoginResume")]
+		UIViewController GetViewControllerForLoginResume ();
+	}
+
 	interface IConfiguring { }
 
 	// @protocol AKFConfiguring
@@ -69,23 +155,115 @@ namespace Facebook.AccountKit {
 
 		// @required @property (copy, nonatomic) NSString * defaultCountryCode;
 		[Abstract]
+		[NullAllowed]
 		[Export ("defaultCountryCode")]
 		string DefaultCountryCode { get; set; }
 
-		// @required @property (assign, nonatomic) BOOL enableSendToFacebook;
+		// @required @property (getter = isSendToFacebookEnabled, assign, nonatomic) BOOL enableSendToFacebook;
 		[Abstract]
 		[Export ("enableSendToFacebook")]
-		bool EnableSendToFacebook { get; set; }
+		bool EnableSendToFacebook { [Bind ("isSendToFacebookEnabled")] get; set; }
 
-		// @required @property (assign, nonatomic) BOOL enableGetACall;
+		// @required @property (getter = isInitialSMSButtonEnabled, assign, nonatomic) BOOL enableInitialSMSButton;
+		[Abstract]
+		[Export ("enableInitialSMSButton")]
+		bool EnableInitialSmsButton { [Bind ("isInitialSMSButtonEnabled")] get; set; }
+
+		// @required @property (getter = isGetACallEnabled, assign, nonatomic) BOOL enableGetACall;
 		[Abstract]
 		[Export ("enableGetACall")]
-		bool EnableGetACall { get; set; }
+		bool EnableGetACall { [Bind ("isGetACallEnabled")] get; set; }
 
 		// @required @property (copy, nonatomic) NSArray<NSString *> * whitelistedCountryCodes;
 		[Abstract]
 		[Export ("whitelistedCountryCodes", ArgumentSemantic.Copy)]
 		string [] WhitelistedCountryCodes { get; set; }
+	}
+
+	// @interface AKFPhoneNumber : NSObject <NSCopying, NSSecureCoding>
+	[BaseType (typeof (NSObject), Name = "AKFPhoneNumber")]
+	[DisableDefaultCtor]
+	interface PhoneNumber : INSCopying, INSSecureCoding {
+		// -(instancetype _Nonnull)initWithCountryCode:(NSString * _Nonnull)countryCode phoneNumber:(NSString * _Nonnull)phoneNumber __attribute__((objc_designated_initializer));
+		[Export ("initWithCountryCode:phoneNumber:")]
+		[DesignatedInitializer]
+		IntPtr Constructor (string countryCode, string phoneNumber);
+
+		// -(instancetype _Nonnull)initWithCountryCode:(NSString * _Nonnull)countryCode countryISO:(NSString * _Nonnull)iso phoneNumber:(NSString * _Nonnull)phoneNumber;
+		[Export ("initWithCountryCode:countryISO:phoneNumber:")]
+		IntPtr Constructor (string countryCode, string iso, string phoneNumber);
+
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull countryCode;
+		[Export ("countryCode")]
+		string CountryCode { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull countryISO;
+		[Export ("countryISO")]
+		string CountryIso { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull phoneNumber;
+		[Export ("phoneNumber")]
+		string PhoneNumberString { get; }
+
+		// -(BOOL)isEqualToPhoneNumber:(AKFPhoneNumber * _Nonnull)phoneNumber;
+		[Export ("isEqualToPhoneNumber:")]
+		bool Equals (PhoneNumber phoneNumber);
+
+		// -(NSString * _Nonnull)stringRepresentation;
+		[Override]
+		[Export ("stringRepresentation")]
+		string ToString ();
+
+		[Obsolete ("Use ToString method instead. This will be removed in future versions.")]
+		[Wrap ("ToString ()")]
+		string GetStringRepresentation ();
+	}
+
+	// @interface AKFSettings : NSObject
+	[BaseType (typeof (NSObject), Name = "AKFSettings")]
+	interface Settings {
+		// @property (copy, nonatomic, class) NSString * _Nonnull clientToken;
+		[Static]
+		[Export ("clientToken")]
+		string ClientToken { get; set; }
+	}
+
+	// @interface AKFSkinManager : NSObject <AKFUIManager>
+	[BaseType (typeof (NSObject), Name = "AKFSkinManager")]
+	[DisableDefaultCtor]
+	interface SkinManager : UIManager {
+		// -(instancetype _Nonnull)initWithSkinType:(AKFSkinType)skinType primaryColor:(UIColor * _Nullable)primaryColor backgroundImage:(UIImage * _Nullable)backgroundImage backgroundTint:(AKFBackgroundTint)backgroundTint tintIntensity:(CGFloat)tintIntensity __attribute__((objc_designated_initializer));
+		[Export ("initWithSkinType:primaryColor:backgroundImage:backgroundTint:tintIntensity:")]
+		[DesignatedInitializer]
+		IntPtr Constructor (SkinType skinType, [NullAllowed] UIColor primaryColor, [NullAllowed] UIImage backgroundImage, BackgroundTint backgroundTint, nfloat tintIntensity);
+
+		// -(instancetype _Nonnull)initWithSkinType:(AKFSkinType)skinType primaryColor:(UIColor * _Nullable)primaryColor;
+		[Export ("initWithSkinType:primaryColor:")]
+		IntPtr Constructor (SkinType skinType, [NullAllowed] UIColor primaryColor);
+
+		// -(instancetype _Nonnull)initWithSkinType:(AKFSkinType)skinType;
+		[Export ("initWithSkinType:")]
+		IntPtr Constructor (SkinType skinType);
+
+		// @property (readonly, assign, nonatomic) AKFSkinType skinType;
+		[Export ("skinType", ArgumentSemantic.Assign)]
+		SkinType SkinType { get; }
+
+		// @property (readonly, copy, nonatomic) UIColor * _Null_unspecified primaryColor;
+		[Export ("primaryColor", ArgumentSemantic.Copy)]
+		UIColor PrimaryColor { get; }
+
+		// @property (readonly, copy, nonatomic) UIImage * _Nullable backgroundImage;
+		[NullAllowed, Export ("backgroundImage", ArgumentSemantic.Copy)]
+		UIImage BackgroundImage { get; }
+
+		// @property (readonly, assign, nonatomic) AKFBackgroundTint backgroundTint;
+		[Export ("backgroundTint", ArgumentSemantic.Assign)]
+		BackgroundTint BackgroundTint { get; }
+
+		// @property (readonly, assign, nonatomic) CGFloat tintIntensity;
+		[Export ("tintIntensity")]
+		nfloat TintIntensity { get; }
 	}
 
 	// @interface Theme : NSObject <NSCopying>
@@ -288,13 +466,13 @@ namespace Facebook.AccountKit {
 	[BaseType (typeof (NSObject), Name = "AKFUIManager")]
 	interface UIManager {
 		// @optional -(UIView * _Nullable)actionBarViewForState:(AKFLoginFlowState)state;
-		[Export ("actionBarViewForState:")]
 		[return: NullAllowed]
+		[Export ("actionBarViewForState:")]
 		UIView GetActionBarView (LoginFlowState state);
 
 		// @optional -(UIView * _Nullable)bodyViewForState:(AKFLoginFlowState)state;
-		[Export ("bodyViewForState:")]
 		[return: NullAllowed]
+		[Export ("bodyViewForState:")]
 		UIView GetBodyView (LoginFlowState state);
 
 		// @optional -(AKFButtonType)buttonTypeForState:(AKFLoginFlowState)state;
@@ -302,13 +480,13 @@ namespace Facebook.AccountKit {
 		ButtonType GetButtonType (LoginFlowState state);
 
 		// @optional -(UIView * _Nullable)footerViewForState:(AKFLoginFlowState)state;
-		[Export ("footerViewForState:")]
 		[return: NullAllowed]
+		[Export ("footerViewForState:")]
 		UIView GetFooterView (LoginFlowState state);
 
 		// @optional -(UIView * _Nullable)headerViewForState:(AKFLoginFlowState)state;
-		[Export ("headerViewForState:")]
 		[return: NullAllowed]
+		[Export ("headerViewForState:")]
 		UIView GetHeaderView (LoginFlowState state);
 
 		// @optional -(void)setActionController:(id<AKFActionController> _Nonnull)actionController;
@@ -324,8 +502,8 @@ namespace Facebook.AccountKit {
 		TextPosition GetTextPosition (LoginFlowState state);
 
 		// @optional -(Theme * _Nullable)theme;
-		[NullAllowed, Export ("theme")]
-		//[Verify(MethodToProperty)]
+		[return: NullAllowed]
+		[Export ("theme")]
 		Theme GetTheme ();
 	}
 
@@ -333,15 +511,13 @@ namespace Facebook.AccountKit {
 
 	// @protocol AKFAdvancedUIManager <AKFUIManager>
 	[Protocol (Name = "AKFAdvancedUIManager")]
-	interface AdvancedUIManager : UIManager {
-	}
+	interface AdvancedUIManager : UIManager { }
 
 	interface IAdvancedUIActionController { }
 
 	// @protocol AKFAdvancedUIActionController <AKFActionController>
 	[Protocol (Name = "AKFAdvancedUIActionController")]
-	interface AdvancedUIActionController : ActionController {
-	}
+	interface AdvancedUIActionController : ActionController { }
 
 	interface IUIManaging { }
 
@@ -403,177 +579,4 @@ namespace Facebook.AccountKit {
 		[Export ("viewControllerDidCancel:")]
 		void DidCancel (IViewController viewController);
 	}
-
-	// typedef void (^AKFRequestAccountHandler)(id<AKFAccount> _Nullable, NSError * _Nullable);
-	delegate void RequestAccountHandler ([NullAllowed] IAccount account, [NullAllowed] NSError error);
-
-	// typedef void (^AKFLogoutHandler)(BOOL, NSError * _Nullable);
-	delegate void LogoutHandler (bool success, [NullAllowed] NSError error);
-
-	// @interface AKFAccountKit : NSObject
-	[BaseType (typeof (NSObject), Name = "AKFAccountKit")]
-	[DisableDefaultCtor]
-	interface AccountKit {
-		[Field ("AKFErrorDomain", "__Internal")]
-		NSString ErrorDomain { get; }
-
-		[Field ("AKFErrorDeveloperMessageKey", "__Internal")]
-		NSString ErrorDeveloperMessageKey { get; }
-
-		[Field ("AKFErrorUserMessageKey", "__Internal")]
-		NSString ErrorUserMessageKey { get; }
-
-		[Field ("AKFErrorObjectKey", "__Internal")]
-		NSString ErrorObjectKey { get; }
-
-		[Field ("AKFServerErrorDomain", "__Internal")]
-		NSString ServerErrorDomain { get; }
-
-		// +(NSString * _Nonnull)graphVersionString;
-		[Static]
-		[Export ("graphVersionString")]
-		//[Verify(MethodToProperty)]
-		string GraphVersionString { get; }
-
-		// +(NSString * _Nonnull)versionString;
-		[Static]
-		[Export ("versionString")]
-		//[Verify(MethodToProperty)]
-		string VersionString { get; }
-
-		// @property (readonly, copy, nonatomic) id<AKFAccessToken> _Nullable currentAccessToken;
-		[NullAllowed, Export ("currentAccessToken", ArgumentSemantic.Copy)]
-		IAccessToken CurrentAccessToken { get; }
-
-		// -(instancetype _Nonnull)initWithResponseType:(AKFResponseType)responseType __attribute__((objc_designated_initializer));
-		[Export ("initWithResponseType:")]
-		[DesignatedInitializer]
-		IntPtr Constructor (ResponseType responseType);
-
-		// -(void)cancelLogin;
-		[Export ("cancelLogin")]
-		void CancelLogin ();
-
-		// -(void)logOut;
-		[Export ("logOut")]
-		void LogOut ();
-
-		// -(void)logOut:(AKFLogoutHandler _Nullable)handler;
-		[Async]
-		[Export ("logOut:")]
-		void LogOut ([NullAllowed] LogoutHandler handler);
-
-		// -(void)requestAccount:(AKFRequestAccountHandler _Nonnull)handler;
-		[Async]
-		[Export ("requestAccount:")]
-		void RequestAccount (RequestAccountHandler handler);
-
-		// -(UIViewController<AKFViewController> * _Nonnull)viewControllerForEmailLogin;
-		[Export ("viewControllerForEmailLogin")]
-		UIViewController GetViewControllerForEmailLogin ();
-
-		// -(UIViewController<AKFViewController> * _Nonnull)viewControllerForEmailLoginWithEmail:(NSString * _Nullable)email state:(NSString * _Nullable)state;
-		[Export ("viewControllerForEmailLoginWithEmail:state:")]
-		UIViewController GetViewControllerForEmailLogin ([NullAllowed] string email, [NullAllowed] string state);
-
-		// -(UIViewController<AKFViewController> * _Nonnull)viewControllerForPhoneLogin;
-		[Export ("viewControllerForPhoneLogin")]
-		UIViewController GetViewControllerForPhoneLogin ();
-
-		// -(UIViewController<AKFViewController> * _Nonnull)viewControllerForPhoneLoginWithPhoneNumber:(AKFPhoneNumber * _Nullable)phoneNumber state:(NSString * _Nullable)state;
-		[Export ("viewControllerForPhoneLoginWithPhoneNumber:state:")]
-		UIViewController GetViewControllerForPhoneLogin ([NullAllowed] PhoneNumber phoneNumber, [NullAllowed] string state);
-
-		// -(UIViewController<AKFViewController> * _Nullable)viewControllerForLoginResume;
-		[NullAllowed, Export ("viewControllerForLoginResume")]
-		UIViewController GetViewControllerForLoginResume ();
-	}
-
-	// @interface AKFPhoneNumber : NSObject <NSCopying, NSSecureCoding>
-	[BaseType (typeof (NSObject), Name = "AKFPhoneNumber")]
-	[DisableDefaultCtor]
-	interface PhoneNumber : INSCopying, INSSecureCoding {
-		// -(instancetype _Nonnull)initWithCountryCode:(NSString * _Nonnull)countryCode phoneNumber:(NSString * _Nonnull)phoneNumber __attribute__((objc_designated_initializer));
-		[Export ("initWithCountryCode:phoneNumber:")]
-		[DesignatedInitializer]
-		IntPtr Constructor (string countryCode, string phoneNumber);
-
-		// -(instancetype _Nonnull)initWithCountryCode:(NSString * _Nonnull)countryCode countryISO:(NSString * _Nonnull)iso phoneNumber:(NSString * _Nonnull)phoneNumber;
-		[Export ("initWithCountryCode:countryISO:phoneNumber:")]
-		IntPtr Constructor (string countryCode, string iso, string phoneNumber);
-
-		// @property (readonly, copy, nonatomic) NSString * _Nonnull countryCode;
-		[Export ("countryCode")]
-		string CountryCode { get; }
-
-		// @property (readonly, copy, nonatomic) NSString * _Nonnull countryISO;
-		[Export ("countryISO")]
-		string CountryIso { get; }
-
-		// @property (readonly, copy, nonatomic) NSString * _Nonnull phoneNumber;
-		[Export ("phoneNumber")]
-		string PhoneNumberString { get; }
-
-		// -(BOOL)isEqualToPhoneNumber:(AKFPhoneNumber * _Nonnull)phoneNumber;
-		[Export ("isEqualToPhoneNumber:")]
-		bool Equals (PhoneNumber phoneNumber);
-
-		// -(NSString * _Nonnull)stringRepresentation;
-		[Override]
-		[Export ("stringRepresentation")]
-		string ToString ();
-
-		[Obsolete ("Use ToString method instead. This will be removed in future versions.")]
-		[Wrap ("ToString ()")]
-		string GetStringRepresentation ();
-	}
-
-	// @interface AKFSettings : NSObject
-	[BaseType (typeof (NSObject), Name = "AKFSettings")]
-	interface Settings {
-		// +(NSString * _Nonnull)clientToken;
-		// +(void)setClientToken:(NSString * _Nonnull)clientToken;
-		[Static]
-		[Export ("clientToken")]
-		string ClientToken { get; set; }
-	}
-
-	// @interface AKFSkinManager : NSObject <AKFUIManager>
-	[BaseType (typeof (NSObject), Name = "AKFSkinManager")]
-	[DisableDefaultCtor]
-	interface SkinManager : UIManager {
-		// -(instancetype _Nonnull)initWithSkinType:(AKFSkinType)skinType primaryColor:(UIColor * _Nullable)primaryColor backgroundImage:(UIImage * _Nullable)backgroundImage backgroundTint:(AKFBackgroundTint)backgroundTint tintIntensity:(CGFloat)tintIntensity __attribute__((objc_designated_initializer));
-		[Export ("initWithSkinType:primaryColor:backgroundImage:backgroundTint:tintIntensity:")]
-		[DesignatedInitializer]
-		IntPtr Constructor (SkinType skinType, [NullAllowed] UIColor primaryColor, [NullAllowed] UIImage backgroundImage, BackgroundTint backgroundTint, nfloat tintIntensity);
-
-		// -(instancetype _Nonnull)initWithSkinType:(AKFSkinType)skinType primaryColor:(UIColor * _Nullable)primaryColor;
-		[Export ("initWithSkinType:primaryColor:")]
-		IntPtr Constructor (SkinType skinType, [NullAllowed] UIColor primaryColor);
-
-		// -(instancetype _Nonnull)initWithSkinType:(AKFSkinType)skinType;
-		[Export ("initWithSkinType:")]
-		IntPtr Constructor (SkinType skinType);
-
-		// @property (readonly, assign, nonatomic) AKFSkinType skinType;
-		[Export ("skinType", ArgumentSemantic.Assign)]
-		SkinType SkinType { get; }
-
-		// @property (readonly, copy, nonatomic) UIColor * _Null_unspecified primaryColor;
-		[Export ("primaryColor", ArgumentSemantic.Copy)]
-		UIColor PrimaryColor { get; }
-
-		// @property (readonly, copy, nonatomic) UIImage * _Nullable backgroundImage;
-		[NullAllowed, Export ("backgroundImage", ArgumentSemantic.Copy)]
-		UIImage BackgroundImage { get; }
-
-		// @property (readonly, assign, nonatomic) AKFBackgroundTint backgroundTint;
-		[Export ("backgroundTint", ArgumentSemantic.Assign)]
-		BackgroundTint BackgroundTint { get; }
-
-		// @property (readonly, assign, nonatomic) CGFloat tintIntensity;
-		[Export ("tintIntensity")]
-		nfloat TintIntensity { get; }
-	}
 }
-

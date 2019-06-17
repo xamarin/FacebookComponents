@@ -36,29 +36,6 @@ namespace Facebook.ShareKit
 	}
 
 	[Native]
-	public enum LikeControlAuxiliaryPosition : ulong
-	{
-		Inline,
-		Top,
-		Bottom
-	}
-
-	[Native]
-	public enum LikeControlHorizontalAlignment : ulong
-	{
-		Left,
-		Center,
-		Right
-	}
-
-	[Native]
-	public enum LikeControlStyle : ulong
-	{
-		Standard = 0,
-		BoxCount
-	}
-
-	[Native]
 	public enum LikeObjectType : ulong
 	{
 		Unknown = 0,
@@ -68,16 +45,6 @@ namespace Facebook.ShareKit
 
 	[Native]
 	public enum ShareError : long {
-		Reserved = 200,
-		OpenGraph,
-		DialogNotAvailable,
-		Unknown
-	}
-
-	[Obsolete ("Use ShareError enum instead.")]
-	[Native]
-	public enum ShareErrorCode : long
-	{
 		Reserved = 200,
 		OpenGraph,
 		DialogNotAvailable,

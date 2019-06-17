@@ -89,236 +89,364 @@ namespace Facebook.AudienceNetwork
 	[Static]
 	interface AdExtraHintKeywords {
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordAccessories;
-		[Field ("FBAdExtraHintKeywordAccessories", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Accessories enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Accessories.GetConstant ()")]
 		NSString Accessories { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordArtHistory;
-		[Field ("FBAdExtraHintKeywordArtHistory", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.ArtHistory enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.ArtHistory.GetConstant ()")]
 		NSString ArtHistory { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordAutomotive;
-		[Field ("FBAdExtraHintKeywordAutomotive", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Automotive enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Automotive.GetConstant ()")]
 		NSString Automotive { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordBeauty;
-		[Field ("FBAdExtraHintKeywordBeauty", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Beauty enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Beauty.GetConstant ()")]
 		NSString Beauty { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordBiology;
-		[Field ("FBAdExtraHintKeywordBiology", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Biology enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Biology.GetConstant ()")]
 		NSString Biology { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordBoardGames;
-		[Field ("FBAdExtraHintKeywordBoardGames", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.BoardGames enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.BoardGames.GetConstant ()")]
 		NSString BoardGames { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordBusinessSoftware;
-		[Field ("FBAdExtraHintKeywordBusinessSoftware", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.BusinessSoftware enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.BusinessSoftware.GetConstant ()")]
 		NSString BusinessSoftware { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordBuyingSellingHomes;
-		[Field ("FBAdExtraHintKeywordBuyingSellingHomes", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.BuyingSellingHomes enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.BuyingSellingHomes.GetConstant ()")]
 		NSString BuyingSellingHomes { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordCats;
-		[Field ("FBAdExtraHintKeywordCats", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Cats enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Cats.GetConstant ()")]
 		NSString Cats { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordCelebrities;
-		[Field ("FBAdExtraHintKeywordCelebrities", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Celebrities enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Celebrities.GetConstant ()")]
 		NSString Celebrities { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordClothing;
-		[Field ("FBAdExtraHintKeywordClothing", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Clothing enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Clothing.GetConstant ()")]
 		NSString Clothing { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordComicBooks;
-		[Field ("FBAdExtraHintKeywordComicBooks", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.ComicBooks enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.ComicBooks.GetConstant ()")]
 		NSString ComicBooks { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordDesktopVideo;
-		[Field ("FBAdExtraHintKeywordDesktopVideo", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.DesktopVideo enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.DesktopVideo.GetConstant ()")]
 		NSString DesktopVideo { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordDogs;
-		[Field ("FBAdExtraHintKeywordDogs", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Dogs enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Dogs.GetConstant ()")]
 		NSString Dogs { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordEducation;
-		[Field ("FBAdExtraHintKeywordEducation", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Education enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Education.GetConstant ()")]
 		NSString Education { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordEmail;
-		[Field ("FBAdExtraHintKeywordEmail", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Email enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Email.GetConstant ()")]
 		NSString Email { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordEntertainment;
-		[Field ("FBAdExtraHintKeywordEntertainment", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Entertainment enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Entertainment.GetConstant ()")]
 		NSString Entertainment { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordFamilyParenting;
-		[Field ("FBAdExtraHintKeywordFamilyParenting", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.FamilyParenting enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.FamilyParenting.GetConstant ()")]
 		NSString FamilyParenting { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordFashion;
-		[Field ("FBAdExtraHintKeywordFashion", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Fashion enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Fashion.GetConstant ()")]
 		NSString Fashion { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordFineArt;
-		[Field ("FBAdExtraHintKeywordFineArt", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.FineArt enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.FineArt.GetConstant ()")]
 		NSString FineArt { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordFoodDrink;
-		[Field ("FBAdExtraHintKeywordFoodDrink", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.FoodDrink enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.FoodDrink.GetConstant ()")]
 		NSString FoodDrink { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordFrenchCuisine;
-		[Field ("FBAdExtraHintKeywordFrenchCuisine", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.FrenchCuisine enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.FrenchCuisine.GetConstant ()")]
 		NSString FrenchCuisine { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordGovernment;
-		[Field ("FBAdExtraHintKeywordGovernment", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Government enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Government.GetConstant ()")]
 		NSString Government { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordHealthFitness;
-		[Field ("FBAdExtraHintKeywordHealthFitness", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.HealthFitness enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.HealthFitness.GetConstant ()")]
 		NSString HealthFitness { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordHobbies;
-		[Field ("FBAdExtraHintKeywordHobbies", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Hobbies enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Hobbies.GetConstant ()")]
 		NSString Hobbies { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordHomeGarden;
-		[Field ("FBAdExtraHintKeywordHomeGarden", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.HomeGarden enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.HomeGarden.GetConstant ()")]
 		NSString HomeGarden { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordHumor;
-		[Field ("FBAdExtraHintKeywordHumor", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Humor enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Humor.GetConstant ()")]
 		NSString Humor { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordInternetTechnology;
-		[Field ("FBAdExtraHintKeywordInternetTechnology", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.InternetTechnology enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.InternetTechnology.GetConstant ()")]
 		NSString InternetTechnology { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordLargeAnimals;
-		[Field ("FBAdExtraHintKeywordLargeAnimals", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.LargeAnimals enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.LargeAnimals.GetConstant ()")]
 		NSString LargeAnimals { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordLaw;
-		[Field ("FBAdExtraHintKeywordLaw", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Law enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Law.GetConstant ()")]
 		NSString Law { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordLegalIssues;
-		[Field ("FBAdExtraHintKeywordLegalIssues", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.LegalIssues enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.LegalIssues.GetConstant ()")]
 		NSString LegalIssues { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordLiterature;
-		[Field ("FBAdExtraHintKeywordLiterature", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Literature enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Literature.GetConstant ()")]
 		NSString Literature { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordMarketing;
-		[Field ("FBAdExtraHintKeywordMarketing", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Marketing enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Marketing.GetConstant ()")]
 		NSString Marketing { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordMovies;
-		[Field ("FBAdExtraHintKeywordMovies", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Movies enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Movies.GetConstant ()")]
 		NSString Movies { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordMusic;
-		[Field ("FBAdExtraHintKeywordMusic", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Music enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Music.GetConstant ()")]
 		NSString Music { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordNews;
-		[Field ("FBAdExtraHintKeywordNews", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.News enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.News.GetConstant ()")]
 		NSString News { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordPersonalFinance;
-		[Field ("FBAdExtraHintKeywordPersonalFinance", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.PersonalFinance enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.PersonalFinance.GetConstant ()")]
 		NSString PersonalFinance { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordPets;
-		[Field ("FBAdExtraHintKeywordPets", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Pets enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Pets.GetConstant ()")]
 		NSString Pets { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordPhotography;
-		[Field ("FBAdExtraHintKeywordPhotography", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Photography enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Photography.GetConstant ()")]
 		NSString Photography { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordPolitics;
-		[Field ("FBAdExtraHintKeywordPolitics", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Politics enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Politics.GetConstant ()")]
 		NSString Politics { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordRealEstate;
-		[Field ("FBAdExtraHintKeywordRealEstate", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.RealEstate enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.RealEstate.GetConstant ()")]
 		NSString RealEstate { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordRoleplayingGames;
-		[Field ("FBAdExtraHintKeywordRoleplayingGames", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.RoleplayingGames enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.RoleplayingGames.GetConstant ()")]
 		NSString RoleplayingGames { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordScience;
-		[Field ("FBAdExtraHintKeywordScience", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Science enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Science.GetConstant ()")]
 		NSString Science { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordShopping;
-		[Field ("FBAdExtraHintKeywordShopping", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Shopping enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Shopping.GetConstant ()")]
 		NSString Shopping { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordSociety;
-		[Field ("FBAdExtraHintKeywordSociety", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Society enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Society.GetConstant ()")]
 		NSString Society { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordSports;
-		[Field ("FBAdExtraHintKeywordSports", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Sports enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Sports.GetConstant ()")]
 		NSString Sports { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordTechnology;
-		[Field ("FBAdExtraHintKeywordTechnology", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Technology enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Technology.GetConstant ()")]
 		NSString Technology { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordTelevision;
-		[Field ("FBAdExtraHintKeywordTelevision", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Television enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Television.GetConstant ()")]
 		NSString Television { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordTravel;
-		[Field ("FBAdExtraHintKeywordTravel", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.Travel enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.Travel.GetConstant ()")]
 		NSString Travel { get; }
 
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordVideoComputerGames;
-		[Field ("FBAdExtraHintKeywordVideoComputerGames", "__Internal")]
+		[Obsolete ("Use the AdExtraHintKeyword.VideoComputerGames enum instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("AdExtraHintKeyword.VideoComputerGames.GetConstant ()")]
 		NSString VideoComputerGames { get; }
 	}
 
 	// @interface FBAdExtraHint : NSObject
 	[BaseType (typeof (NSObject), Name = "FBAdExtraHint")]
 	interface AdExtraHint {
-		// @property (copy, nonatomic) NSString * _Nullable UISpec;
-		[NullAllowed, Export ("UISpec")]
-		string UISpec { get; set; }
-
 		// @property (copy, nonatomic) NSString * _Nullable contentURL;
-		[NullAllowed, Export ("contentURL")]
+		[NullAllowed]
+		[Export ("contentURL")]
 		string ContentUrl { get; set; }
 
 		// @property (copy, nonatomic) NSString * _Nullable extraData;
-		[NullAllowed, Export ("extraData")]
+		[NullAllowed]
+		[Export ("extraData")]
 		string ExtraData { get; set; }
 
+		// @property (copy, nonatomic) NSString * _Nullable mediationData;
+		[NullAllowed]
+		[Export ("mediationData")]
+		string MediationData { get; set; }
+
 		// -(instancetype _Nonnull)initWithKeywords:(NSArray<FBAdExtraHintKeyword> * _Nonnull)keywords;
+		[Internal]
 		[Export ("initWithKeywords:")]
+		IntPtr Constructor (NSArray keywords);
+
+		[Wrap ("this (NSArray.FromNSObjects<AdExtraHintKeyword> (k => k.GetConstant (), keywords))")]
+		IntPtr Constructor (AdExtraHintKeyword [] keywords);
+
+		[Obsolete ("Use the AdExtraHint (AdExtraHintKeyword []) constructor instead. This will be removed in future versions.")]
+		[Wrap ("this (NSArray.FromNSObjects (keywords))")]
 		IntPtr Constructor (NSString [] keywords);
 
 		// -(void)addKeyword:(FBAdExtraHintKeyword _Nonnull)keyword;
+		[Internal]
 		[Export ("addKeyword:")]
+		void _AddKeyword (NSString keyword);
+
+		[Wrap ("_AddKeyword (keyword.GetConstant ())")]
+		void AddKeyword (AdExtraHintKeyword keyword);
+
+		[Obsolete ("Use the AddKeyword (AdExtraHintKeyword) overload method instead. This will be removed in future versions.")]
+		[Wrap ("_AddKeyword (keyword)")]
 		void AddKeyword (NSString keyword);
 
 		// -(void)removeKeyword:(FBAdExtraHintKeyword _Nonnull)keyword;
+		[Internal]
 		[Export ("removeKeyword:")]
+		void _RemoveKeyword (NSString keyword);
+
+		[Wrap ("_RemoveKeyword (keyword.GetConstant ())")]
+		void RemoveKeyword (AdExtraHintKeyword keyword);
+
+		[Obsolete ("Use the RemoveKeyword (AdExtraHintKeyword) overload method instead. This will be removed in future versions.")]
+		[Wrap ("_RemoveKeyword (keyword)")]
 		void RemoveKeyword (NSString keyword);
 	}
 
 	// @interface FBAdIconView : UIView
-	[BaseType (typeof (UIView), Name = "FBAdIconView")]
+	[Obsolete ("This class will be removed in a future release. Use MediaView instead.")]
+	[BaseType (typeof (MediaView), Name = "FBAdIconView")]
 	interface AdIconView {
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (CGRect frame);
@@ -326,6 +454,24 @@ namespace Facebook.AudienceNetwork
 		// @property (readonly, assign, nonatomic) FBNativeAdViewTag nativeAdViewTag;
 		[Export ("nativeAdViewTag", ArgumentSemantic.Assign)]
 		NativeAdViewTag NativeAdViewTag { get; }
+	}
+
+	// @interface FBAdOptionsView : UIView
+	[BaseType (typeof (UIView), Name = "FBAdOptionsView")]
+	interface AdOptionsView {
+		// @property (readwrite, nonatomic, weak) FBNativeAdBase * _Nullable nativeAd;
+		[NullAllowed]
+		[Export ("nativeAd", ArgumentSemantic.Weak)]
+		NativeAdBase NativeAd { get; set; }
+
+		// @property (nonatomic, strong) UIColor * _Nullable foregroundColor;
+		[NullAllowed]
+		[Export ("foregroundColor", ArgumentSemantic.Strong)]
+		UIColor ForegroundColor { get; set; }
+
+		// @property (assign, nonatomic) BOOL useSingleIcon;
+		[Export ("useSingleIcon")]
+		bool UseSingleIcon { get; set; }
 	}
 
 	delegate void AdImageCompletionHandler ([NullAllowed] UIImage imageLoaded);
@@ -431,19 +577,6 @@ namespace Facebook.AudienceNetwork
 		[Export ("urlPrefix")]
 		string UrlPrefix { get; set; }
 
-		[Obsolete ("Use UrlPrefix property instead. This will be removed in future versions.")]
-		[Advice ("This method should never be used in production.")]
-		[Static]
-		[return: NullAllowed]
-		[Wrap ("UrlPrefix")]
-		string GetUrlPrefix ();
-
-		[Obsolete ("Use UrlPrefix property instead. This will be removed in future versions.")]
-		[Advice ("This method should never be used in production.")]
-		[Static]
-		[Wrap ("UrlPrefix = urlPrefix")]
-		void SetUrlPrefix ([NullAllowed] string urlPrefix);
-
 		// +(FBAdLogLevel)getLogLevel;
 		// +(void)setLogLevel:(FBAdLogLevel)level;
 		[Static]
@@ -492,36 +625,16 @@ namespace Facebook.AudienceNetwork
 		IntPtr _kFBAdSizeHeight250Rectangle { get; }
 	}
 
-	// @interface FBAdStarRatingView : UIView
-	[Obsolete]
-	[BaseType (typeof (UIView), Name = "FBAdStarRatingView")]
-	interface AdStarRatingView {
-		[Export ("initWithFrame:")]
-		IntPtr Constructor (CGRect frame);
-
-		// @property (nonatomic) struct FBAdStarRating rating;
-		[Export ("rating", ArgumentSemantic.Assign)]
-		AdStarRating Rating { get; set; }
-
-		// @property (nonatomic, strong) UIColor * primaryColor;
-		[Export ("primaryColor", ArgumentSemantic.Strong)]
-		UIColor PrimaryColor { get; set; }
-
-		// @property (nonatomic, strong) UIColor * secondaryColor;
-		[Export ("secondaryColor", ArgumentSemantic.Strong)]
-		UIColor SecondaryColor { get; set; }
-
-		// -(instancetype)initWithFrame:(CGRect)frame withStarRating:(struct FBAdStarRating)starRating __attribute__((objc_designated_initializer));
-		[Export ("initWithFrame:withStarRating:")]
-		IntPtr Constructor (CGRect frame, AdStarRating starRating);
-	}
-
 	[DisableDefaultCtor]
 	[BaseType (typeof (UIView), Name = "FBAdView")]
 	interface AdView {
 		[DesignatedInitializer]
 		[Export ("initWithPlacementID:adSize:rootViewController:")]
 		IntPtr Constructor (string placementId, AdSize adSize, [NullAllowed] UIViewController rootViewController);
+
+		// -(instancetype _Nullable)initWithPlacementID:(NSString * _Nonnull)placementID bidPayload:(NSString * _Nonnull)bidPayload rootViewController:(UIViewController * _Nullable)rootViewController error:(NSError * _Nullable * _Nullable)error;
+		[Export ("initWithPlacementID:bidPayload:rootViewController:error:")]
+		IntPtr Constructor (string placementId, string bidPayload, [NullAllowed] UIViewController rootViewController, [NullAllowed] out NSError error);
 
 		[Export ("loadAd")]
 		void LoadAd ();
@@ -582,6 +695,50 @@ namespace Facebook.AudienceNetwork
 		UIViewController GetViewControllerForPresentingModalView ();
 	}
 
+	// @interface FBAdInitSettings : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FBAdInitSettings")]
+	interface AdInitSettings {
+		// -(instancetype _Nonnull)initWithPlacementIDs:(NSArray<NSString *> * _Nonnull)placementIDs mediationService:(NSString * _Nonnull)mediationService;
+		[Export ("initWithPlacementIDs:mediationService:")]
+		IntPtr Constructor (string [] placementIds, string mediationService);
+
+		// @property (readonly, copy, nonatomic) NSArray<NSString *> * _Nonnull placementIDs;
+		[Export ("placementIDs", ArgumentSemantic.Copy)]
+		string [] PlacementIds { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull mediationService;
+		[Export ("mediationService")]
+		string MediationService { get; }
+	}
+
+	// @interface FBAdInitResults : NSObject
+	[BaseType (typeof (NSObject), Name = "FBAdInitResults")]
+	interface AdInitResults {
+		// @property (readonly, getter = isSuccess, assign, nonatomic) BOOL success;
+		[Export ("isSuccess")]
+		bool IsSuccess { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull message;
+		[Export ("message")]
+		string Message { get; }
+	}
+
+	// @interface FBAudienceNetworkAds : NSObject
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FBAudienceNetworkAds")]
+	interface AudienceNetworkAds {
+		// +(void)initializeWithSettings:(FBAdInitSettings * _Nullable)settings completionHandler:(void (^ _Nullable)(FBAdInitResults * _Nonnull))completionHandler;
+		[Static]
+		[Export ("initializeWithSettings:completionHandler:")]
+		void Initialize ([NullAllowed] AdInitSettings settings, [NullAllowed] Action<AdInitResults> completionHandler);
+
+		// +(FBAdFormatTypeName)adFormatTypeNameForPlacementId:(NSString * _Nonnull)placementId;
+		[Static]
+		[Export ("adFormatTypeNameForPlacementId:")]
+		AdFormatTypeName GetAdFormatTypeName (string placementId);
+	}
+
 	// @interface FBInstreamAdView : UIView
 	[DisableDefaultCtor]
 	[BaseType (typeof (UIView), Name = "FBInstreamAdView")]
@@ -599,10 +756,6 @@ namespace Facebook.AudienceNetwork
 		[NullAllowed]
 		[Export ("placementID")]
 		string PlacementId { get; }
-
-		[Obsolete ("Use PlacementId property instead. This will be removed in future versions.")]
-		[Wrap ("PlacementId")]
-		string PlacementID { get; }
 
 		// @property (nonatomic, strong) FBAdExtraHint * _Nullable extraHint;
 		[NullAllowed]
@@ -692,10 +845,6 @@ namespace Facebook.AudienceNetwork
 
 		[Export ("showAdFromRootViewController:")]
 		bool ShowAd ([NullAllowed] UIViewController rootViewController);
-
-		[Obsolete ("Use ShowAd method instead. This will be removed in future versions.")]
-		[Wrap ("ShowAd (rootViewController)")]
-		bool ShowAdFromRootViewController (UIViewController rootViewController);
 	}
 
 	interface IInterstitialAdDelegate { }
@@ -725,7 +874,7 @@ namespace Facebook.AudienceNetwork
 	}
 
 	// @interface FBMediaView : UIView
-	[BaseType (typeof (AdIconView), Name = "FBMediaView")]
+	[BaseType (typeof (UIView), Name = "FBMediaView")]
 	interface MediaView {
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (CGRect frame);
@@ -746,10 +895,6 @@ namespace Facebook.AudienceNetwork
 		// @property (nonatomic, readonly, getter=isAutoplayEnabled) BOOL autoplayEnabled;
 		[Export ("isAutoplayEnabled")]
 		bool IsAutoplayEnabled { get; }
-
-		[Obsolete ("Use IsAutoplayEnabled property instead. This will be removed in future versions.")]
-		[Wrap ("IsAutoplayEnabled")]
-		bool AutoplayEnabled { get; }
 
 		// @property (readonly, assign, nonatomic) CGFloat aspectRatio;
 		[Export ("aspectRatio")]
@@ -910,11 +1055,11 @@ namespace Facebook.AudienceNetwork
 
 		// - (void)registerViewForInteraction:(UIView *)view mediaView:(FBMediaView*) mediaView iconView:(nullable FBAdIconView *)iconView viewController:(nullable UIViewController *)viewController;
 		[Export ("registerViewForInteraction:mediaView:iconView:viewController:")]
-		void RegisterView (UIView view, MediaView mediaView, [NullAllowed] AdIconView iconView, [NullAllowed] UIViewController viewController);
+		void RegisterView (UIView view, MediaView mediaView, [NullAllowed] MediaView iconView, [NullAllowed] UIViewController viewController);
 
 		// - (void)registerViewForInteraction:(UIView *)view mediaView:(FBMediaView*) mediaView iconView:(nullable FBAdIconView *)iconView viewController:(nullable UIViewController *)viewController clickableViews:(nullable NSArray<UIView*> *)clickableViews;
 		[Export ("registerViewForInteraction:mediaView:iconView:viewController:clickableViews:")]
-		void RegisterView (UIView view, MediaView mediaView, [NullAllowed] AdIconView iconView, [NullAllowed] UIViewController viewController, [NullAllowed] UIView [] clickableViews);
+		void RegisterView (UIView view, MediaView mediaView, [NullAllowed] MediaView iconView, [NullAllowed] UIViewController viewController, [NullAllowed] UIView [] clickableViews);
 
 		// -(void)registerViewForInteraction:(UIView * _Nonnull)view mediaView:(FBMediaView * _Nonnull)mediaView iconImageView:(UIImageView * _Nullable)iconImageView viewController:(UIViewController * _Nullable)viewController;
 		[Export ("registerViewForInteraction:mediaView:iconImageView:viewController:")]
@@ -957,15 +1102,12 @@ namespace Facebook.AudienceNetwork
 	}
 
 	// @interface FBNativeAdBase : NSObject
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBNativeAdBase")]
 	interface NativeAdBase {
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull placementID;
 		[Export ("placementID")]
 		string PlacementId { get; }
-
-		// @property (readonly, assign, nonatomic) struct FBAdStarRating starRating __attribute__((deprecated("")));
-		[Export ("starRating", ArgumentSemantic.Assign)]
-		AdStarRating StarRating { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * _Nullable headline;
 		[NullAllowed]
@@ -1048,11 +1190,6 @@ namespace Facebook.AudienceNetwork
 		[Export ("isAdValid")]
 		bool IsAdValid { get; }
 
-		// @property (readonly, getter = getAdNetwork, copy, nonatomic) NSString * _Nullable adNetwork;
-		[NullAllowed]
-		[Export ("getAdNetwork")]
-		string AdNetwork { get; }
-
 		// @property (readonly, getter = isRegistered, nonatomic) BOOL registered;
 		[Export ("isRegistered")]
 		bool IsRegistered { get; }
@@ -1081,6 +1218,12 @@ namespace Facebook.AudienceNetwork
 		// -(void)loadAdWithBidPayload:(NSString * _Nonnull)bidPayload mediaCachePolicy:(FBNativeAdsCachePolicy)mediaCachePolicy;
 		[Export ("loadAdWithBidPayload:mediaCachePolicy:")]
 		void LoadAd (string bidPayload, NativeAdsCachePolicy mediaCachePolicy);
+
+		// +(instancetype _Nullable)nativeAdWithPlacementId:(NSString * _Nonnull)placementId bidPayload:(NSString * _Nonnull)bidPayload error:(NSError * _Nullable * _Nullable)error;
+		[Static]
+		[return: NullAllowed]
+		[Export ("nativeAdWithPlacementId:bidPayload:error:")]
+		NativeAdBase Create (string placementId, string bidPayload, [NullAllowed] out NSError error);
 	}
 
 	// @interface FBNativeAdBaseView : UIView
@@ -1093,6 +1236,7 @@ namespace Facebook.AudienceNetwork
 	}
 
 	// @interface FBNativeAdCollectionViewAdProvider : NSObject
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBNativeAdCollectionViewAdProvider")]
 	interface NativeAdCollectionViewAdProvider {
 		// @property (nonatomic, weak) id<FBNativeAdDelegate> _Nullable delegate;
@@ -1106,8 +1250,8 @@ namespace Facebook.AudienceNetwork
 		AdExtraHint ExtraHint { get; set; }
 
 		// -(instancetype _Nonnull)initWithManager:(FBNativeAdsManager * _Nonnull)manager __attribute__((objc_designated_initializer));
-		[Export ("initWithManager:")]
 		[DesignatedInitializer]
+		[Export ("initWithManager:")]
 		IntPtr Constructor (NativeAdsManager manager);
 
 		// -(FBNativeAd * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView nativeAdForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
@@ -1129,6 +1273,7 @@ namespace Facebook.AudienceNetwork
 	}
 
 	// @interface FBNativeAdCollectionViewCellProvider : FBNativeAdCollectionViewAdProvider
+	[DisableDefaultCtor]
 	[BaseType (typeof (NativeAdCollectionViewAdProvider), Name = "FBNativeAdCollectionViewCellProvider")]
 	interface NativeAdCollectionViewCellProvider {
 		// -(instancetype _Nonnull)initWithManager:(FBNativeAdsManager * _Nonnull)manager forType:(FBNativeAdViewType)type;
@@ -1136,8 +1281,8 @@ namespace Facebook.AudienceNetwork
 		IntPtr Constructor (NativeAdsManager manager, NativeAdViewType type);
 
 		// -(instancetype _Nonnull)initWithManager:(FBNativeAdsManager * _Nonnull)manager forType:(FBNativeAdViewType)type forAttributes:(FBNativeAdViewAttributes * _Nonnull)attributes __attribute__((objc_designated_initializer));
-		[Export ("initWithManager:forType:forAttributes:")]
 		[DesignatedInitializer]
+		[Export ("initWithManager:forType:forAttributes:")]
 		IntPtr Constructor (NativeAdsManager manager, NativeAdViewType type, NativeAdViewAttributes attributes);
 
 		// -(UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
@@ -1341,14 +1486,34 @@ namespace Facebook.AudienceNetwork
 		[Export ("type", ArgumentSemantic.Assign)]
 		NativeAdViewType Type { get; }
 
+		// +(instancetype _Nonnull)nativeAdViewWithNativeAd:(FBNativeAd * _Nonnull)nativeAd;
+		[Static]
+		[Export ("nativeAdViewWithNativeAd:")]
+		NativeAdView Create (NativeAd nativeAd);
+
+		// +(instancetype _Nonnull)nativeAdViewWithNativeAd:(FBNativeAd * _Nonnull)nativeAd withAttributes:(FBNativeAdViewAttributes * _Nonnull)attributes;
+		[Static]
+		[Export ("nativeAdViewWithNativeAd:withAttributes:")]
+		NativeAdView Create (NativeAd nativeAd, NativeAdViewAttributes attributes);
+
 		// +(instancetype)nativeAdViewWithNativeAd:(FBNativeAd *)nativeAd withType:(FBNativeAdViewType)type;
 		[Static]
 		[Export ("nativeAdViewWithNativeAd:withType:")]
+		NativeAdView Create (NativeAd nativeAd, NativeAdViewType type);
+
+		[Obsolete ("Use the Create method instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("Create (nativeAd, type)")]
 		NativeAdView From (NativeAd nativeAd, NativeAdViewType type);
 
 		// +(instancetype)nativeAdViewWithNativeAd:(FBNativeAd *)nativeAd withType:(FBNativeAdViewType)type withAttributes:(FBNativeAdViewAttributes *)attributes;
 		[Static]
 		[Export ("nativeAdViewWithNativeAd:withType:withAttributes:")]
+		NativeAdView Create (NativeAd nativeAd, NativeAdViewType type, NativeAdViewAttributes attributes);
+
+		[Obsolete ("Use the Create method instead. This will be removed in future versions.")]
+		[Static]
+		[Wrap ("Create (nativeAd, type, attributes)")]
 		NativeAdView From (NativeAd nativeAd, NativeAdViewType type, NativeAdViewAttributes attributes);
 	}
 
@@ -1370,6 +1535,16 @@ namespace Facebook.AudienceNetwork
 		[NullAllowed]
 		[Export ("titleColor", ArgumentSemantic.Copy)]
 		UIColor TitleColor { get; set; }
+
+		// @property (copy, nonatomic) UIColor * _Nullable advertiserNameColor;
+		[NullAllowed]
+		[Export ("advertiserNameColor", ArgumentSemantic.Copy)]
+		UIColor AdvertiserNameColor { get; set; }
+
+		// @property (copy, nonatomic) UIColor * _Nullable adChoicesForegroundColor;
+		[NullAllowed]
+		[Export ("adChoicesForegroundColor", ArgumentSemantic.Copy)]
+		UIColor AdChoicesForegroundColor { get; set; }
 
 		// @property (copy, nonatomic) UIFont * titleFont;
 		[NullAllowed]
@@ -1405,7 +1580,8 @@ namespace Facebook.AudienceNetwork
 		[Export ("buttonBorderColor", ArgumentSemantic.Copy)]
 		UIColor ButtonBorderColor { get; set; }
 
-		// @property (nonatomic, assign, getter=isAutoplayEnabled) BOOL autoplayEnabled;
+		// @property (getter = isAutoplayEnabled, assign, nonatomic) BOOL autoplayEnabled __attribute__((deprecated("This attribute is no longer used.")));
+		[Obsolete ("This attribute is no longer used.")]
 		[Export ("autoplayEnabled")]
 		bool AutoplayEnabled { [Bind ("isAutoplayEnabled")] get; set; }
 
@@ -1420,6 +1596,7 @@ namespace Facebook.AudienceNetwork
 	}
 
 	// @interface FBNativeBannerAd : FBNativeAdBase
+	[DisableDefaultCtor]
 	[BaseType (typeof (NativeAdBase), Name = "FBNativeBannerAd")]
 	interface NativeBannerAd {
 		// @property (nonatomic, weak) id<FBNativeBannerAdDelegate> _Nullable delegate;
@@ -1433,11 +1610,11 @@ namespace Facebook.AudienceNetwork
 
 		// -(void)registerViewForInteraction:(UIView * _Nonnull)view iconView:(FBAdIconView * _Nonnull)iconView viewController:(UIViewController * _Nullable)viewController;
 		[Export ("registerViewForInteraction:iconView:viewController:")]
-		void RegisterView (UIView view, AdIconView iconView, [NullAllowed] UIViewController viewController);
+		void RegisterView (UIView view, MediaView iconView, [NullAllowed] UIViewController viewController);
 
 		// -(void)registerViewForInteraction:(UIView * _Nonnull)view iconView:(FBAdIconView * _Nonnull)iconView viewController:(UIViewController * _Nullable)viewController clickableViews:(NSArray<UIView *> * _Nullable)clickableViews;
 		[Export ("registerViewForInteraction:iconView:viewController:clickableViews:")]
-		void RegisterView (UIView view, AdIconView iconView, [NullAllowed] UIViewController viewController, [NullAllowed] UIView [] clickableViews);
+		void RegisterView (UIView view, MediaView iconView, [NullAllowed] UIViewController viewController, [NullAllowed] UIView [] clickableViews);
 
 		// -(void)downloadMedia;
 		[Export ("downloadMedia")]
@@ -1477,8 +1654,8 @@ namespace Facebook.AudienceNetwork
 	}
 
 	// @interface FBNativeBannerAdView : FBNativeAdBaseView
-	[BaseType (typeof (NativeAdBaseView), Name = "FBNativeBannerAdView")]
 	[DisableDefaultCtor]
+	[BaseType (typeof (NativeAdBaseView), Name = "FBNativeBannerAdView")]
 	interface NativeBannerAdView {
 		// @property (readonly, assign, nonatomic) FBNativeBannerAdViewType type;
 		[Export ("type", ArgumentSemantic.Assign)]
@@ -1487,11 +1664,21 @@ namespace Facebook.AudienceNetwork
 		// +(instancetype _Nonnull)nativeBannerAdViewWithNativeBannerAd:(FBNativeBannerAd * _Nonnull)nativeBannerAd withType:(FBNativeBannerAdViewType)type;
 		[Static]
 		[Export ("nativeBannerAdViewWithNativeBannerAd:withType:")]
+		NativeBannerAdView Create (NativeBannerAd nativeBannerAd, NativeBannerAdViewType type);
+
+		[Obsolete ("Use the Create method instead. This will be removed in future versions.")]
+		[Static]
+		[Export ("Create (nativeBannerAd, type)")]
 		NativeBannerAdView From (NativeBannerAd nativeBannerAd, NativeBannerAdViewType type);
 
 		// +(instancetype _Nonnull)nativeBannerAdViewWithNativeBannerAd:(FBNativeBannerAd * _Nonnull)nativeBannerAd withType:(FBNativeBannerAdViewType)type withAttributes:(FBNativeAdViewAttributes * _Nonnull)attributes;
 		[Static]
 		[Export ("nativeBannerAdViewWithNativeBannerAd:withType:withAttributes:")]
+		NativeBannerAdView Create (NativeBannerAd nativeBannerAd, NativeBannerAdViewType type, NativeAdViewAttributes attributes);
+
+		[Obsolete ("Use the Create method instead. This will be removed in future versions.")]
+		[Static]
+		[Export ("Create (nativeBannerAd, type, attributes)")]
 		NativeBannerAdView From (NativeBannerAd nativeBannerAd, NativeBannerAdViewType type, NativeAdViewAttributes attributes);
 
 		//////////////////////////////////////////////////////////////////////////////
@@ -1512,10 +1699,6 @@ namespace Facebook.AudienceNetwork
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull placementID;
 		[Export ("placementID")]
 		string PlacementId { get; }
-
-		[Obsolete ("Use PlacementId property instead. This will be removed in future versions.")]
-		[Wrap ("PlacementId")]
-		string PlacementID { get; }
 
 		// @property (readonly, assign, nonatomic) CMTime duration;
 		[Export ("duration", ArgumentSemantic.Assign)]
