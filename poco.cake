@@ -51,19 +51,15 @@ class Artifact : IEquatable<Artifact>
 	public string Id { get; set; }
 	public string Version { get; set; }
 	public string NugetVersion { get; set; }
-	public string MinimunSupportedVersion { get; set; }
 	public string CsprojName { get; set; }
-	public uint BuildOrder { get; set; }
 	public Artifact [] Dependencies;
 
-	public Artifact (string id, string version, string minimunSupportedVersion, string nugetVersion = null, string csprojName = null, uint buildOrder = 1, Artifact [] dependencies = null)
+	public Artifact (string id, string version, string nugetVersion = null, string csprojName = null, Artifact [] dependencies = null)
 	{
 		Id = id;
 		Version = version;
-		MinimunSupportedVersion = minimunSupportedVersion;
 		NugetVersion = nugetVersion ?? version;
 		CsprojName = csprojName ?? id;
-		BuildOrder = buildOrder;
 		Dependencies = dependencies;
 	}
 
