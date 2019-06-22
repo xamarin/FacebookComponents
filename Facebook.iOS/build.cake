@@ -1,5 +1,6 @@
 
 #load "../common.cake"
+#load "poco.ios.cake"
 #load "components.cake"
 #load "custom_externals_download.cake"
 
@@ -42,7 +43,7 @@ Task("prepare-artifacts")
 	if (string.IsNullOrWhiteSpace (SDKS) || TARGET == "samples")
 	{
 		orderedArtifactsForBuild.AddRange (ARTIFACTS.Values);
-		orderedArtifactsForBuild.Sort ((f, s) => s.BuildOrder.CompareTo (f.BuildOrder));
+		orderedArtifactsForBuild.Sort ((f, s) => ((iOSArtifact)s).BuildOrder.CompareTo (((iOSArtifact)f).BuildOrder));
 
 		// Remove the artifact from the dictionary if the source is different than Pods
 		// You will need to add the code to download the framework at custom_externals_download.cake
@@ -81,7 +82,7 @@ Task("prepare-artifacts")
 	}
 
 	orderedArtifactsForBuild = orderedArtifactsForBuild.Distinct ().ToList ();
-	orderedArtifactsForBuild.Sort ((f, s) => s.BuildOrder.CompareTo (f.BuildOrder));
+	orderedArtifactsForBuild.Sort ((f, s) => ((iOSArtifact)s).BuildOrder.CompareTo (((iOSArtifact)f).BuildOrder));
 
 	foreach (var artifact in orderedArtifactsForBuild)
 			SOURCES_TARGETS.Add(artifact.CsprojName);
@@ -206,14 +207,16 @@ void CreateAndInstallPodfile (Artifact artifact)
 	if (artifact == null)
 		return;
 
-	var podfilePath = $"./externals/{artifact.Id}/";
+	var iOSArtifact = (iOSArtifact)artifact;
+
+	var podfilePath = $"./externals/{iOSArtifact.Id}/";
 	EnsureDirectoryExists (podfilePath);
 
 	var podfileBegin = new List<string> (PODFILE_BEGIN);
-	podfileBegin [0] = string.Format (podfileBegin [0], artifact.MinimunSupportedVersion);
+	podfileBegin [0] = string.Format (podfileBegin [0], iOSArtifact.MinimunSupportedVersion);
 	
 	var podfile = new List<string> (podfileBegin);
-	podfile.Add ($"\tpod '{artifact.Id}', '{artifact.Version}'");
+	podfile.Add ($"\tpod '{iOSArtifact.Id}', '{iOSArtifact.Version}'");
 	podfile.AddRange (PODFILE_END);
 
 	FileWriteLines ($"{podfilePath}Podfile", podfile.ToArray ());
@@ -222,19 +225,22 @@ void CreateAndInstallPodfile (Artifact artifact)
 
 void BuildSdkOnPodfile (Artifact artifact)
 {
+	var iOSArtifact = (iOSArtifact)artifact;
+
 	var platforms = new [] { Platform.iOSArm64, Platform.iOSArmV7, Platform.iOSSimulator64, Platform.iOSSimulator };
 
 	var podsProject = "./Pods/Pods.xcodeproj";
-	var workingDirectory = $"./externals/{artifact.Id}";
+	var workingDirectory = $"./externals/{iOSArtifact.Id}";
+	var framework = $"{iOSArtifact.FrameworkName}.framework";
+	var paths = GetDirectories($"{workingDirectory}/Pods/**/{framework}");
 	
-	if (TargetExistsInXcodeProject (podsProject, artifact.Id, workingDirectory)) {
-		BuildXcodeFatFramework (podsProject, artifact.Id, platforms, workingDirectory: workingDirectory);
-		CopyDirectory ($"./externals/{artifact.Id}/{artifact.Id}.framework", $"./externals/{artifact.Id}.framework");
+	// if (TargetExistsInXcodeProject (podsProject, artifact.FrameworkName, workingDirectory)) {
+	if (paths?.Count <= 0) {
+		BuildXcodeFatFramework (podsProject, iOSArtifact.Id, platforms, libraryTitle: iOSArtifact.FrameworkName, workingDirectory: workingDirectory);
+		CopyDirectory ($"{workingDirectory}/{framework}", $"./externals/{framework}");
 	} else {
-		var paths = GetDirectories($"./**/{artifact.Id}.framework");
-		
 		foreach (var path in paths)
-			CopyDirectory (path, $"{workingDirectory}.framework");
+			CopyDirectory (path, $"./externals/{framework}");
 	}
 }
 
