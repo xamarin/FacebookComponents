@@ -1,0 +1,154 @@
+{
+	"Registrations": [
+		{
+			"Component": {
+				"Type": "Maven",
+				"Maven": {
+					"ArtifactId": "facebook-android-sdk",
+					"GroupId": "com.facebook.android",
+					"Version": "5.0.3"
+				}
+			}
+		},
+		{
+			"Component": {
+				"Type": "Maven",
+				"Maven": {
+					"ArtifactId": "facebook-core",
+					"GroupId": "com.facebook.android",
+					"Version": "5.0.3"
+				}
+			}
+		},
+		{
+			"Component": {
+				"Type": "Maven",
+				"Maven": {
+					"ArtifactId": "facebook-common",
+					"GroupId": "com.facebook.android",
+					"Version": "5.0.3"
+				}
+			}
+		},
+		{
+			"Component": {
+				"Type": "Maven",
+				"Maven": {
+					"ArtifactId": "facebook-login",
+					"GroupId": "com.facebook.android",
+					"Version": "5.0.3"
+				}
+			}
+		},
+		{
+			"Component": {
+				"Type": "Maven",
+				"Maven": {
+					"ArtifactId": "facebook-share",
+					"GroupId": "com.facebook.android",
+					"Version": "5.0.3"
+				}
+			}
+		},
+		{
+			"Component": {
+				"Type": "Maven",
+				"Maven": {
+					"ArtifactId": "facebook-places",
+					"GroupId": "com.facebook.android",
+					"Version": "5.0.3"
+				}
+			}
+		},
+		{
+			"Component": {
+				"Type": "Maven",
+				"Maven": {
+					"ArtifactId": "facebook-applinks",
+					"GroupId": "com.facebook.android",
+					"Version": "5.0.3"
+				}
+			}
+		},
+		{
+			"Component": {
+				"Type": "Maven",
+				"Maven": {
+					"ArtifactId": "facebook-messenger",
+					"GroupId": "com.facebook.android",
+					"Version": "5.0.3"
+				}
+			}
+		},
+		{
+			"Component": {
+				"Type": "Maven",
+				"Maven": {
+					"ArtifactId": "facebook-livestreaming",
+					"GroupId": "com.facebook.android",
+					"Version": "4.36.0"
+				}
+			}
+		},
+		{
+			"Component": {
+				"Type": "Maven",
+				"Maven": {
+					"ArtifactId": "facebook-loginkit",
+					"GroupId": "com.facebook.android",
+					"Version": "4.36.0"
+				}
+			}
+		},
+		{
+			"Component": {
+				"Type": "Maven",
+				"Maven": {
+					"ArtifactId": "facebook-marketing",
+					"GroupId": "com.facebook.android",
+					"Version": "5.0.3"
+				}
+			}
+		},
+		{
+			"Component": {
+				"Type": "Maven",
+				"Maven": {
+					"ArtifactId": "account-kit-sdk",
+					"GroupId": "com.facebook.android",
+					"Version": "5.0.0"
+				}
+			}
+		},
+		{
+			"Component": {
+				"Type": "Maven",
+				"Maven": {
+					"ArtifactId": "audience-network-sdk",
+					"GroupId": "com.facebook.android",
+					"Version": "5.4.0"
+				}
+			}
+		},
+		{
+			"Component": {
+				"Type": "Maven",
+				"Maven": {
+					"ArtifactId": "notifications",
+					"GroupId": "com.facebook.android",
+					"Version": "1.0.2"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"repositoryUrl": "https://github.com/facebook/facebook-objc-sdk.git",
+					"commitHash": "2dc842def59ee9a94a0640f5fef809005bbfb93e"
+				}
+			}
+		}
+	],
+	"Version": 1
+}
