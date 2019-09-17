@@ -30,6 +30,23 @@ jobs:
           displayName: 'Install an Apple certificate'
           inputs:
             certSecureFile: 'Components iOS Certificate.p12'
+      postBuildSteps:
+        - pwsh: |
+            cd Facebook.iOS
+            /usr/bin/xcodebuild -project "externals/FBSDKCoreKit/Pods/Pods.xcodeproj" -target "FBSDKCoreKit" -configuration "Release" -arch "armv7" -sdk "iphoneos" build
+          condition: always()
+        - pwsh: |
+            cd Facebook.iOS
+            sh /usr/bin/xcodebuild -project "externals/FBSDKCoreKit/Pods/Pods.xcodeproj" -target "FBSDKCoreKit" -configuration "Release" -arch "armv7" -sdk "iphoneos" build
+          condition: always()
+        - powershell: |
+            cd Facebook.iOS
+            /usr/bin/xcodebuild -project "externals/FBSDKCoreKit/Pods/Pods.xcodeproj" -target "FBSDKCoreKit" -configuration "Release" -arch "armv7" -sdk "iphoneos" build
+          condition: always()
+        - bash: |
+            cd Facebook.iOS
+            /usr/bin/xcodebuild -project "externals/FBSDKCoreKit/Pods/Pods.xcodeproj" -target "FBSDKCoreKit" -configuration "Release" -arch "armv7" -sdk "iphoneos" build
+          condition: always()
   - ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:
     - template: sign-artifacts/jobs/v1.yml@internal-templates
       parameters:
