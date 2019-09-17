@@ -43,7 +43,7 @@ Task("prepare-artifacts")
 	if (string.IsNullOrWhiteSpace (SDKS) || TARGET == "samples")
 	{
 		orderedArtifactsForBuild.AddRange (ARTIFACTS.Values);
-		orderedArtifactsForBuild.Sort ((f, s) => ((iOSArtifact)s).BuildOrder.CompareTo (((iOSArtifact)f).BuildOrder));
+		orderedArtifactsForBuild.Sort ((f, s) => s.BuildOrder.CompareTo (f.BuildOrder));
 
 		// Remove the artifact from the dictionary if the source is different than Pods
 		// You will need to add the code to download the framework at custom_externals_download.cake
@@ -82,7 +82,7 @@ Task("prepare-artifacts")
 	}
 
 	orderedArtifactsForBuild = orderedArtifactsForBuild.Distinct ().ToList ();
-	orderedArtifactsForBuild.Sort ((f, s) => ((iOSArtifact)s).BuildOrder.CompareTo (((iOSArtifact)f).BuildOrder));
+	orderedArtifactsForBuild.Sort ((f, s) => s.BuildOrder.CompareTo (f.BuildOrder));
 
 	foreach (var artifact in orderedArtifactsForBuild)
 			SOURCES_TARGETS.Add(artifact.CsprojName);
@@ -126,16 +126,10 @@ Task ("libs")
 	.IsDependentOn("externals")
 	.Does(() =>
 {
-	CleanVisualStudioSolution ();
-
-	var targets = $@"source\\{string.Join (@";source\\", SOURCES_TARGETS)}";
-
-	MSBuild("./Xamarin.Facebook.sln", c => {
+	MSBuild("./source/Xamarin.Facebook.sln", c => {
 		c.Configuration = "Release";
 		c.Restore = true;
 		c.MaxCpuCount = 0;
-		c.Targets.Clear();
-		c.Targets.Add(targets);
 	});
 });
 
@@ -143,14 +137,10 @@ Task ("samples")
 	.IsDependentOn("libs")
 	.Does(() =>
 {
-	var targets = $@"samples\\{string.Join (@";samples\\", SAMPLES_TARGETS)}";
-
-	MSBuild("./Xamarin.Facebook.sln", c => {
+	MSBuild("./samples/Samples.sln", c => {
 		c.Configuration = "Release";
 		c.Restore = true;
 		c.MaxCpuCount = 0;
-		c.Targets.Clear();
-		c.Targets.Add(targets);
 	});
 });
 
@@ -160,14 +150,12 @@ Task ("nuget")
 {
 	EnsureDirectoryExists("./output");
 
-	var targets = $@"source\\{string.Join (@":Pack;source\\", SOURCES_TARGETS)}:Pack";
-
-	MSBuild("./Xamarin.Facebook.sln", c => {
+	MSBuild("./source/Xamarin.Facebook.sln", c => {
 		c.Configuration = "Release";
 		c.Restore = true;
 		c.MaxCpuCount = 0;
 		c.Targets.Clear();
-		c.Targets.Add(targets);
+		c.Targets.Add("Pack");
 		c.Properties.Add("PackageOutputPath", new [] { "../../output/" });
 	});
 });
@@ -175,12 +163,16 @@ Task ("nuget")
 Task ("clean")
 	.Does (() => 
 {
-	CleanVisualStudioSolution ();
-
 	var deleteDirectorySettings = new DeleteDirectorySettings {
 		Recursive = true,
 		Force = true
 	};
+
+	var bins = GetDirectories("./**/bin");
+	DeleteDirectories (bins, deleteDirectorySettings);
+
+	var objs = GetDirectories("./**/obj");
+	DeleteDirectories (objs, deleteDirectorySettings);
 
 	if (DirectoryExists ("./externals/"))
 		DeleteDirectory ("./externals", deleteDirectorySettings);
@@ -207,16 +199,21 @@ void CreateAndInstallPodfile (Artifact artifact)
 	if (artifact == null)
 		return;
 
-	var iOSArtifact = (iOSArtifact)artifact;
-
-	var podfilePath = $"./externals/{iOSArtifact.Id}/";
+	var podfilePath = $"./externals/{artifact.Id}/";
 	EnsureDirectoryExists (podfilePath);
 
 	var podfileBegin = new List<string> (PODFILE_BEGIN);
-	podfileBegin [0] = string.Format (podfileBegin [0], iOSArtifact.MinimunSupportedVersion);
+	podfileBegin [0] = string.Format (podfileBegin [0], artifact.MinimunSupportedVersion);
 	
 	var podfile = new List<string> (podfileBegin);
-	podfile.Add ($"\tpod '{iOSArtifact.Id}', '{iOSArtifact.Version}'");
+	podfile.Add ($"\tpod '{artifact.Id}', '{artifact.Version}'");
+
+	if (artifact.Dependencies != null && artifact.IncludeDependencies) {
+		foreach (var dep in artifact.Dependencies) {
+			podfile.Add ($"\tpod '{dep.Id}', '{dep.Version}'");
+		}
+	}
+
 	podfile.AddRange (PODFILE_END);
 
 	FileWriteLines ($"{podfilePath}Podfile", podfile.ToArray ());
@@ -225,18 +222,16 @@ void CreateAndInstallPodfile (Artifact artifact)
 
 void BuildSdkOnPodfile (Artifact artifact)
 {
-	var iOSArtifact = (iOSArtifact)artifact;
-
 	var platforms = new [] { Platform.iOSArm64, Platform.iOSArmV7, Platform.iOSSimulator64, Platform.iOSSimulator };
 
 	var podsProject = "./Pods/Pods.xcodeproj";
-	var workingDirectory = $"./externals/{iOSArtifact.Id}";
-	var framework = $"{iOSArtifact.FrameworkName}.framework";
+	var workingDirectory = $"./externals/{artifact.Id}";
+	var framework = $"{artifact.FrameworkName}.framework";
 	var paths = GetDirectories($"{workingDirectory}/Pods/**/{framework}");
 	
 	// if (TargetExistsInXcodeProject (podsProject, artifact.FrameworkName, workingDirectory)) {
 	if (paths?.Count <= 0) {
-		BuildXcodeFatFramework (podsProject, iOSArtifact.Id, platforms, libraryTitle: iOSArtifact.FrameworkName, workingDirectory: workingDirectory);
+		BuildXcodeFatFramework (podsProject, artifact.Id, platforms, libraryTitle: artifact.FrameworkName, workingDirectory: workingDirectory);
 		CopyDirectory ($"{workingDirectory}/{framework}", $"./externals/{framework}");
 	} else {
 		foreach (var path in paths)
@@ -249,25 +244,4 @@ void UpdateVersionInCsproj (Artifact artifact)
 	var csprojPath = $"./source/{artifact.CsprojName}/{artifact.CsprojName}.csproj";
 	XmlPoke(csprojPath, "/Project/PropertyGroup/FileVersion", artifact.NugetVersion);
 	XmlPoke(csprojPath, "/Project/PropertyGroup/PackageVersion", artifact.NugetVersion);
-}
-
-void CleanVisualStudioSolution ()
-{
-	MSBuild("./Xamarin.Facebook.sln", c => {
-		c.Configuration = "Release";
-		c.Restore = true;
-		c.MaxCpuCount = 0;
-		c.Targets.Add("Clean");
-	});
-
-	var deleteDirectorySettings = new DeleteDirectorySettings {
-		Recursive = true,
-		Force = true
-	};
-
-	var bins = GetDirectories("./**/bin");
-	DeleteDirectories (bins, deleteDirectorySettings);
-
-	var objs = GetDirectories("./**/obj");
-	DeleteDirectories (objs, deleteDirectorySettings);
 }
