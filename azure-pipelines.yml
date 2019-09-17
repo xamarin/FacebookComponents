@@ -17,6 +17,7 @@ jobs:
   - template: .ci/build.yml@components
     parameters:
       buildType: 'manifest'
+      forceBuild: 'true'
   - ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:
     - template: sign-artifacts/jobs/v1.yml@internal-templates
       parameters:
