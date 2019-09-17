@@ -67,12 +67,9 @@ Task ("libs")
 	.IsDependentOn("ci-setup")
 	.Does(() =>
 {
-	MSBuild("./Xamarin.Facebook.sln", c => 
- 		c.SetConfiguration("Release")
- 		.WithTarget("Restore"));
-
-	MSBuild("./Xamarin.Facebook.sln", c => 
+	MSBuild("./source/Xamarin.Facebook.sln", c => 
 		c.SetConfiguration("Release")
+		.WithRestore()
  		.WithTarget("Build")
 		.WithProperty("DesignTimeBuild", "false"));
 });
@@ -131,7 +128,7 @@ Task ("ci-setup")
 Task ("clean")
 	.Does (() => 
 {
-	MSBuild("./Xamarin.Facebook.sln", c => 
+	MSBuild("./source/Xamarin.Facebook.sln", c => 
 		c.SetConfiguration("Release")
  		.WithTarget("Clean"));
 
