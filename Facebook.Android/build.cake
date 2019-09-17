@@ -1,7 +1,10 @@
-
-#load "../common.cake"
+#addin nuget:?package=Cake.FileHelpers&version=3.2.1
 
 var FB_VERSION = "4.37.0";
+
+var BUILD_COMMIT = EnvironmentVariable("BUILD_COMMIT") ?? "DEV";
+var BUILD_NUMBER = EnvironmentVariable("BUILD_NUMBER") ?? "DEBUG";
+var BUILD_TIMESTAMP = DateTime.UtcNow.ToString();
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
@@ -118,23 +121,11 @@ Task ("ci-setup")
 	.WithCriteria (!BuildSystem.IsLocalBuild)
 	.Does (() => 
 {
-	var buildCommit = "DEV";
-	var buildNumber = "DEBUG";
-	var buildTimestamp = DateTime.UtcNow.ToString ();
+	var glob = "./source/**/AssemblyInfo.cs";
 
-	if (BuildSystem.IsRunningOnJenkins) {
-		buildNumber = BuildSystem.Jenkins.Environment.Build.BuildTag;
-		buildCommit = EnvironmentVariable("GIT_COMMIT") ?? buildCommit;
-	} else if (BuildSystem.IsRunningOnVSTS) {
-		buildNumber = BuildSystem.TFBuild.Environment.Build.Number;
-		buildCommit = BuildSystem.TFBuild.Environment.Repository.SourceVersion;
-	}
-
-	var glob = "./**/AssemblyInfo.cs";
-
-	ReplaceTextInFiles(glob, "{BUILD_COMMIT}", buildCommit);
-	ReplaceTextInFiles(glob, "{BUILD_NUMBER}", buildNumber);
-	ReplaceTextInFiles(glob, "{BUILD_TIMESTAMP}", buildTimestamp);
+	ReplaceTextInFiles (glob, "{BUILD_COMMIT}", BUILD_COMMIT);
+	ReplaceTextInFiles (glob, "{BUILD_NUMBER}", BUILD_NUMBER);
+	ReplaceTextInFiles (glob, "{BUILD_TIMESTAMP}", BUILD_TIMESTAMP);
 });
 
 Task ("clean")
