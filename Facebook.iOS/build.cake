@@ -1,6 +1,6 @@
 
-#load "../common.cake"
-#load "poco.ios.cake"
+#load "common.cake"
+#load "poco.cake"
 #load "components.cake"
 #load "custom_externals_download.cake"
 
