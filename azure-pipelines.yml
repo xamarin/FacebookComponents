@@ -18,16 +18,16 @@ jobs:
     parameters:
       buildType: 'manifest'
       forceBuild: 'true'
-    beforeBuildSteps:
-      - ${{ if eq(variables['System.JobName'], 'macos') }}:
-        - task: InstallAppleCertificate@2
-          displayName: 'Install an Apple certificate'
-          inputs:
-            certSecureFile: 'Components iOS Certificate.p12'
-        - task: InstallAppleProvisioningProfile@1
-          displayName: 'Install an Apple provisioning profile'
-          inputs:
-            provProfileSecureFile: 'Components iOS Provisioning.mobileprovision'
+      preBuildSteps:
+        - ${{ if eq(variables['System.JobName'], 'macos') }}:
+          - task: InstallAppleCertificate@2
+            displayName: 'Install an Apple certificate'
+            inputs:
+              certSecureFile: 'Components iOS Certificate.p12'
+          - task: InstallAppleProvisioningProfile@1
+            displayName: 'Install an Apple provisioning profile'
+            inputs:
+              provProfileSecureFile: 'Components iOS Provisioning.mobileprovision'
   - ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:
     - template: sign-artifacts/jobs/v1.yml@internal-templates
       parameters:
