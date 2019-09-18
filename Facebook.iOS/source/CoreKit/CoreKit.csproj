@@ -35,6 +35,10 @@
   </ItemGroup>
   
   <ItemGroup>
+    <Compile Include="..\AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="..\..\externals\FBSDKCoreKit.framework\FBSDKCoreKit">
       <Link>FBSDKCoreKit.framework</Link>
     </None>

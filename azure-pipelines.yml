@@ -13,6 +13,10 @@ resources:
       name: xamarin/XamarinComponents
       endpoint: xamarin
 
+variables:
+  BUILD_COMMIT: $(Build.SourceVersion)
+  BUILD_NUMBER: $(Build.BuildNumber)
+
 jobs:
   - template: .ci/build.yml@components
     parameters:

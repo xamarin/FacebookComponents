@@ -7,6 +7,10 @@
 var TARGET = Argument ("t", Argument ("target", "nuget"));
 var SDKS = Argument ("sdks", "");
 
+var BUILD_COMMIT = EnvironmentVariable("BUILD_COMMIT") ?? "DEV";
+var BUILD_NUMBER = EnvironmentVariable("BUILD_NUMBER") ?? "DEBUG";
+var BUILD_TIMESTAMP = DateTime.UtcNow.ToString();
+
 // Artifacts that need to be built from pods or be copied from pods
 var ARTIFACTS_FROM_PODS = new List<Artifact> ();
 
@@ -122,8 +126,20 @@ Task ("externals")
 	}
 });
 
+Task ("ci-setup")
+	.WithCriteria (!BuildSystem.IsLocalBuild)
+	.Does (() => 
+{
+	var glob = "./source/**/AssemblyInfo.cs";
+
+	ReplaceTextInFiles(glob, "{BUILD_COMMIT}", BUILD_COMMIT);
+	ReplaceTextInFiles(glob, "{BUILD_NUMBER}", BUILD_NUMBER);
+	ReplaceTextInFiles(glob, "{BUILD_TIMESTAMP}", BUILD_TIMESTAMP);
+});
+
 Task ("libs")
 	.IsDependentOn("externals")
+	.IsDependentOn("ci-setup")
 	.Does(() =>
 {
 	MSBuild("./source/Xamarin.Facebook.sln", c => {
