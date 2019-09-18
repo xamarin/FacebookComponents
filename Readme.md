@@ -2,22 +2,43 @@
 
 Xamarin creates and maintains Xamarin.Android and Xamarin.iOS bindings for Facebook SDKs.
 
-## Building
+## Building 
 
-Before building you will need to have [CocoaPods][31] installed on your OS X system.
+### Prerequisites
 
-The build script for this project uses [Cake][32].  To run the build, you can use the bootstrapper file for OS X:
+Before building the libraries and samples in this repository, you will need to install [.NET Core][30] and the [Cake .NET Core Tool][32]:
 
-**Mac**:
-
-```
-cd Facebook.iOS/[ComponentName]
-sh ../../build.sh --target=libs
+```sh
+dotnet tool install -g cake.tool
 ```
 
-The bootstrapper script will automatically download Cake.exe and all the required tools and files into the `./tools/` folder.
+When building on macOS, you may also need to install [CocoaPods][31]:
 
-The following targets can be specified:
+```sh
+brew install cocoapods
+```
+
+### Compiling
+
+You can either build all the libraries and samples in the repository from the root:
+
+```sh
+dotnet cake
+```
+
+Or, you can build each component separately:
+
+```sh
+# iOS
+cd Facebook.iOS
+dotnet cake
+
+# Android
+cd Facebook.Android
+dotnet cake
+```
+
+The following targets can be specified using the `--target=<target-name>`:
 
  - `libs` builds the class library bindings (depends on `externals`)
  - `externals` downloads and builds the external dependencies
@@ -26,9 +47,15 @@ The following targets can be specified:
  - `clean` cleans up everything
 
 
-### Working in Xamarin Studio
+### Working in Visual Studio
 
-Before the `.sln` files will compile in Xamarin Studio, the external dependencies need to be downloaded.  This can be done by running the `build.sh` or `build.ps1` with the target `externals`.  After the externals are setup, the `.sln` files should compile in an IDE.
+Before the `.sln` files will compile in the IDEs, the external dependencies need to be downloaded. This can be done by running the `externals` target:
+
+```sh
+dotnet cake --target=externals
+```
+
+After the externals are downloaded and built, the `.sln` files should compile in your IDE.
 
 
 ## License
@@ -59,6 +86,7 @@ This project is part of the [.NET Foundation][34]
 [21]: https://www.nuget.org/packages/Xamarin.Facebook.Android/
 [23]: https://www.nuget.org/packages/Xamarin.Facebook.iOS/
 
+[30]: https://dotnet.microsoft.com/download
 [31]: https://cocoapods.org/
 [32]: http://cakebuild.net
 [33]: https://cla2.dotnetfoundation.org/

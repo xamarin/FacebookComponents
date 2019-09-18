@@ -136,4 +136,10 @@ Task ("clean")
 		DeleteDirectory ("./externals", true);
 });
 
+Task ("Default")
+	.IsDependentOn("externals")
+	.IsDependentOn("libs")
+	.IsDependentOn("nuget")
+	.IsDependentOn("samples");
+
 RunTarget (TARGET);
