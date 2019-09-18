@@ -15,7 +15,11 @@ dotnet tool install -g cake.tool
 When building on macOS, you may also need to install [CocoaPods][31]:
 
 ```sh
+# Homebrew
 brew install cocoapods
+
+# Ruby Gems
+gem install cocoapods
 ```
 
 ### Compiling
