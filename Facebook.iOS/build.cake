@@ -111,11 +111,6 @@ Task ("externals")
 
 	// Call custom methods created at custom_externals_download.cake file
 	// to download frameworks and/or bundles for the artifact
-	if (SOURCES_TARGETS.Contains (ACCOUNT_KIT_ARTIFACT.CsprojName)) {
-		UpdateVersionInCsproj (ACCOUNT_KIT_ARTIFACT);
-		DownloadAccountKit (ACCOUNT_KIT_ARTIFACT);
-	}
-	
 	if (SOURCES_TARGETS.Contains (AUDIENCE_NETWORK_ARTIFACT.CsprojName)) {
 		UpdateVersionInCsproj (AUDIENCE_NETWORK_ARTIFACT);
 		DownloadAudienceNetwork (AUDIENCE_NETWORK_ARTIFACT);

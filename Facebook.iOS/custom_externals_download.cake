@@ -1,8 +1,3 @@
-void DownloadAccountKit (Artifact artifact)
-{
-	CopyDirectory (string.Format ("./externals/{0}/Pods/{0}/{0}Strings.bundle", "AccountKit"), string.Format ("./externals/{0}Strings.bundle", "AccountKit"));
-}
-
 void DownloadAudienceNetwork (Artifact artifact)
 {
 	var id = artifact.Id;

@@ -1,14 +1,14 @@
-var FACEBOOK_SDK_VERSION = "5.0.2";
+var FACEBOOK_SDK_VERSION = "5.6.0";
 
 // Artifacts available to be built.
-Artifact ACCOUNT_KIT_ARTIFACT = new Artifact ("AccountKit", "5.0.1", "8.0", nugetVersion: "5.0.1.1");
+Artifact ACCOUNT_KIT_ARTIFACT = new Artifact ("AccountKit", "5.4.0", "8.0");
 Artifact AUDIENCE_NETWORK_ARTIFACT = new Artifact ("FBAudienceNetwork", "5.3.2", "9.0",  nugetVersion: $"5.3.2.1", csprojName: "AudienceNetwork");
-Artifact CORE_KIT_ARTIFACT = new Artifact ("FBSDKCoreKit", FACEBOOK_SDK_VERSION, "8.0", nugetVersion: $"{FACEBOOK_SDK_VERSION}.1", csprojName: "CoreKit");
-Artifact FACEBOOK_SDKS_ARTIFACT = new Artifact ("FacebookSdks", FACEBOOK_SDK_VERSION, "8.0", nugetVersion: $"{FACEBOOK_SDK_VERSION}.1", buildOrder: 3);
-Artifact LOGIN_KIT_ARTIFACT = new Artifact ("FBSDKLoginKit", FACEBOOK_SDK_VERSION, "8.0", nugetVersion: $"{FACEBOOK_SDK_VERSION}.1", csprojName: "LoginKit", buildOrder: 2);
+Artifact CORE_KIT_ARTIFACT = new Artifact ("FBSDKCoreKit", FACEBOOK_SDK_VERSION, "8.0", csprojName: "CoreKit");
+Artifact FACEBOOK_SDKS_ARTIFACT = new Artifact ("FacebookSdks", FACEBOOK_SDK_VERSION, "8.0", buildOrder: 3);
+Artifact LOGIN_KIT_ARTIFACT = new Artifact ("FBSDKLoginKit", FACEBOOK_SDK_VERSION, "8.0", csprojName: "LoginKit", buildOrder: 2);
 Artifact MARKETING_KIT_ARTIFACT = new Artifact ("FBSDKMarketingKit", "5.0.0", "8.0", nugetVersion: "5.0.0.1", csprojName: "MarketingKit", buildOrder: 2, includeDependencies: false);
-Artifact PLACES_KIT_ARTIFACT = new Artifact ("FBSDKPlacesKit", FACEBOOK_SDK_VERSION, "8.0", nugetVersion: $"{FACEBOOK_SDK_VERSION}.1", csprojName: "PlacesKit", buildOrder: 2);
-Artifact SHARE_KIT_ARTIFACT = new Artifact ("FBSDKShareKit", FACEBOOK_SDK_VERSION, "8.0", nugetVersion: $"{FACEBOOK_SDK_VERSION}.1", csprojName: "ShareKit", buildOrder: 2);
+Artifact PLACES_KIT_ARTIFACT = new Artifact ("FBSDKPlacesKit", FACEBOOK_SDK_VERSION, "8.0", csprojName: "PlacesKit", buildOrder: 2);
+Artifact SHARE_KIT_ARTIFACT = new Artifact ("FBSDKShareKit", FACEBOOK_SDK_VERSION, "8.0", csprojName: "ShareKit", buildOrder: 2);
 
 var ARTIFACTS = new Dictionary<string, Artifact> {
 	{ "AccountKit", ACCOUNT_KIT_ARTIFACT },

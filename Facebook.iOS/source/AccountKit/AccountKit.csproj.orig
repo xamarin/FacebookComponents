@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
@@ -6,7 +6,11 @@
     <RootNamespace>Facebook.AccountKit</RootNamespace>
     <AssemblyName>Facebook.AccountKit</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
+<<<<<<< HEAD
+    <FileVersion>5.0.1.1</FileVersion>
+=======
     <FileVersion>5.4.0</FileVersion>
+>>>>>>> [iOS][AccountKit] Updated to v5.4.0
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -22,7 +26,11 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=873259</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=873258</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+<<<<<<< HEAD
+    <PackageVersion>5.0.1.1</PackageVersion>
+=======
     <PackageVersion>5.4.0</PackageVersion>
+>>>>>>> [iOS][AccountKit] Updated to v5.4.0
   </PropertyGroup>
 
   <ItemGroup>
