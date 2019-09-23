@@ -244,6 +244,7 @@ void CreateAndInstallPodfile (Artifact artifact)
 
 void BuildSdkOnPodfile (Artifact artifact)
 {
+	var baseBuildArch = Platform.iOSArmV7;
 	var platforms = new [] { baseBuildArch, Platform.iOSArm64, Platform.iOSSimulator64, Platform.iOSSimulator };
 
 	var podsProject = "./Pods/Pods.xcodeproj";
