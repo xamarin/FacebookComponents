@@ -6,7 +6,7 @@
     <RootNamespace>Facebook.MarketingKit</RootNamespace>
     <AssemblyName>Facebook.MarketingKit</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>5.0.0</FileVersion>
+    <FileVersion>5.0.0.1</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -22,7 +22,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2007141</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=2007142</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>5.0.0</PackageVersion>
+    <PackageVersion>5.0.0.1</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>

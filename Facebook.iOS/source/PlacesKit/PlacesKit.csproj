@@ -6,7 +6,7 @@
     <RootNamespace>Facebook.PlacesKit</RootNamespace>
     <AssemblyName>Facebook.PlacesKit</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>5.0.2</FileVersion>
+    <FileVersion>5.0.2.1</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	<ProcessEnums>true</ProcessEnums>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2007047</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=2007163</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>5.0.2</PackageVersion>
+    <PackageVersion>5.0.2.1</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
