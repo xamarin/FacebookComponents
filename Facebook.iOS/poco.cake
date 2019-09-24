@@ -54,13 +54,23 @@ class Artifact : IEquatable<Artifact>
 	public string CsprojName { get; set; }
 	public Artifact [] Dependencies;
 
-	public Artifact (string id, string version, string nugetVersion = null, string csprojName = null, Artifact [] dependencies = null)
+	public string MinimunSupportedVersion { get; set; }
+	public string FrameworkName { get; set; }
+	public uint BuildOrder { get; set; }
+	public bool IncludeDependencies { get; set; }
+
+	public Artifact (string id, string version, string minimunSupportedVersion, string nugetVersion = null, string csprojName = null, string frameworkName = null, uint buildOrder = 1, Artifact [] dependencies = null, bool includeDependencies = true)
 	{
 		Id = id;
 		Version = version;
 		NugetVersion = nugetVersion ?? version;
 		CsprojName = csprojName ?? id;
 		Dependencies = dependencies;
+
+		MinimunSupportedVersion = minimunSupportedVersion;
+		FrameworkName = frameworkName ?? id;
+		BuildOrder = buildOrder;
+		IncludeDependencies = includeDependencies;
 	}
 
 	public bool Equals (Artifact other)

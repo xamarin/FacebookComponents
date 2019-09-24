@@ -2866,95 +2866,95 @@ namespace MessengerSendSample
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f06001f
-			public const int abc_action_bar_home_description = 2131099679;
-			
 			// aapt resource value: 0x7f060020
-			public const int abc_action_bar_up_description = 2131099680;
+			public const int abc_action_bar_home_description = 2131099680;
 			
 			// aapt resource value: 0x7f060021
-			public const int abc_action_menu_overflow_description = 2131099681;
+			public const int abc_action_bar_up_description = 2131099681;
 			
 			// aapt resource value: 0x7f060022
-			public const int abc_action_mode_done = 2131099682;
+			public const int abc_action_menu_overflow_description = 2131099682;
 			
 			// aapt resource value: 0x7f060023
-			public const int abc_activity_chooser_view_see_all = 2131099683;
+			public const int abc_action_mode_done = 2131099683;
 			
 			// aapt resource value: 0x7f060024
-			public const int abc_activitychooserview_choose_application = 2131099684;
+			public const int abc_activity_chooser_view_see_all = 2131099684;
 			
 			// aapt resource value: 0x7f060025
-			public const int abc_capital_off = 2131099685;
+			public const int abc_activitychooserview_choose_application = 2131099685;
 			
 			// aapt resource value: 0x7f060026
-			public const int abc_capital_on = 2131099686;
-			
-			// aapt resource value: 0x7f060031
-			public const int abc_font_family_body_1_material = 2131099697;
-			
-			// aapt resource value: 0x7f060032
-			public const int abc_font_family_body_2_material = 2131099698;
-			
-			// aapt resource value: 0x7f060033
-			public const int abc_font_family_button_material = 2131099699;
-			
-			// aapt resource value: 0x7f060034
-			public const int abc_font_family_caption_material = 2131099700;
-			
-			// aapt resource value: 0x7f060035
-			public const int abc_font_family_display_1_material = 2131099701;
-			
-			// aapt resource value: 0x7f060036
-			public const int abc_font_family_display_2_material = 2131099702;
-			
-			// aapt resource value: 0x7f060037
-			public const int abc_font_family_display_3_material = 2131099703;
-			
-			// aapt resource value: 0x7f060038
-			public const int abc_font_family_display_4_material = 2131099704;
-			
-			// aapt resource value: 0x7f060039
-			public const int abc_font_family_headline_material = 2131099705;
-			
-			// aapt resource value: 0x7f06003a
-			public const int abc_font_family_menu_material = 2131099706;
-			
-			// aapt resource value: 0x7f06003b
-			public const int abc_font_family_subhead_material = 2131099707;
-			
-			// aapt resource value: 0x7f06003c
-			public const int abc_font_family_title_material = 2131099708;
+			public const int abc_capital_off = 2131099686;
 			
 			// aapt resource value: 0x7f060027
-			public const int abc_search_hint = 2131099687;
+			public const int abc_capital_on = 2131099687;
+			
+			// aapt resource value: 0x7f060032
+			public const int abc_font_family_body_1_material = 2131099698;
+			
+			// aapt resource value: 0x7f060033
+			public const int abc_font_family_body_2_material = 2131099699;
+			
+			// aapt resource value: 0x7f060034
+			public const int abc_font_family_button_material = 2131099700;
+			
+			// aapt resource value: 0x7f060035
+			public const int abc_font_family_caption_material = 2131099701;
+			
+			// aapt resource value: 0x7f060036
+			public const int abc_font_family_display_1_material = 2131099702;
+			
+			// aapt resource value: 0x7f060037
+			public const int abc_font_family_display_2_material = 2131099703;
+			
+			// aapt resource value: 0x7f060038
+			public const int abc_font_family_display_3_material = 2131099704;
+			
+			// aapt resource value: 0x7f060039
+			public const int abc_font_family_display_4_material = 2131099705;
+			
+			// aapt resource value: 0x7f06003a
+			public const int abc_font_family_headline_material = 2131099706;
+			
+			// aapt resource value: 0x7f06003b
+			public const int abc_font_family_menu_material = 2131099707;
+			
+			// aapt resource value: 0x7f06003c
+			public const int abc_font_family_subhead_material = 2131099708;
+			
+			// aapt resource value: 0x7f06003d
+			public const int abc_font_family_title_material = 2131099709;
 			
 			// aapt resource value: 0x7f060028
-			public const int abc_searchview_description_clear = 2131099688;
+			public const int abc_search_hint = 2131099688;
 			
 			// aapt resource value: 0x7f060029
-			public const int abc_searchview_description_query = 2131099689;
+			public const int abc_searchview_description_clear = 2131099689;
 			
 			// aapt resource value: 0x7f06002a
-			public const int abc_searchview_description_search = 2131099690;
+			public const int abc_searchview_description_query = 2131099690;
 			
 			// aapt resource value: 0x7f06002b
-			public const int abc_searchview_description_submit = 2131099691;
+			public const int abc_searchview_description_search = 2131099691;
 			
 			// aapt resource value: 0x7f06002c
-			public const int abc_searchview_description_voice = 2131099692;
+			public const int abc_searchview_description_submit = 2131099692;
 			
 			// aapt resource value: 0x7f06002d
-			public const int abc_shareactionprovider_share_with = 2131099693;
+			public const int abc_searchview_description_voice = 2131099693;
 			
 			// aapt resource value: 0x7f06002e
-			public const int abc_shareactionprovider_share_with_application = 2131099694;
+			public const int abc_shareactionprovider_share_with = 2131099694;
 			
 			// aapt resource value: 0x7f06002f
-			public const int abc_toolbar_collapse_description = 2131099695;
+			public const int abc_shareactionprovider_share_with_application = 2131099695;
 			
-			// aapt resource value: 0x7f06003e
-			public const int app_name = 2131099710;
+			// aapt resource value: 0x7f060030
+			public const int abc_toolbar_collapse_description = 2131099696;
+			
+			// aapt resource value: 0x7f06003f
+			public const int app_name = 2131099711;
 			
 			// aapt resource value: 0x7f060008
 			public const int com_facebook_device_auth_instructions = 2131099656;
@@ -3001,6 +3001,9 @@ namespace MessengerSendSample
 			// aapt resource value: 0x7f060016
 			public const int com_facebook_loginview_logged_in_using_facebook = 2131099670;
 			
+			// aapt resource value: 0x7f06001f
+			public const int com_facebook_loginview_logged_in_using_facebook_f1gender = 2131099679;
+			
 			// aapt resource value: 0x7f060017
 			public const int com_facebook_send_button_text = 2131099671;
 			
@@ -3028,8 +3031,8 @@ namespace MessengerSendSample
 			// aapt resource value: 0x7f060000
 			public const int common_google_play_services_unknown_issue = 2131099648;
 			
-			// aapt resource value: 0x7f06003f
-			public const int facebook_app_id = 2131099711;
+			// aapt resource value: 0x7f060040
+			public const int facebook_app_id = 2131099712;
 			
 			// aapt resource value: 0x7f060007
 			public const int messenger_send_button_text = 2131099655;
@@ -3052,11 +3055,11 @@ namespace MessengerSendSample
 			// aapt resource value: 0x7f060006
 			public const int s6 = 2131099654;
 			
-			// aapt resource value: 0x7f060030
-			public const int search_menu_title = 2131099696;
+			// aapt resource value: 0x7f060031
+			public const int search_menu_title = 2131099697;
 			
-			// aapt resource value: 0x7f06003d
-			public const int status_bar_notification_info_overflow = 2131099709;
+			// aapt resource value: 0x7f06003e
+			public const int status_bar_notification_info_overflow = 2131099710;
 			
 			static String()
 			{
