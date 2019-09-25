@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Accounts;
 using CoreGraphics;
@@ -123,6 +123,7 @@ namespace Facebook.LoginKit {
 		ILoginButtonDelegate Delegate { get; set; }
 
 		// @property (assign, nonatomic) FBSDKLoginBehavior loginBehavior;
+		[Obsolete ("All login flows utilize the browser. This will be removed in the next major release")]
 		[Export ("loginBehavior", ArgumentSemantic.Assign)]
 		LoginBehavior LoginBehavior { get; set; }
 
@@ -186,6 +187,7 @@ namespace Facebook.LoginKit {
 		DefaultAudience DefaultAudience { get; set; }
 
 		// @property (assign, nonatomic) FBSDKLoginBehavior loginBehavior;
+		[Obsolete("All login flows utilize the browser. This will be removed in the next major release")]
 		[Export ("loginBehavior", ArgumentSemantic.Assign)]
 		LoginBehavior LoginBehavior { get; set; }
 

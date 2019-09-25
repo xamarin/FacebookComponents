@@ -52,6 +52,7 @@ namespace Facebook.LoginKit
 		Everyone
 	}
 
+	[Obsolete ("All login flows utilize the browser. This will be removed in the next major release")]
 	[Native]
 	public enum LoginBehavior : ulong
 	{
