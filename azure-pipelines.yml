@@ -19,6 +19,8 @@ variables:
 
 jobs:
   - template: .ci/build.yml@components
+    parameters:
+      windowsImage: '' # skip building on Windows
   - ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:
     - template: sign-artifacts/jobs/v1.yml@internal-templates
       parameters:

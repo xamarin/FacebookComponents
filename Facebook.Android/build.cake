@@ -6,7 +6,7 @@ var BUILD_COMMIT = EnvironmentVariable("BUILD_COMMIT") ?? "DEV";
 var BUILD_NUMBER = EnvironmentVariable("BUILD_NUMBER") ?? "DEBUG";
 var BUILD_TIMESTAMP = DateTime.UtcNow.ToString();
 
-var TARGET = Argument ("t", Argument ("target", "Default"));
+var TARGET = Argument ("t", Argument ("target", "ci"));
 
 var ARTIFACTS = new List<ArtifactInfo> {
 	new ArtifactInfo("facebook-android-sdk", "5.0.3"),
@@ -136,7 +136,7 @@ Task ("clean")
 		DeleteDirectory ("./externals", true);
 });
 
-Task ("Default")
+Task ("ci")
 	.IsDependentOn("externals")
 	.IsDependentOn("libs")
 	.IsDependentOn("nuget")

@@ -4,7 +4,7 @@
 #load "components.cake"
 #load "custom_externals_download.cake"
 
-var TARGET = Argument ("t", Argument ("target", "Default"));
+var TARGET = Argument ("t", Argument ("target", "ci"));
 var SDKS = Argument ("sdks", "");
 
 var BUILD_COMMIT = EnvironmentVariable("BUILD_COMMIT") ?? "DEV";
@@ -197,7 +197,7 @@ Task ("clean")
 		DeleteDirectory ("./output", deleteDirectorySettings);
 });
 
-Task ("Default")
+Task ("ci")
 	.IsDependentOn("externals")
 	.IsDependentOn("libs")
 	.IsDependentOn("nuget")

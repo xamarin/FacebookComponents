@@ -1,7 +1,7 @@
 var VERBOSITY = Argument ("v", Argument ("verbosity", Verbosity.Normal));
 var CONFIGURATION = Argument ("c", Argument ("configuration", "Release"));
 
-var BUILD_TARGET = Argument ("t", Argument ("target", "Default"));
+var TARGET = Argument ("t", Argument ("target", "ci"));
 
 var PROJECTS = new DirectoryPath [] {
 	"./Facebook.Android/",
@@ -11,7 +11,7 @@ var PROJECTS = new DirectoryPath [] {
 var cakeSettings = new CakeSettings {
 	Arguments = new Dictionary<string, string> {
 		{ "configuration", CONFIGURATION },
-		{ "target", BUILD_TARGET },
+		{ "target", TARGET },
 	},
 	Verbosity = VERBOSITY
 };
