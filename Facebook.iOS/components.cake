@@ -45,46 +45,33 @@ void SetArtifactsDependencies ()
 void SetArtifactsPodSpecs ()
 {
 	ACCOUNT_KIT_ARTIFACT.PodSpecs = new [] {
-		new PodSpec ("AccountKit", ACCOUNT_KIT_VERSION)
+		PodSpec.Create ("AccountKit", ACCOUNT_KIT_VERSION)
 	};
 	AUDIENCE_NETWORK_ARTIFACT.PodSpecs = new [] {
-		new PodSpec ("FBAudienceNetwork", AUDIENCE_NETWORK_VERSION, frameworkSource: FrameworkSource.Custom)
+		PodSpec.Create ("FBAudienceNetwork", AUDIENCE_NETWORK_VERSION, frameworkSource: FrameworkSource.Custom)
 	};
 	CORE_KIT_ARTIFACT.PodSpecs = new [] {
-		new PodSpec ("FBSDKCoreKit", CORE_KIT_VERSION)
+		PodSpec.Create ("FBSDKCoreKit", CORE_KIT_VERSION)
 	};
 	FACEBOOK_SDKS_ARTIFACT.PodSpecs = new [] {
-		new PodSpec ("FacebookSdks", FACEBOOK_SDKS_VERSION, frameworkSource: FrameworkSource.Custom)
+		PodSpec.Create ("FacebookSdks", FACEBOOK_SDKS_VERSION, frameworkSource: FrameworkSource.Custom)
 	};
 	LOGIN_KIT_ARTIFACT.PodSpecs = new [] {
-		new PodSpec ("FBSDKLoginKit", LOGIN_KIT_VERSION)
+		PodSpec.Create ("FBSDKLoginKit", LOGIN_KIT_VERSION)
 	};
 	MARKETING_KIT_ARTIFACT.PodSpecs = new [] {
-		new PodSpec ("FBSDKMarketingKit", MARKETING_KIT_VERSION)
+		PodSpec.Create ("FBSDKMarketingKit", MARKETING_KIT_VERSION, canBeBuild: false)
 	};
 	PLACES_KIT_ARTIFACT.PodSpecs = new [] {
-		new PodSpec ("FBSDKPlacesKit", PLACES_KIT_VERSION)
+		PodSpec.Create ("FBSDKPlacesKit", new Repository ("https://github.com/facebook/facebook-objc-sdk.git", tag: $"v{PLACES_KIT_VERSION}"))
 	};
 	SHARE_KIT_ARTIFACT.PodSpecs = new [] {
-		new PodSpec ("FBSDKShareKit", SHARE_KIT_VERSION)
+		PodSpec.Create ("FBSDKShareKit", SHARE_KIT_VERSION)
 	};
 }
 
 void SetArtifactsExtraPodfileLines ()
 {
-	PLACES_KIT_ARTIFACT.ExtraPodfileLines = new [] {	
-		"=begin",
-		"This override the source.git version,",
-		"in order to be able to build the most recent version using Pods.",
-		"=end",
-		"pre_install do |installer|",
-		"\tinstaller.pod_targets.each do |pod|",
-		"\t\tdef pod.source.tag?;",
-		"\t\t\tv5.6.0",
-		"\t\tend",
-		"\tend",
-		"end",
-	};
 }
 
 void SetArtifactsSamples ()
