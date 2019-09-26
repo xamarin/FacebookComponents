@@ -5,33 +5,31 @@
 #load "custom_externals_download.cake"
 
 var TARGET = Argument ("t", Argument ("target", "ci"));
-var SDKS = Argument ("sdks", "");
+var NAMES = Argument ("names", "");
 
 var BUILD_COMMIT = EnvironmentVariable("BUILD_COMMIT") ?? "DEV";
 var BUILD_NUMBER = EnvironmentVariable("BUILD_NUMBER") ?? "DEBUG";
 var BUILD_TIMESTAMP = DateTime.UtcNow.ToString();
 
+var IS_LOCAL_BUILD = true;
+var BACKSLASH = string.Empty;
+
+var SOURCES_SOLUTION_PATH = "./source/Sources.sln";
+var SAMPLES_SOLUTION_PATH = "./samples/Samples.sln";
+var EXTERNALS_PATH = new DirectoryPath ("./externals");
+
 // Artifacts that need to be built from pods or be copied from pods
-var ARTIFACTS_FROM_PODS = new List<Artifact> ();
+var ARTIFACTS_TO_BUILD = new List<Artifact> ();
 
 var SOURCES_TARGETS = new List<string> ();
-var SAMPLES_TARGETS = new List<string> {
-	"FacebookiOSSample",
-	"FBAccountKitSample",
-	"FBAudienceNetworkSample",
-	"HelloFacebook",
-};
+var SAMPLES_TARGETS = new List<string> ();
 
-// Podfile basic structure
-var PODFILE_BEGIN = new [] {
-	"platform :ios, '{0}'",
-	"install! 'cocoapods', :integrate_targets => false",
-	"use_frameworks!",
-	"target 'XamarinFacebook' do",
-};
-var PODFILE_END = new [] {
-	"end",
-};
+Setup (context =>
+{
+	IS_LOCAL_BUILD = string.IsNullOrWhiteSpace (EnvironmentVariable ("AGENT_ID"));
+	Information ($"Is a local build? {IS_LOCAL_BUILD}");
+	BACKSLASH = IS_LOCAL_BUILD ? @"\\" : @"\";
+});
 
 // Prepares the artifacts to be built.
 // From CI will always build everything but, locally you can customize what
@@ -41,84 +39,92 @@ Task("prepare-artifacts")
 	.Does(() =>
 {
 	SetArtifactsDependencies ();
+	SetArtifactsPodSpecs ();
+	SetArtifactsExtraPodfileLines ();
+	SetArtifactsSamples ();
 
 	var orderedArtifactsForBuild = new List<Artifact> ();
+	var orderedArtifactsForSamples = new List<Artifact> ();
 
-	if (string.IsNullOrWhiteSpace (SDKS) || TARGET == "samples")
-	{
+	if (string.IsNullOrWhiteSpace (NAMES)) {
 		orderedArtifactsForBuild.AddRange (ARTIFACTS.Values);
-		orderedArtifactsForBuild.Sort ((f, s) => s.BuildOrder.CompareTo (f.BuildOrder));
-
-		// Remove the artifact from the dictionary if the source is different than Pods
-		// You will need to add the code to download the framework at custom_externals_download.cake
-		ARTIFACTS.Remove ("AudienceNetwork");
-		ARTIFACTS.Remove ("FacebookSdks");
-		
-		ARTIFACTS_FROM_PODS.AddRange (ARTIFACTS.Values);
-
-		foreach (var artifact in orderedArtifactsForBuild)
-			SOURCES_TARGETS.Add(artifact.CsprojName);
-
-		Information ("Build order:");
-
-		foreach (var target in SOURCES_TARGETS)
-			Information (target);
-
-		return;
-	}
-
-	var sdks = SDKS.Split (',');
-	foreach (var sdk in sdks) {
-		var artifact = ARTIFACTS [sdk];
-		switch (sdk)
-		{
-		case "AudienceNetwork":
-		case "FacebookSdks":
+		orderedArtifactsForSamples.AddRange (ARTIFACTS.Values);
+	} else {
+		var names = NAMES.Split (',');
+		foreach (var name in names) {
+			if (!(ARTIFACTS.ContainsKey (name) && ARTIFACTS [name] is Artifact artifact))
+				throw new Exception($"The {name} component does not exist.");
+			
 			orderedArtifactsForBuild.Add (artifact);
 			AddArtifactDependencies (orderedArtifactsForBuild, artifact.Dependencies);
-			break;
-		default:
-			orderedArtifactsForBuild.Add(artifact);
-			AddArtifactDependencies (orderedArtifactsForBuild, artifact.Dependencies);
-			ARTIFACTS_FROM_PODS.Add (artifact);
-			break;
+			orderedArtifactsForSamples.Add (artifact);
 		}
+
+		orderedArtifactsForBuild = orderedArtifactsForBuild.Distinct ().ToList ();
+		orderedArtifactsForSamples = orderedArtifactsForSamples.Distinct ().ToList ();
 	}
 
-	orderedArtifactsForBuild = orderedArtifactsForBuild.Distinct ().ToList ();
 	orderedArtifactsForBuild.Sort ((f, s) => s.BuildOrder.CompareTo (f.BuildOrder));
-
-	foreach (var artifact in orderedArtifactsForBuild)
-			SOURCES_TARGETS.Add(artifact.CsprojName);
+	orderedArtifactsForSamples.Sort ((f, s) => s.BuildOrder.CompareTo (f.BuildOrder));
+	ARTIFACTS_TO_BUILD.AddRange (orderedArtifactsForBuild);
 
 	Information ("Build order:");
 
-	foreach (var target in SOURCES_TARGETS)
-		Information (target);
+	foreach (var artifact in ARTIFACTS_TO_BUILD) {
+		SOURCES_TARGETS.Add(artifact.CsprojName.Replace ('.', '_'));
+		Information (artifact.Id);
+	}
+
+	foreach (var artifact in orderedArtifactsForSamples)
+		if (artifact.Samples != null)
+			foreach (var sample in artifact.Samples)
+				SAMPLES_TARGETS.Add(sample.Replace ('.', '_'));
 });
 
 Task ("externals")
-	.WithCriteria (!DirectoryExists ("./externals/"))
+	.WithCriteria (!DirectoryExists (EXTERNALS_PATH) || !string.IsNullOrWhiteSpace (NAMES))
 	.Does (() => 
 {
-	EnsureDirectoryExists ("./externals/");
+	EnsureDirectoryExists (EXTERNALS_PATH);
 
-	foreach (var artifact in ARTIFACTS_FROM_PODS) {
-		UpdateVersionInCsproj (artifact);
-		CreateAndInstallPodfile (artifact);
-		BuildSdkOnPodfile (artifact);
+	Information ("////////////////////////////////////////");
+	Information ("// Pods Repo Update Started           //");
+	Information ("////////////////////////////////////////");
+	
+	Information ("\nUpdating Cocoapods repo...");
+	CocoaPodRepoUpdate ();
+
+	Information ("////////////////////////////////////////");
+	Information ("// Pods Repo Update Ended             //");
+	Information ("////////////////////////////////////////");
+
+	if (string.IsNullOrWhiteSpace (NAMES)) {
+		foreach (var artifact in ARTIFACTS_TO_BUILD) {
+			UpdateVersionInCsproj (artifact);
+			CreateAndInstallPodfile (artifact);
+			BuildSdkOnPodfile (artifact);
+		}
+	} else {
+		foreach (var artifact in ARTIFACTS_TO_BUILD) {
+			UpdateVersionInCsproj (artifact);
+
+			foreach (var podSpec in artifact.PodSpecs) {
+				if (podSpec.FrameworkSource != FrameworkSource.Pods)
+					continue;
+				
+				if (DirectoryExists (EXTERNALS_PATH.Combine ($"{podSpec.FrameworkName}.framework")))
+					break;
+
+				CreateAndInstallPodfile (artifact);
+				BuildSdkOnPodfile (artifact);
+			}
+		}
 	}
 
-	// Call custom methods created at custom_externals_download.cake file
+	// Call here custom methods created at custom_externals_download.cake file
 	// to download frameworks and/or bundles for the artifact
-	if (SOURCES_TARGETS.Contains (AUDIENCE_NETWORK_ARTIFACT.CsprojName)) {
-		UpdateVersionInCsproj (AUDIENCE_NETWORK_ARTIFACT);
-		DownloadAudienceNetwork (AUDIENCE_NETWORK_ARTIFACT);
-	}
-
-	if (SOURCES_TARGETS.Contains (FACEBOOK_SDKS_ARTIFACT.CsprojName)) {
-		UpdateVersionInCsproj (FACEBOOK_SDKS_ARTIFACT);
-	}
+	// if (ARTIFACTS_TO_BUILD.Contains (FIREBASE_CORE_ARTIFACT))
+	// 	FirebaseCoreDownload ();
 });
 
 Task ("ci-setup")
@@ -137,7 +143,7 @@ Task ("libs")
 	.IsDependentOn("ci-setup")
 	.Does(() =>
 {
-	MSBuild("./source/Xamarin.Facebook.sln", c => {
+	MSBuild(SOURCES_SOLUTION_PATH, c => {
 		c.Configuration = "Release";
 		c.Restore = true;
 		c.MaxCpuCount = 0;
@@ -148,7 +154,7 @@ Task ("samples")
 	.IsDependentOn("libs")
 	.Does(() =>
 {
-	MSBuild("./samples/Samples.sln", c => {
+	MSBuild(SAMPLES_SOLUTION_PATH, c => {
 		c.Configuration = "Release";
 		c.Restore = true;
 		c.MaxCpuCount = 0;
@@ -161,7 +167,7 @@ Task ("nuget")
 {
 	EnsureDirectoryExists("./output");
 
-	MSBuild("./source/Xamarin.Facebook.sln", c => {
+	MSBuild(SOURCES_SOLUTION_PATH, c => {
 		c.Configuration = "Release";
 		c.Restore = true;
 		c.MaxCpuCount = 0;
@@ -198,68 +204,16 @@ Task ("ci")
 	.IsDependentOn("nuget")
 	.IsDependentOn("samples");
 
+Teardown (context =>
+{
+	var artifacts = GetFiles ("./output/**/*");
+
+	if (artifacts?.Count () <= 0)
+		return;
+
+	Information ($"Found Artifacts ({artifacts.Count ()})");
+	foreach (var a in artifacts)
+		Information ("{0}", a);
+});
+
 RunTarget (TARGET);
-
-void AddArtifactDependencies (List<Artifact> list, Artifact [] dependencies)
-{
-	if (dependencies == null)
-		return;
-	
-	list.AddRange (dependencies);
-
-	foreach (var dependency in dependencies)
-		AddArtifactDependencies (list, dependency.Dependencies);
-}
-
-void CreateAndInstallPodfile (Artifact artifact)
-{
-	if (artifact == null)
-		return;
-
-	var podfilePath = $"./externals/{artifact.Id}/";
-	EnsureDirectoryExists (podfilePath);
-
-	var podfileBegin = new List<string> (PODFILE_BEGIN);
-	podfileBegin [0] = string.Format (podfileBegin [0], artifact.MinimunSupportedVersion);
-	
-	var podfile = new List<string> (podfileBegin);
-	podfile.Add ($"\tpod '{artifact.Id}', '{artifact.Version}'");
-
-	if (artifact.Dependencies != null && artifact.IncludeDependencies) {
-		foreach (var dep in artifact.Dependencies) {
-			podfile.Add ($"\tpod '{dep.Id}', '{dep.Version}'");
-		}
-	}
-
-	podfile.AddRange (PODFILE_END);
-
-	FileWriteLines ($"{podfilePath}Podfile", podfile.ToArray ());
-	CocoaPodInstall (podfilePath);
-}
-
-void BuildSdkOnPodfile (Artifact artifact)
-{
-	var baseBuildArch = Platform.iOSArmV7;
-	var platforms = new [] { baseBuildArch, Platform.iOSArm64, Platform.iOSSimulator64, Platform.iOSSimulator };
-
-	var podsProject = "./Pods/Pods.xcodeproj";
-	var workingDirectory = $"./externals/{artifact.Id}";
-	var framework = $"{artifact.FrameworkName}.framework";
-	var paths = GetDirectories($"{workingDirectory}/Pods/**/{framework}");
-	
-	// if (TargetExistsInXcodeProject (podsProject, artifact.FrameworkName, workingDirectory)) {
-	if (paths?.Count <= 0) {
-		BuildXcodeFatFramework (podsProject, artifact.Id, platforms, libraryTitle: artifact.FrameworkName, workingDirectory: workingDirectory);
-		CopyDirectory ($"{workingDirectory}/{framework}", $"./externals/{framework}");
-	} else {
-		foreach (var path in paths)
-			CopyDirectory (path, $"./externals/{framework}");
-	}
-}
-
-void UpdateVersionInCsproj (Artifact artifact) 
-{
-	var csprojPath = $"./source/{artifact.CsprojName}/{artifact.CsprojName}.csproj";
-	XmlPoke(csprojPath, "/Project/PropertyGroup/FileVersion", artifact.NugetVersion);
-	XmlPoke(csprojPath, "/Project/PropertyGroup/PackageVersion", artifact.NugetVersion);
-}

@@ -1,3 +1,10 @@
+enum FrameworkSource
+{
+	Targets,
+	Pods,
+	Custom
+}
+
 struct Platform
 {
 	#region Properties
@@ -46,31 +53,75 @@ struct Platform
 	#endregion
 }
 
+class PodSpec
+{
+	// The podspec name
+	public string Name { get; set; }
+	// The podspec version if any, the component version otherwise.
+	public string Version { get; set; }
+	// Target used to build the Xcode Pods project.
+	// If null, Name property value will be used.
+	public string TargetName { get; set; }
+	// Overrides the default framework's name built with Pods project and Xcode.
+	// If null, Name property value will be used.
+	public string FrameworkName { get; set; }
+	// The desired subspec to be used.
+	// If null, default subspecs defined within the podspec will be used.
+	public string [] SubSpecs { get; set; }
+	// If true and when Subspecs property is not null, default subspecs
+	// defined within the podspec will added to the Podfile. Otherwise,
+	// only subSpecs specified in Subspecs will be used. False by default.
+	public bool UseDefaultSubspecs { get; set; }
+	// Specify the source where the framework will be gotten.
+	// From a .targets file by default.
+	public FrameworkSource FrameworkSource { get; set; }
+	// If true, the podspec can be built using Xcode. True by default.
+	public bool CanBeBuild { get; set; }
+
+	public PodSpec (string name, string version, string targetName = null, string frameworkName = null, FrameworkSource frameworkSource = FrameworkSource.Pods, string [] subSpecs = null, bool useDefaultSubspecs = false, bool canBeBuild = true)
+	{
+		Name = name;
+		Version = version;
+		TargetName = targetName ?? name;
+		FrameworkName = frameworkName ?? name;
+		FrameworkSource = frameworkSource;
+		SubSpecs = subSpecs;
+		UseDefaultSubspecs = useDefaultSubspecs;
+		CanBeBuild = canBeBuild;
+	}
+}
+
 class Artifact : IEquatable<Artifact>
 {
+	// The id of the component.
 	public string Id { get; set; }
-	public string Version { get; set; }
+	// The version to be published on NuGet.
 	public string NugetVersion { get; set; }
-	public string CsprojName { get; set; }
-	public Artifact [] Dependencies;
-
+	// The minimun iOS supported version of the component.
 	public string MinimunSupportedVersion { get; set; }
-	public string FrameworkName { get; set; }
-	public uint BuildOrder { get; set; }
-	public bool IncludeDependencies { get; set; }
+	// The C# project name. This will have the Id property value if not specified.
+	public string CsprojName { get; set; }
+	// Other Google/Firebase components that make this component work.
+	public Artifact [] Dependencies { get; set; }
+	// The component build order.
+	public int BuildOrder { get => Dependencies?.Length + 1 ?? 1; }
+	// The specs used in the Podfile.
+	public PodSpec [] PodSpecs { get; set; }
+	// Extra code to be added to Podfile
+	public string [] ExtraPodfileLines { get; set; }
+	// The samples created to test the component.
+	public string [] Samples { get; set; }
 
-	public Artifact (string id, string version, string minimunSupportedVersion, string nugetVersion = null, string csprojName = null, string frameworkName = null, uint buildOrder = 1, Artifact [] dependencies = null, bool includeDependencies = true)
+	public Artifact (string id, string nugetVersion, string minimunSupportedVersion, string csprojName = null, Artifact [] dependencies = null, PodSpec [] podSpecs = null, string [] extraPodfileLines = null, string [] samples = null)
 	{
 		Id = id;
-		Version = version;
-		NugetVersion = nugetVersion ?? version;
+		NugetVersion = nugetVersion;
+		MinimunSupportedVersion = minimunSupportedVersion;
 		CsprojName = csprojName ?? id;
 		Dependencies = dependencies;
-
-		MinimunSupportedVersion = minimunSupportedVersion;
-		FrameworkName = frameworkName ?? id;
-		BuildOrder = buildOrder;
-		IncludeDependencies = includeDependencies;
+		PodSpecs = podSpecs;
+		ExtraPodfileLines = extraPodfileLines;
+		Samples = samples;
 	}
 
 	public bool Equals (Artifact other)
