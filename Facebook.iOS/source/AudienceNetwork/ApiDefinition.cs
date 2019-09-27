@@ -588,7 +588,7 @@ namespace Facebook.AudienceNetwork
 		// + (void)setMediaViewRenderingMethod:(FBMediaViewRenderingMethod)mediaViewRenderingMethod;
 		[Static]
 		[Export ("mediaViewRenderingMethod")]
-		MediaViewRenderingMethod MediaViewRenderingMethod { get; [Obsolete ("Rendering method is no longer used in Audience Network.")] set; }
+		MediaViewRenderingMethod MediaViewRenderingMethod { get; set; }
 	}
 
 	interface IAdLoggingDelegate { }
@@ -1679,7 +1679,7 @@ namespace Facebook.AudienceNetwork
 
 		[Obsolete ("Use the Create method instead. This will be removed in future versions.")]
 		[Static]
-		[Export ("Create (nativeBannerAd, type)")]
+		[Wrap ("Create (nativeBannerAd, type)")]
 		NativeBannerAdView From (NativeBannerAd nativeBannerAd, NativeBannerAdViewType type);
 
 		// +(instancetype _Nonnull)nativeBannerAdViewWithNativeBannerAd:(FBNativeBannerAd * _Nonnull)nativeBannerAd withType:(FBNativeBannerAdViewType)type withAttributes:(FBNativeAdViewAttributes * _Nonnull)attributes;
@@ -1689,7 +1689,7 @@ namespace Facebook.AudienceNetwork
 
 		[Obsolete ("Use the Create method instead. This will be removed in future versions.")]
 		[Static]
-		[Export ("Create (nativeBannerAd, type, attributes)")]
+		[Wrap("Create (nativeBannerAd, type, attributes)")]
 		NativeBannerAdView From (NativeBannerAd nativeBannerAd, NativeBannerAdViewType type, NativeAdViewAttributes attributes);
 
 		//////////////////////////////////////////////////////////////////////////////
