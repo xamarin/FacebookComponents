@@ -586,6 +586,7 @@ namespace Facebook.AudienceNetwork
 
 		// + (FBMediaViewRenderingMethod)mediaViewRenderingMethod;
 		// + (void)setMediaViewRenderingMethod:(FBMediaViewRenderingMethod)mediaViewRenderingMethod;
+		[Obsolete ("Rendering method is no longer used in Audience Network.")]
 		[Static]
 		[Export ("mediaViewRenderingMethod")]
 		MediaViewRenderingMethod MediaViewRenderingMethod { get; set; }
@@ -1689,7 +1690,7 @@ namespace Facebook.AudienceNetwork
 
 		[Obsolete ("Use the Create method instead. This will be removed in future versions.")]
 		[Static]
-		[Wrap("Create (nativeBannerAd, type, attributes)")]
+		[Wrap ("Create (nativeBannerAd, type, attributes)")]
 		NativeBannerAdView From (NativeBannerAd nativeBannerAd, NativeBannerAdViewType type, NativeAdViewAttributes attributes);
 
 		//////////////////////////////////////////////////////////////////////////////
