@@ -390,6 +390,7 @@ namespace Facebook.AudienceNetwork
 	}
 
 	// @interface FBAdExtraHint : NSObject
+	[Obsolete ("Keywords are no longer used in Audience Network.")]
 	[BaseType (typeof (NSObject), Name = "FBAdExtraHint")]
 	interface AdExtraHint {
 		// @property (copy, nonatomic) NSString * _Nullable contentURL;
@@ -587,7 +588,7 @@ namespace Facebook.AudienceNetwork
 		// + (void)setMediaViewRenderingMethod:(FBMediaViewRenderingMethod)mediaViewRenderingMethod;
 		[Static]
 		[Export ("mediaViewRenderingMethod")]
-		MediaViewRenderingMethod MediaViewRenderingMethod { get; set; }
+		MediaViewRenderingMethod MediaViewRenderingMethod { get; [Obsolete ("Rendering method is no longer used in Audience Network.")] set; }
 	}
 
 	interface IAdLoggingDelegate { }
@@ -1068,6 +1069,8 @@ namespace Facebook.AudienceNetwork
 		// -(void)registerViewForInteraction:(UIView * _Nonnull)view mediaView:(FBMediaView * _Nonnull)mediaView iconImageView:(UIImageView * _Nullable)iconImageView viewController:(UIViewController * _Nullable)viewController clickableViews:(NSArray<UIView *> * _Nullable)clickableViews;
 		[Export ("registerViewForInteraction:mediaView:iconImageView:viewController:clickableViews:")]
 		void RegisterView (UIView view, MediaView mediaView, [NullAllowed] UIImageView iconImageView, [NullAllowed] UIViewController viewController, [NullAllowed] UIView [] clickableViews);
+
+
 
 		// -(void)downloadMedia;
 		[Export ("downloadMedia")]
@@ -1615,6 +1618,14 @@ namespace Facebook.AudienceNetwork
 		// -(void)registerViewForInteraction:(UIView * _Nonnull)view iconView:(FBAdIconView * _Nonnull)iconView viewController:(UIViewController * _Nullable)viewController clickableViews:(NSArray<UIView *> * _Nullable)clickableViews;
 		[Export ("registerViewForInteraction:iconView:viewController:clickableViews:")]
 		void RegisterView (UIView view, MediaView iconView, [NullAllowed] UIViewController viewController, [NullAllowed] UIView [] clickableViews);
+
+		// -(void)registerViewForInteraction:(UIView * _Nonnull)view iconImageView:(UIImageView * _Nonnull)iconImageView viewController:(UIViewController * _Nullable)viewController;
+		[Export("registerViewForInteraction:iconImageView:viewController:")]
+		void RegisterView (UIView view, UIImageView iconImageView, [NullAllowed] UIViewController viewController);
+
+		// -(void)registerViewForInteraction:(UIView * _Nonnull)view iconImageView:(UIImageView * _Nonnull)iconImageView viewController:(UIViewController * _Nullable)viewController clickableViews:(NSArray<UIView *> * _Nullable)clickableViews;
+		[Export("registerViewForInteraction:iconImageView:viewController:clickableViews:")]
+		void RegisterView(UIView view, UIImageView iconImageView, [NullAllowed] UIViewController viewController, [NullAllowed] UIView[] clickableViews);
 
 		// -(void)downloadMedia;
 		[Export ("downloadMedia")]
