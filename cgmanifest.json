@@ -142,10 +142,71 @@
 		},
 		{
 			"component": {
+				"type": "other",
+				"other": {
+					"name": "AccountKit",
+					"version": "5.4.0",
+					"downloadUrl": "https://github.com/facebook/facebook-objc-sdk/releases/download/v5.4.0/AccountKit.zip"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FBAudienceNetwork",
+					"version": "5.5.1",
+					"downloadUrl": "https://developers.facebook.com/resources/FBAudienceNetwork-5.5.1.zip"
+				}
+			}
+		},
+		{
+			"component": {
 				"type": "git",
 				"git": {
+					"name": "FBSDSKCoreKit",
 					"repositoryUrl": "https://github.com/facebook/facebook-objc-sdk.git",
-					"commitHash": "2dc842def59ee9a94a0640f5fef809005bbfb93e"
+					"commitHash": "cf9e0d837f9596223b05cb25faf0edf54d6347a2"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "FBSDSKLoginKit",
+					"repositoryUrl": "https://github.com/facebook/facebook-objc-sdk.git",
+					"commitHash": "cf9e0d837f9596223b05cb25faf0edf54d6347a2"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "other",
+				"other": {
+					"name": "FBSDSKMarketingKit",
+					"version": "5.5.0",
+					"downloadUrl": "https://github.com/facebook/facebook-objc-sdk/releases/download/v5.5.0/FBSDKMarketingKit.zip"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "FBSDSKPlacesKit",
+					"repositoryUrl": "https://github.com/facebook/facebook-objc-sdk.git",
+					"commitHash": "cf9e0d837f9596223b05cb25faf0edf54d6347a2"
+				}
+			}
+		},
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "FBSDSKShareKit",
+					"repositoryUrl": "https://github.com/facebook/facebook-objc-sdk.git",
+					"commitHash": "cf9e0d837f9596223b05cb25faf0edf54d6347a2"
 				}
 			}
 		}

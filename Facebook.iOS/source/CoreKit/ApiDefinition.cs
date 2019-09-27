@@ -652,10 +652,6 @@ namespace Facebook.CoreKit {
 		string AppInvitePromotionCode (NSUrl url);
 	}
 
-	// @interface FBSDKBasicUtility : NSObject
-	[BaseType (typeof (NSObject), Name = "FBSDKBasicUtility")]
-	interface BasicUtility { }
-
 	// @interface FBSDKButton : UIButton
 	[BaseType (typeof (UIButton), Name = "FBSDKButton")]
 	interface Button {
@@ -1310,14 +1306,17 @@ namespace Facebook.CoreKit {
 		NSDictionary<NSString, NSObject> TargetQueryParameters { get; }
 
 		// @property (readonly, nonatomic, strong) NSDictionary<NSString *,id> * _Nonnull appLinkData;
+		[NullAllowed]
 		[Export ("appLinkData", ArgumentSemantic.Strong)]
 		NSDictionary<NSString, NSObject> AppLinkData { get; }
 
 		// @property (readonly, nonatomic, strong) NSDictionary<NSString *,id> * _Nonnull appLinkExtras;
+		[NullAllowed]
 		[Export ("appLinkExtras", ArgumentSemantic.Strong)]
 		NSDictionary<NSString, NSObject> AppLinkExtras { get; }
 
 		// @property (readonly, nonatomic, strong) FBSDKAppLink * _Nonnull appLinkReferer;
+		[NullAllowed]
 		[Export ("appLinkReferer", ArgumentSemantic.Strong)]
 		AppLink AppLinkReferer { get; }
 

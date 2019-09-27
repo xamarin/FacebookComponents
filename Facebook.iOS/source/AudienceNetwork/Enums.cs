@@ -9,6 +9,7 @@
 
 using ObjCRuntime;
 using Foundation;
+using System;
 
 namespace Facebook.AudienceNetwork
 {
@@ -226,6 +227,7 @@ namespace Facebook.AudienceNetwork
 		Verbose
 	}
 
+	[Obsolete ("Rendering method is no longer used in Audience Network")]
 	[Native]
 	public enum MediaViewRenderingMethod : long
 	{
@@ -248,7 +250,10 @@ namespace Facebook.AudienceNetwork
 		VidHD9x16_39sAppInstall,
 		VidHD9x16_39sLink,
 		CarouselImgSquareAppInstall,
-		CarouselImgSquareLink
+		CarouselImgSquareLink,
+		CarouselVidSquareLink,
+		Playable
+
 	}
 
 	[Native]

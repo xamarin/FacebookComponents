@@ -258,6 +258,7 @@ namespace Facebook.ShareKit {
 	}
 
 	// @interface FBSDKMessageDialog : NSObject <FBSDKSharingDialog>
+	[Obsolete ("Sharing to Messenger via the SDK is unsupported. https://developers.facebook.com/docs/messenger-platform/changelog/#20190610. Sharing should be performed by the native share sheet.")]
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKMessageDialog")]
 	interface MessageDialog : SharingDialog {
@@ -273,6 +274,7 @@ namespace Facebook.ShareKit {
 	}
 
 	// @interface FBSDKSendButton : FBSDKButton <FBSDKSharingButton>
+	[Obsolete ("Sharing to Messenger via the SDK is unsupported. https://developers.facebook.com/docs/messenger-platform/changelog/#20190610. Sharing should be performed by the native share sheet.")]
 	[BaseType (typeof (CoreKit.Button), Name = "FBSDKSendButton")]
 	interface SendButton : SharingButton {
 
@@ -411,6 +413,7 @@ namespace Facebook.ShareKit {
 	interface IShareMessengerActionButton { }
 
 	// @protocol FBSDKShareMessengerActionButton <FBSDKCopying, NSSecureCoding>
+	[Obsolete ("Sharing to Messenger via the SDK is unsupported. https://developers.facebook.com/docs/messenger-platform/changelog/#20190610. Sharing should be performed by the native share sheet.")]
 	[Protocol (Name = "FBSDKShareMessengerActionButton")]
 	interface ShareMessengerActionButton : CoreKit.ICopying, INSSecureCoding {
 		// @required @property (copy, nonatomic) NSString * title;
@@ -420,6 +423,7 @@ namespace Facebook.ShareKit {
 	}
 
 	// @interface FBSDKShareMessengerGenericTemplateContent : NSObject <FBSDKSharingContent>
+	[Obsolete ("Sharing to Messenger via the SDK is unsupported. https://developers.facebook.com/docs/messenger-platform/changelog/#20190610. Sharing should be performed by the native share sheet.")]
 	[BaseType (typeof (NSObject), Name = "FBSDKShareMessengerGenericTemplateContent")]
 	interface ShareMessengerGenericTemplateContent : SharingContent {
 		// @property (assign, nonatomic) BOOL isSharable;
@@ -436,6 +440,7 @@ namespace Facebook.ShareKit {
 	}
 
 	// @interface FBSDKShareMessengerGenericTemplateElement : NSObject <FBSDKCopying, NSSecureCoding>
+	[Obsolete ("Sharing to Messenger via the SDK is unsupported. https://developers.facebook.com/docs/messenger-platform/changelog/#20190610. Sharing should be performed by the native share sheet.")]
 	[BaseType (typeof (NSObject), Name = "FBSDKShareMessengerGenericTemplateElement")]
 	interface ShareMessengerGenericTemplateElement : CoreKit.ICopying, INSSecureCoding {
 		// @property (copy, nonatomic) NSString * title;
@@ -464,6 +469,7 @@ namespace Facebook.ShareKit {
 	}
 
 	// @interface FBSDKShareMessengerMediaTemplateContent : NSObject <FBSDKSharingContent>
+	[Obsolete ("Sharing to Messenger via the SDK is unsupported. https://developers.facebook.com/docs/messenger-platform/changelog/#20190610. Sharing should be performed by the native share sheet.")]
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKShareMessengerMediaTemplateContent")]
 	interface ShareMessengerMediaTemplateContent : SharingContent {
@@ -496,6 +502,7 @@ namespace Facebook.ShareKit {
 	}
 
 	// @interface FBSDKShareMessengerOpenGraphMusicTemplateContent : NSObject <FBSDKSharingContent>
+	[Obsolete ("Sharing to Messenger via the SDK is unsupported. https://developers.facebook.com/docs/messenger-platform/changelog/#20190610. Sharing should be performed by the native share sheet.")]
 	[BaseType (typeof (NSObject), Name = "FBSDKShareMessengerOpenGraphMusicTemplateContent")]
 	interface ShareMessengerOpenGraphMusicTemplateContent : SharingContent {
 		// @property (copy, nonatomic) NSURL * url;
@@ -509,6 +516,7 @@ namespace Facebook.ShareKit {
 	}
 
 	// @interface FBSDKShareMessengerURLActionButton : NSObject <FBSDKShareMessengerActionButton>
+	[Obsolete ("Sharing to Messenger via the SDK is unsupported. https://developers.facebook.com/docs/messenger-platform/changelog/#20190610. Sharing should be performed by the native share sheet.")]
 	[BaseType (typeof (NSObject), Name = "FBSDKShareMessengerURLActionButton")]
 	interface ShareMessengerUrlActionButton : ShareMessengerActionButton {
 		// @property (copy, nonatomic) NSURL * url;
@@ -534,6 +542,7 @@ namespace Facebook.ShareKit {
 	}
 
 	// @interface FBSDKShareOpenGraphAction : FBSDKShareOpenGraphValueContainer <FBSDKCopying, NSSecureCoding>
+	[Obsolete ("Sharing to Messenger via the SDK is unsupported. https://developers.facebook.com/docs/messenger-platform/changelog/#20190610. Sharing should be performed by the native share sheet.")]
 	[DisableDefaultCtor]
 	[BaseType (typeof (ShareOpenGraphValueContainer), Name = "FBSDKShareOpenGraphAction")]
 	interface ShareOpenGraphAction : CoreKit.ICopying, INSSecureCoding {

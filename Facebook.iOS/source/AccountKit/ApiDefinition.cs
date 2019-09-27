@@ -166,13 +166,13 @@ namespace Facebook.AccountKit {
 
 		// @required @property (getter = isInitialSMSButtonEnabled, assign, nonatomic) BOOL enableInitialSMSButton;
 		[Abstract]
-		[Export ("enableInitialSMSButton")]
-		bool EnableInitialSmsButton { [Bind ("isInitialSMSButtonEnabled")] get; set; }
+		[Export ("enableSMS")]
+		bool EnableSMS { [Bind ("isSMSEnabled")] get; set; }
 
 		// @required @property (getter = isGetACallEnabled, assign, nonatomic) BOOL enableGetACall;
 		[Abstract]
-		[Export ("enableGetACall")]
-		bool EnableGetACall { [Bind ("isGetACallEnabled")] get; set; }
+		[Export ("testSmsWithInfobip")]
+		bool TestSmsWithInfobip { get; set; }
 
 		// @required @property (copy, nonatomic) NSArray<NSString *> * whitelistedCountryCodes;
 		[Abstract]

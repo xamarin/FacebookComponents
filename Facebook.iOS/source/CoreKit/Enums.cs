@@ -79,6 +79,7 @@ namespace Facebook.CoreKit
 		Schedule,
 
 		// extern FBSDKAppEventName _Nonnull FBSDKAppEventNameSubscriptionHeartbeat;
+		[Obsolete ("This attribute is no longer used.")]
 		[Field ("FBSDKAppEventNameSubscriptionHeartbeat", "__Internal")]
 		SubscriptionHeartbeat,
 
@@ -393,7 +394,7 @@ namespace Facebook.CoreKit
 	}
 
 	[Native]
-	public enum Error : long {
+	public enum CoreError : long {
 		Reserved = 0,
 		Encryption,
 		InvalidArgument,
