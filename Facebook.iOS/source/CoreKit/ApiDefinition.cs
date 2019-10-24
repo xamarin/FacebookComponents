@@ -93,7 +93,7 @@ namespace Facebook.CoreKit {
 		string UserId { get; }
 
 		[Obsolete ("Use UserId property instead. This will be removed in future versions.")]
-		[Wrap ("UserID")]
+		[Wrap ("UserId")]
 		string UserID { get; }
 
 		// @property (readonly, assign, nonatomic, getter = isExpired) BOOL expired;
