@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
-    <TargetFrameworks>MonoAndroid81</TargetFrameworks>
+    <TargetFrameworks>MonoAndroid90</TargetFrameworks>
     <IsBindingProject>true</IsBindingProject>
 
     <AssemblyName>Xamarin.Facebook.AccountKit.Android</AssemblyName>
@@ -61,7 +61,7 @@
     <PackageReference Include="Xamarin.GooglePlayServices.Auth.Api.Phone" Version="71.1600.0" />
     <PackageReference Include="Xamarin.GooglePlayServices.Auth" Version="71.1600.0" />
 
-    <PackageReference Include="Xamarin.Google.LibPhoneNumber" Version="8.10.1" />
+    <PackageReference Include="Xamarin.Google.LibPhoneNumber" Version="8.10.23" />
   </ItemGroup>
 
 </Project>

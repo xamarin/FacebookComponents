@@ -10,4 +10,8 @@
 
     <remove-node path="/api/package[contains(@name, 'com.facebook.ads.internal')]" />
     <remove-node path="/api/package[contains(@name, 'com.facebook.ads.a')]" />
+
+
+
+	<attr path="/api/package[@name='com.facebook.ads']/interface[@name='AdView.AdViewLoadConfigBuilder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Xamarin.Facebook.Ads.IAdLoadAdConfig</attr>
 </metadata>
