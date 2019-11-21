@@ -41,20 +41,27 @@ class ArtifactInfo
 }
 
 Task ("externals")
-	.WithCriteria (!FileExists ("./externals/facebook-android-sdk.aar"))
 	.Does (() => 
 {
 	EnsureDirectoryExists ("./externals/");
 
 	foreach (var artifact in ARTIFACTS) {
 		var url = $"http://search.maven.org/remotecontent?filepath=com/facebook/android/{artifact.ArtifactId}/{artifact.Version}/{artifact.ArtifactId}-{artifact.Version}.aar";
+		var pomUrl = $"http://search.maven.org/remotecontent?filepath=com/facebook/android/{artifact.ArtifactId}/{artifact.Version}/{artifact.ArtifactId}-{artifact.Version}.pom";
 		var docUrl = $"http://search.maven.org/remotecontent?filepath=com/facebook/android/{artifact.ArtifactId}/{artifact.Version}/{artifact.ArtifactId}-{artifact.Version}-javadoc.jar";
 
-		DownloadFile(url, $"./externals/{artifact.ArtifactId}.aar");
+		var aar = $"./externals/{artifact.ArtifactId}.aar";
+		if (!FileExists (aar))
+			DownloadFile(url, aar);
+
+		var pom = $"./externals/{artifact.ArtifactId}.pom";
+		if (!FileExists (pom))
+			DownloadFile(pomUrl, pom);
 
 		try {
 			var localDocsFile = $"./externals/{artifact.ArtifactId}-javadoc.jar";
-			DownloadFile(docUrl, localDocsFile);
+			if (!FileExists (localDocsFile))
+				DownloadFile(docUrl, localDocsFile);
 
 			EnsureDirectoryExists ($"./externals/{artifact.ArtifactId}-docs/");
 			Unzip (localDocsFile, $"./externals/{artifact.ArtifactId}-docs/");
