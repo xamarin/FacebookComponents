@@ -1,9 +1,16 @@
 <metadata>
     <attr path="/api/package[@name='com.facebook']" name="managedName">Xamarin.Facebook</attr>
     <attr path="/api/package[@name='com.facebook.appevents']" name="managedName">Xamarin.Facebook.AppEvents</attr>
+    <attr path="/api/package[@name='com.facebook.appevents.aam']" name="managedName">Xamarin.Facebook.AppEvents.Aam</attr>
+    <attr path="/api/package[@name='com.facebook.appevents.ml']" name="managedName">Xamarin.Facebook.AppEvents.ML</attr>
+    <attr path="/api/package[@name='com.facebook.appevents.restrictivedatafilter']" name="managedName">Xamarin.Facebook.AppEvents.RestrictiveDataFilter</attr>
+    <attr path="/api/package[@name='com.facebook.appevents.suggestedevents']" name="managedName">Xamarin.Facebook.AppEvents.SuggestedEvents</attr>
     <attr path="/api/package[@name='com.facebook.appevents.internal']" name="managedName">Xamarin.Facebook.AppEvents.Internal</attr>
     <attr path="/api/package[@name='com.facebook.appevents.codeless']" name="managedName">Xamarin.Facebook.AppEvents.Codeless</attr>
     <attr path="/api/package[@name='com.facebook.appevents.codeless.internal']" name="managedName">Xamarin.Facebook.AppEvents.Codeless.Internal</attr>
+    <attr path="/api/package[@name='com.facebook.internal.instrument']" name="managedName">Xamarin.Facebook.Internal.Instrument</attr>
+    <attr path="/api/package[@name='com.facebook.internal.instrument.errorreport']" name="managedName">Xamarin.Facebook.Internal.Instrument.ErrorReport</attr>
+    <attr path="/api/package[@name='com.facebook.internal.instrument.crashreport']" name="managedName">Xamarin.Facebook.Internal.Instrument.CrashReport</attr>
 
     <attr path="/api/package[@name='com.facebook.core']" name="managedName">Xamarin.Facebook.Core</attr>
     <attr path="/api/package[@name='com.facebook.internal']" name="managedName">Xamarin.Facebook.Internal</attr>
