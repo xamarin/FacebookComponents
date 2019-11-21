@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
-    <TargetFrameworks>MonoAndroid81</TargetFrameworks>
+    <TargetFrameworks>MonoAndroid90</TargetFrameworks>
     <IsBindingProject>true</IsBindingProject>
 
     <AssemblyName>Xamarin.Facebook.AppLinks.Android</AssemblyName>
@@ -60,6 +60,8 @@
 
   <ItemGroup>
     <PackageReference Include="Bolts" Version="1.4.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.Annotations" Version="28.0.0.3" />
   </ItemGroup>
 
 </Project>

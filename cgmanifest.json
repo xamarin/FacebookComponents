@@ -6,7 +6,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-android-sdk",
 					"GroupId": "com.facebook.android",
-					"Version": "5.0.3"
+					"Version": "5.11.0"
 				}
 			}
 		},
@@ -16,7 +16,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-core",
 					"GroupId": "com.facebook.android",
-					"Version": "5.0.3"
+					"Version": "5.11.0"
 				}
 			}
 		},
@@ -26,7 +26,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-common",
 					"GroupId": "com.facebook.android",
-					"Version": "5.0.3"
+					"Version": "5.11.0"
 				}
 			}
 		},
@@ -36,7 +36,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-login",
 					"GroupId": "com.facebook.android",
-					"Version": "5.0.3"
+					"Version": "5.11.0"
 				}
 			}
 		},
@@ -46,7 +46,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-share",
 					"GroupId": "com.facebook.android",
-					"Version": "5.0.3"
+					"Version": "5.11.0"
 				}
 			}
 		},
@@ -56,7 +56,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-places",
 					"GroupId": "com.facebook.android",
-					"Version": "5.0.3"
+					"Version": "5.11.0"
 				}
 			}
 		},
@@ -66,7 +66,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-applinks",
 					"GroupId": "com.facebook.android",
-					"Version": "5.0.3"
+					"Version": "5.11.0"
 				}
 			}
 		},
@@ -76,7 +76,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-messenger",
 					"GroupId": "com.facebook.android",
-					"Version": "5.0.3"
+					"Version": "5.11.0"
 				}
 			}
 		},
@@ -106,7 +106,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-marketing",
 					"GroupId": "com.facebook.android",
-					"Version": "5.0.3"
+					"Version": "5.9.0"
 				}
 			}
 		},
@@ -116,7 +116,7 @@
 				"Maven": {
 					"ArtifactId": "account-kit-sdk",
 					"GroupId": "com.facebook.android",
-					"Version": "5.0.0"
+					"Version": "5.4.0"
 				}
 			}
 		},
@@ -126,7 +126,7 @@
 				"Maven": {
 					"ArtifactId": "audience-network-sdk",
 					"GroupId": "com.facebook.android",
-					"Version": "5.4.0"
+					"Version": "5.6.0"
 				}
 			}
 		},
