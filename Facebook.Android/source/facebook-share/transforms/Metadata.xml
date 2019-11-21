@@ -10,7 +10,4 @@
 
     <attr path="/api/package[@name='com.facebook.share.model']/class[@name='AppInviteContent.Builder']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.AppInviteContent']]" name="managedReturn">Java.Lang.Object</attr>
     <attr path="/api/package[@name='com.facebook.share.model']/class[@name='AppInviteContent.Builder']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.AppInviteContent']]/parameter[1]" name="managedType">Java.Lang.Object</attr>
-    
-    <!-- FacebookDialogBase has an abstract IList OrderedModeHandlers and the generator tries to create proper generic list types, but that doesn't match the overridden member -->
-    <attr path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='getOrderedModeHandlers' and count(parameter)=0]" name="managedName">_OrderedModeHandlers</attr>
-    </metadata>
+</metadata>

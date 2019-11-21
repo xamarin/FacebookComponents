@@ -113,8 +113,9 @@ Task ("nuget")
 
 		MSBuild(csproj, c => 
 			c.SetConfiguration("Release")
+			.WithProperty("NoBuild", "true")
 			.WithProperty("PackageVersion", art.Version)
-			.WithProperty("PackageOutputPath", "../../output/")
+			.WithProperty("PackageOutputPath", MakeAbsolute((DirectoryPath)"./output/").FullPath)
 			.WithProperty("DesignTimeBuild", "false")
  			.WithTarget("Pack"));	
 	}

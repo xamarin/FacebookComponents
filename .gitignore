@@ -9,3 +9,4 @@ externals
 .vs/
 tmp-nugets/
 _._
+**/Resource.designer.cs
