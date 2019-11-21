@@ -3,9 +3,10 @@ var CONFIGURATION = Argument ("c", Argument ("configuration", "Release"));
 
 var TARGET = Argument ("t", Argument ("target", "ci"));
 
-var PROJECTS = new DirectoryPath [] {
-	"./Facebook.Android/",
-	"./Facebook.iOS/"
+// key/value of (path, macOnly)
+var PROJECTS = new Dictionary<DirectoryPath, bool> {
+	{ "./Facebook.Android/", false },
+	{ "./Facebook.iOS/", true }
 };
 
 var cakeSettings = new CakeSettings {
@@ -17,8 +18,11 @@ var cakeSettings = new CakeSettings {
 };
 
 foreach (var project in PROJECTS) {
-	CakeExecuteScript (project.CombineWithFilePath ("build.cake"), cakeSettings);
+	if (project.Value && IsRunningOnWindows ())
+		continue;
+
+	CakeExecuteScript (project.Key.CombineWithFilePath ("build.cake"), cakeSettings);
 
 	EnsureDirectoryExists ("./output/");
-	CopyDirectory (project.Combine ("output"), "./output/");
+	CopyDirectory (project.Key.Combine ("output"), "./output/");
 }
