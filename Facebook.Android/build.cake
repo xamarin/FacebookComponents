@@ -1,6 +1,6 @@
 #addin nuget:?package=Cake.FileHelpers&version=3.2.1
 
-var FB_VERSION = "4.37.0";
+var FB_VERSION = "5.11.2";
 
 var BUILD_COMMIT = EnvironmentVariable("BUILD_COMMIT") ?? "DEV";
 var BUILD_NUMBER = EnvironmentVariable("BUILD_NUMBER") ?? "DEBUG";
@@ -9,18 +9,17 @@ var BUILD_TIMESTAMP = DateTime.UtcNow.ToString();
 var TARGET = Argument ("t", Argument ("target", "ci"));
 
 var ARTIFACTS = new List<ArtifactInfo> {
-	new ArtifactInfo("facebook-android-sdk", "5.11.0"),
-	new ArtifactInfo("facebook-core", "5.11.0"),
-	new ArtifactInfo("facebook-common", "5.11.0"),
-	new ArtifactInfo("facebook-login", "5.11.0"),
-	new ArtifactInfo("facebook-share", "5.11.0"),
-	new ArtifactInfo("facebook-places", "5.11.0"),
-	new ArtifactInfo("facebook-applinks", "5.11.0"),
-	new ArtifactInfo("facebook-messenger", "5.11.0"),
+	new ArtifactInfo("facebook-android-sdk", "5.11.2"),
+	new ArtifactInfo("facebook-core", "5.11.2"),
+	new ArtifactInfo("facebook-common", "5.11.2"),
+	new ArtifactInfo("facebook-login", "5.11.2"),
+	new ArtifactInfo("facebook-share", "5.11.2"),
+	new ArtifactInfo("facebook-places", "5.11.2"),
+	new ArtifactInfo("facebook-applinks", "5.11.2"),
+	new ArtifactInfo("facebook-messenger", "5.11.2"),
 	new ArtifactInfo("facebook-livestreaming", "4.36.0"),
 	new ArtifactInfo("facebook-loginkit", "4.36.0"),
-	new ArtifactInfo("facebook-marketing", "5.9.0"),
-	// This needs to stay preview until google play services comes out of preview
+	new ArtifactInfo("facebook-marketing", "5.11.2"),
 	new ArtifactInfo("account-kit-sdk", "5.4.0"),
 	new ArtifactInfo("audience-network-sdk", "5.6.0"),
 	new ArtifactInfo("notifications", "1.0.2")
