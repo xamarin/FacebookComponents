@@ -5,7 +5,7 @@ var AUDIENCE_NETWORK_VERSION = "5.6.0";
 var CORE_KIT_VERSION         = FACEBOOK_SDK_VERSION;
 var FACEBOOK_SDKS_VERSION    = FACEBOOK_SDK_VERSION;
 var LOGIN_KIT_VERSION        = FACEBOOK_SDK_VERSION;
-var MARKETING_KIT_VERSION    = "5.5.0";
+var MARKETING_KIT_VERSION    = "5.11.1";
 var PLACES_KIT_VERSION       = FACEBOOK_SDK_VERSION;
 var SHARE_KIT_VERSION        = FACEBOOK_SDK_VERSION;
 
@@ -15,7 +15,7 @@ Artifact AUDIENCE_NETWORK_ARTIFACT = new Artifact ("AudienceNetwork", AUDIENCE_N
 Artifact CORE_KIT_ARTIFACT         = new Artifact ("CoreKit",         CORE_KIT_VERSION,             "8.0");
 Artifact FACEBOOK_SDKS_ARTIFACT    = new Artifact ("FacebookSdks",    $"{FACEBOOK_SDKS_VERSION}.1", "8.0");
 Artifact LOGIN_KIT_ARTIFACT        = new Artifact ("LoginKit",        LOGIN_KIT_VERSION,            "8.0");
-Artifact MARKETING_KIT_ARTIFACT    = new Artifact ("MarketingKit",    $"{MARKETING_KIT_VERSION}.1", "8.0");
+Artifact MARKETING_KIT_ARTIFACT    = new Artifact ("MarketingKit",    MARKETING_KIT_VERSION,        "8.0");
 Artifact PLACES_KIT_ARTIFACT       = new Artifact ("PlacesKit",       $"{PLACES_KIT_VERSION}.1",    "8.0");
 Artifact SHARE_KIT_ARTIFACT        = new Artifact ("ShareKit",        $"{SHARE_KIT_VERSION}.1",     "8.0");
 
