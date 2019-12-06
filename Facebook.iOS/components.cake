@@ -16,7 +16,7 @@ Artifact CORE_KIT_ARTIFACT         = new Artifact ("CoreKit",         CORE_KIT_V
 Artifact FACEBOOK_SDKS_ARTIFACT    = new Artifact ("FacebookSdks",    $"{FACEBOOK_SDKS_VERSION}.1", "8.0");
 Artifact LOGIN_KIT_ARTIFACT        = new Artifact ("LoginKit",        LOGIN_KIT_VERSION,            "8.0");
 Artifact MARKETING_KIT_ARTIFACT    = new Artifact ("MarketingKit",    MARKETING_KIT_VERSION,        "8.0");
-Artifact PLACES_KIT_ARTIFACT       = new Artifact ("PlacesKit",       $"{PLACES_KIT_VERSION}.1",    "8.0");
+Artifact PLACES_KIT_ARTIFACT       = new Artifact ("PlacesKit",       PLACES_KIT_VERSION,           "8.0");
 Artifact SHARE_KIT_ARTIFACT        = new Artifact ("ShareKit",        $"{SHARE_KIT_VERSION}.1",     "8.0");
 
 var ARTIFACTS = new Dictionary<string, Artifact> {
