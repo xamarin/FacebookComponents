@@ -14,7 +14,7 @@ Artifact ACCOUNT_KIT_ARTIFACT      = new Artifact ("AccountKit",      ACCOUNT_KI
 Artifact AUDIENCE_NETWORK_ARTIFACT = new Artifact ("AudienceNetwork", AUDIENCE_NETWORK_VERSION,     "9.0");
 Artifact CORE_KIT_ARTIFACT         = new Artifact ("CoreKit",         CORE_KIT_VERSION,             "8.0");
 Artifact FACEBOOK_SDKS_ARTIFACT    = new Artifact ("FacebookSdks",    $"{FACEBOOK_SDKS_VERSION}.1", "8.0");
-Artifact LOGIN_KIT_ARTIFACT        = new Artifact ("LoginKit",        $"{LOGIN_KIT_VERSION}.1",     "8.0");
+Artifact LOGIN_KIT_ARTIFACT        = new Artifact ("LoginKit",        LOGIN_KIT_VERSION,            "8.0");
 Artifact MARKETING_KIT_ARTIFACT    = new Artifact ("MarketingKit",    $"{MARKETING_KIT_VERSION}.1", "8.0");
 Artifact PLACES_KIT_ARTIFACT       = new Artifact ("PlacesKit",       $"{PLACES_KIT_VERSION}.1",    "8.0");
 Artifact SHARE_KIT_ARTIFACT        = new Artifact ("ShareKit",        $"{SHARE_KIT_VERSION}.1",     "8.0");
@@ -57,7 +57,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("FacebookSdks", FACEBOOK_SDKS_VERSION, frameworkSource: FrameworkSource.Custom)
 	};
 	LOGIN_KIT_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("FBSDKLoginKit", LOGIN_KIT_VERSION)
+		PodSpec.Create ("FBSDKLoginKit", new Repository ("https://github.com/facebook/facebook-objc-sdk.git", tag: $"v{LOGIN_KIT_VERSION}"))
 	};
 	MARKETING_KIT_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("FBSDKMarketingKit", MARKETING_KIT_VERSION, canBeBuild: false)
