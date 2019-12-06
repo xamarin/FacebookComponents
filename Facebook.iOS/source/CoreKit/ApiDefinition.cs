@@ -378,9 +378,10 @@ namespace Facebook.CoreKit {
 		// +(instancetype _Nonnull)appLinkWithSourceURL:(NSURL * _Nonnull)sourceURL targets:(NSArray<FBSDKAppLinkTarget *> * _Nonnull)targets webURL:(NSURL * _Nullable)webURL;
 		[Static]
 		[Export ("appLinkWithSourceURL:targets:webURL:")]
-		AppLink Create (NSUrl sourceUrl, AppLinkTarget [] targets, [NullAllowed] NSUrl webUrl);
+		AppLink Create ([NullAllowed] NSUrl sourceUrl, AppLinkTarget [] targets, [NullAllowed] NSUrl webUrl);
 
 		// @property (readonly, nonatomic, strong) NSURL * _Nonnull sourceURL;
+		[NullAllowed]
 		[Export ("sourceURL", ArgumentSemantic.Strong)]
 		NSUrl SourceUrl { get; }
 
@@ -617,14 +618,21 @@ namespace Facebook.CoreKit {
 		// +(instancetype _Nonnull)appLinkTargetWithURL:(NSURL * _Nonnull)url appStoreId:(NSString * _Nullable)appStoreId appName:(NSString * _Nonnull)appName;
 		[Static]
 		[Export ("appLinkTargetWithURL:appStoreId:appName:")]
-		AppLinkTarget Create (NSUrl url, [NullAllowed] string appStoreId, string appName);
+		AppLinkTarget Create ([NullAllowed] NSUrl url, [NullAllowed] string appStoreId, string appName);
 
 		// @property (readonly, nonatomic, strong) NSURL * _Nonnull URL;
+		[NullAllowed]
 		[Export ("URL", ArgumentSemantic.Strong)]
+		NSUrl Url { get; }
+
+		[Obsolete ("Use Url property instead. This will be removed in future versions.")]
+		[NullAllowed]
+		[Wrap ("Url")]
 		NSUrl URL { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * _Nullable appStoreId;
-		[NullAllowed, Export ("appStoreId")]
+		[NullAllowed]
+		[Export ("appStoreId")]
 		string AppStoreId { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull appName;
@@ -924,6 +932,7 @@ namespace Facebook.CoreKit {
 		double Timeout { get; set; }
 
 		// @property (readonly, retain, nonatomic) NSHTTPURLResponse * URLResponse;
+		[NullAllowed]
 		[Export ("URLResponse", ArgumentSemantic.Retain)]
 		NSHttpUrlResponse UrlResponse { get; }
 
@@ -944,7 +953,7 @@ namespace Facebook.CoreKit {
 		// -(void)addRequest:(FBSDKGraphRequest *)request batchParameters:(NSDictionary<NSString *,id> *)batchParameters completionHandler:(FBSDKGraphRequestBlockHandler)handler;
 		[Async (ResultTypeName = "GraphRequestResult")]
 		[Export ("addRequest:batchParameters:completionHandler:")]
-		void AddRequest (GraphRequest request, NSDictionary batchParameters, GraphRequestBlockHandler handler);
+		void AddRequest (GraphRequest request, [NullAllowed] NSDictionary batchParameters, GraphRequestBlockHandler handler);
 
 		// -(void)cancel;
 		[Export ("cancel")]
@@ -1204,26 +1213,31 @@ namespace Facebook.CoreKit {
 
 		// @property (copy, nonatomic, class) NSString * _Null_unspecified appID;
 		[Static]
+		[NullAllowed]
 		[Export ("appID")]
 		string AppId { get; set; }
 
 		// @property (copy, nonatomic, class) NSString * _Null_unspecified appURLSchemeSuffix;
 		[Static]
+		[NullAllowed]
 		[Export ("appURLSchemeSuffix")]
 		string AppUrlSchemeSuffix { get; set; }
 
 		// @property (copy, nonatomic, class) NSString * _Null_unspecified clientToken;
 		[Static]
+		[NullAllowed]
 		[Export ("clientToken")]
 		string ClientToken { get; set; }
 
 		// @property (copy, nonatomic, class) NSString * _Null_unspecified displayName;
 		[Static]
+		[NullAllowed]
 		[Export ("displayName")]
 		string DisplayName { get; set; }
 
 		// @property (copy, nonatomic, class) NSString * _Null_unspecified facebookDomainPart;
 		[Static]
+		[NullAllowed]
 		[Export ("facebookDomainPart")]
 		string FacebookDomainPart { get; set; }
 
@@ -1327,6 +1341,10 @@ namespace Facebook.CoreKit {
 		// @property (readonly, nonatomic, strong) NSDictionary<NSString *,id> * _Nonnull inputQueryParameters;
 		[Export ("inputQueryParameters", ArgumentSemantic.Strong)]
 		NSDictionary<NSString, NSObject> InputQueryParameters { get; }
+
+		// @property (readonly, getter = isAutoAppLink, nonatomic) BOOL isAutoAppLink;
+		[Export ("isAutoAppLink")]
+		bool IsAutoAppLink { [Bind ("isAutoAppLink")] get; }
 	}
 
 	// @interface FBSDKUtility : NSObject

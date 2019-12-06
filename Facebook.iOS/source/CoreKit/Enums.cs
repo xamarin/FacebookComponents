@@ -381,6 +381,14 @@ namespace Facebook.CoreKit
 	}
 
 	[Native]
+	public enum AutoAppLinkPresentationStyle : ulong
+	{
+		Auto = 0,
+		Present,
+		Push
+	}
+
+	[Native]
 	public enum AppLinkNavigationType : long {
 		Failure,
 		Browser,
