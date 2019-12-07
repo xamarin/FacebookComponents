@@ -17,7 +17,7 @@ Artifact FACEBOOK_SDKS_ARTIFACT    = new Artifact ("FacebookSdks",    $"{FACEBOO
 Artifact LOGIN_KIT_ARTIFACT        = new Artifact ("LoginKit",        LOGIN_KIT_VERSION,            "8.0");
 Artifact MARKETING_KIT_ARTIFACT    = new Artifact ("MarketingKit",    MARKETING_KIT_VERSION,        "8.0");
 Artifact PLACES_KIT_ARTIFACT       = new Artifact ("PlacesKit",       PLACES_KIT_VERSION,           "8.0");
-Artifact SHARE_KIT_ARTIFACT        = new Artifact ("ShareKit",        $"{SHARE_KIT_VERSION}.1",     "8.0");
+Artifact SHARE_KIT_ARTIFACT        = new Artifact ("ShareKit",        SHARE_KIT_VERSION,            "8.0");
 
 var ARTIFACTS = new Dictionary<string, Artifact> {
 	{ "AccountKit", ACCOUNT_KIT_ARTIFACT },
@@ -66,7 +66,7 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("FBSDKPlacesKit", new Repository ("https://github.com/facebook/facebook-objc-sdk.git", tag: $"v{PLACES_KIT_VERSION}"))
 	};
 	SHARE_KIT_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("FBSDKShareKit", SHARE_KIT_VERSION)
+		PodSpec.Create ("FBSDKShareKit", new Repository ("https://github.com/facebook/facebook-objc-sdk.git", tag: $"v{SHARE_KIT_VERSION}"))
 	};
 }
 
