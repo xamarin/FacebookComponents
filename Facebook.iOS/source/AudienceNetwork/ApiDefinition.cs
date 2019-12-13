@@ -22,7 +22,6 @@ using CoreFoundation;
 
 namespace Facebook.AudienceNetwork
 {
-
 	// @interface FBAdChoicesView : UIView
 	[DisableDefaultCtor]
 	[BaseType (typeof (UIView), Name = "FBAdChoicesView")]
@@ -394,16 +393,19 @@ namespace Facebook.AudienceNetwork
 	[BaseType (typeof (NSObject), Name = "FBAdExtraHint")]
 	interface AdExtraHint {
 		// @property (copy, nonatomic) NSString * _Nullable contentURL;
+		[Obsolete ("Extra hints are no longer used in Audience Network.")]
 		[NullAllowed]
 		[Export ("contentURL")]
 		string ContentUrl { get; set; }
 
 		// @property (copy, nonatomic) NSString * _Nullable extraData;
+		[Obsolete ("Extra hints are no longer used in Audience Network.")]
 		[NullAllowed]
 		[Export ("extraData")]
 		string ExtraData { get; set; }
 
 		// @property (copy, nonatomic) NSString * _Nullable mediationData;
+		[Obsolete ("Extra hints are no longer used in Audience Network.")]
 		[NullAllowed]
 		[Export ("mediationData")]
 		string MediationData { get; set; }
@@ -413,10 +415,11 @@ namespace Facebook.AudienceNetwork
 		[Export ("initWithKeywords:")]
 		IntPtr Constructor (NSArray keywords);
 
+		[Obsolete ("Keywords are no longer used in Audience Network.")]
 		[Wrap ("this (NSArray.FromNSObjects<AdExtraHintKeyword> (k => k.GetConstant (), keywords))")]
 		IntPtr Constructor (AdExtraHintKeyword [] keywords);
 
-		[Obsolete ("Use the AdExtraHint (AdExtraHintKeyword []) constructor instead. This will be removed in future versions.")]
+		[Obsolete ("Keywords are no longer used in Audience Network.")]
 		[Wrap ("this (NSArray.FromNSObjects (keywords))")]
 		IntPtr Constructor (NSString [] keywords);
 
@@ -425,6 +428,7 @@ namespace Facebook.AudienceNetwork
 		[Export ("addKeyword:")]
 		void _AddKeyword (NSString keyword);
 
+		[Obsolete ("Keywords are no longer used in Audience Network.")]
 		[Wrap ("_AddKeyword (keyword.GetConstant ())")]
 		void AddKeyword (AdExtraHintKeyword keyword);
 
@@ -437,6 +441,7 @@ namespace Facebook.AudienceNetwork
 		[Export ("removeKeyword:")]
 		void _RemoveKeyword (NSString keyword);
 
+		[Obsolete ("Keywords are no longer used in Audience Network.")]
 		[Wrap ("_RemoveKeyword (keyword.GetConstant ())")]
 		void RemoveKeyword (AdExtraHintKeyword keyword);
 
@@ -561,9 +566,15 @@ namespace Facebook.AudienceNetwork
 		[Export ("clearTestDevice:")]
 		void ClearTestDevice (string deviceHash);
 
+		[Obsolete ("SetIsChildDirected method is no longer supported in Audience Network. Use MixedAudience static property instead.")]
 		[Static]
 		[Export ("setIsChildDirected:")]
 		void SetIsChildDirected (bool isChildDirected);
+
+		// @property (getter = isMixedAudience, assign, nonatomic, class) BOOL mixedAudience;
+		[Static]
+		[Export ("mixedAudience")]
+		bool MixedAudience { [Bind ("isMixedAudience")] get; set; }
 
 		// + (void)setMediationService:(NSString *)service;
 		[Static]
