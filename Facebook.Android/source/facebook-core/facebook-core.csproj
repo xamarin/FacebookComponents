@@ -54,9 +54,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Android.Support.Annotations" Version="28.0.0.3" />
-    <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.3" />
-    <PackageReference Include="Bolts" Version="1.4.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.Annotations" Version="28.0.0.3" PrivateAssets="None" />
+    <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.3" PrivateAssets="None" />
+    <PackageReference Include="Bolts" Version="1.4.0.1" PrivateAssets="None" />
   </ItemGroup>
 
 </Project>

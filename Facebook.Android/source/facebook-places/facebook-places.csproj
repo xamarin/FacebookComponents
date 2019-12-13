@@ -54,7 +54,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\facebook-core\facebook-core.csproj" />
+    <ProjectReference Include="..\facebook-core\facebook-core.csproj" PrivateAssets="None" />
   </ItemGroup>
 
 </Project>
