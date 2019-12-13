@@ -55,7 +55,7 @@
 
   <ItemGroup>
 
-    <PackageReference Include="Xamarin.GooglePlayServices.Basement" Version="71.1620.0" />
+    <PackageReference Include="Xamarin.GooglePlayServices.Basement" Version="71.1620.0" PrivateAssets="None" />
 
   </ItemGroup>
 

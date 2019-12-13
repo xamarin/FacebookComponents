@@ -41,11 +41,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CoreKit\CoreKit.csproj" />
-    <ProjectReference Include="..\LoginKit\LoginKit.csproj" />
-    <ProjectReference Include="..\MarketingKit\MarketingKit.csproj" />
-    <ProjectReference Include="..\PlacesKit\PlacesKit.csproj" />
-    <ProjectReference Include="..\ShareKit\ShareKit.csproj" />
+    <ProjectReference Include="..\CoreKit\CoreKit.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\LoginKit\LoginKit.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\MarketingKit\MarketingKit.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\PlacesKit\PlacesKit.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\ShareKit\ShareKit.csproj" PrivateAssets="None" />
   </ItemGroup>
 
 </Project>

@@ -67,7 +67,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CoreKit\CoreKit.csproj" />
+    <ProjectReference Include="..\CoreKit\CoreKit.csproj" PrivateAssets="None" />
   </ItemGroup>
 
 </Project>
