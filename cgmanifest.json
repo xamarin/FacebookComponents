@@ -185,8 +185,8 @@
 				"type": "other",
 				"other": {
 					"name": "FBSDSKMarketingKit",
-					"version": "5.15.1",
-					"downloadUrl": "https://github.com/facebook/facebook-ios-sdk/releases/download/v5.15.1/FBSDKMarketingKit.zip"
+					"version": "5.14.0",
+					"downloadUrl": "https://github.com/facebook/facebook-ios-sdk/releases/download/v5.14.0/FBSDKMarketingKit.zip"
 				}
 			}
 		},
