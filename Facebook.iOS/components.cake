@@ -1,11 +1,11 @@
-var FACEBOOK_SDK_VERSION = "5.12.0";
+var FACEBOOK_SDK_VERSION = "5.15.1";
 
 var ACCOUNT_KIT_VERSION      = "5.4.0";
-var AUDIENCE_NETWORK_VERSION = "5.6.0";
+var AUDIENCE_NETWORK_VERSION = "5.9.0";
 var CORE_KIT_VERSION         = FACEBOOK_SDK_VERSION;
 var FACEBOOK_SDKS_VERSION    = FACEBOOK_SDK_VERSION;
 var LOGIN_KIT_VERSION        = FACEBOOK_SDK_VERSION;
-var MARKETING_KIT_VERSION    = "5.11.1";
+var MARKETING_KIT_VERSION    = FACEBOOK_SDK_VERSION;
 var PLACES_KIT_VERSION       = FACEBOOK_SDK_VERSION;
 var SHARE_KIT_VERSION        = FACEBOOK_SDK_VERSION;
 
@@ -57,16 +57,16 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("FacebookSdks", FACEBOOK_SDKS_VERSION, frameworkSource: FrameworkSource.Custom)
 	};
 	LOGIN_KIT_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("FBSDKLoginKit", new Repository ("https://github.com/facebook/facebook-objc-sdk.git", tag: $"v{LOGIN_KIT_VERSION}"))
+		PodSpec.Create ("FBSDKLoginKit", new Repository ("https://github.com/facebook/facebook-ios-sdk.git", tag: $"v{LOGIN_KIT_VERSION}"))
 	};
 	MARKETING_KIT_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("FBSDKMarketingKit", MARKETING_KIT_VERSION, canBeBuild: false)
 	};
 	PLACES_KIT_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("FBSDKPlacesKit", new Repository ("https://github.com/facebook/facebook-objc-sdk.git", tag: $"v{PLACES_KIT_VERSION}"))
+		PodSpec.Create ("FBSDKPlacesKit", new Repository ("https://github.com/facebook/facebook-ios-sdk.git", tag: $"v{PLACES_KIT_VERSION}"))
 	};
 	SHARE_KIT_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("FBSDKShareKit", new Repository ("https://github.com/facebook/facebook-objc-sdk.git", tag: $"v{SHARE_KIT_VERSION}"))
+		PodSpec.Create ("FBSDKShareKit", new Repository ("https://github.com/facebook/facebook-ios-sdk.git", tag: $"v{SHARE_KIT_VERSION}"))
 	};
 }
 

@@ -6,7 +6,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-android-sdk",
 					"GroupId": "com.facebook.android",
-					"Version": "5.11.2"
+					"Version": "5.15.3"
 				}
 			}
 		},
@@ -16,7 +16,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-core",
 					"GroupId": "com.facebook.android",
-					"Version": "5.11.2"
+					"Version": "5.15.3"
 				}
 			}
 		},
@@ -26,7 +26,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-common",
 					"GroupId": "com.facebook.android",
-					"Version": "5.11.2"
+					"Version": "5.15.3"
 				}
 			}
 		},
@@ -36,7 +36,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-login",
 					"GroupId": "com.facebook.android",
-					"Version": "5.11.2"
+					"Version": "5.15.3"
 				}
 			}
 		},
@@ -46,7 +46,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-share",
 					"GroupId": "com.facebook.android",
-					"Version": "5.11.2"
+					"Version": "5.15.3"
 				}
 			}
 		},
@@ -56,7 +56,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-places",
 					"GroupId": "com.facebook.android",
-					"Version": "5.11.2"
+					"Version": "5.15.3"
 				}
 			}
 		},
@@ -66,7 +66,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-applinks",
 					"GroupId": "com.facebook.android",
-					"Version": "5.11.2"
+					"Version": "5.15.3"
 				}
 			}
 		},
@@ -76,7 +76,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-messenger",
 					"GroupId": "com.facebook.android",
-					"Version": "5.11.2"
+					"Version": "5.15.3"
 				}
 			}
 		},
@@ -106,7 +106,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-marketing",
 					"GroupId": "com.facebook.android",
-					"Version": "5.11.2"
+					"Version": "5.15.2"
 				}
 			}
 		},
@@ -126,7 +126,7 @@
 				"Maven": {
 					"ArtifactId": "audience-network-sdk",
 					"GroupId": "com.facebook.android",
-					"Version": "5.6.0"
+					"Version": "5.9.0"
 				}
 			}
 		},
@@ -146,7 +146,7 @@
 				"other": {
 					"name": "AccountKit",
 					"version": "5.4.0",
-					"downloadUrl": "https://github.com/facebook/facebook-objc-sdk/releases/download/v5.4.0/AccountKit.zip"
+					"downloadUrl": "https://github.com/facebook/facebook-ios-sdk/releases/download/v5.4.0/AccountKit.zip"
 				}
 			}
 		},
@@ -155,8 +155,8 @@
 				"type": "other",
 				"other": {
 					"name": "FBAudienceNetwork",
-					"version": "5.5.1",
-					"downloadUrl": "https://developers.facebook.com/resources/FBAudienceNetwork-5.5.1.zip"
+					"version": "5.9.0",
+					"downloadUrl": "https://developers.facebook.com/resources/FBAudienceNetwork-5.9.0.zip"
 				}
 			}
 		},
@@ -165,8 +165,8 @@
 				"type": "git",
 				"git": {
 					"name": "FBSDSKCoreKit",
-					"repositoryUrl": "https://github.com/facebook/facebook-objc-sdk.git",
-					"commitHash": "cf9e0d837f9596223b05cb25faf0edf54d6347a2"
+					"repositoryUrl": "https://github.com/facebook/facebook-ios-sdk.git",
+					"commitHash": "9398d30089c2c14e0f0026e24388ca0829f8f1c5"
 				}
 			}
 		},
@@ -175,8 +175,8 @@
 				"type": "git",
 				"git": {
 					"name": "FBSDSKLoginKit",
-					"repositoryUrl": "https://github.com/facebook/facebook-objc-sdk.git",
-					"commitHash": "cf9e0d837f9596223b05cb25faf0edf54d6347a2"
+					"repositoryUrl": "https://github.com/facebook/facebook-ios-sdk.git",
+					"commitHash": "9398d30089c2c14e0f0026e24388ca0829f8f1c5"
 				}
 			}
 		},
@@ -185,8 +185,8 @@
 				"type": "other",
 				"other": {
 					"name": "FBSDSKMarketingKit",
-					"version": "5.5.0",
-					"downloadUrl": "https://github.com/facebook/facebook-objc-sdk/releases/download/v5.5.0/FBSDKMarketingKit.zip"
+					"version": "5.15.1",
+					"downloadUrl": "https://github.com/facebook/facebook-ios-sdk/releases/download/v5.15.1/FBSDKMarketingKit.zip"
 				}
 			}
 		},
@@ -195,8 +195,8 @@
 				"type": "git",
 				"git": {
 					"name": "FBSDSKPlacesKit",
-					"repositoryUrl": "https://github.com/facebook/facebook-objc-sdk.git",
-					"commitHash": "cf9e0d837f9596223b05cb25faf0edf54d6347a2"
+					"repositoryUrl": "https://github.com/facebook/facebook-ios-sdk.git",
+					"commitHash": "9398d30089c2c14e0f0026e24388ca0829f8f1c5"
 				}
 			}
 		},
@@ -205,8 +205,8 @@
 				"type": "git",
 				"git": {
 					"name": "FBSDSKShareKit",
-					"repositoryUrl": "https://github.com/facebook/facebook-objc-sdk.git",
-					"commitHash": "cf9e0d837f9596223b05cb25faf0edf54d6347a2"
+					"repositoryUrl": "https://github.com/facebook/facebook-ios-sdk.git",
+					"commitHash": "9398d30089c2c14e0f0026e24388ca0829f8f1c5"
 				}
 			}
 		}
