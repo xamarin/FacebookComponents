@@ -106,7 +106,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-marketing",
 					"GroupId": "com.facebook.android",
-					"Version": "5.15.2"
+					"Version": "5.15.3"
 				}
 			}
 		},
