@@ -1,22 +1,33 @@
 <metadata>
+    
     <attr path="/api/package[@name='com.facebook']" name="managedName">Xamarin.Facebook</attr>
     <attr path="/api/package[@name='com.facebook.appevents']" name="managedName">Xamarin.Facebook.AppEvents</attr>
     <attr path="/api/package[@name='com.facebook.appevents.aam']" name="managedName">Xamarin.Facebook.AppEvents.Aam</attr>
+    <attr path="/api/package[@name='com.facebook.appevents.codeless']" name="managedName">Xamarin.Facebook.AppEvents.Codeless</attr>
+    <attr path="/api/package[@name='com.facebook.appevents.codeless.internal']" name="managedName">Xamarin.Facebook.AppEvents.Codeless.Internal</attr>
+    <attr path="/api/package[@name='com.facebook.appevents.eventdeactivation']" name="managedName">Xamarin.Facebook.Appevents.Eventdeactivation</attr>
+    <attr path="/api/package[@name='com.facebook.appevents.integrity']" name="managedName">Xamarin.Facebook.Appevents.Integrity</attr>
+    <attr path="/api/package[@name='com.facebook.appevents.internal']" name="managedName">Xamarin.Facebook.AppEvents.Internal</attr>
     <attr path="/api/package[@name='com.facebook.appevents.ml']" name="managedName">Xamarin.Facebook.AppEvents.ML</attr>
     <attr path="/api/package[@name='com.facebook.appevents.restrictivedatafilter']" name="managedName">Xamarin.Facebook.AppEvents.RestrictiveDataFilter</attr>
     <attr path="/api/package[@name='com.facebook.appevents.suggestedevents']" name="managedName">Xamarin.Facebook.AppEvents.SuggestedEvents</attr>
-    <attr path="/api/package[@name='com.facebook.appevents.internal']" name="managedName">Xamarin.Facebook.AppEvents.Internal</attr>
-    <attr path="/api/package[@name='com.facebook.appevents.codeless']" name="managedName">Xamarin.Facebook.AppEvents.Codeless</attr>
-    <attr path="/api/package[@name='com.facebook.appevents.codeless.internal']" name="managedName">Xamarin.Facebook.AppEvents.Codeless.Internal</attr>
-    <attr path="/api/package[@name='com.facebook.internal.instrument']" name="managedName">Xamarin.Facebook.Internal.Instrument</attr>
-    <attr path="/api/package[@name='com.facebook.internal.instrument.errorreport']" name="managedName">Xamarin.Facebook.Internal.Instrument.ErrorReport</attr>
-    <attr path="/api/package[@name='com.facebook.internal.instrument.crashreport']" name="managedName">Xamarin.Facebook.Internal.Instrument.CrashReport</attr>
-
     <attr path="/api/package[@name='com.facebook.core']" name="managedName">Xamarin.Facebook.Core</attr>
     <attr path="/api/package[@name='com.facebook.internal']" name="managedName">Xamarin.Facebook.Internal</attr>
+    <attr path="/api/package[@name='com.facebook.internal.instrument']" name="managedName">Xamarin.Facebook.Internal.Instrument</attr>
+    <attr path="/api/package[@name='com.facebook.internal.instrument.crashreport']" name="managedName">Xamarin.Facebook.Internal.Instrument.CrashReport</attr>
+    <attr path="/api/package[@name='com.facebook.internal.instrument.crashshield']" name="managedName">Xamarin.Facebook.Internal.Instrument.Crashshield</attr>
+    <attr path="/api/package[@name='com.facebook.internal.instrument.errorreport']" name="managedName">Xamarin.Facebook.Internal.Instrument.ErrorReport</attr>
+    <attr path="/api/package[@name='com.facebook.internal.instrument.threadcheck']" name="managedName">Xamarin.Facebook.Internal.Instrument.Threadcheck</attr>
+    <attr path="/api/package[@name='com.facebook.internal.logging']" name="managedName">Xamarin.Facebook.Internal.Logging</attr>
+    <attr path="/api/package[@name='com.facebook.internal.logging.monitor']" name="managedName">Xamarin.Facebook.Internal.Logging.Monitor</attr>
+    <attr path="/api/package[@name='com.facebook.internal.metrics']" name="managedName">Xamarin.Facebook.Internal.Metrics</attr>
+    <attr path="/api/package[@name='com.facebook.internal.security']" name="managedName">Xamarin.Facebook.Internal.Security</attr>
     <attr path="/api/package[@name='com.facebook.login']" name="managedName">Xamarin.Facebook.Login</attr>
+    
 
     <remove-node path="/api/package[@name='com.facebook']/class[@name='GraphRequestAsyncTask']/method[@name='doInBackground' and count(parameter)=1 and parameter[1][@type='java.lang.Void...']]" />
 
     <attr path="/api/package[@name='com.facebook']/class[@name='GraphRequestBatch']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]" name="managedReturn">Java.Lang.Object</attr>
+    
+   <remove-node path="/api/package[@name='com.facebook.appevents.internal']/class[@name='FileDownloadTask']/method[@name='doInBackground' and count(parameter)=1 and parameter[1][@type='java.lang.String...']]" />
 </metadata>
