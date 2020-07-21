@@ -416,7 +416,7 @@ namespace Facebook.CoreKit
 		AccessTokenRequired,
 		AppVersionUnsupported,
 		BrowserUnavailable,
-		BridgeAPIInterruption
+		BridgeApiInterruption
 	}
 
 	[Native]

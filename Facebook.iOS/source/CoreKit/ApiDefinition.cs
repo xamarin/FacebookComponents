@@ -675,7 +675,7 @@ namespace Facebook.CoreKit {
 		// +(BOOL)isMatchURLScheme:(NSString * _Nonnull)scheme;
 		[Static]
 		[Export ("isMatchURLScheme:")]
-		bool IsMatchURLScheme (string scheme);
+		bool IsMatchUrlScheme (string scheme);
 	}
 
 	// @interface FBSDKButton : UIButton
