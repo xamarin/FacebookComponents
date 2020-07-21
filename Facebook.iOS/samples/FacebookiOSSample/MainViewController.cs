@@ -51,9 +51,7 @@ namespace FacebookiOSSample
 				LoggedIn (e.NewProfile.UserId);
 			});
 
-			loginButton = new LoginButton (new CGRect (48, 0, 218, 46)) {
-				LoginBehavior = LoginBehavior.Browser
-			};
+			loginButton = new LoginButton(new CGRect(48, 0, 218, 46));
 
 			// Handle actions once the user is logged in
 			loginButton.Completed += (sender, e) => {

@@ -96,6 +96,10 @@ namespace Facebook.CoreKit {
 		[Wrap ("UserId")]
 		string UserID { get; }
 
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull graphDomain;
+		[Export ("graphDomain")]
+		string GraphDomain { get; }
+
 		// @property (readonly, assign, nonatomic, getter = isExpired) BOOL expired;
 		[Export ("isExpired", ArgumentSemantic.Assign)]
 		bool IsExpired { get; }
@@ -108,6 +112,10 @@ namespace Facebook.CoreKit {
 		[DesignatedInitializer]
 		[Export ("initWithTokenString:permissions:declinedPermissions:expiredPermissions:appID:userID:expirationDate:refreshDate:dataAccessExpirationDate:")]
 		IntPtr Constructor (string tokenString, string [] permissions, string [] declinedPermissions, string [] expiredPermissions, string appId, string userId, [NullAllowed] NSDate expirationDate, [NullAllowed] NSDate refreshDate, [NullAllowed] NSDate dataAccessExpirationDate);
+
+		// -(instancetype _Nonnull)initWithTokenString:(NSString * _Nonnull)tokenString permissions:(NSArray<NSString *> * _Nonnull)permissions declinedPermissions:(NSArray<NSString *> * _Nonnull)declinedPermissions expiredPermissions:(NSArray<NSString *> * _Nonnull)expiredPermissions appID:(NSString * _Nonnull)appID userID:(NSString * _Nonnull)userID expirationDate:(NSDate * _Nullable)expirationDate refreshDate:(NSDate * _Nullable)refreshDate dataAccessExpirationDate:(NSDate * _Nullable)dataAccessExpirationDate graphDomain:(NSString * _Nullable)graphDomain;
+		[Export ("initWithTokenString:permissions:declinedPermissions:expiredPermissions:appID:userID:expirationDate:refreshDate:dataAccessExpirationDate:graphDomain:")]
+		IntPtr Constructor (string tokenString, string[] permissions, string[] declinedPermissions, string[] expiredPermissions, string appID, string userID, [NullAllowed] NSDate expirationDate, [NullAllowed] NSDate refreshDate, [NullAllowed] NSDate dataAccessExpirationDate, [NullAllowed] string graphDomain);
 
 		// -(BOOL)hasGranted:(NSString *)permission;
 		[Export ("hasGranted:")]
@@ -159,6 +167,11 @@ namespace Facebook.CoreKit {
 		[NullAllowed]
 		[Export ("userID")]
 		string UserId { get; set; }
+
+		// @property (readonly, nonatomic, class) NSString * _Nonnull anonymousID;
+		[Static]
+		[Export ("anonymousID")]
+		string AnonymousId { get; }
 
 		// +(void)logEvent:(NSString *)eventName;
 		[Protected]
@@ -658,6 +671,11 @@ namespace Facebook.CoreKit {
 		[Static]
 		[Export ("appInvitePromotionCodeFromURL:")]
 		string AppInvitePromotionCode (NSUrl url);
+
+		// +(BOOL)isMatchURLScheme:(NSString * _Nonnull)scheme;
+		[Static]
+		[Export ("isMatchURLScheme:")]
+		bool IsMatchURLScheme (string scheme);
 	}
 
 	// @interface FBSDKButton : UIButton
@@ -1149,6 +1167,14 @@ namespace Facebook.CoreKit {
 		[Export ("initWithFrame:")]
 		IntPtr Constructor (CGRect frame);
 
+		// -(instancetype _Nonnull)initWithFrame:(CGRect)frame profile:(FBSDKProfile * _Nullable)profile;
+		[Export ("initWithFrame:profile:")]
+		IntPtr Constructor (CGRect frame, [NullAllowed] Profile profile);
+
+		// -(instancetype _Nonnull)initWithProfile:(FBSDKProfile * _Nullable)profile;
+		[Export ("initWithProfile:")]
+		IntPtr Constructor ([NullAllowed] Profile profile);
+
 		// @property (assign, nonatomic) FBSDKProfilePictureMode pictureMode;
 		[Export ("pictureMode", ArgumentSemantic.Assign)]
 		ProfilePictureMode PictureMode { get; set; }
@@ -1252,7 +1278,17 @@ namespace Facebook.CoreKit {
 		[Export ("graphAPIVersion")]
 		string GraphApiVersion { get; set; }
 
-		// +(void)enableLoggingBehavior:(FBSDKLoggingBehavior _Nonnull)loggingBehavior;
+		// +(void)setDataProcessingOptions:(NSArray<NSString *> * _Nullable)options;
+		[Static]
+		[Export ("setDataProcessingOptions:")]
+		void SetDataProcessingOptions ([NullAllowed] string[] options);
+
+		// +(void)setDataProcessingOptions:(NSArray<NSString *> * _Nullable)options country:(int)country state:(int)state;
+		[Static]
+		[Export ("setDataProcessingOptions:country:state:")]
+		void SetDataProcessingOptions ([NullAllowed] string[] options, int country, int state);
+
+	// +(void)enableLoggingBehavior:(FBSDKLoggingBehavior _Nonnull)loggingBehavior;
 		[Static]
 		[Export ("enableLoggingBehavior:")]
 		void EnableLoggingBehavior ([BindAs (typeof (LoggingBehavior))] NSString loggingBehavior);
