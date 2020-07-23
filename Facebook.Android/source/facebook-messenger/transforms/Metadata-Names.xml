@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+  <attr
+    path="/api/package[@name='com.facebook.messenger']/class[@name='ShareToMessengerParams']/method[@name='newBuilder' and count(parameter)=2 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='java.lang.String']]/parameter[1]"
+    name="managedName">uri</attr>
+  <attr
+    path="/api/package[@name='com.facebook.messenger']/class[@name='ShareToMessengerParams']/method[@name='newBuilder' and count(parameter)=2 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='java.lang.String']]/parameter[2]"
+    name="managedName">mimeType</attr>
+  <attr
+    path="/api/package[@name='com.facebook.messenger']/class[@name='MessengerUtils']/method[@name='shareToMessenger' and count(parameter)=3 and parameter[1][@type='android.app.Activity'] and parameter[2][@type='int'] and parameter[3][@type='com.facebook.messenger.ShareToMessengerParams']]/parameter[1]"
+    name="managedName">activity</attr>
+  <attr
+    path="/api/package[@name='com.facebook.messenger']/class[@name='MessengerUtils']/method[@name='shareToMessenger' and count(parameter)=3 and parameter[1][@type='android.app.Activity'] and parameter[2][@type='int'] and parameter[3][@type='com.facebook.messenger.ShareToMessengerParams']]/parameter[2]"
+    name="managedName">requestCode</attr>
+  <attr
+    path="/api/package[@name='com.facebook.messenger']/class[@name='MessengerUtils']/method[@name='shareToMessenger' and count(parameter)=3 and parameter[1][@type='android.app.Activity'] and parameter[2][@type='int'] and parameter[3][@type='com.facebook.messenger.ShareToMessengerParams']]/parameter[3]"
+    name="managedName">shareToMessengerParams</attr>
+  <attr
+    path="/api/package[@name='com.facebook.messenger']/class[@name='MessengerUtils']/method[@name='getMessengerThreadParamsForIntent' and count(parameter)=1 and parameter[1][@type='android.content.Intent']]/parameter[1]"
+    name="managedName">intent</attr>
+  <attr
+    path="/api/package[@name='com.facebook.messenger']/class[@name='MessengerUtils']/method[@name='finishShareToMessenger' and count(parameter)=2 and parameter[1][@type='android.app.Activity'] and parameter[2][@type='com.facebook.messenger.ShareToMessengerParams']]/parameter[1]"
+    name="managedName">activity</attr>
+  <attr
+    path="/api/package[@name='com.facebook.messenger']/class[@name='MessengerUtils']/method[@name='finishShareToMessenger' and count(parameter)=2 and parameter[1][@type='android.app.Activity'] and parameter[2][@type='com.facebook.messenger.ShareToMessengerParams']]/parameter[2]"
+    name="managedName">shareToMessengerParams</attr>
+  <attr
+    path="/api/package[@name='com.facebook.messenger']/class[@name='MessengerUtils']/method[@name='hasMessengerInstalled' and count(parameter)=1 and parameter[1][@type='android.content.Context']]/parameter[1]"
+    name="managedName">context</attr>
+  <attr
+    path="/api/package[@name='com.facebook.messenger']/class[@name='MessengerUtils']/method[@name='openMessengerInPlayStore' and count(parameter)=1 and parameter[1][@type='android.content.Context']]/parameter[1]"
+    name="managedName">context</attr>
+  <attr
+    path="/api/package[@name='com.facebook.messenger']/interface[@name='MessengerThreadParams.Origin']/method[@name='valueOf' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">name</attr>
+  <attr
+    path="/api/package[@name='com.facebook.messenger']/class[@name='MessengerThreadParams']/constructor[@name='MessengerThreadParams' and count(parameter)=4 and parameter[1][@type='com.facebook.messenger.MessengerThreadParams.Origin'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='java.util.List']]/parameter[1]"
+    name="managedName">origin</attr>
+  <attr
+    path="/api/package[@name='com.facebook.messenger']/class[@name='MessengerThreadParams']/constructor[@name='MessengerThreadParams' and count(parameter)=4 and parameter[1][@type='com.facebook.messenger.MessengerThreadParams.Origin'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='java.util.List']]/parameter[2]"
+    name="managedName">threadToken</attr>
+  <attr
+    path="/api/package[@name='com.facebook.messenger']/class[@name='MessengerThreadParams']/constructor[@name='MessengerThreadParams' and count(parameter)=4 and parameter[1][@type='com.facebook.messenger.MessengerThreadParams.Origin'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='java.util.List']]/parameter[3]"
+    name="managedName">metadata</attr>
+  <attr
+    path="/api/package[@name='com.facebook.messenger']/class[@name='MessengerThreadParams']/constructor[@name='MessengerThreadParams' and count(parameter)=4 and parameter[1][@type='com.facebook.messenger.MessengerThreadParams.Origin'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='java.util.List']]/parameter[4]"
+    name="managedName">participants</attr>
+  <attr
+    path="/api/package[@name='com.facebook.messenger']/class[@name='ShareToMessengerParamsBuilder']/method[@name='setMetaData' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">metaData</attr>
+  <attr
+    path="/api/package[@name='com.facebook.messenger']/class[@name='ShareToMessengerParamsBuilder']/method[@name='setExternalUri' and count(parameter)=1 and parameter[1][@type='android.net.Uri']]/parameter[1]"
+    name="managedName">externalUri</attr>
+</metadata>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+  <attr
+    path="/api/package[@name='com.facebook.applinks']/class[@name='FacebookAppLinkResolver']/method[@name='getAppLinkFromUrlInBackground' and count(parameter)=1 and parameter[1][@type='android.net.Uri']]/parameter[1]"
+    name="managedName">uri</attr>
+  <attr
+    path="/api/package[@name='com.facebook.applinks']/class[@name='FacebookAppLinkResolver']/method[@name='getAppLinkFromUrlsInBackground' and count(parameter)=1 and parameter[1][@type='java.util.List']]/parameter[1]"
+    name="managedName">uris</attr>
+  <attr
+    path="/api/package[@name='com.facebook.applinks']/class[@name='AppLinkData']/method[@name='fetchDeferredAppLinkData' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='com.facebook.applinks.AppLinkData.CompletionHandler']]/parameter[1]"
+    name="managedName">context</attr>
+  <attr
+    path="/api/package[@name='com.facebook.applinks']/class[@name='AppLinkData']/method[@name='fetchDeferredAppLinkData' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='com.facebook.applinks.AppLinkData.CompletionHandler']]/parameter[2]"
+    name="managedName">completionHandler</attr>
+  <attr
+    path="/api/package[@name='com.facebook.applinks']/class[@name='AppLinkData']/method[@name='fetchDeferredAppLinkData' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='com.facebook.applinks.AppLinkData.CompletionHandler']]/parameter[1]"
+    name="managedName">context</attr>
+  <attr
+    path="/api/package[@name='com.facebook.applinks']/class[@name='AppLinkData']/method[@name='fetchDeferredAppLinkData' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='com.facebook.applinks.AppLinkData.CompletionHandler']]/parameter[2]"
+    name="managedName">applicationId</attr>
+  <attr
+    path="/api/package[@name='com.facebook.applinks']/class[@name='AppLinkData']/method[@name='fetchDeferredAppLinkData' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='com.facebook.applinks.AppLinkData.CompletionHandler']]/parameter[3]"
+    name="managedName">completionHandler</attr>
+  <attr
+    path="/api/package[@name='com.facebook.applinks']/class[@name='AppLinkData']/method[@name='createFromActivity' and count(parameter)=1 and parameter[1][@type='android.app.Activity']]/parameter[1]"
+    name="managedName">activity</attr>
+  <attr
+    path="/api/package[@name='com.facebook.applinks']/class[@name='AppLinkData']/method[@name='createFromAlApplinkData' and count(parameter)=1 and parameter[1][@type='android.content.Intent']]/parameter[1]"
+    name="managedName">intent</attr>
+  <attr
+    path="/api/package[@name='com.facebook.applinks']/interface[@name='AppLinkData.CompletionHandler']/method[@name='onDeferredAppLinkDataFetched' and count(parameter)=1 and parameter[1][@type='com.facebook.applinks.AppLinkData']]/parameter[1]"
+    name="managedName">appLinkData</attr>
+</metadata>

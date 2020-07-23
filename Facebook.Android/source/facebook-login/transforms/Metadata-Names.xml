@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+  <attr
+    path="/api/package[@name='com.facebook.login']/class[@name='DeviceLoginManager']/method[@name='setDeviceRedirectUri' and count(parameter)=1 and parameter[1][@type='android.net.Uri']]/parameter[1]"
+    name="managedName">uri</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login']/class[@name='DeviceLoginManager']/method[@name='setDeviceAuthTargetUserId' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">targetUserId</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login']/class[@name='DeviceLoginManager']/method[@name='createLoginRequest' and count(parameter)=1 and parameter[1][@type='java.util.Collection']]/parameter[1]"
+    name="managedName">permissions</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='DeviceLoginButton']/method[@name='setDeviceRedirectUri' and count(parameter)=1 and parameter[1][@type='android.net.Uri']]/parameter[1]"
+    name="managedName">uri</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='DeviceLoginButton']/constructor[@name='DeviceLoginButton' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet'] and parameter[3][@type='int']]/parameter[1]"
+    name="managedName">context</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='DeviceLoginButton']/constructor[@name='DeviceLoginButton' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet'] and parameter[3][@type='int']]/parameter[2]"
+    name="managedName">attrs</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='DeviceLoginButton']/constructor[@name='DeviceLoginButton' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet'] and parameter[3][@type='int']]/parameter[3]"
+    name="managedName">defStyle</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='DeviceLoginButton']/constructor[@name='DeviceLoginButton' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet']]/parameter[1]"
+    name="managedName">context</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='DeviceLoginButton']/constructor[@name='DeviceLoginButton' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet']]/parameter[2]"
+    name="managedName">attrs</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='DeviceLoginButton']/constructor[@name='DeviceLoginButton' and count(parameter)=1 and parameter[1][@type='android.content.Context']]/parameter[1]"
+    name="managedName">context</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setLoginText' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">loginText</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setLogoutText' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">logoutText</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setDefaultAudience' and count(parameter)=1 and parameter[1][@type='com.facebook.login.DefaultAudience']]/parameter[1]"
+    name="managedName">defaultAudience</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setReadPermissions' and count(parameter)=1 and parameter[1][@type='java.util.List']]/parameter[1]"
+    name="managedName">permissions</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setReadPermissions' and count(parameter)=1 and parameter[1][@type='java.lang.String...']]/parameter[1]"
+    name="managedName">permissions</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setPermissions' and count(parameter)=1 and parameter[1][@type='java.util.List']]/parameter[1]"
+    name="managedName">permissions</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setPermissions' and count(parameter)=1 and parameter[1][@type='java.lang.String...']]/parameter[1]"
+    name="managedName">permissions</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setPublishPermissions' and count(parameter)=1 and parameter[1][@type='java.util.List']]/parameter[1]"
+    name="managedName">permissions</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setPublishPermissions' and count(parameter)=1 and parameter[1][@type='java.lang.String...']]/parameter[1]"
+    name="managedName">permissions</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setLoginBehavior' and count(parameter)=1 and parameter[1][@type='com.facebook.login.LoginBehavior']]/parameter[1]"
+    name="managedName">loginBehavior</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setAuthType' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">authType</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setToolTipStyle' and count(parameter)=1 and parameter[1][@type='com.facebook.login.widget.ToolTipPopup.Style']]/parameter[1]"
+    name="managedName">toolTipStyle</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setToolTipMode' and count(parameter)=1 and parameter[1][@type='com.facebook.login.widget.LoginButton.ToolTipMode']]/parameter[1]"
+    name="managedName">toolTipMode</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setToolTipDisplayTime' and count(parameter)=1 and parameter[1][@type='long']]/parameter[1]"
+    name="managedName">displayTime</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][@type='com.facebook.CallbackManager'] and parameter[2][@type='com.facebook.FacebookCallback']]/parameter[1]"
+    name="managedName">callbackManager</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][@type='com.facebook.CallbackManager'] and parameter[2][@type='com.facebook.FacebookCallback']]/parameter[2]"
+    name="managedName">callback</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='unregisterCallback' and count(parameter)=1 and parameter[1][@type='com.facebook.CallbackManager']]/parameter[1]"
+    name="managedName">callbackManager</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='onDraw' and count(parameter)=1 and parameter[1][@type='android.graphics.Canvas']]/parameter[1]"
+    name="managedName">canvas</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='onLayout' and count(parameter)=5 and parameter[1][@type='boolean'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='int']]/parameter[1]"
+    name="managedName">changed</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='onLayout' and count(parameter)=5 and parameter[1][@type='boolean'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='int']]/parameter[2]"
+    name="managedName">left</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='onLayout' and count(parameter)=5 and parameter[1][@type='boolean'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='int']]/parameter[3]"
+    name="managedName">top</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='onLayout' and count(parameter)=5 and parameter[1][@type='boolean'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='int']]/parameter[4]"
+    name="managedName">right</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='onLayout' and count(parameter)=5 and parameter[1][@type='boolean'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='int']]/parameter[5]"
+    name="managedName">bottom</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='onVisibilityChanged' and count(parameter)=2 and parameter[1][@type='android.view.View'] and parameter[2][@type='int']]/parameter[1]"
+    name="managedName">changedView</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='onVisibilityChanged' and count(parameter)=2 and parameter[1][@type='android.view.View'] and parameter[2][@type='int']]/parameter[2]"
+    name="managedName">visibility</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='configureButton' and count(parameter)=4 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet'] and parameter[3][@type='int'] and parameter[4][@type='int']]/parameter[1]"
+    name="managedName">context</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='configureButton' and count(parameter)=4 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet'] and parameter[3][@type='int'] and parameter[4][@type='int']]/parameter[2]"
+    name="managedName">attrs</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='configureButton' and count(parameter)=4 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet'] and parameter[3][@type='int'] and parameter[4][@type='int']]/parameter[3]"
+    name="managedName">defStyleAttr</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='configureButton' and count(parameter)=4 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet'] and parameter[3][@type='int'] and parameter[4][@type='int']]/parameter[4]"
+    name="managedName">defStyleRes</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='onMeasure' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='int']]/parameter[1]"
+    name="managedName">widthMeasureSpec</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='onMeasure' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='int']]/parameter[2]"
+    name="managedName">heightMeasureSpec</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/constructor[@name='LoginButton' and count(parameter)=1 and parameter[1][@type='android.content.Context']]/parameter[1]"
+    name="managedName">context</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/constructor[@name='LoginButton' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet']]/parameter[1]"
+    name="managedName">context</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/constructor[@name='LoginButton' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet']]/parameter[2]"
+    name="managedName">attrs</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/constructor[@name='LoginButton' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet'] and parameter[3][@type='int']]/parameter[1]"
+    name="managedName">context</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/constructor[@name='LoginButton' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet'] and parameter[3][@type='int']]/parameter[2]"
+    name="managedName">attrs</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/constructor[@name='LoginButton' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet'] and parameter[3][@type='int']]/parameter[3]"
+    name="managedName">defStyle</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ProfilePictureView']/method[@name='setPresetSize' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]"
+    name="managedName">sizeType</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ProfilePictureView']/method[@name='setCropped' and count(parameter)=1 and parameter[1][@type='boolean']]/parameter[1]"
+    name="managedName">showCroppedVersion</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ProfilePictureView']/method[@name='setProfileId' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">profileId</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ProfilePictureView']/method[@name='setOnErrorListener' and count(parameter)=1 and parameter[1][@type='com.facebook.login.widget.ProfilePictureView.OnErrorListener']]/parameter[1]"
+    name="managedName">onErrorListener</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ProfilePictureView']/method[@name='setDefaultProfilePicture' and count(parameter)=1 and parameter[1][@type='android.graphics.Bitmap']]/parameter[1]"
+    name="managedName">inputBitmap</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ProfilePictureView']/method[@name='onMeasure' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='int']]/parameter[1]"
+    name="managedName">widthMeasureSpec</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ProfilePictureView']/method[@name='onMeasure' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='int']]/parameter[2]"
+    name="managedName">heightMeasureSpec</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ProfilePictureView']/method[@name='onLayout' and count(parameter)=5 and parameter[1][@type='boolean'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='int']]/parameter[1]"
+    name="managedName">changed</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ProfilePictureView']/method[@name='onLayout' and count(parameter)=5 and parameter[1][@type='boolean'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='int']]/parameter[2]"
+    name="managedName">left</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ProfilePictureView']/method[@name='onLayout' and count(parameter)=5 and parameter[1][@type='boolean'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='int']]/parameter[3]"
+    name="managedName">top</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ProfilePictureView']/method[@name='onLayout' and count(parameter)=5 and parameter[1][@type='boolean'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='int']]/parameter[4]"
+    name="managedName">right</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ProfilePictureView']/method[@name='onLayout' and count(parameter)=5 and parameter[1][@type='boolean'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='int']]/parameter[5]"
+    name="managedName">bottom</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ProfilePictureView']/method[@name='onRestoreInstanceState' and count(parameter)=1 and parameter[1][@type='android.os.Parcelable']]/parameter[1]"
+    name="managedName">state</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ProfilePictureView']/constructor[@name='ProfilePictureView' and count(parameter)=1 and parameter[1][@type='android.content.Context']]/parameter[1]"
+    name="managedName">context</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ProfilePictureView']/constructor[@name='ProfilePictureView' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet']]/parameter[1]"
+    name="managedName">context</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ProfilePictureView']/constructor[@name='ProfilePictureView' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet']]/parameter[2]"
+    name="managedName">attrs</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ProfilePictureView']/constructor[@name='ProfilePictureView' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet'] and parameter[3][@type='int']]/parameter[1]"
+    name="managedName">context</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ProfilePictureView']/constructor[@name='ProfilePictureView' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet'] and parameter[3][@type='int']]/parameter[2]"
+    name="managedName">attrs</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ProfilePictureView']/constructor[@name='ProfilePictureView' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet'] and parameter[3][@type='int']]/parameter[3]"
+    name="managedName">defStyle</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/interface[@name='LoginButton.ToolTipMode']/method[@name='valueOf' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">name</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/interface[@name='LoginButton.ToolTipMode']/method[@name='fromInt' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]"
+    name="managedName">enumValue</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/interface[@name='ProfilePictureView.OnErrorListener']/method[@name='onError' and count(parameter)=1 and parameter[1][@type='com.facebook.FacebookException']]/parameter[1]"
+    name="managedName">error</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton.LoginClickListener']/method[@name='onClick' and count(parameter)=1 and parameter[1][@type='android.view.View']]/parameter[1]"
+    name="managedName">v</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton.LoginClickListener']/method[@name='performLogout' and count(parameter)=1 and parameter[1][@type='android.content.Context']]/parameter[1]"
+    name="managedName">context</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ToolTipPopup']/method[@name='setStyle' and count(parameter)=1 and parameter[1][@type='com.facebook.login.widget.ToolTipPopup.Style']]/parameter[1]"
+    name="managedName">mStyle</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ToolTipPopup']/method[@name='setNuxDisplayTime' and count(parameter)=1 and parameter[1][@type='long']]/parameter[1]"
+    name="managedName">displayTime</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ToolTipPopup']/constructor[@name='ToolTipPopup' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='android.view.View']]/parameter[1]"
+    name="managedName">text</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='ToolTipPopup']/constructor[@name='ToolTipPopup' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='android.view.View']]/parameter[2]"
+    name="managedName">anchor</attr>
+  <attr
+    path="/api/package[@name='com.facebook.login.widget']/interface[@name='ToolTipPopup.Style']/method[@name='valueOf' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">name</attr>
+</metadata>

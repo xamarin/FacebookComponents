@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+  <attr
+    path="/api/package[@name='com.facebook.places']/class[@name='PlaceManager']/method[@name='newPlaceSearchRequest' and count(parameter)=2 and parameter[1][@type='com.facebook.places.model.PlaceSearchRequestParams'] and parameter[2][@type='com.facebook.places.PlaceManager.OnRequestReadyCallback']]/parameter[1]"
+    name="managedName">requestParams</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places']/class[@name='PlaceManager']/method[@name='newPlaceSearchRequest' and count(parameter)=2 and parameter[1][@type='com.facebook.places.model.PlaceSearchRequestParams'] and parameter[2][@type='com.facebook.places.PlaceManager.OnRequestReadyCallback']]/parameter[2]"
+    name="managedName">callback</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places']/class[@name='PlaceManager']/method[@name='newPlaceSearchRequestForLocation' and count(parameter)=2 and parameter[1][@type='com.facebook.places.model.PlaceSearchRequestParams'] and parameter[2][@type='android.location.Location']]/parameter[1]"
+    name="managedName">requestParams</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places']/class[@name='PlaceManager']/method[@name='newPlaceSearchRequestForLocation' and count(parameter)=2 and parameter[1][@type='com.facebook.places.model.PlaceSearchRequestParams'] and parameter[2][@type='android.location.Location']]/parameter[2]"
+    name="managedName">location</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places']/class[@name='PlaceManager']/method[@name='newPlaceInfoRequest' and count(parameter)=1 and parameter[1][@type='com.facebook.places.model.PlaceInfoRequestParams']]/parameter[1]"
+    name="managedName">requestParams</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places']/class[@name='PlaceManager']/method[@name='newCurrentPlaceRequest' and count(parameter)=2 and parameter[1][@type='com.facebook.places.model.CurrentPlaceRequestParams'] and parameter[2][@type='com.facebook.places.PlaceManager.OnRequestReadyCallback']]/parameter[1]"
+    name="managedName">requestParams</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places']/class[@name='PlaceManager']/method[@name='newCurrentPlaceRequest' and count(parameter)=2 and parameter[1][@type='com.facebook.places.model.CurrentPlaceRequestParams'] and parameter[2][@type='com.facebook.places.PlaceManager.OnRequestReadyCallback']]/parameter[2]"
+    name="managedName">callback</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places']/class[@name='PlaceManager']/method[@name='newCurrentPlaceFeedbackRequest' and count(parameter)=1 and parameter[1][@type='com.facebook.places.model.CurrentPlaceFeedbackRequestParams']]/parameter[1]"
+    name="managedName">requestParams</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places']/interface[@name='PlaceManager.LocationError']/method[@name='valueOf' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">name</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places']/interface[@name='PlaceManager.OnRequestReadyCallback']/method[@name='onLocationError' and count(parameter)=1 and parameter[1][@type='com.facebook.places.PlaceManager.LocationError']]/parameter[1]"
+    name="managedName">error</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places']/interface[@name='PlaceManager.OnRequestReadyCallback']/method[@name='onRequestReady' and count(parameter)=1 and parameter[1][@type='com.facebook.GraphRequest']]/parameter[1]"
+    name="managedName">graphRequest</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationPackageManager']/method[@name='requestLocationPackage' and count(parameter)=2 and parameter[1][@type='com.facebook.places.internal.LocationPackageRequestParams'] and parameter[2][@type='com.facebook.places.internal.LocationPackageManager.Listener']]/parameter[1]"
+    name="managedName">requestParams</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationPackageManager']/method[@name='requestLocationPackage' and count(parameter)=2 and parameter[1][@type='com.facebook.places.internal.LocationPackageRequestParams'] and parameter[2][@type='com.facebook.places.internal.LocationPackageManager.Listener']]/parameter[2]"
+    name="managedName">listener</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/interface[@name='LocationPackageManager.Listener']/method[@name='onLocationPackage' and count(parameter)=1 and parameter[1][@type='com.facebook.places.internal.LocationPackage']]/parameter[1]"
+    name="managedName">locationPackage</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationPackageRequestParams.Builder']/method[@name='setLocationScanEnabled' and count(parameter)=1 and parameter[1][@type='boolean']]/parameter[1]"
+    name="managedName">locationScanEnabled</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationPackageRequestParams.Builder']/method[@name='setLastLocationMaxAgeMs' and count(parameter)=1 and parameter[1][@type='long']]/parameter[1]"
+    name="managedName">lastLocationMaxAgeMs</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationPackageRequestParams.Builder']/method[@name='setLocationProviders' and count(parameter)=1 and parameter[1][@type='java.lang.String:A']]/parameter[1]"
+    name="managedName">locationProviders</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationPackageRequestParams.Builder']/method[@name='setLocationMaxAccuracyMeters' and count(parameter)=1 and parameter[1][@type='float']]/parameter[1]"
+    name="managedName">locationMaxAccuracyMeters</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationPackageRequestParams.Builder']/method[@name='setLocationRequestTimeoutMs' and count(parameter)=1 and parameter[1][@type='long']]/parameter[1]"
+    name="managedName">locationRequestTimeoutMs</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationPackageRequestParams.Builder']/method[@name='setWifiScanEnabled' and count(parameter)=1 and parameter[1][@type='boolean']]/parameter[1]"
+    name="managedName">wifiScanEnabled</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationPackageRequestParams.Builder']/method[@name='setWifiScanMaxAgeMs' and count(parameter)=1 and parameter[1][@type='long']]/parameter[1]"
+    name="managedName">wifiScanMaxAgeMs</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationPackageRequestParams.Builder']/method[@name='setWifiMaxScanResults' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]"
+    name="managedName">wifiMaxScanResults</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationPackageRequestParams.Builder']/method[@name='setWifiScanTimeoutMs' and count(parameter)=1 and parameter[1][@type='long']]/parameter[1]"
+    name="managedName">wifiScanTimeoutMs</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationPackageRequestParams.Builder']/method[@name='setWifiActiveScanAllowed' and count(parameter)=1 and parameter[1][@type='boolean']]/parameter[1]"
+    name="managedName">wifiActiveScanAllowed</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationPackageRequestParams.Builder']/method[@name='setWifiActiveScanForced' and count(parameter)=1 and parameter[1][@type='boolean']]/parameter[1]"
+    name="managedName">wifiActiveScanForced</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationPackageRequestParams.Builder']/method[@name='setBluetoothScanEnabled' and count(parameter)=1 and parameter[1][@type='boolean']]/parameter[1]"
+    name="managedName">bluetoothScanEnabled</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationPackageRequestParams.Builder']/method[@name='setBluetoothScanDurationMs' and count(parameter)=1 and parameter[1][@type='long']]/parameter[1]"
+    name="managedName">bluetoothScanDurationMs</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationPackageRequestParams.Builder']/method[@name='setBluetoothMaxScanResults' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]"
+    name="managedName">bluetoothMaxScanResults</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationPackageRequestParams.Builder']/method[@name='setBluetoothFlushResultsTimeoutMs' and count(parameter)=1 and parameter[1][@type='long']]/parameter[1]"
+    name="managedName">bluetoothFlushResultsTimeoutMs</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='ScannerFactory']/method[@name='newBleScanner' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='com.facebook.places.internal.LocationPackageRequestParams']]/parameter[1]"
+    name="managedName">context</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='ScannerFactory']/method[@name='newBleScanner' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='com.facebook.places.internal.LocationPackageRequestParams']]/parameter[2]"
+    name="managedName">params</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='ScannerFactory']/method[@name='newWifiScanner' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='com.facebook.places.internal.LocationPackageRequestParams']]/parameter[1]"
+    name="managedName">context</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='ScannerFactory']/method[@name='newWifiScanner' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='com.facebook.places.internal.LocationPackageRequestParams']]/parameter[2]"
+    name="managedName">params</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='ScannerFactory']/method[@name='newLocationScanner' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='com.facebook.places.internal.LocationPackageRequestParams']]/parameter[1]"
+    name="managedName">context</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='ScannerFactory']/method[@name='newLocationScanner' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='com.facebook.places.internal.LocationPackageRequestParams']]/parameter[2]"
+    name="managedName">params</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='ScannerException']/constructor[@name='ScannerException' and count(parameter)=1 and parameter[1][@type='com.facebook.places.internal.ScannerException.Type']]/parameter[1]"
+    name="managedName">type</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='ScannerException']/constructor[@name='ScannerException' and count(parameter)=2 and parameter[1][@type='com.facebook.places.internal.ScannerException.Type'] and parameter[2][@type='java.lang.String']]/parameter[1]"
+    name="managedName">type</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='ScannerException']/constructor[@name='ScannerException' and count(parameter)=2 and parameter[1][@type='com.facebook.places.internal.ScannerException.Type'] and parameter[2][@type='java.lang.String']]/parameter[2]"
+    name="managedName">message</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='ScannerException']/constructor[@name='ScannerException' and count(parameter)=2 and parameter[1][@type='com.facebook.places.internal.ScannerException.Type'] and parameter[2][@type='java.lang.Exception']]/parameter[1]"
+    name="managedName">type</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='ScannerException']/constructor[@name='ScannerException' and count(parameter)=2 and parameter[1][@type='com.facebook.places.internal.ScannerException.Type'] and parameter[2][@type='java.lang.Exception']]/parameter[2]"
+    name="managedName">ex</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='BluetoothScanResult']/constructor[@name='BluetoothScanResult' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int'] and parameter[3][@type='long']]/parameter[1]"
+    name="managedName">payload</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='BluetoothScanResult']/constructor[@name='BluetoothScanResult' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int'] and parameter[3][@type='long']]/parameter[2]"
+    name="managedName">rssi</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='BluetoothScanResult']/constructor[@name='BluetoothScanResult' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int'] and parameter[3][@type='long']]/parameter[3]"
+    name="managedName">timestampNanos</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationScannerImpl']/method[@name='onLocationChanged' and count(parameter)=1 and parameter[1][@type='android.location.Location']]/parameter[1]"
+    name="managedName">location</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationScannerImpl']/method[@name='onStatusChanged' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int'] and parameter[3][@type='android.os.Bundle']]/parameter[1]"
+    name="managedName">provider</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationScannerImpl']/method[@name='onStatusChanged' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int'] and parameter[3][@type='android.os.Bundle']]/parameter[2]"
+    name="managedName">status</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationScannerImpl']/method[@name='onStatusChanged' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int'] and parameter[3][@type='android.os.Bundle']]/parameter[3]"
+    name="managedName">extras</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationScannerImpl']/method[@name='onProviderEnabled' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">provider</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationScannerImpl']/method[@name='onProviderDisabled' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">provider</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationScannerImpl']/constructor[@name='LocationScannerImpl' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='com.facebook.places.internal.LocationPackageRequestParams']]/parameter[1]"
+    name="managedName">context</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='LocationScannerImpl']/constructor[@name='LocationScannerImpl' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='com.facebook.places.internal.LocationPackageRequestParams']]/parameter[2]"
+    name="managedName">params</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/interface[@name='ScannerException.Type']/method[@name='valueOf' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">name</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='WifiScanResult']/constructor[@name='WifiScanResult' and count(parameter)=5 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='long']]/parameter[1]"
+    name="managedName">ssid</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='WifiScanResult']/constructor[@name='WifiScanResult' and count(parameter)=5 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='long']]/parameter[2]"
+    name="managedName">bssid</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='WifiScanResult']/constructor[@name='WifiScanResult' and count(parameter)=5 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='long']]/parameter[3]"
+    name="managedName">rssi</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='WifiScanResult']/constructor[@name='WifiScanResult' and count(parameter)=5 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='long']]/parameter[4]"
+    name="managedName">frequency</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.internal']/class[@name='WifiScanResult']/constructor[@name='WifiScanResult' and count(parameter)=5 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='long']]/parameter[5]"
+    name="managedName">timestampMs</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.model']/class[@name='CurrentPlaceRequestParams.Builder']/method[@name='setLocation' and count(parameter)=1 and parameter[1][@type='android.location.Location']]/parameter[1]"
+    name="managedName">location</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.model']/class[@name='CurrentPlaceRequestParams.Builder']/method[@name='setScanMode' and count(parameter)=1 and parameter[1][@type='com.facebook.places.model.CurrentPlaceRequestParams.ScanMode']]/parameter[1]"
+    name="managedName">scanMode</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.model']/class[@name='CurrentPlaceRequestParams.Builder']/method[@name='setMinConfidenceLevel' and count(parameter)=1 and parameter[1][@type='com.facebook.places.model.CurrentPlaceRequestParams.ConfidenceLevel']]/parameter[1]"
+    name="managedName">minConfidenceLevel</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.model']/class[@name='CurrentPlaceRequestParams.Builder']/method[@name='setLimit' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]"
+    name="managedName">limit</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.model']/class[@name='CurrentPlaceRequestParams.Builder']/method[@name='addField' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">field</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.model']/class[@name='CurrentPlaceFeedbackRequestParams.Builder']/method[@name='setWasHere' and count(parameter)=1 and parameter[1][@type='boolean']]/parameter[1]"
+    name="managedName">wasHere</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.model']/class[@name='CurrentPlaceFeedbackRequestParams.Builder']/method[@name='setPlaceId' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">placeId</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.model']/class[@name='CurrentPlaceFeedbackRequestParams.Builder']/method[@name='setTracking' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">tracking</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.model']/class[@name='PlaceSearchRequestParams.Builder']/method[@name='setDistance' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]"
+    name="managedName">distance</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.model']/class[@name='PlaceSearchRequestParams.Builder']/method[@name='setLimit' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]"
+    name="managedName">limit</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.model']/class[@name='PlaceSearchRequestParams.Builder']/method[@name='setSearchText' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">searchText</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.model']/class[@name='PlaceSearchRequestParams.Builder']/method[@name='addCategory' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">category</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.model']/class[@name='PlaceSearchRequestParams.Builder']/method[@name='addField' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">field</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.model']/interface[@name='CurrentPlaceRequestParams.ScanMode']/method[@name='valueOf' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">name</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.model']/class[@name='PlaceInfoRequestParams.Builder']/method[@name='setPlaceId' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">placeId</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.model']/class[@name='PlaceInfoRequestParams.Builder']/method[@name='addField' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">field</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.model']/class[@name='PlaceInfoRequestParams.Builder']/method[@name='addFields' and count(parameter)=1 and parameter[1][@type='java.lang.String:A']]/parameter[1]"
+    name="managedName">fields</attr>
+  <attr
+    path="/api/package[@name='com.facebook.places.model']/interface[@name='CurrentPlaceRequestParams.ConfidenceLevel']/method[@name='valueOf' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">name</attr>
+</metadata>
