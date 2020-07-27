@@ -8,5 +8,6 @@ externals
 *.DS_Store
 .vs/
 tmp-nugets/
+*.user
 _._
 **/Resource.designer.cs

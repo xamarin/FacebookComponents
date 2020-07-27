@@ -21,7 +21,6 @@ using Android.Graphics;
 using Android.Locations;
 using Android.OS;
 using Android.Runtime;
-using Android.Support.V4.App;
 using Android.Text;
 using Android.Views;
 using Android.Widget;
@@ -32,6 +31,7 @@ using Xamarin.Facebook.AppEvents;
 using Xamarin.Facebook.Share.Model;
 using Xamarin.Facebook.Share;
 using Xamarin.Facebook.Login;
+using AndroidX.Fragment.App;
 
 [assembly:Permission (Name = Android.Manifest.Permission.Internet)]
 [assembly:Permission (Name = Android.Manifest.Permission.WriteExternalStorage)]

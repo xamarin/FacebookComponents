@@ -25,7 +25,7 @@ namespace MessengerSendSample
         const int REQUEST_CODE_SHARE_TO_MESSENGER = 1;
 
 
-        Android.Support.V7.Widget.Toolbar toolbar;
+        AndroidX.AppCompat.Widget.Toolbar toolbar;
         View messengerButton;
         MessengerThreadParams threadParams;
         bool picking;
@@ -39,7 +39,7 @@ namespace MessengerSendSample
             // Set our view from the "main" layout resource
             SetContentView (Resource.Layout.main_activity);
 
-            toolbar = FindViewById<Android.Support.V7.Widget.Toolbar> (Resource.Id.toolbar);
+            toolbar = FindViewById<AndroidX.AppCompat.Widget.Toolbar> (Resource.Id.toolbar);
             messengerButton = FindViewById<View> (Resource.Id.messenger_send_button);
 
             toolbar.SetTitle (Resource.String.app_name);
