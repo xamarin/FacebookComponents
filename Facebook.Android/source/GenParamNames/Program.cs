@@ -4,6 +4,7 @@ using System.CommandLine;
 using System.CommandLine.Invocation;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Xml;
 using HtmlAgilityPack;
@@ -90,7 +91,10 @@ namespace GenParamNames
 
                             for (int i = 0; i < method.Arguments.Count; i++)
                             {
-                                paramSelectStr += $" and parameter[{i + 1}][@type='{method.Arguments[i].Type}']";
+                                if (method.HasGenericArguments)
+                                    paramSelectStr += $" and parameter[{i + 1}][starts-with(@type,'{method.Arguments[i].Type.Replace(":A", "[]")}')]";
+                                else
+                                    paramSelectStr += $" and parameter[{i + 1}][@type='{method.Arguments[i].Type.Replace(":A", "[]")}']";
                             }
 
                             var classStr = tClass.IsInterface ? "interface" : "class";
@@ -147,8 +151,7 @@ namespace GenParamNames
                 return null;
 
             var classNameString = classNameNode.InnerText.Trim();
-            newClass.Name = classNameString.Substring(classNameString.IndexOf(' ') + 1);
-            
+            newClass.Name = RemoveGenericFromClassName(classNameString.Substring(classNameString.IndexOf(' ') + 1));
 
             if (!classNameString.StartsWith("Class"))
                 newClass.IsInterface = true;
@@ -200,6 +203,13 @@ namespace GenParamNames
                 var allInnerText = HttpUtility.HtmlDecode(methodPreNode.InnerText);
                 var paramPart = allInnerText.Substring(allInnerText.LastIndexOf('(') + 1);
                 paramPart = paramPart.Substring(0, paramPart.LastIndexOf(")"));
+
+                if (paramPart.Contains("<"))
+                {
+                    newMethod.HasGenericArguments = true;
+                    paramPart = RemoveGenericsFromParamList(paramPart);
+                }
+
                 var paramListFromText = paramPart.Split(',');
 
                 for (int i = 0; i < newMethod.Arguments.Count; i++)
@@ -209,6 +219,30 @@ namespace GenParamNames
             }
 
             return newMethod;
+        }
+
+        static string RemoveGenericsFromParamList(string inputStr)
+        {
+            if (!inputStr.Contains('<'))
+                return inputStr;
+
+            var sb = new StringBuilder(inputStr.Length);
+
+            var skipCount = 0;
+
+            foreach (char c in inputStr)
+            {
+                if (c == '<')
+                    skipCount++;
+
+                else if(c == '>')
+                    skipCount--;
+
+                else if (skipCount == 0)
+                    sb.Append(c);
+            }
+
+            return sb.ToString();
         }
 
         static string FixParameterName(string name)
@@ -227,10 +261,28 @@ namespace GenParamNames
                 case "string":
                     return "@string";
 
+                case "in":
+                    return "@in";
+
+                case "ref":
+                    return "@ref";
+
                 default:
                     break;
             }
             return name;
+        }
+
+        static string RemoveGenericFromClassName(string className)
+        {
+            var index = className.IndexOf('&');
+
+            if (index != -1)
+            {
+                className = className.Substring(0, index);
+            }
+
+            return className;
         }
     }
 }

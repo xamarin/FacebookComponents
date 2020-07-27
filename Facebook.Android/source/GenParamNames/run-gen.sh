@@ -1,10 +1,12 @@
 #!/bin/bash
 
-dotnet run -o ../facebook-core/transforms/Metadata-Names.xml -i ../../externals/facebook-core-docs/com
-dotnet run -o ../facebook-applinks/transforms/Metadata-Names.xml -i ../../externals/facebook-applinks-docs/com
-dotnet run -o ../facebook-places/transforms/Metadata-Names.xml -i ../../externals/facebook-places-docs/com
-dotnet run -o ../facebook-common/transforms/Metadata-Names.xml -i ../../externals/facebook-common-docs/com
-dotnet run -o ../facebook-share/transforms/Metadata-Names.xml -i ../../externals/facebook-share-docs/com
-dotnet run -o ../facebook-login/transforms/Metadata-Names.xml -i ../../externals/facebook-login-docs/com
-dotnet run -o ../facebook-messenger/transforms/Metadata-Names.xml -i ../../externals/facebook-messenger-docs/com
+BASEDIR=$(dirname "$0")
+
+dotnet run -p $BASEDIR -- -o $BASEDIR/../facebook-core/transforms/Metadata-Names.xml -i $BASEDIR/../../externals/facebook-core-docs/com
+dotnet run -p $BASEDIR -- -o $BASEDIR/../facebook-applinks/transforms/Metadata-Names.xml -i $BASEDIR/../../externals/facebook-applinks-docs/com
+dotnet run -p $BASEDIR -- -o $BASEDIR/../facebook-places/transforms/Metadata-Names.xml -i $BASEDIR/../../externals/facebook-places-docs/com
+dotnet run -p $BASEDIR -- -o $BASEDIR/../facebook-common/transforms/Metadata-Names.xml -i $BASEDIR/../../externals/facebook-common-docs/com
+dotnet run -p $BASEDIR -- -o $BASEDIR/../facebook-share/transforms/Metadata-Names.xml -i $BASEDIR/../../externals/facebook-share-docs/com
+dotnet run -p $BASEDIR -- -o $BASEDIR/../facebook-login/transforms/Metadata-Names.xml -i $BASEDIR/../../externals/facebook-login-docs/com
+dotnet run -p $BASEDIR -- -o $BASEDIR/../facebook-messenger/transforms/Metadata-Names.xml -i $BASEDIR/../../externals/facebook-messenger-docs/com
 
