@@ -34,16 +34,16 @@
     path="/api/package[@name='com.facebook.messenger']/interface[@name='MessengerThreadParams.Origin']/method[@name='valueOf' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">name</attr>
   <attr
-    path="/api/package[@name='com.facebook.messenger']/class[@name='MessengerThreadParams']/constructor[@name='MessengerThreadParams' and count(parameter)=4 and parameter[1][@type='com.facebook.messenger.MessengerThreadParams.Origin'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='java.util.List']]/parameter[1]"
+    path="/api/package[@name='com.facebook.messenger']/class[@name='MessengerThreadParams']/constructor[@name='MessengerThreadParams' and count(parameter)=4 and parameter[1][starts-with(@type,'com.facebook.messenger.MessengerThreadParams.Origin')] and parameter[2][starts-with(@type,'java.lang.String')] and parameter[3][starts-with(@type,'java.lang.String')] and parameter[4][starts-with(@type,'java.util.List')]]/parameter[1]"
     name="managedName">origin</attr>
   <attr
-    path="/api/package[@name='com.facebook.messenger']/class[@name='MessengerThreadParams']/constructor[@name='MessengerThreadParams' and count(parameter)=4 and parameter[1][@type='com.facebook.messenger.MessengerThreadParams.Origin'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='java.util.List']]/parameter[2]"
+    path="/api/package[@name='com.facebook.messenger']/class[@name='MessengerThreadParams']/constructor[@name='MessengerThreadParams' and count(parameter)=4 and parameter[1][starts-with(@type,'com.facebook.messenger.MessengerThreadParams.Origin')] and parameter[2][starts-with(@type,'java.lang.String')] and parameter[3][starts-with(@type,'java.lang.String')] and parameter[4][starts-with(@type,'java.util.List')]]/parameter[2]"
     name="managedName">threadToken</attr>
   <attr
-    path="/api/package[@name='com.facebook.messenger']/class[@name='MessengerThreadParams']/constructor[@name='MessengerThreadParams' and count(parameter)=4 and parameter[1][@type='com.facebook.messenger.MessengerThreadParams.Origin'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='java.util.List']]/parameter[3]"
+    path="/api/package[@name='com.facebook.messenger']/class[@name='MessengerThreadParams']/constructor[@name='MessengerThreadParams' and count(parameter)=4 and parameter[1][starts-with(@type,'com.facebook.messenger.MessengerThreadParams.Origin')] and parameter[2][starts-with(@type,'java.lang.String')] and parameter[3][starts-with(@type,'java.lang.String')] and parameter[4][starts-with(@type,'java.util.List')]]/parameter[3]"
     name="managedName">metadata</attr>
   <attr
-    path="/api/package[@name='com.facebook.messenger']/class[@name='MessengerThreadParams']/constructor[@name='MessengerThreadParams' and count(parameter)=4 and parameter[1][@type='com.facebook.messenger.MessengerThreadParams.Origin'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='java.util.List']]/parameter[4]"
+    path="/api/package[@name='com.facebook.messenger']/class[@name='MessengerThreadParams']/constructor[@name='MessengerThreadParams' and count(parameter)=4 and parameter[1][starts-with(@type,'com.facebook.messenger.MessengerThreadParams.Origin')] and parameter[2][starts-with(@type,'java.lang.String')] and parameter[3][starts-with(@type,'java.lang.String')] and parameter[4][starts-with(@type,'java.util.List')]]/parameter[4]"
     name="managedName">participants</attr>
   <attr
     path="/api/package[@name='com.facebook.messenger']/class[@name='ShareToMessengerParamsBuilder']/method[@name='setMetaData' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"

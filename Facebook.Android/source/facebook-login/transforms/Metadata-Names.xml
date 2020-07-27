@@ -7,7 +7,7 @@
     path="/api/package[@name='com.facebook.login']/class[@name='DeviceLoginManager']/method[@name='setDeviceAuthTargetUserId' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">targetUserId</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='DeviceLoginManager']/method[@name='createLoginRequest' and count(parameter)=1 and parameter[1][@type='java.util.Collection']]/parameter[1]"
+    path="/api/package[@name='com.facebook.login']/class[@name='DeviceLoginManager']/method[@name='createLoginRequest' and count(parameter)=1 and parameter[1][starts-with(@type,'java.util.Collection')]]/parameter[1]"
     name="managedName">permissions</attr>
   <attr
     path="/api/package[@name='com.facebook.login.widget']/class[@name='DeviceLoginButton']/method[@name='setDeviceRedirectUri' and count(parameter)=1 and parameter[1][@type='android.net.Uri']]/parameter[1]"
@@ -40,19 +40,19 @@
     path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setDefaultAudience' and count(parameter)=1 and parameter[1][@type='com.facebook.login.DefaultAudience']]/parameter[1]"
     name="managedName">defaultAudience</attr>
   <attr
-    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setReadPermissions' and count(parameter)=1 and parameter[1][@type='java.util.List']]/parameter[1]"
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setReadPermissions' and count(parameter)=1 and parameter[1][starts-with(@type,'java.util.List')]]/parameter[1]"
     name="managedName">permissions</attr>
   <attr
     path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setReadPermissions' and count(parameter)=1 and parameter[1][@type='java.lang.String...']]/parameter[1]"
     name="managedName">permissions</attr>
   <attr
-    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setPermissions' and count(parameter)=1 and parameter[1][@type='java.util.List']]/parameter[1]"
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setPermissions' and count(parameter)=1 and parameter[1][starts-with(@type,'java.util.List')]]/parameter[1]"
     name="managedName">permissions</attr>
   <attr
     path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setPermissions' and count(parameter)=1 and parameter[1][@type='java.lang.String...']]/parameter[1]"
     name="managedName">permissions</attr>
   <attr
-    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setPublishPermissions' and count(parameter)=1 and parameter[1][@type='java.util.List']]/parameter[1]"
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setPublishPermissions' and count(parameter)=1 and parameter[1][starts-with(@type,'java.util.List')]]/parameter[1]"
     name="managedName">permissions</attr>
   <attr
     path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setPublishPermissions' and count(parameter)=1 and parameter[1][@type='java.lang.String...']]/parameter[1]"
@@ -73,10 +73,10 @@
     path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='setToolTipDisplayTime' and count(parameter)=1 and parameter[1][@type='long']]/parameter[1]"
     name="managedName">displayTime</attr>
   <attr
-    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][@type='com.facebook.CallbackManager'] and parameter[2][@type='com.facebook.FacebookCallback']]/parameter[1]"
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[1]"
     name="managedName">callbackManager</attr>
   <attr
-    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][@type='com.facebook.CallbackManager'] and parameter[2][@type='com.facebook.FacebookCallback']]/parameter[2]"
+    path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[2]"
     name="managedName">callback</attr>
   <attr
     path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='unregisterCallback' and count(parameter)=1 and parameter[1][@type='com.facebook.CallbackManager']]/parameter[1]"

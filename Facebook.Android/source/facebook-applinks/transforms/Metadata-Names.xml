@@ -4,7 +4,7 @@
     path="/api/package[@name='com.facebook.applinks']/class[@name='FacebookAppLinkResolver']/method[@name='getAppLinkFromUrlInBackground' and count(parameter)=1 and parameter[1][@type='android.net.Uri']]/parameter[1]"
     name="managedName">uri</attr>
   <attr
-    path="/api/package[@name='com.facebook.applinks']/class[@name='FacebookAppLinkResolver']/method[@name='getAppLinkFromUrlsInBackground' and count(parameter)=1 and parameter[1][@type='java.util.List']]/parameter[1]"
+    path="/api/package[@name='com.facebook.applinks']/class[@name='FacebookAppLinkResolver']/method[@name='getAppLinkFromUrlsInBackground' and count(parameter)=1 and parameter[1][starts-with(@type,'java.util.List')]]/parameter[1]"
     name="managedName">uris</attr>
   <attr
     path="/api/package[@name='com.facebook.applinks']/class[@name='AppLinkData']/method[@name='fetchDeferredAppLinkData' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='com.facebook.applinks.AppLinkData.CompletionHandler']]/parameter[1]"

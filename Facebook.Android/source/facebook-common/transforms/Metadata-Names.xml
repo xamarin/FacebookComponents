@@ -52,31 +52,31 @@
     path="/api/package[@name='com.facebook']/class[@name='FacebookButtonBase']/constructor[@name='FacebookButtonBase' and count(parameter)=6 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.util.AttributeSet'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='java.lang.String'] and parameter[6][@type='java.lang.String']]/parameter[6]"
     name="managedName">analyticsButtonTappedEventName</attr>
   <attr
-    path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='canShow' and count(parameter)=1 and parameter[1][@type='java.lang.Object']]/parameter[1]"
+    path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog']/method[@name='canShow' and count(parameter)=1 and parameter[1][@type='java.lang.Object']]/parameter[1]"
     name="managedName">content</attr>
   <attr
-    path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='canShow' and count(parameter)=1 and parameter[1][@type='CONTENT']]/parameter[1]"
+    path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog']/method[@name='canShow' and count(parameter)=1 and parameter[1][@type='CONTENT']]/parameter[1]"
     name="managedName">content</attr>
   <attr
-    path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='show' and count(parameter)=1 and parameter[1][@type='java.lang.Object']]/parameter[1]"
+    path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog']/method[@name='show' and count(parameter)=1 and parameter[1][@type='java.lang.Object']]/parameter[1]"
     name="managedName">content</attr>
   <attr
-    path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='show' and count(parameter)=1 and parameter[1][@type='CONTENT']]/parameter[1]"
+    path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog']/method[@name='show' and count(parameter)=1 and parameter[1][@type='CONTENT']]/parameter[1]"
     name="managedName">content</attr>
   <attr
-    path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][@type='com.facebook.CallbackManager'] and parameter[2][@type='com.facebook.FacebookCallback']]/parameter[1]"
+    path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[1]"
     name="managedName">callbackManager</attr>
   <attr
-    path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][@type='com.facebook.CallbackManager'] and parameter[2][@type='com.facebook.FacebookCallback']]/parameter[2]"
+    path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[2]"
     name="managedName">callback</attr>
   <attr
-    path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='registerCallback' and count(parameter)=3 and parameter[1][@type='com.facebook.CallbackManager'] and parameter[2][@type='com.facebook.FacebookCallback'] and parameter[3][@type='int']]/parameter[1]"
+    path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog']/method[@name='registerCallback' and count(parameter)=3 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[3][starts-with(@type,'int')]]/parameter[1]"
     name="managedName">callbackManager</attr>
   <attr
-    path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='registerCallback' and count(parameter)=3 and parameter[1][@type='com.facebook.CallbackManager'] and parameter[2][@type='com.facebook.FacebookCallback'] and parameter[3][@type='int']]/parameter[2]"
+    path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog']/method[@name='registerCallback' and count(parameter)=3 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[3][starts-with(@type,'int')]]/parameter[2]"
     name="managedName">callback</attr>
   <attr
-    path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='registerCallback' and count(parameter)=3 and parameter[1][@type='com.facebook.CallbackManager'] and parameter[2][@type='com.facebook.FacebookCallback'] and parameter[3][@type='int']]/parameter[3]"
+    path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog']/method[@name='registerCallback' and count(parameter)=3 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[3][starts-with(@type,'int')]]/parameter[3]"
     name="managedName">requestCode</attr>
   <attr
     path="/api/package[@name='com.facebook']/interface[@name='LoginStatusCallback']/method[@name='onCompleted' and count(parameter)=1 and parameter[1][@type='com.facebook.AccessToken']]/parameter[1]"
@@ -100,13 +100,13 @@
     path="/api/package[@name='com.facebook']/class[@name='WebDialog']/method[@name='setWebDialogTheme' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]"
     name="managedName">theme</attr>
   <attr
-    path="/api/package[@name='com.facebook']/interface[@name='FacebookCallback&amp;lt;RESULT&amp;gt;']/method[@name='onSuccess' and count(parameter)=1 and parameter[1][@type='java.lang.Object']]/parameter[1]"
+    path="/api/package[@name='com.facebook']/interface[@name='FacebookCallback']/method[@name='onSuccess' and count(parameter)=1 and parameter[1][@type='java.lang.Object']]/parameter[1]"
     name="managedName">result</attr>
   <attr
-    path="/api/package[@name='com.facebook']/interface[@name='FacebookCallback&amp;lt;RESULT&amp;gt;']/method[@name='onSuccess' and count(parameter)=1 and parameter[1][@type='RESULT']]/parameter[1]"
+    path="/api/package[@name='com.facebook']/interface[@name='FacebookCallback']/method[@name='onSuccess' and count(parameter)=1 and parameter[1][@type='RESULT']]/parameter[1]"
     name="managedName">result</attr>
   <attr
-    path="/api/package[@name='com.facebook']/interface[@name='FacebookCallback&amp;lt;RESULT&amp;gt;']/method[@name='onError' and count(parameter)=1 and parameter[1][@type='com.facebook.FacebookException']]/parameter[1]"
+    path="/api/package[@name='com.facebook']/interface[@name='FacebookCallback']/method[@name='onError' and count(parameter)=1 and parameter[1][@type='com.facebook.FacebookException']]/parameter[1]"
     name="managedName">error</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='FacebookDialogException']/constructor[@name='FacebookDialogException' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int'] and parameter[3][@type='java.lang.String']]/parameter[1]"
@@ -202,82 +202,82 @@
     path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase.ModeHandler']/method[@name='createAppCall' and count(parameter)=1 and parameter[1][@type='CONTENT']]/parameter[1]"
     name="managedName">content</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][@type='com.facebook.CallbackManager'] and parameter[2][@type='com.facebook.FacebookCallback']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[1]"
     name="managedName">callbackManager</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][@type='com.facebook.CallbackManager'] and parameter[2][@type='com.facebook.FacebookCallback']]/parameter[2]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[2]"
     name="managedName">callback</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='registerCallback' and count(parameter)=3 and parameter[1][@type='com.facebook.CallbackManager'] and parameter[2][@type='com.facebook.FacebookCallback'] and parameter[3][@type='int']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='registerCallback' and count(parameter)=3 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[3][starts-with(@type,'int')]]/parameter[1]"
     name="managedName">callbackManager</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='registerCallback' and count(parameter)=3 and parameter[1][@type='com.facebook.CallbackManager'] and parameter[2][@type='com.facebook.FacebookCallback'] and parameter[3][@type='int']]/parameter[2]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='registerCallback' and count(parameter)=3 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[3][starts-with(@type,'int')]]/parameter[2]"
     name="managedName">callback</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='registerCallback' and count(parameter)=3 and parameter[1][@type='com.facebook.CallbackManager'] and parameter[2][@type='com.facebook.FacebookCallback'] and parameter[3][@type='int']]/parameter[3]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='registerCallback' and count(parameter)=3 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[3][starts-with(@type,'int')]]/parameter[3]"
     name="managedName">requestCode</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='registerCallbackImpl' and count(parameter)=2 and parameter[1][@type='com.facebook.internal.CallbackManagerImpl'] and parameter[2][@type='com.facebook.FacebookCallback']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='registerCallbackImpl' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.internal.CallbackManagerImpl')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[1]"
     name="managedName">callbackManager</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='registerCallbackImpl' and count(parameter)=2 and parameter[1][@type='com.facebook.internal.CallbackManagerImpl'] and parameter[2][@type='com.facebook.FacebookCallback']]/parameter[2]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='registerCallbackImpl' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.internal.CallbackManagerImpl')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[2]"
     name="managedName">callback</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='setRequestCode' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='setRequestCode' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]"
     name="managedName">requestCode</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='canShow' and count(parameter)=1 and parameter[1][@type='java.lang.Object']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='canShow' and count(parameter)=1 and parameter[1][@type='java.lang.Object']]/parameter[1]"
     name="managedName">content</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='canShow' and count(parameter)=1 and parameter[1][@type='CONTENT']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='canShow' and count(parameter)=1 and parameter[1][@type='CONTENT']]/parameter[1]"
     name="managedName">content</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='canShowImpl' and count(parameter)=2 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.Object']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='canShowImpl' and count(parameter)=2 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.Object']]/parameter[1]"
     name="managedName">content</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='canShowImpl' and count(parameter)=2 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.Object']]/parameter[2]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='canShowImpl' and count(parameter)=2 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.Object']]/parameter[2]"
     name="managedName">mode</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='canShowImpl' and count(parameter)=2 and parameter[1][@type='CONTENT'] and parameter[2][@type='java.lang.Object']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='canShowImpl' and count(parameter)=2 and parameter[1][@type='CONTENT'] and parameter[2][@type='java.lang.Object']]/parameter[1]"
     name="managedName">content</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='canShowImpl' and count(parameter)=2 and parameter[1][@type='CONTENT'] and parameter[2][@type='java.lang.Object']]/parameter[2]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='canShowImpl' and count(parameter)=2 and parameter[1][@type='CONTENT'] and parameter[2][@type='java.lang.Object']]/parameter[2]"
     name="managedName">mode</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='show' and count(parameter)=1 and parameter[1][@type='java.lang.Object']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='show' and count(parameter)=1 and parameter[1][@type='java.lang.Object']]/parameter[1]"
     name="managedName">content</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='show' and count(parameter)=1 and parameter[1][@type='CONTENT']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='show' and count(parameter)=1 and parameter[1][@type='CONTENT']]/parameter[1]"
     name="managedName">content</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='showImpl' and count(parameter)=2 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.Object']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='showImpl' and count(parameter)=2 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.Object']]/parameter[1]"
     name="managedName">content</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='showImpl' and count(parameter)=2 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.Object']]/parameter[2]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='showImpl' and count(parameter)=2 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.Object']]/parameter[2]"
     name="managedName">mode</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='showImpl' and count(parameter)=2 and parameter[1][@type='CONTENT'] and parameter[2][@type='java.lang.Object']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='showImpl' and count(parameter)=2 and parameter[1][@type='CONTENT'] and parameter[2][@type='java.lang.Object']]/parameter[1]"
     name="managedName">content</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='showImpl' and count(parameter)=2 and parameter[1][@type='CONTENT'] and parameter[2][@type='java.lang.Object']]/parameter[2]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='showImpl' and count(parameter)=2 and parameter[1][@type='CONTENT'] and parameter[2][@type='java.lang.Object']]/parameter[2]"
     name="managedName">mode</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='startActivityForResult' and count(parameter)=2 and parameter[1][@type='android.content.Intent'] and parameter[2][@type='int']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='startActivityForResult' and count(parameter)=2 and parameter[1][@type='android.content.Intent'] and parameter[2][@type='int']]/parameter[1]"
     name="managedName">intent</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/method[@name='startActivityForResult' and count(parameter)=2 and parameter[1][@type='android.content.Intent'] and parameter[2][@type='int']]/parameter[2]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='startActivityForResult' and count(parameter)=2 and parameter[1][@type='android.content.Intent'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">requestCode</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/constructor[@name='FacebookDialogBase' and count(parameter)=2 and parameter[1][@type='android.app.Activity'] and parameter[2][@type='int']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/constructor[@name='FacebookDialogBase' and count(parameter)=2 and parameter[1][@type='android.app.Activity'] and parameter[2][@type='int']]/parameter[1]"
     name="managedName">activity</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/constructor[@name='FacebookDialogBase' and count(parameter)=2 and parameter[1][@type='android.app.Activity'] and parameter[2][@type='int']]/parameter[2]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/constructor[@name='FacebookDialogBase' and count(parameter)=2 and parameter[1][@type='android.app.Activity'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">requestCode</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/constructor[@name='FacebookDialogBase' and count(parameter)=2 and parameter[1][@type='com.facebook.internal.FragmentWrapper'] and parameter[2][@type='int']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/constructor[@name='FacebookDialogBase' and count(parameter)=2 and parameter[1][@type='com.facebook.internal.FragmentWrapper'] and parameter[2][@type='int']]/parameter[1]"
     name="managedName">fragmentWrapper</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase&amp;lt;CONTENT,RESULT&amp;gt;']/constructor[@name='FacebookDialogBase' and count(parameter)=2 and parameter[1][@type='com.facebook.internal.FragmentWrapper'] and parameter[2][@type='int']]/parameter[2]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/constructor[@name='FacebookDialogBase' and count(parameter)=2 and parameter[1][@type='com.facebook.internal.FragmentWrapper'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">requestCode</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogFragment']/method[@name='setDialog' and count(parameter)=1 and parameter[1][@type='android.app.Dialog']]/parameter[1]"
@@ -323,7 +323,7 @@
     name="managedName">event</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='WebDialog']/method[@name='onWindowAttributesChanged' and count(parameter)=1 and parameter[1][@type='android.view.WindowManager.LayoutParams']]/parameter[1]"
-    name="managedName">params</attr>
+    name="managedName">@params</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='WebDialog']/method[@name='onCreate' and count(parameter)=1 and parameter[1][@type='android.os.Bundle']]/parameter[1]"
     name="managedName">savedInstanceState</attr>
@@ -571,10 +571,10 @@
     path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='resolveError' and count(parameter)=2 and parameter[1][@type='android.app.Fragment'] and parameter[2][@type='com.facebook.GraphResponse']]/parameter[2]"
     name="managedName">response</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][@type='com.facebook.CallbackManager'] and parameter[2][@type='com.facebook.FacebookCallback']]/parameter[1]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[1]"
     name="managedName">callbackManager</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][@type='com.facebook.CallbackManager'] and parameter[2][@type='com.facebook.FacebookCallback']]/parameter[2]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[2]"
     name="managedName">callback</attr>
   <attr
     path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='unregisterCallback' and count(parameter)=1 and parameter[1][@type='com.facebook.CallbackManager']]/parameter[1]"
@@ -604,22 +604,22 @@
     path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='retrieveLoginStatus' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='long'] and parameter[3][@type='com.facebook.LoginStatusCallback']]/parameter[3]"
     name="managedName">responseCallback</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithReadPermissions' and count(parameter)=2 and parameter[1][@type='androidx.fragment.app.Fragment'] and parameter[2][@type='java.util.Collection']]/parameter[1]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithReadPermissions' and count(parameter)=2 and parameter[1][starts-with(@type,'androidx.fragment.app.Fragment')] and parameter[2][starts-with(@type,'java.util.Collection')]]/parameter[1]"
     name="managedName">fragment</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithReadPermissions' and count(parameter)=2 and parameter[1][@type='androidx.fragment.app.Fragment'] and parameter[2][@type='java.util.Collection']]/parameter[2]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithReadPermissions' and count(parameter)=2 and parameter[1][starts-with(@type,'androidx.fragment.app.Fragment')] and parameter[2][starts-with(@type,'java.util.Collection')]]/parameter[2]"
     name="managedName">permissions</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithReadPermissions' and count(parameter)=2 and parameter[1][@type='android.app.Fragment'] and parameter[2][@type='java.util.Collection']]/parameter[1]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithReadPermissions' and count(parameter)=2 and parameter[1][starts-with(@type,'android.app.Fragment')] and parameter[2][starts-with(@type,'java.util.Collection')]]/parameter[1]"
     name="managedName">fragment</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithReadPermissions' and count(parameter)=2 and parameter[1][@type='android.app.Fragment'] and parameter[2][@type='java.util.Collection']]/parameter[2]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithReadPermissions' and count(parameter)=2 and parameter[1][starts-with(@type,'android.app.Fragment')] and parameter[2][starts-with(@type,'java.util.Collection')]]/parameter[2]"
     name="managedName">permissions</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithReadPermissions' and count(parameter)=2 and parameter[1][@type='android.app.Activity'] and parameter[2][@type='java.util.Collection']]/parameter[1]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithReadPermissions' and count(parameter)=2 and parameter[1][starts-with(@type,'android.app.Activity')] and parameter[2][starts-with(@type,'java.util.Collection')]]/parameter[1]"
     name="managedName">activity</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithReadPermissions' and count(parameter)=2 and parameter[1][@type='android.app.Activity'] and parameter[2][@type='java.util.Collection']]/parameter[2]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithReadPermissions' and count(parameter)=2 and parameter[1][starts-with(@type,'android.app.Activity')] and parameter[2][starts-with(@type,'java.util.Collection')]]/parameter[2]"
     name="managedName">permissions</attr>
   <attr
     path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='reauthorizeDataAccess' and count(parameter)=1 and parameter[1][@type='android.app.Activity']]/parameter[1]"
@@ -628,49 +628,49 @@
     path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='reauthorizeDataAccess' and count(parameter)=1 and parameter[1][@type='androidx.fragment.app.Fragment']]/parameter[1]"
     name="managedName">fragment</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithPublishPermissions' and count(parameter)=2 and parameter[1][@type='androidx.fragment.app.Fragment'] and parameter[2][@type='java.util.Collection']]/parameter[1]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithPublishPermissions' and count(parameter)=2 and parameter[1][starts-with(@type,'androidx.fragment.app.Fragment')] and parameter[2][starts-with(@type,'java.util.Collection')]]/parameter[1]"
     name="managedName">fragment</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithPublishPermissions' and count(parameter)=2 and parameter[1][@type='androidx.fragment.app.Fragment'] and parameter[2][@type='java.util.Collection']]/parameter[2]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithPublishPermissions' and count(parameter)=2 and parameter[1][starts-with(@type,'androidx.fragment.app.Fragment')] and parameter[2][starts-with(@type,'java.util.Collection')]]/parameter[2]"
     name="managedName">permissions</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithPublishPermissions' and count(parameter)=2 and parameter[1][@type='android.app.Fragment'] and parameter[2][@type='java.util.Collection']]/parameter[1]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithPublishPermissions' and count(parameter)=2 and parameter[1][starts-with(@type,'android.app.Fragment')] and parameter[2][starts-with(@type,'java.util.Collection')]]/parameter[1]"
     name="managedName">fragment</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithPublishPermissions' and count(parameter)=2 and parameter[1][@type='android.app.Fragment'] and parameter[2][@type='java.util.Collection']]/parameter[2]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithPublishPermissions' and count(parameter)=2 and parameter[1][starts-with(@type,'android.app.Fragment')] and parameter[2][starts-with(@type,'java.util.Collection')]]/parameter[2]"
     name="managedName">permissions</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithPublishPermissions' and count(parameter)=2 and parameter[1][@type='android.app.Activity'] and parameter[2][@type='java.util.Collection']]/parameter[1]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithPublishPermissions' and count(parameter)=2 and parameter[1][starts-with(@type,'android.app.Activity')] and parameter[2][starts-with(@type,'java.util.Collection')]]/parameter[1]"
     name="managedName">activity</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithPublishPermissions' and count(parameter)=2 and parameter[1][@type='android.app.Activity'] and parameter[2][@type='java.util.Collection']]/parameter[2]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logInWithPublishPermissions' and count(parameter)=2 and parameter[1][starts-with(@type,'android.app.Activity')] and parameter[2][starts-with(@type,'java.util.Collection')]]/parameter[2]"
     name="managedName">permissions</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logIn' and count(parameter)=2 and parameter[1][@type='androidx.fragment.app.Fragment'] and parameter[2][@type='java.util.Collection']]/parameter[1]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logIn' and count(parameter)=2 and parameter[1][starts-with(@type,'androidx.fragment.app.Fragment')] and parameter[2][starts-with(@type,'java.util.Collection')]]/parameter[1]"
     name="managedName">fragment</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logIn' and count(parameter)=2 and parameter[1][@type='androidx.fragment.app.Fragment'] and parameter[2][@type='java.util.Collection']]/parameter[2]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logIn' and count(parameter)=2 and parameter[1][starts-with(@type,'androidx.fragment.app.Fragment')] and parameter[2][starts-with(@type,'java.util.Collection')]]/parameter[2]"
     name="managedName">permissions</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logIn' and count(parameter)=2 and parameter[1][@type='android.app.Fragment'] and parameter[2][@type='java.util.Collection']]/parameter[1]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logIn' and count(parameter)=2 and parameter[1][starts-with(@type,'android.app.Fragment')] and parameter[2][starts-with(@type,'java.util.Collection')]]/parameter[1]"
     name="managedName">fragment</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logIn' and count(parameter)=2 and parameter[1][@type='android.app.Fragment'] and parameter[2][@type='java.util.Collection']]/parameter[2]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logIn' and count(parameter)=2 and parameter[1][starts-with(@type,'android.app.Fragment')] and parameter[2][starts-with(@type,'java.util.Collection')]]/parameter[2]"
     name="managedName">permissions</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logIn' and count(parameter)=2 and parameter[1][@type='com.facebook.internal.FragmentWrapper'] and parameter[2][@type='java.util.Collection']]/parameter[1]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logIn' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.internal.FragmentWrapper')] and parameter[2][starts-with(@type,'java.util.Collection')]]/parameter[1]"
     name="managedName">fragment</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logIn' and count(parameter)=2 and parameter[1][@type='com.facebook.internal.FragmentWrapper'] and parameter[2][@type='java.util.Collection']]/parameter[2]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logIn' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.internal.FragmentWrapper')] and parameter[2][starts-with(@type,'java.util.Collection')]]/parameter[2]"
     name="managedName">permissions</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logIn' and count(parameter)=2 and parameter[1][@type='android.app.Activity'] and parameter[2][@type='java.util.Collection']]/parameter[1]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logIn' and count(parameter)=2 and parameter[1][starts-with(@type,'android.app.Activity')] and parameter[2][starts-with(@type,'java.util.Collection')]]/parameter[1]"
     name="managedName">activity</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logIn' and count(parameter)=2 and parameter[1][@type='android.app.Activity'] and parameter[2][@type='java.util.Collection']]/parameter[2]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='logIn' and count(parameter)=2 and parameter[1][starts-with(@type,'android.app.Activity')] and parameter[2][starts-with(@type,'java.util.Collection')]]/parameter[2]"
     name="managedName">permissions</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='createLoginRequest' and count(parameter)=1 and parameter[1][@type='java.util.Collection']]/parameter[1]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='createLoginRequest' and count(parameter)=1 and parameter[1][starts-with(@type,'java.util.Collection')]]/parameter[1]"
     name="managedName">permissions</attr>
   <attr
     path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='getFacebookActivityIntent' and count(parameter)=1 and parameter[1][@type='com.facebook.login.LoginClient.Request']]/parameter[1]"
@@ -688,13 +688,13 @@
     path="/api/package[@name='com.facebook.login']/class[@name='CustomTabPrefetchHelper']/method[@name='onServiceDisconnected' and count(parameter)=1 and parameter[1][@type='android.content.ComponentName']]/parameter[1]"
     name="managedName">componentName</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginResult']/constructor[@name='LoginResult' and count(parameter)=3 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.util.Set'] and parameter[3][@type='java.util.Set']]/parameter[1]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginResult']/constructor[@name='LoginResult' and count(parameter)=3 and parameter[1][starts-with(@type,'com.facebook.AccessToken')] and parameter[2][starts-with(@type,'java.util.Set')] and parameter[3][starts-with(@type,'java.util.Set')]]/parameter[1]"
     name="managedName">accessToken</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginResult']/constructor[@name='LoginResult' and count(parameter)=3 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.util.Set'] and parameter[3][@type='java.util.Set']]/parameter[2]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginResult']/constructor[@name='LoginResult' and count(parameter)=3 and parameter[1][starts-with(@type,'com.facebook.AccessToken')] and parameter[2][starts-with(@type,'java.util.Set')] and parameter[3][starts-with(@type,'java.util.Set')]]/parameter[2]"
     name="managedName">recentlyGrantedPermissions</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginResult']/constructor[@name='LoginResult' and count(parameter)=3 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.util.Set'] and parameter[3][@type='java.util.Set']]/parameter[3]"
+    path="/api/package[@name='com.facebook.login']/class[@name='LoginResult']/constructor[@name='LoginResult' and count(parameter)=3 and parameter[1][starts-with(@type,'com.facebook.AccessToken')] and parameter[2][starts-with(@type,'java.util.Set')] and parameter[3][starts-with(@type,'java.util.Set')]]/parameter[3]"
     name="managedName">recentlyDeniedPermissions</attr>
   <attr
     path="/api/package[@name='com.facebook.login']/class[@name='CustomTabLoginMethodHandler']/method[@name='putChallengeParam' and count(parameter)=1 and parameter[1][@type='org.json.JSONObject']]/parameter[1]"
@@ -736,16 +736,16 @@
     path="/api/package[@name='com.facebook.login']/class[@name='CustomTabLoginMethodHandler']/method[@name='logWebLoginCompleted' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">e2e</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='CustomTabLoginMethodHandler']/method[@name='createAccessTokenFromWebBundle' and count(parameter)=4 and parameter[1][@type='java.util.Collection'] and parameter[2][@type='android.os.Bundle'] and parameter[3][@type='com.facebook.AccessTokenSource'] and parameter[4][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.login']/class[@name='CustomTabLoginMethodHandler']/method[@name='createAccessTokenFromWebBundle' and count(parameter)=4 and parameter[1][starts-with(@type,'java.util.Collection')] and parameter[2][starts-with(@type,'android.os.Bundle')] and parameter[3][starts-with(@type,'com.facebook.AccessTokenSource')] and parameter[4][starts-with(@type,'java.lang.String')]]/parameter[1]"
     name="managedName">requestedPermissions</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='CustomTabLoginMethodHandler']/method[@name='createAccessTokenFromWebBundle' and count(parameter)=4 and parameter[1][@type='java.util.Collection'] and parameter[2][@type='android.os.Bundle'] and parameter[3][@type='com.facebook.AccessTokenSource'] and parameter[4][@type='java.lang.String']]/parameter[2]"
+    path="/api/package[@name='com.facebook.login']/class[@name='CustomTabLoginMethodHandler']/method[@name='createAccessTokenFromWebBundle' and count(parameter)=4 and parameter[1][starts-with(@type,'java.util.Collection')] and parameter[2][starts-with(@type,'android.os.Bundle')] and parameter[3][starts-with(@type,'com.facebook.AccessTokenSource')] and parameter[4][starts-with(@type,'java.lang.String')]]/parameter[2]"
     name="managedName">bundle</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='CustomTabLoginMethodHandler']/method[@name='createAccessTokenFromWebBundle' and count(parameter)=4 and parameter[1][@type='java.util.Collection'] and parameter[2][@type='android.os.Bundle'] and parameter[3][@type='com.facebook.AccessTokenSource'] and parameter[4][@type='java.lang.String']]/parameter[3]"
+    path="/api/package[@name='com.facebook.login']/class[@name='CustomTabLoginMethodHandler']/method[@name='createAccessTokenFromWebBundle' and count(parameter)=4 and parameter[1][starts-with(@type,'java.util.Collection')] and parameter[2][starts-with(@type,'android.os.Bundle')] and parameter[3][starts-with(@type,'com.facebook.AccessTokenSource')] and parameter[4][starts-with(@type,'java.lang.String')]]/parameter[3]"
     name="managedName">source</attr>
   <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='CustomTabLoginMethodHandler']/method[@name='createAccessTokenFromWebBundle' and count(parameter)=4 and parameter[1][@type='java.util.Collection'] and parameter[2][@type='android.os.Bundle'] and parameter[3][@type='com.facebook.AccessTokenSource'] and parameter[4][@type='java.lang.String']]/parameter[4]"
+    path="/api/package[@name='com.facebook.login']/class[@name='CustomTabLoginMethodHandler']/method[@name='createAccessTokenFromWebBundle' and count(parameter)=4 and parameter[1][starts-with(@type,'java.util.Collection')] and parameter[2][starts-with(@type,'android.os.Bundle')] and parameter[3][starts-with(@type,'com.facebook.AccessTokenSource')] and parameter[4][starts-with(@type,'java.lang.String')]]/parameter[4]"
     name="managedName">applicationId</attr>
   <attr
     path="/api/package[@name='com.facebook.login']/class[@name='DeviceAuthDialog']/method[@name='onCreateView' and count(parameter)=3 and parameter[1][@type='android.view.LayoutInflater'] and parameter[2][@type='android.view.ViewGroup'] and parameter[3][@type='android.os.Bundle']]/parameter[1]"
@@ -820,13 +820,13 @@
     path="/api/package[@name='com.facebook.share.widget']/class[@name='ShareDialog']/method[@name='show' and count(parameter)=2 and parameter[1][@type='android.app.Fragment'] and parameter[2][@type='com.facebook.share.model.ShareContent']]/parameter[2]"
     name="managedName">shareContent</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.widget']/class[@name='ShareDialog']/method[@name='canShow' and count(parameter)=1 and parameter[1][@type='java.lang.Class']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.widget']/class[@name='ShareDialog']/method[@name='canShow' and count(parameter)=1 and parameter[1][starts-with(@type,'java.lang.Class')]]/parameter[1]"
     name="managedName">contentType</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.widget']/class[@name='ShareDialog']/method[@name='registerCallbackImpl' and count(parameter)=2 and parameter[1][@type='com.facebook.internal.CallbackManagerImpl'] and parameter[2][@type='com.facebook.FacebookCallback']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.widget']/class[@name='ShareDialog']/method[@name='registerCallbackImpl' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.internal.CallbackManagerImpl')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[1]"
     name="managedName">callbackManager</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.widget']/class[@name='ShareDialog']/method[@name='registerCallbackImpl' and count(parameter)=2 and parameter[1][@type='com.facebook.internal.CallbackManagerImpl'] and parameter[2][@type='com.facebook.FacebookCallback']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.widget']/class[@name='ShareDialog']/method[@name='registerCallbackImpl' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.internal.CallbackManagerImpl')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[2]"
     name="managedName">callback</attr>
   <attr
     path="/api/package[@name='com.facebook.share.widget']/class[@name='ShareDialog']/method[@name='setShouldFailOnDataError' and count(parameter)=1 and parameter[1][@type='boolean']]/parameter[1]"
@@ -1022,7 +1022,7 @@
     name="managedName">analyticsParameters</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='LikeContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
-    name="managedName">out</attr>
+    name="managedName">@out</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='LikeContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">flags</attr>
@@ -1091,7 +1091,7 @@
     name="managedName">error</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareFeedContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
-    name="managedName">out</attr>
+    name="managedName">@out</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareFeedContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">flags</attr>
@@ -1141,25 +1141,25 @@
     path="/api/package[@name='com.facebook.share.internal']/class[@name='DeviceShareDialogFragment']/method[@name='setShareContent' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.ShareContent']]/parameter[1]"
     name="managedName">shareContent</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='invokeCallbackWithException' and count(parameter)=2 and parameter[1][@type='com.facebook.FacebookCallback'] and parameter[2][@type='java.lang.Exception']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='invokeCallbackWithException' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[2][starts-with(@type,'java.lang.Exception')]]/parameter[1]"
     name="managedName">callback</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='invokeCallbackWithException' and count(parameter)=2 and parameter[1][@type='com.facebook.FacebookCallback'] and parameter[2][@type='java.lang.Exception']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='invokeCallbackWithException' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[2][starts-with(@type,'java.lang.Exception')]]/parameter[2]"
     name="managedName">exception</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='invokeCallbackWithError' and count(parameter)=2 and parameter[1][@type='com.facebook.FacebookCallback'] and parameter[2][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='invokeCallbackWithError' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[2][starts-with(@type,'java.lang.String')]]/parameter[1]"
     name="managedName">callback</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='invokeCallbackWithError' and count(parameter)=2 and parameter[1][@type='com.facebook.FacebookCallback'] and parameter[2][@type='java.lang.String']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='invokeCallbackWithError' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[2][starts-with(@type,'java.lang.String')]]/parameter[2]"
     name="managedName">error</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='invokeCallbackWithResults' and count(parameter)=3 and parameter[1][@type='com.facebook.FacebookCallback'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='com.facebook.GraphResponse']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='invokeCallbackWithResults' and count(parameter)=3 and parameter[1][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[2][starts-with(@type,'java.lang.String')] and parameter[3][starts-with(@type,'com.facebook.GraphResponse')]]/parameter[1]"
     name="managedName">callback</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='invokeCallbackWithResults' and count(parameter)=3 and parameter[1][@type='com.facebook.FacebookCallback'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='com.facebook.GraphResponse']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='invokeCallbackWithResults' and count(parameter)=3 and parameter[1][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[2][starts-with(@type,'java.lang.String')] and parameter[3][starts-with(@type,'com.facebook.GraphResponse')]]/parameter[2]"
     name="managedName">postId</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='invokeCallbackWithResults' and count(parameter)=3 and parameter[1][@type='com.facebook.FacebookCallback'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='com.facebook.GraphResponse']]/parameter[3]"
+    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='invokeCallbackWithResults' and count(parameter)=3 and parameter[1][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[2][starts-with(@type,'java.lang.String')] and parameter[3][starts-with(@type,'com.facebook.GraphResponse')]]/parameter[3]"
     name="managedName">graphResponse</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='getNativeDialogCompletionGesture' and count(parameter)=1 and parameter[1][@type='android.os.Bundle']]/parameter[1]"
@@ -1180,19 +1180,19 @@
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='handleActivityResult' and count(parameter)=4 and parameter[1][@type='int'] and parameter[2][@type='int'] and parameter[3][@type='android.content.Intent'] and parameter[4][@type='com.facebook.share.internal.ResultProcessor']]/parameter[4]"
     name="managedName">resultProcessor</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='getShareResultProcessor' and count(parameter)=1 and parameter[1][@type='com.facebook.FacebookCallback']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='getShareResultProcessor' and count(parameter)=1 and parameter[1][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[1]"
     name="managedName">callback</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='registerStaticShareCallback' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]"
     name="managedName">requestCode</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='registerSharerCallback' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='com.facebook.CallbackManager'] and parameter[3][@type='com.facebook.FacebookCallback']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='registerSharerCallback' and count(parameter)=3 and parameter[1][starts-with(@type,'int')] and parameter[2][starts-with(@type,'com.facebook.CallbackManager')] and parameter[3][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[1]"
     name="managedName">requestCode</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='registerSharerCallback' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='com.facebook.CallbackManager'] and parameter[3][@type='com.facebook.FacebookCallback']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='registerSharerCallback' and count(parameter)=3 and parameter[1][starts-with(@type,'int')] and parameter[2][starts-with(@type,'com.facebook.CallbackManager')] and parameter[3][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[2]"
     name="managedName">callbackManager</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='registerSharerCallback' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='com.facebook.CallbackManager'] and parameter[3][@type='com.facebook.FacebookCallback']]/parameter[3]"
+    path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='registerSharerCallback' and count(parameter)=3 and parameter[1][starts-with(@type,'int')] and parameter[2][starts-with(@type,'com.facebook.CallbackManager')] and parameter[3][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[3]"
     name="managedName">callback</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='getPhotoUrls' and count(parameter)=2 and parameter[1][@type='com.facebook.share.model.SharePhotoContent'] and parameter[2][@type='java.util.UUID']]/parameter[1]"
@@ -1292,19 +1292,19 @@
     name="managedName">uri</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='MessengerShareContentUtility']/method[@name='addGenericTemplateContent' and count(parameter)=2 and parameter[1][@type='android.os.Bundle'] and parameter[2][@type='com.facebook.share.model.ShareMessengerGenericTemplateContent']]/parameter[1]"
-    name="managedName">params</attr>
+    name="managedName">@params</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='MessengerShareContentUtility']/method[@name='addGenericTemplateContent' and count(parameter)=2 and parameter[1][@type='android.os.Bundle'] and parameter[2][@type='com.facebook.share.model.ShareMessengerGenericTemplateContent']]/parameter[2]"
     name="managedName">content</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='MessengerShareContentUtility']/method[@name='addOpenGraphMusicTemplateContent' and count(parameter)=2 and parameter[1][@type='android.os.Bundle'] and parameter[2][@type='com.facebook.share.model.ShareMessengerOpenGraphMusicTemplateContent']]/parameter[1]"
-    name="managedName">params</attr>
+    name="managedName">@params</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='MessengerShareContentUtility']/method[@name='addOpenGraphMusicTemplateContent' and count(parameter)=2 and parameter[1][@type='android.os.Bundle'] and parameter[2][@type='com.facebook.share.model.ShareMessengerOpenGraphMusicTemplateContent']]/parameter[2]"
     name="managedName">content</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='MessengerShareContentUtility']/method[@name='addMediaTemplateContent' and count(parameter)=2 and parameter[1][@type='android.os.Bundle'] and parameter[2][@type='com.facebook.share.model.ShareMessengerMediaTemplateContent']]/parameter[1]"
-    name="managedName">params</attr>
+    name="managedName">@params</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='MessengerShareContentUtility']/method[@name='addMediaTemplateContent' and count(parameter)=2 and parameter[1][@type='android.os.Bundle'] and parameter[2][@type='com.facebook.share.model.ShareMessengerMediaTemplateContent']]/parameter[2]"
     name="managedName">content</attr>
@@ -1316,7 +1316,7 @@
     name="managedName">photoJSONProcessor</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='OpenGraphJSONUtility']/method[@name='toJSONValue' and count(parameter)=2 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='com.facebook.share.internal.OpenGraphJSONUtility.PhotoJSONProcessor']]/parameter[1]"
-    name="managedName">object</attr>
+    name="managedName">@object</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='OpenGraphJSONUtility']/method[@name='toJSONValue' and count(parameter)=2 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='com.facebook.share.internal.OpenGraphJSONUtility.PhotoJSONProcessor']]/parameter[2]"
     name="managedName">photoJSONProcessor</attr>
@@ -1327,10 +1327,10 @@
     path="/api/package[@name='com.facebook.share.internal']/class[@name='LikeDialog']/method[@name='show' and count(parameter)=1 and parameter[1][@type='com.facebook.share.internal.LikeContent']]/parameter[1]"
     name="managedName">content</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.internal']/class[@name='LikeDialog']/method[@name='registerCallbackImpl' and count(parameter)=2 and parameter[1][@type='com.facebook.internal.CallbackManagerImpl'] and parameter[2][@type='com.facebook.FacebookCallback']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.internal']/class[@name='LikeDialog']/method[@name='registerCallbackImpl' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.internal.CallbackManagerImpl')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[1]"
     name="managedName">callbackManager</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.internal']/class[@name='LikeDialog']/method[@name='registerCallbackImpl' and count(parameter)=2 and parameter[1][@type='com.facebook.internal.CallbackManagerImpl'] and parameter[2][@type='com.facebook.FacebookCallback']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.internal']/class[@name='LikeDialog']/method[@name='registerCallbackImpl' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.internal.CallbackManagerImpl')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[2]"
     name="managedName">callback</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='LikeDialog']/constructor[@name='LikeDialog' and count(parameter)=1 and parameter[1][@type='android.app.Activity']]/parameter[1]"
@@ -1378,13 +1378,13 @@
     path="/api/package[@name='com.facebook.share.model']/class[@name='SharePhotoContent.Builder']/method[@name='addPhoto' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.SharePhoto']]/parameter[1]"
     name="managedName">photo</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='SharePhotoContent.Builder']/method[@name='addPhotos' and count(parameter)=1 and parameter[1][@type='java.util.List']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='SharePhotoContent.Builder']/method[@name='addPhotos' and count(parameter)=1 and parameter[1][starts-with(@type,'java.util.List')]]/parameter[1]"
     name="managedName">photos</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='SharePhotoContent.Builder']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.SharePhotoContent']]/parameter[1]"
     name="managedName">model</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='SharePhotoContent.Builder']/method[@name='setPhotos' and count(parameter)=1 and parameter[1][@type='java.util.List']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='SharePhotoContent.Builder']/method[@name='setPhotos' and count(parameter)=1 and parameter[1][starts-with(@type,'java.util.List')]]/parameter[1]"
     name="managedName">photos</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareHashtag']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
@@ -1399,7 +1399,7 @@
     path="/api/package[@name='com.facebook.share.model']/class[@name='GameRequestContent.Builder']/method[@name='setTo' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">to</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='GameRequestContent.Builder']/method[@name='setRecipients' and count(parameter)=1 and parameter[1][@type='java.util.List']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='GameRequestContent.Builder']/method[@name='setRecipients' and count(parameter)=1 and parameter[1][starts-with(@type,'java.util.List')]]/parameter[1]"
     name="managedName">recipients</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='GameRequestContent.Builder']/method[@name='setData' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
@@ -1417,14 +1417,14 @@
     path="/api/package[@name='com.facebook.share.model']/class[@name='GameRequestContent.Builder']/method[@name='setFilters' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.GameRequestContent.Filters']]/parameter[1]"
     name="managedName">filters</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='GameRequestContent.Builder']/method[@name='setSuggestions' and count(parameter)=1 and parameter[1][@type='java.util.List']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='GameRequestContent.Builder']/method[@name='setSuggestions' and count(parameter)=1 and parameter[1][starts-with(@type,'java.util.List')]]/parameter[1]"
     name="managedName">suggestions</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='GameRequestContent.Builder']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.GameRequestContent']]/parameter[1]"
     name="managedName">content</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
-    name="managedName">out</attr>
+    name="managedName">@out</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">flags</attr>
@@ -1454,7 +1454,7 @@
     name="managedName">content</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareVideo']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
-    name="managedName">out</attr>
+    name="managedName">@out</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareVideo']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">flags</attr>
@@ -1489,115 +1489,115 @@
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMessengerMediaTemplateContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">flags</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/interface[@name='ShareModelBuilder&amp;lt;P extends ShareModel,E extends ShareModelBuilder&amp;gt;']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.ShareModel']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/interface[@name='ShareModelBuilder']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.ShareModel']]/parameter[1]"
     name="managedName">model</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/interface[@name='ShareModelBuilder&amp;lt;P extends ShareModel,E extends ShareModelBuilder&amp;gt;']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='P']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/interface[@name='ShareModelBuilder']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='P']]/parameter[1]"
     name="managedName">model</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMessengerActionButton.Builder&amp;lt;M extends ShareMessengerActionButton,B extends ShareMessengerActionButton.Builder&amp;gt;']/method[@name='setTitle' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMessengerActionButton.Builder']/method[@name='setTitle' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">title</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMessengerActionButton.Builder&amp;lt;M extends ShareMessengerActionButton,B extends ShareMessengerActionButton.Builder&amp;gt;']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.ShareMessengerActionButton']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMessengerActionButton.Builder']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.ShareMessengerActionButton']]/parameter[1]"
     name="managedName">model</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMessengerActionButton.Builder&amp;lt;M extends ShareMessengerActionButton,B extends ShareMessengerActionButton.Builder&amp;gt;']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='M']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMessengerActionButton.Builder']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='M']]/parameter[1]"
     name="managedName">model</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='GameRequestContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
-    name="managedName">out</attr>
+    name="managedName">@out</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='GameRequestContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">flags</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putBoolean' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='boolean']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putBoolean' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='boolean']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putBoolean' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='boolean']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putBoolean' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='boolean']]/parameter[2]"
     name="managedName">value</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putBooleanArray' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='boolean:A']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putBooleanArray' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='boolean[]']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putBooleanArray' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='boolean:A']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putBooleanArray' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='boolean[]']]/parameter[2]"
     name="managedName">value</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putDouble' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='double']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putDouble' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='double']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putDouble' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='double']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putDouble' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='double']]/parameter[2]"
     name="managedName">value</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putDoubleArray' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='double:A']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putDoubleArray' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='double[]']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putDoubleArray' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='double:A']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putDoubleArray' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='double[]']]/parameter[2]"
     name="managedName">value</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putInt' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putInt' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putInt' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putInt' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">value</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putIntArray' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int:A']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putIntArray' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int[]']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putIntArray' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int:A']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putIntArray' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int[]']]/parameter[2]"
     name="managedName">value</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putLong' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='long']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putLong' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='long']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putLong' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='long']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putLong' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='long']]/parameter[2]"
     name="managedName">value</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putLongArray' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='long:A']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putLongArray' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='long[]']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putLongArray' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='long:A']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putLongArray' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='long[]']]/parameter[2]"
     name="managedName">value</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putObject' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.facebook.share.model.ShareOpenGraphObject']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putObject' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.facebook.share.model.ShareOpenGraphObject']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putObject' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.facebook.share.model.ShareOpenGraphObject']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putObject' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.facebook.share.model.ShareOpenGraphObject']]/parameter[2]"
     name="managedName">value</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putObjectArrayList' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.util.ArrayList']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putObjectArrayList' and count(parameter)=2 and parameter[1][starts-with(@type,'java.lang.String')] and parameter[2][starts-with(@type,'java.util.ArrayList')]]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putObjectArrayList' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.util.ArrayList']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putObjectArrayList' and count(parameter)=2 and parameter[1][starts-with(@type,'java.lang.String')] and parameter[2][starts-with(@type,'java.util.ArrayList')]]/parameter[2]"
     name="managedName">value</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putPhoto' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.facebook.share.model.SharePhoto']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putPhoto' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.facebook.share.model.SharePhoto']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putPhoto' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.facebook.share.model.SharePhoto']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putPhoto' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.facebook.share.model.SharePhoto']]/parameter[2]"
     name="managedName">value</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putPhotoArrayList' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.util.ArrayList']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putPhotoArrayList' and count(parameter)=2 and parameter[1][starts-with(@type,'java.lang.String')] and parameter[2][starts-with(@type,'java.util.ArrayList')]]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putPhotoArrayList' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.util.ArrayList']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putPhotoArrayList' and count(parameter)=2 and parameter[1][starts-with(@type,'java.lang.String')] and parameter[2][starts-with(@type,'java.util.ArrayList')]]/parameter[2]"
     name="managedName">value</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putString' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putString' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putString' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putString' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String']]/parameter[2]"
     name="managedName">value</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putStringArrayList' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.util.ArrayList']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putStringArrayList' and count(parameter)=2 and parameter[1][starts-with(@type,'java.lang.String')] and parameter[2][starts-with(@type,'java.util.ArrayList')]]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='putStringArrayList' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.util.ArrayList']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='putStringArrayList' and count(parameter)=2 and parameter[1][starts-with(@type,'java.lang.String')] and parameter[2][starts-with(@type,'java.util.ArrayList')]]/parameter[2]"
     name="managedName">value</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.ShareOpenGraphValueContainer']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.ShareOpenGraphValueContainer']]/parameter[1]"
     name="managedName">model</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='P']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer.Builder']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='P']]/parameter[1]"
     name="managedName">model</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareStoryContent.Builder']/method[@name='setBackgroundAsset' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.ShareMedia']]/parameter[1]"
@@ -1606,7 +1606,7 @@
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareStoryContent.Builder']/method[@name='setStickerAsset' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.SharePhoto']]/parameter[1]"
     name="managedName">stickerAsset</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareStoryContent.Builder']/method[@name='setBackgroundColorList' and count(parameter)=1 and parameter[1][@type='java.util.List']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareStoryContent.Builder']/method[@name='setBackgroundColorList' and count(parameter)=1 and parameter[1][starts-with(@type,'java.util.List')]]/parameter[1]"
     name="managedName">backgroundColorList</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareStoryContent.Builder']/method[@name='setAttributionLink' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
@@ -1625,7 +1625,7 @@
     name="managedName">flags</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMediaContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
-    name="managedName">out</attr>
+    name="managedName">@out</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMediaContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">flags</attr>
@@ -1652,19 +1652,19 @@
     name="managedName">key</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='CameraEffectArguments']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
-    name="managedName">out</attr>
+    name="managedName">@out</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='CameraEffectArguments']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">flags</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareLinkContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
-    name="managedName">out</attr>
+    name="managedName">@out</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareLinkContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">flags</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='AppGroupCreationContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
-    name="managedName">out</attr>
+    name="managedName">@out</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='AppGroupCreationContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">flags</attr>
@@ -1672,23 +1672,23 @@
     path="/api/package[@name='com.facebook.share.model']/interface[@name='GameRequestContent.ActionType']/method[@name='valueOf' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">name</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMedia.Builder&amp;lt;M extends ShareMedia,B extends ShareMedia.Builder&amp;gt;']/method[@name='setParameter' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMedia.Builder']/method[@name='setParameter' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMedia.Builder&amp;lt;M extends ShareMedia,B extends ShareMedia.Builder&amp;gt;']/method[@name='setParameter' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMedia.Builder']/method[@name='setParameter' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String']]/parameter[2]"
     name="managedName">value</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMedia.Builder&amp;lt;M extends ShareMedia,B extends ShareMedia.Builder&amp;gt;']/method[@name='setParameters' and count(parameter)=1 and parameter[1][@type='android.os.Bundle']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMedia.Builder']/method[@name='setParameters' and count(parameter)=1 and parameter[1][@type='android.os.Bundle']]/parameter[1]"
     name="managedName">parameters</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMedia.Builder&amp;lt;M extends ShareMedia,B extends ShareMedia.Builder&amp;gt;']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.ShareMedia']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMedia.Builder']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.ShareMedia']]/parameter[1]"
     name="managedName">model</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMedia.Builder&amp;lt;M extends ShareMedia,B extends ShareMedia.Builder&amp;gt;']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='M']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMedia.Builder']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='M']]/parameter[1]"
     name="managedName">model</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='SharePhoto']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
-    name="managedName">out</attr>
+    name="managedName">@out</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='SharePhoto']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">flags</attr>
@@ -1717,13 +1717,13 @@
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMediaContent.Builder']/method[@name='addMedium' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.ShareMedia']]/parameter[1]"
     name="managedName">medium</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMediaContent.Builder']/method[@name='addMedia' and count(parameter)=1 and parameter[1][@type='java.util.List']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMediaContent.Builder']/method[@name='addMedia' and count(parameter)=1 and parameter[1][starts-with(@type,'java.util.List')]]/parameter[1]"
     name="managedName">media</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMediaContent.Builder']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.ShareMediaContent']]/parameter[1]"
     name="managedName">model</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMediaContent.Builder']/method[@name='setMedia' and count(parameter)=1 and parameter[1][@type='java.util.List']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMediaContent.Builder']/method[@name='setMedia' and count(parameter)=1 and parameter[1][starts-with(@type,'java.util.List')]]/parameter[1]"
     name="managedName">media</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareCameraEffectContent.Builder']/method[@name='setEffectId' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
@@ -1759,10 +1759,10 @@
     path="/api/package[@name='com.facebook.share.model']/class[@name='CameraEffectArguments.Builder']/method[@name='putArgument' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String']]/parameter[2]"
     name="managedName">value</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='CameraEffectArguments.Builder']/method[@name='putArgument' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String:A']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='CameraEffectArguments.Builder']/method[@name='putArgument' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String[]']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='CameraEffectArguments.Builder']/method[@name='putArgument' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String:A']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='CameraEffectArguments.Builder']/method[@name='putArgument' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String[]']]/parameter[2]"
     name="managedName">arrayValue</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='CameraEffectArguments.Builder']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.CameraEffectArguments']]/parameter[1]"
@@ -1781,7 +1781,7 @@
     name="managedName">key</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='CameraEffectTextures']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
-    name="managedName">out</attr>
+    name="managedName">@out</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='CameraEffectTextures']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">flags</attr>
@@ -1789,46 +1789,46 @@
     path="/api/package[@name='com.facebook.share.model']/interface[@name='ShareMedia.Type']/method[@name='valueOf' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">name</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent&amp;lt;P extends ShareContent,E extends ShareContent.Builder&amp;gt;']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
-    name="managedName">out</attr>
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
+    name="managedName">@out</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent&amp;lt;P extends ShareContent,E extends ShareContent.Builder&amp;gt;']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">flags</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent&amp;lt;P extends ShareContent,E extends ShareContent.Builder&amp;gt;']/constructor[@name='ShareContent' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.ShareContent.Builder']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent']/constructor[@name='ShareContent' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.ShareContent.Builder']]/parameter[1]"
     name="managedName">builder</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent&amp;lt;P extends ShareContent,E extends ShareContent.Builder&amp;gt;']/constructor[@name='ShareContent' and count(parameter)=1 and parameter[1][@type='android.os.Parcel']]/parameter[1]"
-    name="managedName">in</attr>
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent']/constructor[@name='ShareContent' and count(parameter)=1 and parameter[1][@type='android.os.Parcel']]/parameter[1]"
+    name="managedName">@in</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='SharePhotoContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
-    name="managedName">out</attr>
+    name="managedName">@out</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='SharePhotoContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">flags</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent.Builder&amp;lt;P extends ShareContent,E extends ShareContent.Builder&amp;gt;']/method[@name='setContentUrl' and count(parameter)=1 and parameter[1][@type='android.net.Uri']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent.Builder']/method[@name='setContentUrl' and count(parameter)=1 and parameter[1][@type='android.net.Uri']]/parameter[1]"
     name="managedName">contentUrl</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent.Builder&amp;lt;P extends ShareContent,E extends ShareContent.Builder&amp;gt;']/method[@name='setPeopleIds' and count(parameter)=1 and parameter[1][@type='java.util.List']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent.Builder']/method[@name='setPeopleIds' and count(parameter)=1 and parameter[1][starts-with(@type,'java.util.List')]]/parameter[1]"
     name="managedName">peopleIds</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent.Builder&amp;lt;P extends ShareContent,E extends ShareContent.Builder&amp;gt;']/method[@name='setPlaceId' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent.Builder']/method[@name='setPlaceId' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">placeId</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent.Builder&amp;lt;P extends ShareContent,E extends ShareContent.Builder&amp;gt;']/method[@name='setPageId' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent.Builder']/method[@name='setPageId' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">pageId</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent.Builder&amp;lt;P extends ShareContent,E extends ShareContent.Builder&amp;gt;']/method[@name='setRef' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
-    name="managedName">ref</attr>
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent.Builder']/method[@name='setRef' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    name="managedName">@ref</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent.Builder&amp;lt;P extends ShareContent,E extends ShareContent.Builder&amp;gt;']/method[@name='setShareHashtag' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.ShareHashtag']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent.Builder']/method[@name='setShareHashtag' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.ShareHashtag']]/parameter[1]"
     name="managedName">shareHashtag</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent.Builder&amp;lt;P extends ShareContent,E extends ShareContent.Builder&amp;gt;']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.ShareContent']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent.Builder']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.ShareContent']]/parameter[1]"
     name="managedName">content</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent.Builder&amp;lt;P extends ShareContent,E extends ShareContent.Builder&amp;gt;']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='P']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent.Builder']/method[@name='readFrom' and count(parameter)=1 and parameter[1][@type='P']]/parameter[1]"
     name="managedName">content</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMessengerActionButton']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
@@ -1853,7 +1853,7 @@
     name="managedName">model</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMessengerGenericTemplateContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
-    name="managedName">out</attr>
+    name="managedName">@out</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMessengerGenericTemplateContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">flags</attr>
@@ -1910,76 +1910,76 @@
     name="managedName">model</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareCameraEffectContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
-    name="managedName">out</attr>
+    name="managedName">@out</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareCameraEffectContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">flags</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='get' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='get' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='getBoolean' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='boolean']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='getBoolean' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='boolean']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='getBoolean' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='boolean']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='getBoolean' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='boolean']]/parameter[2]"
     name="managedName">defaultValue</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='getBooleanArray' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='getBooleanArray' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='getDouble' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='double']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='getDouble' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='double']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='getDouble' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='double']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='getDouble' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='double']]/parameter[2]"
     name="managedName">defaultValue</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='getDoubleArray' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='getDoubleArray' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='getInt' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='getInt' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='getInt' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='getInt' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">defaultValue</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='getIntArray' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='getIntArray' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='getLong' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='long']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='getLong' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='long']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='getLong' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='long']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='getLong' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='long']]/parameter[2]"
     name="managedName">defaultValue</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='getLongArray' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='getLongArray' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='getObject' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='getObject' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='getObjectArrayList' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='getObjectArrayList' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='getPhoto' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='getPhoto' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='getPhotoArrayList' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='getPhotoArrayList' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='getString' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='getString' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='getStringArrayList' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='getStringArrayList' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
-    name="managedName">out</attr>
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
+    name="managedName">@out</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">flags</attr>
   <attr
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer&amp;lt;P extends ShareOpenGraphValueContainer,E extends ShareOpenGraphValueContainer.Builder&amp;gt;']/constructor[@name='ShareOpenGraphValueContainer' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.ShareOpenGraphValueContainer.Builder']]/parameter[1]"
-    name="managedName">ShareOpenGraphValueContainer.Builder&lt;P</attr>
+    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareOpenGraphValueContainer']/constructor[@name='ShareOpenGraphValueContainer' and count(parameter)=1 and parameter[1][starts-with(@type,'com.facebook.share.model.ShareOpenGraphValueContainer.Builder')]]/parameter[1]"
+    name="managedName">builder</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/interface[@name='AppGroupCreationContent.AppGroupPrivacy']/method[@name='valueOf' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">name</attr>
@@ -2003,7 +2003,7 @@
     name="managedName">name</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareVideoContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
-    name="managedName">out</attr>
+    name="managedName">@out</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareVideoContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">flags</attr>
@@ -2015,7 +2015,7 @@
     name="managedName">flags</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareStoryContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[1]"
-    name="managedName">out</attr>
+    name="managedName">@out</attr>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareStoryContent']/method[@name='writeToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][@type='int']]/parameter[2]"
     name="managedName">flags</attr>
