@@ -107,7 +107,7 @@ namespace GenParamNames
                                 xw.WriteString("managedName");
                                 xw.WriteEndAttribute();
 
-                                xw.WriteString(method.Arguments[i].Name);
+                                xw.WriteString(FixParameterName(method.Arguments[i].Name));
                                 xw.WriteEndElement();
                             }
                         }
@@ -209,6 +209,28 @@ namespace GenParamNames
             }
 
             return newMethod;
+        }
+
+        static string FixParameterName(string name)
+        {
+            switch(name)
+            {
+                case "out":
+                    return "@out";
+
+                case "params":
+                    return "@params";
+
+                case "object":
+                    return "@object";
+
+                case "string":
+                    return "@string";
+
+                default:
+                    break;
+            }
+            return name;
         }
     }
 }
