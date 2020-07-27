@@ -1288,7 +1288,7 @@ namespace Facebook.CoreKit {
 		[Export ("setDataProcessingOptions:country:state:")]
 		void SetDataProcessingOptions ([NullAllowed] string[] options, int country, int state);
 
-	// +(void)enableLoggingBehavior:(FBSDKLoggingBehavior _Nonnull)loggingBehavior;
+		// +(void)enableLoggingBehavior:(FBSDKLoggingBehavior _Nonnull)loggingBehavior;
 		[Static]
 		[Export ("enableLoggingBehavior:")]
 		void EnableLoggingBehavior ([BindAs (typeof (LoggingBehavior))] NSString loggingBehavior);
