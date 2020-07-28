@@ -113,7 +113,7 @@ namespace Facebook.AudienceNetwork
 		// -(instancetype _Nonnull)initWithAdExperienceType:(FBAdExperienceType _Nonnull)adExperienceType __attribute__((objc_designated_initializer));
 		[Export("initWithAdExperienceType:")]
 		[DesignatedInitializer]
-		IntPtr Constructor(string adExperienceType);
+		IntPtr Constructor(NSString adExperienceType);
 	}
 
 	[Static]

@@ -115,7 +115,7 @@ namespace Facebook.CoreKit {
 
 		// -(instancetype _Nonnull)initWithTokenString:(NSString * _Nonnull)tokenString permissions:(NSArray<NSString *> * _Nonnull)permissions declinedPermissions:(NSArray<NSString *> * _Nonnull)declinedPermissions expiredPermissions:(NSArray<NSString *> * _Nonnull)expiredPermissions appID:(NSString * _Nonnull)appID userID:(NSString * _Nonnull)userID expirationDate:(NSDate * _Nullable)expirationDate refreshDate:(NSDate * _Nullable)refreshDate dataAccessExpirationDate:(NSDate * _Nullable)dataAccessExpirationDate graphDomain:(NSString * _Nullable)graphDomain;
 		[Export ("initWithTokenString:permissions:declinedPermissions:expiredPermissions:appID:userID:expirationDate:refreshDate:dataAccessExpirationDate:graphDomain:")]
-		IntPtr Constructor (string tokenString, string[] permissions, string[] declinedPermissions, string[] expiredPermissions, string appID, string userID, [NullAllowed] NSDate expirationDate, [NullAllowed] NSDate refreshDate, [NullAllowed] NSDate dataAccessExpirationDate, [NullAllowed] string graphDomain);
+		IntPtr Constructor (string tokenString, string[] permissions, string[] declinedPermissions, string[] expiredPermissions, string appId, string userId, [NullAllowed] NSDate expirationDate, [NullAllowed] NSDate refreshDate, [NullAllowed] NSDate dataAccessExpirationDate, [NullAllowed] string graphDomain);
 
 		// -(BOOL)hasGranted:(NSString *)permission;
 		[Export ("hasGranted:")]
