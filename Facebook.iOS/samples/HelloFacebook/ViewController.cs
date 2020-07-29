@@ -44,7 +44,6 @@ namespace HelloFacebook
 
 			// Set the Read and Publish permissions you want to get
 			loginButton = new LoginButton (new CGRect (80, 20, 220, 46)) {
-				LoginBehavior = LoginBehavior.Browser,
 				Permissions = readPermissions.ToArray ()
 			};
 

@@ -63,29 +63,6 @@ namespace Facebook.ShareKit
 		FeedWeb
 	}
 
-	[Obsolete ("Sharing to Messenger via the SDK is unsupported. https://developers.facebook.com/docs/messenger-platform/changelog/#20190610. Sharing should be performed by the native share sheet.")]
-	[Native]
-	public enum ShareMessengerGenericTemplateImageAspectRatio : ulong
-	{
-		Horizontal = 0,
-		Square
-	}
-
-	[Native]
-	public enum ShareMessengerMediaTemplateMediaType : ulong
-	{
-		Image = 0,
-		Video
-	}
-
-	[Native]
-	public enum ShareMessengerURLActionButtonWebviewHeightRatio : ulong
-	{
-		Full = 0,
-		Tall,
-		Compact
-	}
-
 	[Flags]
 	[Native]
 	public enum ShareBridgeOptions : ulong {

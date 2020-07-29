@@ -227,16 +227,6 @@ namespace Facebook.AudienceNetwork
 		Verbose
 	}
 
-	[Obsolete ("Rendering method is no longer used in Audience Network")]
-	[Native]
-	public enum MediaViewRenderingMethod : long
-	{
-		Default,
-		Metal,
-		OpenGL,
-		Software
-	}
-
 	[Native]
 	public enum AdTestAdType : long
 	{
@@ -261,7 +251,6 @@ namespace Facebook.AudienceNetwork
 		Unknown = 0,
 		Banner,
 		Interstitial,
-		Instream,
 		Native,
 		NativeBanner,
 		RewardedVideo

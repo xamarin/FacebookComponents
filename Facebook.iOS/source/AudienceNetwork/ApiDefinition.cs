@@ -86,6 +86,37 @@ namespace Facebook.AudienceNetwork
 	}
 
 	[Static]
+	partial interface AdExperienceType
+	{
+		// extern const FBAdExperienceType _Nonnull FBAdExperienceTypeRewarded;
+		[Field ("FBAdExperienceTypeRewarded", "__Internal")]
+		NSString Rewarded { get; }
+
+		// extern const FBAdExperienceType _Nonnull FBAdExperienceTypeInterstitial;
+		[Field ("FBAdExperienceTypeInterstitial", "__Internal")]
+		NSString Interstitial { get; }
+
+		// extern const FBAdExperienceType _Nonnull FBAdExperienceTypeRewardedInterstitial;
+		[Field ("FBAdExperienceTypeRewardedInterstitial", "__Internal")]
+		NSString RewardedInterstitial { get; }
+	}
+
+	// @interface FBAdExperienceConfig : NSObject
+	[BaseType(typeof(NSObject), Name= "FBAdExperienceConfig")]
+	[DisableDefaultCtor]
+	interface AdExperienceConfig
+	{
+		// @property (readwrite, nonatomic, strong) FBAdExperienceType _Nonnull adExperienceType;
+		[Export("adExperienceType", ArgumentSemantic.Strong)]
+		string AdExperienceType { get; set; }
+
+		// -(instancetype _Nonnull)initWithAdExperienceType:(FBAdExperienceType _Nonnull)adExperienceType __attribute__((objc_designated_initializer));
+		[Export("initWithAdExperienceType:")]
+		[DesignatedInitializer]
+		IntPtr Constructor(NSString adExperienceType);
+	}
+
+	[Static]
 	interface AdExtraHintKeywords {
 		// extern const FBAdExtraHintKeyword _Nonnull FBAdExtraHintKeywordAccessories;
 		[Obsolete ("Use the AdExtraHintKeyword.Accessories enum instead. This will be removed in future versions.")]
@@ -595,12 +626,15 @@ namespace Facebook.AudienceNetwork
 		[Export ("logLevel")]
 		AdLogLevel LogLevel { [Bind ("getLogLevel")] get; set; }
 
-		// + (FBMediaViewRenderingMethod)mediaViewRenderingMethod;
-		// + (void)setMediaViewRenderingMethod:(FBMediaViewRenderingMethod)mediaViewRenderingMethod;
-		[Obsolete ("Rendering method is no longer used in Audience Network.")]
+		// +(void)setDataProcessingOptions:(NSArray<NSString *> * _Nonnull)options country:(NSInteger)country state:(NSInteger)state;
 		[Static]
-		[Export ("mediaViewRenderingMethod")]
-		MediaViewRenderingMethod MediaViewRenderingMethod { get; set; }
+		[Export ("setDataProcessingOptions:country:state:")]
+		void SetDataProcessingOptions (string[] options, nint country, nint state);
+
+		// +(void)setDataProcessingOptions:(NSArray<NSString *> * _Nonnull)options;
+		[Static]
+		[Export ("setDataProcessingOptions:")]
+		void SetDataProcessingOptions (string[] options);
 	}
 
 	interface IAdLoggingDelegate { }
@@ -776,20 +810,24 @@ namespace Facebook.AudienceNetwork
 		AdExtraHint ExtraHint { get; set; }
 
 		// -(instancetype _Nullable)initWithPlacementID:(NSString * _Nonnull)placementID __attribute__((objc_designated_initializer));
+		[Obsolete("Instream ads have been deprecated. Initialiser will return nil.")]
 		[DesignatedInitializer]
 		[Export ("initWithPlacementID:")]
 		IntPtr Constructor (string placementId);
 
 		// -(void)loadAd;
+		[Obsolete("Instream ads have been deprecated. Initialiser will return nil.")]
 		[PostGet ("IsAdValid")]
 		[Export ("loadAd")]
 		void LoadAd ();
 
 		// - (void) loadAdWithBidPayload:(NSString*) bidPayload;
+		[Obsolete("Instream ads have been deprecated. Initialiser will return nil.")]
 		[Export ("loadAdWithBidPayload:")]
 		void LoadAd (string bidPayload);
 
 		// -(BOOL)showAdFromRootViewController:(UIViewController * _Nullable)rootViewController;
+		[Obsolete("Instream ads have been deprecated. Initialiser will return nil.")]
 		[Export ("showAdFromRootViewController:")]
 		bool ShowAd ([NullAllowed] UIViewController rootViewController);
 	}
@@ -1178,6 +1216,10 @@ namespace Facebook.AudienceNetwork
 		[NullAllowed]
 		[Export ("adChoicesIcon", ArgumentSemantic.Strong)]
 		AdImage AdChoicesIcon { get; }
+
+		// @property (readonly, nonatomic, strong) UIImage * _Nullable iconImage;
+		[NullAllowed, Export ("iconImage", ArgumentSemantic.Strong)]
+		UIImage IconImage { get; }
 
 		// @property (readonly, assign, nonatomic) CGFloat aspectRatio;
 		[Export ("aspectRatio")]
@@ -1740,6 +1782,10 @@ namespace Facebook.AudienceNetwork
 		[NullAllowed]
 		[Export ("extraHint", ArgumentSemantic.Strong)]
 		AdExtraHint ExtraHint { get; set; }
+
+		// @property (copy, nonatomic) FBAdExperienceConfig * _Nullable adExperienceConfig;
+		[NullAllowed, Export ("adExperienceConfig", ArgumentSemantic.Copy)]
+		AdExperienceConfig AdExperienceConfig { get; set; }
 
 		// -(instancetype _Nonnull)initWithPlacementID:(NSString * _Nonnull)placementID;
 		[Export ("initWithPlacementID:")]

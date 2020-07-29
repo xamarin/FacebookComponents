@@ -122,11 +122,6 @@ namespace Facebook.LoginKit {
 		[Export ("delegate", ArgumentSemantic.Weak)]
 		ILoginButtonDelegate Delegate { get; set; }
 
-		// @property (assign, nonatomic) FBSDKLoginBehavior loginBehavior;
-		[Obsolete ("All login flows utilize the browser. This will be removed in the next major release")]
-		[Export ("loginBehavior", ArgumentSemantic.Assign)]
-		LoginBehavior LoginBehavior { get; set; }
-
 		// @property (copy, nonatomic) NSArray<NSString *> * _Nonnull permissions;
 		[Export ("permissions", ArgumentSemantic.Copy)]
 		string [] Permissions { get; set; }
@@ -185,11 +180,6 @@ namespace Facebook.LoginKit {
 		// @property (assign, nonatomic) FBSDKDefaultAudience defaultAudience;
 		[Export ("defaultAudience", ArgumentSemantic.Assign)]
 		DefaultAudience DefaultAudience { get; set; }
-
-		// @property (assign, nonatomic) FBSDKLoginBehavior loginBehavior;
-		[Obsolete("All login flows utilize the browser. This will be removed in the next major release")]
-		[Export ("loginBehavior", ArgumentSemantic.Assign)]
-		LoginBehavior LoginBehavior { get; set; }
 
 		// -(void)logInWithPermissions:(NSArray<NSString *> * _Nonnull)permissions fromViewController:(UIViewController * _Nullable)fromViewController handler:(FBSDKLoginManagerLoginResultBlock _Nullable)handler;
 		[Export ("logInWithPermissions:fromViewController:handler:")]
