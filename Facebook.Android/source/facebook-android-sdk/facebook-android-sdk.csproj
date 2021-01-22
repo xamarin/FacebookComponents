@@ -61,6 +61,7 @@
     <ProjectReference Include="..\facebook-places\facebook-places.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\facebook-applinks\facebook-applinks.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\facebook-messenger\facebook-messenger.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\facebook-gamingservices\facebook-gamingservices.csproj" />
   </ItemGroup>
 
 </Project>

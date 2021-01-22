@@ -1,4 +1,0 @@
-<metadata>
-    <attr path="/api/package[@name='com.facebook']" name="managedName">Xamarin.Facebook</attr>
-    <attr path="/api/package[@name='com.facebook.livestreaming']" name="managedName">Xamarin.Facebook.LiveStreaming</attr>
-</metadata>

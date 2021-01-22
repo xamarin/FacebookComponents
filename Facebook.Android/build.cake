@@ -9,20 +9,15 @@ var BUILD_TIMESTAMP = DateTime.UtcNow.ToString();
 var TARGET = Argument ("t", Argument ("target", "ci"));
 
 var ARTIFACTS = new List<ArtifactInfo> {
-	new ArtifactInfo("facebook-android-sdk", "7.1.0"),
-	new ArtifactInfo("facebook-core", "7.1.0"),
-	new ArtifactInfo("facebook-common", "7.1.0"),
-	new ArtifactInfo("facebook-login", "7.1.0"),
-	new ArtifactInfo("facebook-share", "7.1.0"),
-	new ArtifactInfo("facebook-places", "7.1.0"),
-	new ArtifactInfo("facebook-applinks", "7.1.0"),
-	new ArtifactInfo("facebook-messenger", "7.1.0"),
-	new ArtifactInfo("facebook-livestreaming", "4.36.0"),
-	new ArtifactInfo("facebook-loginkit", "4.36.0"),
-	new ArtifactInfo("facebook-marketing", "7.0.1"),
-	new ArtifactInfo("account-kit-sdk", "5.4.0"),
-	new ArtifactInfo("audience-network-sdk", "5.10.1"),
-	new ArtifactInfo("notifications", "1.0.2")
+	new ArtifactInfo("facebook-android-sdk", "7.1.0", "7.1.0.1"),
+	new ArtifactInfo("facebook-core", "7.1.0", "7.1.0.1"),
+	new ArtifactInfo("facebook-common", "7.1.0", "7.1.0.1"),
+	new ArtifactInfo("facebook-login", "7.1.0", "7.1.0.1"),
+	new ArtifactInfo("facebook-share", "7.1.0", "7.1.0.1"),
+	new ArtifactInfo("facebook-places", "7.1.0", "7.1.0.1"),
+	new ArtifactInfo("facebook-applinks", "7.1.0", "7.1.0.1"),
+	new ArtifactInfo("facebook-messenger", "7.1.0", "7.1.0.1"),
+	new ArtifactInfo("facebook-gamingservices", "7.1.0", "7.1.0.1")
 };
 
 class ArtifactInfo
@@ -113,7 +108,7 @@ Task ("nuget")
 		MSBuild(csproj, c => 
 			c.SetConfiguration("Release")
 			.WithProperty("NoBuild", "true")
-			.WithProperty("PackageVersion", art.Version)
+			.WithProperty("PackageVersion", art.NugetVersion)
 			.WithProperty("PackageOutputPath", MakeAbsolute((DirectoryPath)"./output/").FullPath)
 			.WithProperty("DesignTimeBuild", "false")
  			.WithTarget("Pack"));	
