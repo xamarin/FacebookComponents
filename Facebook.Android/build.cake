@@ -9,15 +9,15 @@ var BUILD_TIMESTAMP = DateTime.UtcNow.ToString();
 var TARGET = Argument ("t", Argument ("target", "ci"));
 
 var ARTIFACTS = new List<ArtifactInfo> {
-	new ArtifactInfo("facebook-android-sdk", "7.1.0", "7.1.0.1"),
-	new ArtifactInfo("facebook-core", "7.1.0", "7.1.0.1"),
-	new ArtifactInfo("facebook-common", "7.1.0", "7.1.0.1"),
-	new ArtifactInfo("facebook-login", "7.1.0", "7.1.0.1"),
-	new ArtifactInfo("facebook-share", "7.1.0", "7.1.0.1"),
-	new ArtifactInfo("facebook-places", "7.1.0", "7.1.0.1"),
-	new ArtifactInfo("facebook-applinks", "7.1.0", "7.1.0.1"),
-	new ArtifactInfo("facebook-messenger", "7.1.0", "7.1.0.1"),
-	new ArtifactInfo("facebook-gamingservices", "7.1.0", "7.1.0.1")
+	new ArtifactInfo("facebook-android-sdk", "7.1.0", "7.1.0.2"),
+	new ArtifactInfo("facebook-core", "7.1.0", "7.1.0.2"),
+	new ArtifactInfo("facebook-common", "7.1.0", "7.1.0.2"),
+	new ArtifactInfo("facebook-login", "7.1.0", "7.1.0.2"),
+	new ArtifactInfo("facebook-share", "7.1.0", "7.1.0.2"),
+	new ArtifactInfo("facebook-places", "7.1.0", "7.1.0.2"),
+	new ArtifactInfo("facebook-applinks", "7.1.0", "7.1.0.2"),
+	new ArtifactInfo("facebook-messenger", "7.1.0", "7.1.0.2"),
+	new ArtifactInfo("facebook-gamingservices", "7.1.0", "7.1.0.2")
 };
 
 class ArtifactInfo
