@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "facebook-login", "facebook-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "facebook-messenger", "facebook-messenger\facebook-messenger.csproj", "{EF79652D-FBDC-462D-B656-5CFB3D8E50ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "facebook-places", "facebook-places\facebook-places.csproj", "{519AC6AF-AF8B-427D-8085-12225CF18C09}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "facebook-share", "facebook-share\facebook-share.csproj", "{32E22A35-5DA2-44F5-8CD7-41CA8B982AA5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "facebook-android-sdk", "facebook-android-sdk\facebook-android-sdk.csproj", "{4999C6FD-2D39-4A24-867A-0AE552F70FF1}"
@@ -45,10 +43,6 @@ Global
 		{EF79652D-FBDC-462D-B656-5CFB3D8E50ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF79652D-FBDC-462D-B656-5CFB3D8E50ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF79652D-FBDC-462D-B656-5CFB3D8E50ED}.Release|Any CPU.Build.0 = Release|Any CPU
-		{519AC6AF-AF8B-427D-8085-12225CF18C09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{519AC6AF-AF8B-427D-8085-12225CF18C09}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{519AC6AF-AF8B-427D-8085-12225CF18C09}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{519AC6AF-AF8B-427D-8085-12225CF18C09}.Release|Any CPU.Build.0 = Release|Any CPU
 		{32E22A35-5DA2-44F5-8CD7-41CA8B982AA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{32E22A35-5DA2-44F5-8CD7-41CA8B982AA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32E22A35-5DA2-44F5-8CD7-41CA8B982AA5}.Release|Any CPU.ActiveCfg = Release|Any CPU

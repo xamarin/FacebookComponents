@@ -58,7 +58,6 @@
     <ProjectReference Include="..\facebook-common\facebook-common.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\facebook-login\facebook-login.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\facebook-share\facebook-share.csproj" PrivateAssets="None" />
-    <ProjectReference Include="..\facebook-places\facebook-places.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\facebook-applinks\facebook-applinks.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\facebook-messenger\facebook-messenger.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\facebook-gamingservices\facebook-gamingservices.csproj" />

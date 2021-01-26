@@ -1,6 +1,6 @@
 #addin nuget:?package=Cake.FileHelpers&version=3.2.1
 
-var FB_VERSION = "7.1.0";
+var FB_VERSION = "9.0.0";
 
 var BUILD_COMMIT = EnvironmentVariable("BUILD_COMMIT") ?? "DEV";
 var BUILD_NUMBER = EnvironmentVariable("BUILD_NUMBER") ?? "DEBUG";
@@ -9,15 +9,14 @@ var BUILD_TIMESTAMP = DateTime.UtcNow.ToString();
 var TARGET = Argument ("t", Argument ("target", "ci"));
 
 var ARTIFACTS = new List<ArtifactInfo> {
-	new ArtifactInfo("facebook-android-sdk", "7.1.0", "7.1.0.2"),
-	new ArtifactInfo("facebook-core", "7.1.0", "7.1.0.2"),
-	new ArtifactInfo("facebook-common", "7.1.0", "7.1.0.2"),
-	new ArtifactInfo("facebook-login", "7.1.0", "7.1.0.2"),
-	new ArtifactInfo("facebook-share", "7.1.0", "7.1.0.2"),
-	new ArtifactInfo("facebook-places", "7.1.0", "7.1.0.2"),
-	new ArtifactInfo("facebook-applinks", "7.1.0", "7.1.0.2"),
-	new ArtifactInfo("facebook-messenger", "7.1.0", "7.1.0.2"),
-	new ArtifactInfo("facebook-gamingservices", "7.1.0", "7.1.0.2")
+	new ArtifactInfo("facebook-android-sdk", "9.0.0", "9.0.0.0"),
+	new ArtifactInfo("facebook-core", "9.0.0", "9.0.0.0"),
+	new ArtifactInfo("facebook-common", "9.0.0", "9.0.0.0"),
+	new ArtifactInfo("facebook-login", "9.0.0", "9.0.0.0"),
+	new ArtifactInfo("facebook-share", "9.0.0", "9.0.0.0"),
+	new ArtifactInfo("facebook-applinks", "9.0.0", "9.0.0.0"),
+	new ArtifactInfo("facebook-messenger", "9.0.0", "9.0.0.0"),
+	new ArtifactInfo("facebook-gamingservices", "9.0.0", "9.0.0.0")
 };
 
 class ArtifactInfo

@@ -19,4 +19,12 @@ namespace Xamarin.Facebook.GamingServices
             return OrderedModeHandlers.ToList();
         }
     }
+
+    public partial class GameRequestDialog
+    {
+        protected override global::System.Collections.IList _OrderedModeHandlers()
+        {
+            return OrderedModeHandlers.ToList();
+        }
+    }
 }

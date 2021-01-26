@@ -54,7 +54,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bolts" Version="1.4.0.1" PrivateAssets="None" />
     <PackageReference Include="Xamarin.AndroidX.Annotation" Version="1.1.0.1" />
     <PackageReference Include="Xamarin.AndroidX.Legacy.Support.Core.Utils" Version="1.0.0.1" />
     <PackageReference Include="Adjust.Xamarin.Android.InstallReferrer" Version="1.0.1" />

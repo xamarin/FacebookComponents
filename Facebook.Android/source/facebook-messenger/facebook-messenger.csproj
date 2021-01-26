@@ -57,8 +57,4 @@
     <ProjectReference Include="..\facebook-core\facebook-core.csproj" PrivateAssets="None" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Bolts" Version="1.4.0.1" PrivateAssets="None" />
-  </ItemGroup>
-
 </Project>
