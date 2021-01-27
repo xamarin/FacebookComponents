@@ -5,7 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>FacebookiOSSample</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.tonestro.dev.facebookiossample</string>
+	<string>com.xamarin.facebookiossample</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
