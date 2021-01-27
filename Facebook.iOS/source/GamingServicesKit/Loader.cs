@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Facebook.PlacesKit
+namespace Facebook.GamingServicesKit
 {
 	public class Loader
 	{
@@ -19,7 +19,7 @@ namespace ApiDefinition
 	{
 		static Messaging ()
 		{
-			Facebook.PlacesKit.Loader.ForceLoad ();
+			Facebook.GamingServicesKit.Loader.ForceLoad ();
 		}
 	}
 }

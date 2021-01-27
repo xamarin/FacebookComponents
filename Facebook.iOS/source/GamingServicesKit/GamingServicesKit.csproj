@@ -3,26 +3,26 @@
   <PropertyGroup>
     <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
     <IsBindingProject>true</IsBindingProject>
-    <RootNamespace>Facebook.MarketingKit</RootNamespace>
-    <AssemblyName>Facebook.MarketingKit</AssemblyName>
+    <RootNamespace>Facebook.GamingServicesKit</RootNamespace>
+    <AssemblyName>Facebook.GamingServicesKit</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>5.11.1</FileVersion>
+    <FileVersion>7.1.1.1</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>Xamarin.Facebook.MarketingKit.iOS</PackageId>
-    <Title>Facebook LoginKit SDK for Xamarin iOS</Title>
-    <Summary>C# binding for Facebook MarketingKit's official SDK</Summary>
-    <Description>C# binding for Facebook MarketingKit's official SDK</Description>
+    <PackageId>Xamarin.Facebook.GamingServicesKit.iOS</PackageId>
+    <Title>Facebook GamingServicesKit SDK for Xamarin iOS</Title>
+    <Summary>C# binding for Facebook GamingServicesKit's official SDK</Summary>
+    <Description>C# binding for Facebook GamingServicesKit's official SDK</Description>
     <Authors>Microsoft</Authors>
     <Owners>Microsoft</Owners>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
-    <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2007141</PackageProjectUrl>
-    <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=2007142</PackageLicenseUrl>
+    <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2007033</PackageProjectUrl>
+    <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=2007140</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>5.11.1</PackageVersion>
+    <PackageVersion>7.1.1.1</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -38,35 +38,29 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\externals\FBSDKMarketingKit.framework\FBSDKMarketingKit">
-      <Link>FBSDKMarketingKit.framework</Link>
+    <None Include="..\..\externals\FBSDKGamingServicesKit.framework\FBSDKGamingServicesKit">
+      <Link>FBSDKGamingServicesKit.framework</Link>
     </None>
     <None Include="..\..\External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <NativeReference Include="..\..\externals\FBSDKMarketingKit.framework">
+    <NativeReference Include="..\..\externals\FBSDKGamingServicesKit.framework">
       <Kind>Framework</Kind>
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-ObjC</LinkerFlags>
+      <WeakFrameworks>Accounts AudioToolbox CoreGraphics CoreLocation Foundation QuartzCore Security Social UIKit</WeakFrameworks>
     </NativeReference>
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Enums.cs" />
     <Compile Remove="ApiDefinition.cs" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <ObjcBindingCoreSource Include="Enums.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
-  </ItemGroup>
-  
-  <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CoreKit\CoreKit.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\ShareKit\ShareKit.csproj" PrivateAssets="None" />
   </ItemGroup>
 
 </Project>

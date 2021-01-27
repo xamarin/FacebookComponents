@@ -5,7 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>HelloFacebook</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.xamarin.hellofacebook</string>
+	<string>com.tonestro.dev.hellofacebook</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>

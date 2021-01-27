@@ -5,7 +5,7 @@
 	<key>CFBundleName</key>
 	<string>FBAccountKitSample</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.companyname.FBAccountKitSample</string>
+	<string>com.tonestro.dev.fbaccountkitsample</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
