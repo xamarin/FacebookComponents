@@ -3,7 +3,7 @@ using Foundation;
 using ObjCRuntime;
 using UIKit;
 
-namespace Facebook.GamingServiceKit
+namespace Facebook.GamingServicesKit
 {
     // typedef void (^FBSDKGamingServiceCompletionHandler)(BOOL, NSError * _Nullable);
     delegate void GamingServiceCompletionHandler(bool arg0, [NullAllowed] NSError arg1);
@@ -70,8 +70,7 @@ namespace Facebook.GamingServiceKit
         string Caption { get; }
 
         // @property (readonly, assign, nonatomic) BOOL shouldLaunchMediaDialog;
-        [Export("shouldLaunchMediaDialog")]
-        bool ShouldLaunchMediaDialog { get; }
+        [Export("shouldLaunchMediaDialog")] bool ShouldLaunchMediaDialog { get; }
 
         // -(instancetype _Nonnull)initWithImage:(UIImage * _Nonnull)image caption:(NSString * _Nullable)caption shouldLaunchMediaDialog:(BOOL)shouldLaunchMediaDialog;
         [Export("initWithImage:caption:shouldLaunchMediaDialog:")]
@@ -106,7 +105,7 @@ namespace Facebook.GamingServiceKit
     {
         // @property (readonly, nonatomic, strong) NSURL * _Nonnull videoURL;
         [Export("videoURL", ArgumentSemantic.Strong)]
-        NSUrl VideoURL { get; }
+        NSUrl VideoUrl { get; }
 
         // @property (readonly, nonatomic, strong) NSString * _Nullable caption;
         [NullAllowed, Export("caption", ArgumentSemantic.Strong)]
@@ -114,18 +113,18 @@ namespace Facebook.GamingServiceKit
 
         // -(instancetype _Nonnull)initWithVideoURL:(NSURL * _Nonnull)videoURL caption:(NSString * _Nullable)caption;
         [Export("initWithVideoURL:caption:")]
-        IntPtr Constructor(NSUrl videoURL, [NullAllowed] string caption);
+        IntPtr Constructor(NSUrl videoUrl, [NullAllowed] string caption);
     }
 
     [Static]
-    partial interface GamingServicesConstants
+    partial interface GamingServicesKitVersionConstants
     {
         // extern double FBSDKGamingServicesKitVersionNumber;
         [Field("FBSDKGamingServicesKitVersionNumber", "__Internal")]
-        double GamingServicesKitVersionNumber { get; }
+        double VersionNumber { get; }
 
         // extern const unsigned char [] FBSDKGamingServicesKitVersionString;
         [Field("FBSDKGamingServicesKitVersionString", "__Internal")]
-        NSString GamingServicesKitVersionString { get; }
+        NSString VersionString { get; }
     }
 }

@@ -1,5 +1,5 @@
-var FACEBOOK_SDK_VERSION = "7.1.1";
-var NUGET_VERSION = "7.1.1.2";
+var FACEBOOK_SDK_VERSION = "9.0.1";
+var NUGET_VERSION = "9.0.1.3";
 
 var CORE_KIT_VERSION           = FACEBOOK_SDK_VERSION;
 var FACEBOOK_SDKS_VERSION      = FACEBOOK_SDK_VERSION;
@@ -14,11 +14,11 @@ var SHARE_KIT_NUGET_VERSION          = NUGET_VERSION;
 var GAMINGSERVICES_KIT_NUGET_VERSION = NUGET_VERSION;
 
 // Artifacts available to be built.
-Artifact CORE_KIT_ARTIFACT           = new Artifact ("CoreKit",           CORE_KIT_NUGET_VERSION,             "8.0");
-Artifact FACEBOOK_SDKS_ARTIFACT      = new Artifact ("FacebookSdks",      FACEBOOK_SDKS_NUGET_VERSION,        "8.0");
-Artifact LOGIN_KIT_ARTIFACT          = new Artifact ("LoginKit",          LOGIN_KIT_NUGET_VERSION,            "8.0");
-Artifact SHARE_KIT_ARTIFACT          = new Artifact ("ShareKit",          SHARE_KIT_NUGET_VERSION,            "8.0");
-Artifact GAMINGSERVICES_KIT_ARTIFACT = new Artifact ("GamingServicesKit", GAMINGSERVICES_KIT_NUGET_VERSION,   "8.0");
+Artifact CORE_KIT_ARTIFACT           = new Artifact ("CoreKit",           CORE_KIT_NUGET_VERSION,             "9.0");
+Artifact FACEBOOK_SDKS_ARTIFACT      = new Artifact ("FacebookSdks",      FACEBOOK_SDKS_NUGET_VERSION,        "9.0");
+Artifact LOGIN_KIT_ARTIFACT          = new Artifact ("LoginKit",          LOGIN_KIT_NUGET_VERSION,            "9.0");
+Artifact SHARE_KIT_ARTIFACT          = new Artifact ("ShareKit",          SHARE_KIT_NUGET_VERSION,            "9.0");
+Artifact GAMINGSERVICES_KIT_ARTIFACT = new Artifact ("GamingServicesKit", GAMINGSERVICES_KIT_NUGET_VERSION,   "9.0");
 
 var ARTIFACTS = new Dictionary<string, Artifact> {
 	{ "CoreKit", CORE_KIT_ARTIFACT },
