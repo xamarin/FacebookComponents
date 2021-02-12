@@ -44,7 +44,7 @@
     <ProjectReference Include="..\CoreKit\CoreKit.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\LoginKit\LoginKit.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\ShareKit\ShareKit.csproj" PrivateAssets="None" />
-    <ProjectReference Include="..\GameServicesKit\GameServicesKit.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\GamingServicesKit\GamingServicesKit.csproj" PrivateAssets="None" />
   </ItemGroup>
 
 </Project>
