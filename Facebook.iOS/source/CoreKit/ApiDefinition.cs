@@ -111,12 +111,12 @@ namespace Facebook.CoreKit
         [Export(
             "initWithTokenString:permissions:declinedPermissions:expiredPermissions:appID:userID:expirationDate:refreshDate:dataAccessExpirationDate:")]
         [DesignatedInitializer]
-        IntPtr Constructor(string tokenString, string[] permissions, string[] declinedPermissions, string[] expiredPermissions, string appID, string userID, [NullAllowed] NSDate expirationDate, [NullAllowed] NSDate refreshDate, [NullAllowed] NSDate dataAccessExpirationDate);
+        IntPtr Constructor(string tokenString, string[] permissions, string[] declinedPermissions, string[] expiredPermissions, string appId, string userId, [NullAllowed] NSDate expirationDate, [NullAllowed] NSDate refreshDate, [NullAllowed] NSDate dataAccessExpirationDate);
 
         // -(instancetype _Nonnull)initWithTokenString:(NSString * _Nonnull)tokenString permissions:(NSArray<NSString *> * _Nonnull)permissions declinedPermissions:(NSArray<NSString *> * _Nonnull)declinedPermissions expiredPermissions:(NSArray<NSString *> * _Nonnull)expiredPermissions appID:(NSString * _Nonnull)appID userID:(NSString * _Nonnull)userID expirationDate:(NSDate * _Nullable)expirationDate refreshDate:(NSDate * _Nullable)refreshDate dataAccessExpirationDate:(NSDate * _Nullable)dataAccessExpirationDate graphDomain:(NSString * _Nullable)graphDomain __attribute__((deprecated("The graphDomain property will be removed from AccessToken in the next major release. Use initializers that do not take in graphDomain domain instead.")));
         [Export(
             "initWithTokenString:permissions:declinedPermissions:expiredPermissions:appID:userID:expirationDate:refreshDate:dataAccessExpirationDate:graphDomain:")]
-        IntPtr Constructor(string tokenString, string[] permissions, string[] declinedPermissions, string[] expiredPermissions, string appID, string userID, [NullAllowed] NSDate expirationDate, [NullAllowed] NSDate refreshDate, [NullAllowed] NSDate dataAccessExpirationDate, [NullAllowed] string graphDomain);
+        IntPtr Constructor(string tokenString, string[] permissions, string[] declinedPermissions, string[] expiredPermissions, string appId, string userId, [NullAllowed] NSDate expirationDate, [NullAllowed] NSDate refreshDate, [NullAllowed] NSDate dataAccessExpirationDate, [NullAllowed] string graphDomain);
 
         // -(BOOL)hasGranted:(NSString * _Nonnull)permission __attribute__((swift_name("hasGranted(permission:)")));
         [Export("hasGranted:")]
@@ -154,15 +154,15 @@ namespace Facebook.CoreKit
         // @property (copy, nonatomic, class) NSString * _Nullable loggingOverrideAppID;
         [Static]
         [NullAllowed, Export("loggingOverrideAppID")]
-        string LoggingOverrideAppID { get; set; }
+        string LoggingOverrideAppId { get; set; }
 
         // @property (copy, nonatomic, class) NSString * _Nullable userID;
         [Static]
         [NullAllowed, Export("userID")]
-        string UserID { get; set; }
+        string UserId { get; set; }
 
         // @property (readonly, nonatomic, class) NSString * _Nonnull anonymousID;
-        [Static] [Export("anonymousID")] string AnonymousID { get; }
+        [Static] [Export("anonymousID")] string AnonymousId { get; }
 
         // +(void)logEvent:(FBSDKAppEventName _Nonnull)eventName;
         [Static]
@@ -177,17 +177,17 @@ namespace Facebook.CoreKit
         // +(void)logEvent:(FBSDKAppEventName _Nonnull)eventName parameters:(NSDictionary<NSString *,id> * _Nonnull)parameters;
         [Static]
         [Export("logEvent:parameters:")]
-        void LogEvent(string eventName, NSDictionary<NSString, NSObject> parameters);
+        void LogEvent(string eventName, NSDictionary parameters);
 
         // +(void)logEvent:(FBSDKAppEventName _Nonnull)eventName valueToSum:(double)valueToSum parameters:(NSDictionary<NSString *,id> * _Nonnull)parameters;
         [Static]
         [Export("logEvent:valueToSum:parameters:")]
-        void LogEvent(string eventName, double valueToSum, NSDictionary<NSString, NSObject> parameters);
+        void LogEvent(string eventName, double valueToSum, NSDictionary parameters);
 
         // +(void)logEvent:(FBSDKAppEventName _Nonnull)eventName valueToSum:(NSNumber * _Nullable)valueToSum parameters:(NSDictionary<NSString *,id> * _Nonnull)parameters accessToken:(FBSDKAccessToken * _Nullable)accessToken;
         [Static]
         [Export("logEvent:valueToSum:parameters:accessToken:")]
-        void LogEvent(string eventName, [NullAllowed] NSNumber valueToSum, NSDictionary<NSString, NSObject> parameters, [NullAllowed] AccessToken accessToken);
+        void LogEvent(string eventName, [NullAllowed] NSNumber valueToSum, NSDictionary parameters, [NullAllowed] AccessToken accessToken);
 
         // +(void)logPurchase:(double)purchaseAmount currency:(NSString * _Nonnull)currency;
         [Static]
@@ -197,12 +197,12 @@ namespace Facebook.CoreKit
         // +(void)logPurchase:(double)purchaseAmount currency:(NSString * _Nonnull)currency parameters:(NSDictionary<NSString *,id> * _Nonnull)parameters;
         [Static]
         [Export("logPurchase:currency:parameters:")]
-        void LogPurchase(double purchaseAmount, string currency, NSDictionary<NSString, NSObject> parameters);
+        void LogPurchase(double purchaseAmount, string currency, NSDictionary parameters);
 
         // +(void)logPurchase:(double)purchaseAmount currency:(NSString * _Nonnull)currency parameters:(NSDictionary<NSString *,id> * _Nonnull)parameters accessToken:(FBSDKAccessToken * _Nullable)accessToken;
         [Static]
         [Export("logPurchase:currency:parameters:accessToken:")]
-        void LogPurchase(double purchaseAmount, string currency, NSDictionary<NSString, NSObject> parameters, [NullAllowed] AccessToken accessToken);
+        void LogPurchase(double purchaseAmount, string currency, NSDictionary parameters, [NullAllowed] AccessToken accessToken);
 
         // +(void)logPushNotificationOpen:(NSDictionary * _Nonnull)payload;
         [Static]
@@ -218,7 +218,7 @@ namespace Facebook.CoreKit
         [Static]
         [Export(
             "logProductItem:availability:condition:description:imageLink:link:title:priceAmount:currency:gtin:mpn:brand:parameters:")]
-        void LogProductItem(string itemID, ProductAvailability availability, ProductCondition condition, string description, string imageLink, string link, string title, double priceAmount, string currency, [NullAllowed] string gtin, [NullAllowed] string mpn, [NullAllowed] string brand, [NullAllowed] NSDictionary<NSString, NSObject> parameters);
+        void LogProductItem(string itemId, ProductAvailability availability, ProductCondition condition, string description, string imageLink, string link, string title, double priceAmount, string currency, [NullAllowed] string gtin, [NullAllowed] string mpn, [NullAllowed] string brand, [NullAllowed] NSDictionary parameters);
 
         // +(void)activateApp;
         [Static]
@@ -244,12 +244,12 @@ namespace Facebook.CoreKit
         [Static]
         [Export("requestForCustomAudienceThirdPartyIDWithAccessToken:")]
         [return: NullAllowed]
-        GraphRequest RequestForCustomAudienceThirdPartyIDWithAccessToken([NullAllowed] AccessToken accessToken);
+        GraphRequest RequestForCustomAudienceThirdPartyIdWithAccessToken([NullAllowed] AccessToken accessToken);
 
         // +(void)clearUserID;
         [Static]
         [Export("clearUserID")]
-        void ClearUserID();
+        void ClearUserId();
 
         // +(void)setUserEmail:(NSString * _Nullable)email firstName:(NSString * _Nullable)firstName lastName:(NSString * _Nullable)lastName phone:(NSString * _Nullable)phone dateOfBirth:(NSString * _Nullable)dateOfBirth gender:(NSString * _Nullable)gender city:(NSString * _Nullable)city state:(NSString * _Nullable)state zip:(NSString * _Nullable)zip country:(NSString * _Nullable)country __attribute__((swift_name("setUser(email:firstName:lastName:phone:dateOfBirth:gender:city:state:zip:country:)")));
         [Static]
@@ -279,7 +279,7 @@ namespace Facebook.CoreKit
         // +(void)updateUserProperties:(NSDictionary<NSString *,id> * _Nonnull)properties handler:(FBSDKGraphRequestBlock _Nullable)handler __attribute__((deprecated("updateUserProperties is deprecated")));
         [Static]
         [Export("updateUserProperties:handler:")]
-        void UpdateUserProperties(NSDictionary<NSString, NSObject> properties, [NullAllowed] GraphRequestBlockHandler handler);
+        void UpdateUserProperties(NSDictionary properties, [NullAllowed] GraphRequestBlockHandler handler);
 
         // +(void)augmentHybridWKWebView:(WKWebView * _Nonnull)webView;
         [Static]
@@ -313,16 +313,16 @@ namespace Facebook.CoreKit
 
         // -(BOOL)application:(UIApplication * _Nonnull)application openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> * _Nonnull)options;
         [Export("application:openURL:options:")]
-        bool OpenUrl(UIApplication application, NSUrl url, NSDictionary<NSString, NSObject> options);
+        bool OpenUrl(UIApplication application, NSUrl url, NSDictionary options);
 
         // -(BOOL)application:(UIApplication * _Nonnull)application didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey,id> * _Nullable)launchOptions;
         [Export("application:didFinishLaunchingWithOptions:")]
-        bool FinishedLaunching(UIApplication application, [NullAllowed] NSDictionary<NSString, NSObject> launchOptions);
+        bool FinishedLaunching(UIApplication application, [NullAllowed] NSDictionary launchOptions);
 
         // +(void)initializeSDK:(NSDictionary<UIApplicationLaunchOptionsKey,id> * _Nullable)launchOptions;
         [Static]
         [Export("initializeSDK:")]
-        void InitializeSDK([NullAllowed] NSDictionary<NSString, NSObject> launchOptions);
+        void InitializeSDK([NullAllowed] NSDictionary launchOptions);
     }
 
     // @interface FBSDKAppLink : NSObject
@@ -383,7 +383,7 @@ namespace Facebook.CoreKit
         // +(instancetype _Nonnull)navigationWithAppLink:(FBSDKAppLink * _Nonnull)appLink extras:(NSDictionary<NSString *,id> * _Nonnull)extras appLinkData:(NSDictionary<NSString *,id> * _Nonnull)appLinkData __attribute__((swift_name("init(appLink:extras:appLinkData:)")));
         [Static]
         [Export("navigationWithAppLink:extras:appLinkData:")]
-        AppLinkNavigation NavigationWithAppLink(AppLink appLink, NSDictionary<NSString, NSObject> extras, NSDictionary<NSString, NSObject> appLinkData);
+        AppLinkNavigation NavigationWithAppLink(AppLink appLink, NSDictionary extras, NSDictionary appLinkData);
 
         // +(NSDictionary<NSString *,NSDictionary<NSString *,NSString *> *> * _Nonnull)callbackAppLinkDataForAppWithName:(NSString * _Nonnull)appName url:(NSString * _Nonnull)url __attribute__((swift_name("callbackAppLinkData(forApp:url:)")));
         [Static]
@@ -762,19 +762,28 @@ namespace Facebook.CoreKit
         [Export("initWithGraphPath:HTTPMethod:")]
         IntPtr Constructor(string graphPath, string method);
 
+        [Wrap ("this (graphPath, method.GetConstant ())")]
+        IntPtr Constructor (string graphPath, HttpMethod method);
+        
         // -(instancetype _Nonnull)initWithGraphPath:(NSString * _Nonnull)graphPath parameters:(NSDictionary<NSString *,id> * _Nonnull)parameters;
         [Export("initWithGraphPath:parameters:")]
-        IntPtr Constructor(string graphPath, NSDictionary<NSString, NSObject> parameters);
+        IntPtr Constructor(string graphPath, NSDictionary parameters);
 
         // -(instancetype _Nonnull)initWithGraphPath:(NSString * _Nonnull)graphPath parameters:(NSDictionary<NSString *,id> * _Nonnull)parameters HTTPMethod:(FBSDKHTTPMethod _Nonnull)method;
         [Export("initWithGraphPath:parameters:HTTPMethod:")]
-        IntPtr Constructor(string graphPath, NSDictionary<NSString, NSObject> parameters, string method);
+        IntPtr Constructor(string graphPath, NSDictionary parameters, string method);
+
+        [Wrap ("this (graphPath, parameters, method.GetConstant ())")]
+        IntPtr Constructor (string graphPath, [NullAllowed] NSDictionary parameters, HttpMethod method);
 
         // -(instancetype _Nonnull)initWithGraphPath:(NSString * _Nonnull)graphPath parameters:(NSDictionary<NSString *,id> * _Nonnull)parameters tokenString:(NSString * _Nullable)tokenString version:(NSString * _Nullable)version HTTPMethod:(FBSDKHTTPMethod _Nonnull)method __attribute__((objc_designated_initializer));
         [Export("initWithGraphPath:parameters:tokenString:version:HTTPMethod:")]
         [DesignatedInitializer]
-        IntPtr Constructor(string graphPath, NSDictionary<NSString, NSObject> parameters, [NullAllowed] string tokenString, [NullAllowed] string version, string method);
+        IntPtr Constructor(string graphPath, NSDictionary parameters, [NullAllowed] string tokenString, [NullAllowed] string version, string method);
 
+        [Wrap ("this (graphPath, parameters, tokenString, version, method.GetConstant ())")]
+        IntPtr Constructor (string graphPath, [NullAllowed] NSDictionary parameters, [NullAllowed] string tokenString, [NullAllowed] string version, HttpMethod method);
+        
         // @property (copy, nonatomic) NSDictionary<NSString *,id> * _Nonnull parameters;
         [Export("parameters", ArgumentSemantic.Copy)]
         NSDictionary<NSString, NSObject> Parameters { get; set; }
@@ -797,7 +806,7 @@ namespace Facebook.CoreKit
 
         // -(FBSDKGraphRequestConnection * _Nonnull)startWithCompletionHandler:(FBSDKGraphRequestBlock _Nullable)handler;
         [Export("startWithCompletionHandler:")]
-        GraphRequestConnection StartWithCompletionHandler([NullAllowed] GraphRequestBlockHandler handler);
+        GraphRequestConnection Start([NullAllowed] GraphRequestBlockHandler handler);
     }
 
     // typedef void (^FBSDKGraphRequestBlock)(FBSDKGraphRequestConnection * _Nullable, id _Nullable, NSError * _Nullable);
@@ -865,7 +874,7 @@ namespace Facebook.CoreKit
 
         // -(void)addRequest:(FBSDKGraphRequest * _Nonnull)request batchParameters:(NSDictionary<NSString *,id> * _Nullable)batchParameters completionHandler:(FBSDKGraphRequestBlock _Nonnull)handler;
         [Export("addRequest:batchParameters:completionHandler:")]
-        void AddRequest(GraphRequest request, [NullAllowed] NSDictionary<NSString, NSObject> batchParameters, GraphRequestBlockHandler handler);
+        void AddRequest(GraphRequest request, [NullAllowed] NSDictionary batchParameters, GraphRequestBlockHandler handler);
 
         // -(void)cancel;
         [Export("cancel")]
@@ -997,12 +1006,12 @@ namespace Facebook.CoreKit
 
         // -(instancetype _Nonnull)initWithUserID:(NSString * _Nonnull)userID firstName:(NSString * _Nullable)firstName middleName:(NSString * _Nullable)middleName lastName:(NSString * _Nullable)lastName name:(NSString * _Nullable)name linkURL:(NSURL * _Nullable)linkURL refreshDate:(NSDate * _Nullable)refreshDate;
         [Export("initWithUserID:firstName:middleName:lastName:name:linkURL:refreshDate:")]
-        IntPtr Constructor(string userID, [NullAllowed] string firstName, [NullAllowed] string middleName, [NullAllowed] string lastName, [NullAllowed] string name, [NullAllowed] NSUrl linkUrl, [NullAllowed] NSDate refreshDate);
+        IntPtr Constructor(string userId, [NullAllowed] string firstName, [NullAllowed] string middleName, [NullAllowed] string lastName, [NullAllowed] string name, [NullAllowed] NSUrl linkUrl, [NullAllowed] NSDate refreshDate);
 
         // -(instancetype _Nonnull)initWithUserID:(NSString * _Nonnull)userID firstName:(NSString * _Nullable)firstName middleName:(NSString * _Nullable)middleName lastName:(NSString * _Nullable)lastName name:(NSString * _Nullable)name linkURL:(NSURL * _Nullable)linkURL refreshDate:(NSDate * _Nullable)refreshDate imageURL:(NSURL * _Nullable)imageURL email:(NSString * _Nullable)email __attribute__((objc_designated_initializer));
         [Export("initWithUserID:firstName:middleName:lastName:name:linkURL:refreshDate:imageURL:email:")]
         [DesignatedInitializer]
-        IntPtr Constructor(string userID, [NullAllowed] string firstName, [NullAllowed] string middleName,
+        IntPtr Constructor(string userId, [NullAllowed] string firstName, [NullAllowed] string middleName,
             [NullAllowed] string lastName, [NullAllowed] string name, [NullAllowed] NSUrl linkUrl,
             [NullAllowed] NSDate refreshDate, [NullAllowed] NSUrl imageUrl, [NullAllowed] string email);
 
@@ -1012,7 +1021,7 @@ namespace Facebook.CoreKit
         Profile CurrentProfile { get; set; }
 
         // @property (readonly, copy, nonatomic) NSString * _Nonnull userID;
-        [Export("userID")] string UserID { get; }
+        [Export("userID")] string UserId { get; }
 
         // @property (readonly, copy, nonatomic) NSString * _Nullable firstName;
         [NullAllowed, Export("firstName")] string FirstName { get; }
@@ -1062,6 +1071,9 @@ namespace Facebook.CoreKit
     [BaseType(typeof(UIView), Name = "FBSDKProfilePictureView")]
     interface ProfilePictureView
     {
+        [Export ("initWithFrame:")]
+        IntPtr Constructor (CGRect frame);
+
         // -(instancetype _Nonnull)initWithFrame:(CGRect)frame profile:(FBSDKProfile * _Nullable)profile;
         [Export("initWithFrame:profile:")]
         IntPtr Constructor(CGRect frame, [NullAllowed] Profile profile);
@@ -1075,7 +1087,7 @@ namespace Facebook.CoreKit
         ProfilePictureMode PictureMode { get; set; }
 
         // @property (copy, nonatomic) NSString * _Nonnull profileID;
-        [Export("profileID")] string ProfileID { get; set; }
+        [Export("profileID")] string ProfileId { get; set; }
 
         // -(void)setNeedsImageUpdate;
         [Export("setNeedsImageUpdate")]
@@ -1113,7 +1125,7 @@ namespace Facebook.CoreKit
         // @property (getter = isAdvertiserIDCollectionEnabled, assign, nonatomic, class) BOOL advertiserIDCollectionEnabled;
         [Static]
         [Export("advertiserIDCollectionEnabled")]
-        bool AdvertiserIDCollectionEnabled
+        bool AdvertiserIdCollectionEnabled
         {
             [Bind("isAdvertiserIDCollectionEnabled")]
             get;
@@ -1138,7 +1150,7 @@ namespace Facebook.CoreKit
         // @property (copy, nonatomic, class) NSString * _Nullable appID;
         [Static]
         [NullAllowed, Export("appID")]
-        string AppID { get; set; }
+        string AppId { get; set; }
 
         // @property (copy, nonatomic, class) NSString * _Nullable appURLSchemeSuffix;
         [Static]
@@ -1212,7 +1224,7 @@ namespace Facebook.CoreKit
         // +(instancetype _Nonnull)sharedInstanceForAppID:(NSString * _Nonnull)appID appSecret:(NSString * _Nonnull)appSecret __attribute__((swift_name("shared(forAppID:appSecret:)")));
         [Static]
         [Export("sharedInstanceForAppID:appSecret:")]
-        TestUsersManager SharedInstanceForAppID(string appID, string appSecret);
+        TestUsersManager SharedInstanceForAppId(string appID, string appSecret);
 
         // -(void)requestTestAccountTokensWithArraysOfPermissions:(NSArray<NSSet<NSString *> *> * _Nonnull)arraysOfPermissions createIfNotFound:(BOOL)createIfNotFound completionHandler:(FBSDKAccessTokensBlock _Nullable)handler __attribute__((swift_name("requestTestAccountTokens(withPermissions:createIfNotFound:completionHandler:)")));
         [Export("requestTestAccountTokensWithArraysOfPermissions:createIfNotFound:completionHandler:")]
@@ -1291,7 +1303,7 @@ namespace Facebook.CoreKit
         // +(NSString * _Nonnull)queryStringWithDictionary:(NSDictionary<NSString *,id> * _Nonnull)dictionary error:(NSError * _Nullable * _Nullable)errorRef __attribute__((swift_name("query(from:)"))) __attribute__((swift_error("nonnull_error")));
         [Static]
         [Export("queryStringWithDictionary:error:")]
-        string CreateQueryString(NSDictionary<NSString, NSObject> dictionary, [NullAllowed] out NSError errorRef);
+        string CreateQueryString(NSDictionary dictionary, [NullAllowed] out NSError errorRef);
 
         // +(NSString * _Nonnull)URLDecode:(NSString * _Nonnull)value __attribute__((swift_name("decode(urlString:)")));
         [Static]
@@ -1385,7 +1397,7 @@ namespace Facebook.CoreKit
         // +(NSString * _Nonnull)anonymousID;
         [Static]
         [Export("anonymousID")]
-        string AnonymousID { get; }
+        string AnonymousId { get; }
 
         // +(NSString * _Nonnull)persistenceFilePath:(NSString * _Nonnull)filename;
         [Static]
@@ -1426,7 +1438,7 @@ namespace Facebook.CoreKit
 
         // @optional -(void)didReceiveCrashLogs:(NSArray<NSDictionary<NSString *,id> *> * _Nonnull)crashLogs;
         [Export("didReceiveCrashLogs:")]
-        void DidReceiveCrashLogs(NSArray<NSDictionary<NSString, NSObject>> crashLogs);
+        void DidReceiveCrashLogs(NSArray<NSDictionary> crashLogs);
     }
 
     // @interface FBSDKCrashHandler : NSObject
@@ -1532,7 +1544,7 @@ namespace Facebook.CoreKit
         [Static]
         [Export("symbolicateCallstack:methodMapping:")]
         [return: NullAllowed]
-        string[] SymbolicateCallstack(string[] callstack, NSDictionary<NSString, NSObject> methodMapping);
+        string[] SymbolicateCallstack(string[] callstack, NSDictionary methodMapping);
     }
 
     // @interface FBSDKTypeUtility : NSObject

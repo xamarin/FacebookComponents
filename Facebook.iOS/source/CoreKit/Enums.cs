@@ -190,7 +190,7 @@ namespace Facebook.CoreKit
 
         // extern FBSDKAppEventParameterProduct _Nonnull FBSDKAppEventParameterProductAppLinkIOSAppStoreID;
         [Field("FBSDKAppEventParameterProductAppLinkIOSAppStoreID", "__Internal")]
-        AppLinkIOSAppStoreID,
+        AppLinkIOSAppStoreId,
 
         // extern FBSDKAppEventParameterProduct _Nonnull FBSDKAppEventParameterProductAppLinkIOSAppName;
         [Field("FBSDKAppEventParameterProductAppLinkIOSAppName", "__Internal")]
@@ -202,7 +202,7 @@ namespace Facebook.CoreKit
 
         // extern FBSDKAppEventParameterProduct _Nonnull FBSDKAppEventParameterProductAppLinkIPhoneAppStoreID;
         [Field("FBSDKAppEventParameterProductAppLinkIPhoneAppStoreID", "__Internal")]
-        AppLinkIPhoneAppStoreID,
+        AppLinkIPhoneAppStoreId,
 
         // extern FBSDKAppEventParameterProduct _Nonnull FBSDKAppEventParameterProductAppLinkIPhoneAppName;
         [Field("FBSDKAppEventParameterProductAppLinkIPhoneAppName", "__Internal")]
@@ -214,7 +214,7 @@ namespace Facebook.CoreKit
 
         // extern FBSDKAppEventParameterProduct _Nonnull FBSDKAppEventParameterProductAppLinkIPadAppStoreID;
         [Field("FBSDKAppEventParameterProductAppLinkIPadAppStoreID", "__Internal")]
-        AppLinkIPadAppStoreID,
+        AppLinkIPadAppStoreId,
 
         // extern FBSDKAppEventParameterProduct _Nonnull FBSDKAppEventParameterProductAppLinkIPadAppName;
         [Field("FBSDKAppEventParameterProductAppLinkIPadAppName", "__Internal")]
@@ -238,7 +238,7 @@ namespace Facebook.CoreKit
 
         // extern FBSDKAppEventParameterProduct _Nonnull FBSDKAppEventParameterProductAppLinkWindowsPhoneAppID;
         [Field("FBSDKAppEventParameterProductAppLinkWindowsPhoneAppID", "__Internal")]
-        AppLinkWindowsPhoneAppID,
+        AppLinkWindowsPhoneAppId,
 
         // extern FBSDKAppEventParameterProduct _Nonnull FBSDKAppEventParameterProductAppLinkWindowsPhoneAppName;
         [Field("FBSDKAppEventParameterProductAppLinkWindowsPhoneAppName", "__Internal")]

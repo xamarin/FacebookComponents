@@ -107,6 +107,9 @@ namespace Facebook.LoginKit
         Events = new[] { typeof(LoginButtonDelegate) })]
     interface LoginButton
     {
+        [Export ("initWithFrame:")]
+        IntPtr Constructor (CGRect frame);
+
         // extern NS_SWIFT_NAME(LoginErrorDomain) const NSErrorDomain FBSDKLoginErrorDomain __attribute__((swift_name("LoginErrorDomain")));
         [Field("FBSDKLoginErrorDomain", "__Internal")]
         NSString ErrorDomain { get; }

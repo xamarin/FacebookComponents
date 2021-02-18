@@ -111,7 +111,7 @@ namespace Facebook.ShareKit
         [Export("message")] string Message { get; set; }
 
         // @property (copy, nonatomic) NSString * _Nonnull objectID;
-        [Export("objectID")] string ObjectID { get; set; }
+        [Export("objectID")] string ObjectId { get; set; }
 
         // @property (copy, nonatomic) NSArray<NSString *> * _Nonnull recipients;
         [Export("recipients", ArgumentSemantic.Copy)]
@@ -179,7 +179,7 @@ namespace Facebook.ShareKit
         // @required -(void)gameRequestDialog:(FBSDKGameRequestDialog * _Nonnull)gameRequestDialog didCompleteWithResults:(NSDictionary<NSString *,id> * _Nonnull)results;
         [Abstract]
         [Export("gameRequestDialog:didCompleteWithResults:")]
-        void GameRequestDialog(GameRequestDialog gameRequestDialog, NSDictionary<NSString, NSObject> results);
+        void GameRequestDialog(GameRequestDialog gameRequestDialog, NSDictionary results);
 
         // @required -(void)gameRequestDialog:(FBSDKGameRequestDialog * _Nonnull)gameRequestDialog didFailWithError:(NSError * _Nonnull)error;
         [Abstract]
@@ -227,7 +227,7 @@ namespace Facebook.ShareKit
     interface Liking
     {
         // @required @property (copy, nonatomic) NSString * _Nonnull objectID;
-        [Abstract] [Export("objectID")] string ObjectID { get; set; }
+        [Abstract] [Export("objectID")] string ObjectId { get; set; }
 
         // @required @property (assign, nonatomic) FBSDKLikeObjectType objectType;
         [Abstract]
@@ -267,7 +267,7 @@ namespace Facebook.ShareKit
     interface ShareCameraEffectContent : SharingContent, SharingScheme
     {
         // @property (copy, nonatomic) NSString * _Nonnull effectID;
-        [Export("effectID")] string EffectID { get; set; }
+        [Export("effectID")] string EffectId { get; set; }
 
         // @property (copy, nonatomic) FBSDKCameraEffectArguments * _Nonnull effectArguments;
         [Export("effectArguments", ArgumentSemantic.Copy)]
@@ -548,7 +548,7 @@ namespace Facebook.ShareKit
         // @required -(void)sharer:(id<FBSDKSharing> _Nonnull)sharer didCompleteWithResults:(NSDictionary<NSString *,id> * _Nonnull)results;
         [Abstract]
         [Export("sharer:didCompleteWithResults:")]
-        void DidComplete(Sharing sharer, NSDictionary<NSString, NSObject> results);
+        void DidComplete(Sharing sharer, NSDictionary results);
 
         // @required -(void)sharer:(id<FBSDKSharing> _Nonnull)sharer didFailWithError:(NSError * _Nonnull)error;
         [Abstract]
@@ -658,12 +658,12 @@ namespace Facebook.ShareKit
         // @required @property (copy, nonatomic) NSArray<NSString *> * _Nonnull peopleIDs;
         [Abstract]
         [Export("peopleIDs", ArgumentSemantic.Copy)]
-        string[] PeopleIDs { get; set; }
+        string[] PeopleIds { get; set; }
 
         // @required @property (copy, nonatomic) NSString * _Nullable placeID;
         [Abstract]
         [NullAllowed, Export("placeID")]
-        string PlaceID { get; set; }
+        string PlaceId { get; set; }
 
         // @required @property (copy, nonatomic) NSString * _Nullable ref;
         [Abstract]
@@ -673,7 +673,7 @@ namespace Facebook.ShareKit
         // @required @property (copy, nonatomic) NSString * _Nullable pageID;
         [Abstract]
         [NullAllowed, Export("pageID")]
-        string PageID { get; set; }
+        string PageId { get; set; }
 
         // @required @property (readonly, copy, nonatomic) NSString * _Nullable shareUUID;
         [Abstract]
@@ -683,7 +683,7 @@ namespace Facebook.ShareKit
         // @required -(NSDictionary<NSString *,id> * _Nonnull)addParameters:(NSDictionary<NSString *,id> * _Nonnull)existingParameters bridgeOptions:(FBSDKShareBridgeOptions)bridgeOptions __attribute__((swift_name("addParameters(_:options:)")));
         [Abstract]
         [Export("addParameters:bridgeOptions:")]
-        NSDictionary<NSString, NSObject> AddParameters(NSDictionary<NSString, NSObject> existingParameters, ShareBridgeOptions bridgeOptions);
+        NSDictionary<NSString, NSObject> AddParameters(NSDictionary existingParameters, ShareBridgeOptions bridgeOptions);
     }
 
     [Static]
