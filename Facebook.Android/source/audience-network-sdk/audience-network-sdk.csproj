@@ -1,0 +1,62 @@
+<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
+
+  <PropertyGroup>
+    <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
+    <TargetFramework>MonoAndroid90</TargetFramework>
+    <IsBindingProject>true</IsBindingProject>
+
+    <AssemblyName>Xamarin.Facebook.AudienceNetwork.Android</AssemblyName>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+    <AndroidUseIntermediateDesignerFile>True</AndroidUseIntermediateDesignerFile>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Xamarin.Facebook.AudienceNetwork.Android</PackageId>
+    <Title>Xamarin Facebook Android - Audience Network</Title>
+    <Summary>Xamarin.Android bindings for Facebook Android - Audience Network</Summary>
+    <Description>Xamarin.Android bindings for Facebook Android - Audience Network</Description>
+    <PackageTags>Xamarin Android Xamarin.Android Facebook</PackageTags>
+    <Authors>Microsoft</Authors>
+    <Owners>Microsoft</Owners>
+    <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
+    <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865581</PackageProjectUrl>
+    <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865585</PackageLicenseUrl>
+    
+    <PackageIconUrl>https://raw.githubusercontent.com/xamarin/FacebookComponents/master/icons/facebook-android_128x128.png</PackageIconUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AndroidClassParser>class-parse</AndroidClassParser>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <TransformFile Include="transforms\*.xml" />
+  </ItemGroup>
+    
+  <PropertyGroup>
+    <Java8DocPaths>..\..\externals\audience-network-sdk-docs\</Java8DocPaths>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <LibraryProjectZip Include="..\..\externals\audience-network-sdk.aar" />
+  </ItemGroup>
+
+  <ItemGroup>
+
+    <PackageReference Include="Xamarin.GooglePlayServices.Basement" Version="71.1620.0" PrivateAssets="None" />
+
+  </ItemGroup>
+
+</Project>

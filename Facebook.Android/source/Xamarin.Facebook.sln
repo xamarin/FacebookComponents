@@ -1,21 +1,25 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "facebook-core", "facebook-core\facebook-core.csproj", "{47FE61D7-0831-4B59-84EA-C43B0261122B}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "facebook-core", "facebook-core\facebook-core.csproj", "{47FE61D7-0831-4B59-84EA-C43B0261122B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "facebook-common", "facebook-common\facebook-common.csproj", "{372EFE72-CF90-4305-B3C5-B1E49E7400C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "facebook-common", "facebook-common\facebook-common.csproj", "{372EFE72-CF90-4305-B3C5-B1E49E7400C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "facebook-applinks", "facebook-applinks\facebook-applinks.csproj", "{B0428848-83F1-4D7A-BB0A-55147FD38C5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "facebook-applinks", "facebook-applinks\facebook-applinks.csproj", "{B0428848-83F1-4D7A-BB0A-55147FD38C5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "facebook-login", "facebook-login\facebook-login.csproj", "{7D0A3F00-440F-421A-902C-564F4D708601}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "facebook-login", "facebook-login\facebook-login.csproj", "{7D0A3F00-440F-421A-902C-564F4D708601}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "facebook-messenger", "facebook-messenger\facebook-messenger.csproj", "{EF79652D-FBDC-462D-B656-5CFB3D8E50ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "facebook-messenger", "facebook-messenger\facebook-messenger.csproj", "{EF79652D-FBDC-462D-B656-5CFB3D8E50ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "facebook-share", "facebook-share\facebook-share.csproj", "{32E22A35-5DA2-44F5-8CD7-41CA8B982AA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "facebook-share", "facebook-share\facebook-share.csproj", "{32E22A35-5DA2-44F5-8CD7-41CA8B982AA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "facebook-android-sdk", "facebook-android-sdk\facebook-android-sdk.csproj", "{4999C6FD-2D39-4A24-867A-0AE552F70FF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "facebook-android-sdk", "facebook-android-sdk\facebook-android-sdk.csproj", "{4999C6FD-2D39-4A24-867A-0AE552F70FF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "facebook-gamingservices", "facebook-gamingservices\facebook-gamingservices.csproj", "{EDDE0F66-2532-4FDE-99AF-3C4DF72DF052}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "facebook-gamingservices", "facebook-gamingservices\facebook-gamingservices.csproj", "{EDDE0F66-2532-4FDE-99AF-3C4DF72DF052}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "audience-network-sdk", "audience-network-sdk\audience-network-sdk.csproj", "{75EDBC53-9010-45DC-BE29-C5E590FD474A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,5 +59,15 @@ Global
 		{EDDE0F66-2532-4FDE-99AF-3C4DF72DF052}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDDE0F66-2532-4FDE-99AF-3C4DF72DF052}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDDE0F66-2532-4FDE-99AF-3C4DF72DF052}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75EDBC53-9010-45DC-BE29-C5E590FD474A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75EDBC53-9010-45DC-BE29-C5E590FD474A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75EDBC53-9010-45DC-BE29-C5E590FD474A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75EDBC53-9010-45DC-BE29-C5E590FD474A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F5D76D3-8E1F-4523-A3F0-5BD0B8264457}
 	EndGlobalSection
 EndGlobal

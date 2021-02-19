@@ -1,0 +1,31 @@
+<metadata>
+    <attr path="/api/package[@name='com.facebook']" name="managedName">Xamarin.Facebook</attr>
+    <attr path="/api/package[@name='com.facebook.ads']" name="managedName">Xamarin.Facebook.Ads</attr>
+
+    <attr path="/api/package[@name='com.facebook.ads']/class[@name='MediaView']" name="extends">android.widget.RelativeLayout</attr>
+
+    <remove-node path="/api/package[contains(@name, 'com.facebook.ads.internal')]" />
+
+    <attr path="/api/package[@name='com.facebook.ads']/class[@name='InterstitialAd']/method[@name='buildLoadAdConfig' and count(parameter)=0]" name="managedReturn">Xamarin.Facebook.Ads.IAdLoadConfigBuilder</attr>
+    <attr path="/api/package[@name='com.facebook.ads']/class[@name='InterstitialAd']/method[@name='buildShowAdConfig' and count(parameter)=0]" name="managedReturn">Xamarin.Facebook.Ads.IFullScreenAdShowConfigBuilder</attr>
+
+    <attr path="/api/package[@name='com.facebook.ads']/class[@name='RewardedVideoAd']/method[@name='buildLoadAdConfig' and count(parameter)=0]" name="managedReturn">Xamarin.Facebook.Ads.IAdLoadConfigBuilder</attr>
+    <attr path="/api/package[@name='com.facebook.ads']/class[@name='RewardedVideoAd']/method[@name='buildShowAdConfig' and count(parameter)=0]" name="managedReturn">Xamarin.Facebook.Ads.IFullScreenAdShowConfigBuilder</attr>
+
+    <attr path="/api/package[@name='com.facebook.ads']/interface[@name='InterstitialAd.InterstitialAdLoadConfigBuilder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Xamarin.Facebook.Ads.IAdLoadAdConfig</attr>
+    <attr path="/api/package[@name='com.facebook.ads']/interface[@name='InterstitialAd.InterstitialAdLoadConfigBuilder']/method[@name='withBid' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" name="managedReturn">Xamarin.Facebook.Ads.IAdLoadConfigBuilder</attr>
+    <attr path="/api/package[@name='com.facebook.ads']/interface[@name='InterstitialAd.InterstitialAdShowConfigBuilder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Xamarin.Facebook.Ads.IFullScreenAdShowAdConfig</attr>
+
+    <attr path="/api/package[@name='com.facebook.ads']/interface[@name='RewardedVideoAd.RewardedVideoAdLoadConfigBuilder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Xamarin.Facebook.Ads.IAdLoadAdConfig</attr>
+    <attr path="/api/package[@name='com.facebook.ads']/interface[@name='RewardedVideoAd.RewardedVideoAdLoadConfigBuilder']/method[@name='withBid' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" name="managedReturn">Xamarin.Facebook.Ads.IAdLoadConfigBuilder</attr>
+    <attr path="/api/package[@name='com.facebook.ads']/interface[@name='RewardedVideoAd.RewardedVideoAdShowConfigBuilder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Xamarin.Facebook.Ads.IFullScreenAdShowAdConfig</attr>
+    
+    <attr path="/api/package[@name='com.facebook.ads']/interface[@name='InstreamVideoAdView.InstreamVideoLoadConfigBuilder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Xamarin.Facebook.Ads.IAdLoadAdConfig</attr>
+    <attr path="/api/package[@name='com.facebook.ads']/interface[@name='InstreamVideoAdView.InstreamVideoLoadConfigBuilder']/method[@name='withBid' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" name="managedReturn">Xamarin.Facebook.Ads.IAdLoadConfigBuilder</attr>
+    
+    <attr path="/api/package[@name='com.facebook.ads']/interface[@name='NativeAdBase.NativeAdLoadConfigBuilder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Xamarin.Facebook.Ads.IAdLoadAdConfig</attr>
+    <attr path="/api/package[@name='com.facebook.ads']/interface[@name='NativeAdBase.NativeAdLoadConfigBuilder']/method[@name='withBid' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" name="managedReturn">Xamarin.Facebook.Ads.IAdLoadConfigBuilder</attr>
+    
+    <attr path="/api/package[@name='com.facebook.ads']/interface[@name='AdView.AdViewLoadConfigBuilder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Xamarin.Facebook.Ads.IAdLoadAdConfig</attr>
+    <attr path="/api/package[@name='com.facebook.ads']/interface[@name='AdView.AdViewLoadConfigBuilder']/method[@name='withBid' and count(parameter)=1 and parameter[1][@type='java.lang.String']]" name="managedReturn">Xamarin.Facebook.Ads.IAdLoadConfigBuilder</attr>
+</metadata>

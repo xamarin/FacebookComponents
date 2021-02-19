@@ -16,7 +16,8 @@ var ARTIFACTS = new List<ArtifactInfo> {
 	new ArtifactInfo("facebook-share", "9.0.0", "9.0.0.0"),
 	new ArtifactInfo("facebook-applinks", "9.0.0", "9.0.0.0"),
 	new ArtifactInfo("facebook-messenger", "9.0.0", "9.0.0.0"),
-	new ArtifactInfo("facebook-gamingservices", "9.0.0", "9.0.0.0")
+	new ArtifactInfo("facebook-gamingservices", "9.0.0", "9.0.0.0"),
+	new ArtifactInfo("audience-network-sdk", "6.2.1", "6.2.1")
 };
 
 class ArtifactInfo
@@ -36,6 +37,7 @@ class ArtifactInfo
 Task ("externals")
 	.Does (() => 
 {
+	EnsureDirectoryExists("./output");
 	EnsureDirectoryExists ("./externals/");
 
 	foreach (var artifact in ARTIFACTS) {
