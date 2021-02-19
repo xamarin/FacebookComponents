@@ -1,5 +1,8 @@
 <metadata>
     <attr path="/api/package[@name='com.facebook']" name="managedName">Xamarin.Facebook</attr>
     <attr path="/api/package[@name='com.facebook.gamingservices']" name="managedName">Xamarin.Facebook.GamingServices</attr>
+    <attr path="/api/package[@name='com.facebook.gamingservices.cloudgaming']" name="managedName">Xamarin.Facebook.GamingServices.CloudGaming</attr>
+    <attr path="/api/package[@name='com.facebook.gamingservices.cloudgaming.internal']" name="managedName">Xamarin.Facebook.GamingServices.CloudGaming.Internal</attr>
+    <attr path="/api/package[@name='com.facebook.gamingservices.internal']" name="managedName">Xamarin.Facebook.GamingServices.Internal</attr>
 
 </metadata>

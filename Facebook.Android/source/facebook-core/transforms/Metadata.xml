@@ -9,9 +9,12 @@
     <attr path="/api/package[@name='com.facebook.appevents.integrity']" name="managedName">Xamarin.Facebook.Appevents.Integrity</attr>
     <attr path="/api/package[@name='com.facebook.appevents.internal']" name="managedName">Xamarin.Facebook.AppEvents.Internal</attr>
     <attr path="/api/package[@name='com.facebook.appevents.ml']" name="managedName">Xamarin.Facebook.AppEvents.ML</attr>
+    <attr path="/api/package[@name='com.facebook.appevents.ondeviceprocessing']" name="managedName">Xamarin.Facebook.AppEvents.OnDeviceProcessing</attr>
     <attr path="/api/package[@name='com.facebook.appevents.restrictivedatafilter']" name="managedName">Xamarin.Facebook.AppEvents.RestrictiveDataFilter</attr>
     <attr path="/api/package[@name='com.facebook.appevents.suggestedevents']" name="managedName">Xamarin.Facebook.AppEvents.SuggestedEvents</attr>
+    <attr path="/api/package[@name='com.facebook.bolts']" name="managedName">Xamarin.Facebook.Bolts</attr>
     <attr path="/api/package[@name='com.facebook.core']" name="managedName">Xamarin.Facebook.Core</attr>
+    <attr path="/api/package[@name='com.facebook.core.internal.logging.dumpsys']" name="managedName">Xamarin.Facebook.Core.Internal.Logging.Dumpsys</attr>
     <attr path="/api/package[@name='com.facebook.internal']" name="managedName">Xamarin.Facebook.Internal</attr>
     <attr path="/api/package[@name='com.facebook.internal.instrument']" name="managedName">Xamarin.Facebook.Internal.Instrument</attr>
     <attr path="/api/package[@name='com.facebook.internal.instrument.crashreport']" name="managedName">Xamarin.Facebook.Internal.Instrument.CrashReport</attr>
@@ -21,8 +24,10 @@
     <attr path="/api/package[@name='com.facebook.internal.logging']" name="managedName">Xamarin.Facebook.Internal.Logging</attr>
     <attr path="/api/package[@name='com.facebook.internal.logging.monitor']" name="managedName">Xamarin.Facebook.Internal.Logging.Monitor</attr>
     <attr path="/api/package[@name='com.facebook.internal.metrics']" name="managedName">Xamarin.Facebook.Internal.Metrics</attr>
+    <attr path="/api/package[@name='com.facebook.internal.qualityvalidation']" name="managedName">Xamarin.Facebook.Internal.QualityValidation</attr>
     <attr path="/api/package[@name='com.facebook.internal.security']" name="managedName">Xamarin.Facebook.Internal.Security</attr>
     <attr path="/api/package[@name='com.facebook.login']" name="managedName">Xamarin.Facebook.Login</attr>
+    <attr path="/api/package[@name='com.facebook.ppml.receiver']" name="managedName">Xamarin.Facebook.Ppml.Receiver</attr>
     
 
     <remove-node path="/api/package[@name='com.facebook']/class[@name='GraphRequestAsyncTask']/method[@name='doInBackground' and count(parameter)=1 and parameter[1][@type='java.lang.Void...']]" />
