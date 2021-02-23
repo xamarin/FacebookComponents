@@ -236,7 +236,7 @@ namespace FacebookiOSSample
 			GraphRequest request;
 
 			if (!isHelloPosted)
-				request = new GraphRequest ("me/feed", new NSDictionary ("message", "Hello!"), AccessToken.CurrentAccessToken.TokenString, null, "POST");
+				request = new GraphRequest ("me/feed", new NSDictionary("message", "Hello!"), AccessToken.CurrentAccessToken.TokenString, null, "POST");
 			else
 				request = new GraphRequest (helloId, null, AccessToken.CurrentAccessToken.TokenString, null, "DELETE");
 
@@ -294,7 +294,7 @@ namespace FacebookiOSSample
 			ShowMessageBox (title, message, "Maybe Later", new [] { "Ok" }, () => {
 				// If they let you do things, ask for a new Access Token with the new permission
 				var login = new LoginManager ();
-				login.LogIn (permissions, this, (result, error) => {
+				login.LogInWithPermissions (permissions, this, (result, error) => {
 					// Handle if something went wrong with the request
 					if (error != null) {
 						new UIAlertView ("Error...", error.Description, null, "Ok", null).Show ();

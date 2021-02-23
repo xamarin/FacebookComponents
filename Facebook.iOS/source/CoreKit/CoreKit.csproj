@@ -6,7 +6,7 @@
     <RootNamespace>Facebook.CoreKit</RootNamespace>
     <AssemblyName>Facebook.CoreKit</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>7.1.1</FileVersion>
+    <FileVersion>9.0.1.5</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ProcessEnums>true</ProcessEnums>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2007135</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=2007136</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>7.1.1</PackageVersion>
+    <PackageVersion>9.0.1.5</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
