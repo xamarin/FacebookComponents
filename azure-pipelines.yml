@@ -21,7 +21,7 @@ variables:
 jobs:
   - template: .ci/build.yml@components
   - ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:
-    - template: sign-artifacts/jobs/v1.yml@internal-templates
+    - template: sign-artifacts/jobs/v2.yml@internal-templates
       parameters:
         dependsOn: [ 'build' ]
         condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
