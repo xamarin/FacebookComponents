@@ -1,0 +1,15 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <ItemGroup>
+    <FirstParty Include="Xamarin.Facebook.*.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--<ThirdParty Include="xxx" />-->
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--<Skip Include="xxx" />-->
+  </ItemGroup>
+
+</Project>
