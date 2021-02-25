@@ -123,8 +123,6 @@ Task ("externals")
 
 	// Call here custom methods created at custom_externals_download.cake file
 	// to download frameworks and/or bundles for the artifact
-	if (ARTIFACTS_TO_BUILD.Contains (AUDIENCE_NETWORK_ARTIFACT))
-		DownloadAudienceNetwork (AUDIENCE_NETWORK_ARTIFACT);
 });
 
 Task ("ci-setup")
