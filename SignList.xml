@@ -7,6 +7,10 @@
     <FirstParty Include="Facebook.CoreKit.dll" />
     <FirstParty Include="Facebook.LoginKit.dll" />
     <FirstParty Include="Facebook.ShareKit.dll" />
+    <FirstParty Include="Facebook.AccountKit.dll" />
+    <FirstParty Include="Facebook.AudienceNetwork.dll" />
+    <FirstParty Include="Facebook.MarketingKit.dll" />
+    <FirstParty Include="Facebook.PlacesKit.dll" />
   </ItemGroup>
 
   <ItemGroup>
