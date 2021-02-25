@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <FirstParty Include="Facebook.*.dll" />
+    <FirstParty Include="Xamarin.Facebook.*.dll" />
   </ItemGroup>
 
   <ItemGroup>
