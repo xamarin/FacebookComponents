@@ -1,15 +1,21 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountKit", "AccountKit\AccountKit.csproj", "{EBD6BF8D-69F1-4611-A778-6A2C2E8D79BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudienceNetwork", "AudienceNetwork\AudienceNetwork.csproj", "{54FF3FE1-B984-4642-8131-16A4E8335A0D}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreKit", "CoreKit\CoreKit.csproj", "{5B88D7C7-6E76-4D0D-8DBE-B3F0A5D6B8A0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacebookSdks", "FacebookSdks\FacebookSdks.csproj", "{B8A416D8-45F1-4CD5-9469-5436304E3CBA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginKit", "LoginKit\LoginKit.csproj", "{8C6EFD7E-1512-4976-8E47-CF189BF6CB90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShareKit", "ShareKit\ShareKit.csproj", "{170FAF51-4DF1-4271-B843-3257D285E864}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketingKit", "MarketingKit\MarketingKit.csproj", "{6ADBEE9E-5804-4362-85E9-811024EFAA15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamingServicesKit", "GamingServicesKit\GamingServicesKit.csproj", "{F10EB76C-1E5A-4BA9-8EF3-DB7B9A34DDFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlacesKit", "PlacesKit\PlacesKit.csproj", "{30556F40-CE2F-413B-9031-5A7A037AE1C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShareKit", "ShareKit\ShareKit.csproj", "{170FAF51-4DF1-4271-B843-3257D285E864}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +23,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBD6BF8D-69F1-4611-A778-6A2C2E8D79BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBD6BF8D-69F1-4611-A778-6A2C2E8D79BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBD6BF8D-69F1-4611-A778-6A2C2E8D79BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBD6BF8D-69F1-4611-A778-6A2C2E8D79BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54FF3FE1-B984-4642-8131-16A4E8335A0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54FF3FE1-B984-4642-8131-16A4E8335A0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54FF3FE1-B984-4642-8131-16A4E8335A0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54FF3FE1-B984-4642-8131-16A4E8335A0D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8C6EFD7E-1512-4976-8E47-CF189BF6CB90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8C6EFD7E-1512-4976-8E47-CF189BF6CB90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C6EFD7E-1512-4976-8E47-CF189BF6CB90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C6EFD7E-1512-4976-8E47-CF189BF6CB90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ADBEE9E-5804-4362-85E9-811024EFAA15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ADBEE9E-5804-4362-85E9-811024EFAA15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ADBEE9E-5804-4362-85E9-811024EFAA15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ADBEE9E-5804-4362-85E9-811024EFAA15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30556F40-CE2F-413B-9031-5A7A037AE1C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30556F40-CE2F-413B-9031-5A7A037AE1C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30556F40-CE2F-413B-9031-5A7A037AE1C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30556F40-CE2F-413B-9031-5A7A037AE1C9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{170FAF51-4DF1-4271-B843-3257D285E864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{170FAF51-4DF1-4271-B843-3257D285E864}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{170FAF51-4DF1-4271-B843-3257D285E864}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,9 +55,5 @@ Global
 		{B8A416D8-45F1-4CD5-9469-5436304E3CBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8A416D8-45F1-4CD5-9469-5436304E3CBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8A416D8-45F1-4CD5-9469-5436304E3CBA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F10EB76C-1E5A-4BA9-8EF3-DB7B9A34DDFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F10EB76C-1E5A-4BA9-8EF3-DB7B9A34DDFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F10EB76C-1E5A-4BA9-8EF3-DB7B9A34DDFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F10EB76C-1E5A-4BA9-8EF3-DB7B9A34DDFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

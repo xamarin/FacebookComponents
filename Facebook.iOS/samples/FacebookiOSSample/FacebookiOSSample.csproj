@@ -114,6 +114,10 @@
       <Project>{8C6EFD7E-1512-4976-8E47-CF189BF6CB90}</Project>
       <Name>LoginKit</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\source\PlacesKit\PlacesKit.csproj">
+      <Project>{30556F40-CE2F-413B-9031-5A7A037AE1C9}</Project>
+      <Name>PlacesKit</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\source\ShareKit\ShareKit.csproj">
       <Project>{170FAF51-4DF1-4271-B843-3257D285E864}</Project>
       <Name>ShareKit</Name>

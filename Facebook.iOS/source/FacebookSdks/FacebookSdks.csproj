@@ -5,7 +5,7 @@
     <RootNamespace>Facebook</RootNamespace>
     <AssemblyName>Facebook</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>9.0.1.5</FileVersion>
+    <FileVersion>7.1.1</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <IncludeBuildOutput>false</IncludeBuildOutput>
   </PropertyGroup>
@@ -21,7 +21,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=865580</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=865584</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>9.0.1.5</PackageVersion>
+    <PackageVersion>7.1.1</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -43,8 +43,9 @@
   <ItemGroup>
     <ProjectReference Include="..\CoreKit\CoreKit.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\LoginKit\LoginKit.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\MarketingKit\MarketingKit.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\PlacesKit\PlacesKit.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\ShareKit\ShareKit.csproj" PrivateAssets="None" />
-    <ProjectReference Include="..\GamingServicesKit\GamingServicesKit.csproj" PrivateAssets="None" />
   </ItemGroup>
 
 </Project>
