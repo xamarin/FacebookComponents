@@ -1,8 +1,12 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <ItemGroup>
-    <FirstParty Include="Facebook.*.dll" />
     <FirstParty Include="Xamarin.Facebook.*.dll" />
+    
+    <!-- old names :'( -->
+    <FirstParty Include="Facebook.CoreKit.dll" />
+    <FirstParty Include="Facebook.LoginKit.dll" />
+    <FirstParty Include="Facebook.ShareKit.dll" />
   </ItemGroup>
 
   <ItemGroup>

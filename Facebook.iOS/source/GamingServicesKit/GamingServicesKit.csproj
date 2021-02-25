@@ -4,7 +4,7 @@
     <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
     <IsBindingProject>true</IsBindingProject>
     <RootNamespace>Facebook.GamingServicesKit</RootNamespace>
-    <AssemblyName>Facebook.GamingServicesKit</AssemblyName>
+    <AssemblyName>Xamarin.Facebook.GamingServicesKit</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>9.0.1.5</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
