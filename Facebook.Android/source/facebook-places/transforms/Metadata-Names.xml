@@ -5,7 +5,7 @@
     name="managedName">requestParams</attr>
   <attr
     path="/api/package[@name='com.facebook.places']/class[@name='PlaceManager']/method[@name='newPlaceSearchRequest' and count(parameter)=2 and parameter[1][@type='com.facebook.places.model.PlaceSearchRequestParams'] and parameter[2][@type='com.facebook.places.PlaceManager.OnRequestReadyCallback']]/parameter[2]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.places']/class[@name='PlaceManager']/method[@name='newPlaceSearchRequestForLocation' and count(parameter)=2 and parameter[1][@type='com.facebook.places.model.PlaceSearchRequestParams'] and parameter[2][@type='android.location.Location']]/parameter[1]"
     name="managedName">requestParams</attr>
@@ -20,7 +20,7 @@
     name="managedName">requestParams</attr>
   <attr
     path="/api/package[@name='com.facebook.places']/class[@name='PlaceManager']/method[@name='newCurrentPlaceRequest' and count(parameter)=2 and parameter[1][@type='com.facebook.places.model.CurrentPlaceRequestParams'] and parameter[2][@type='com.facebook.places.PlaceManager.OnRequestReadyCallback']]/parameter[2]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.places']/class[@name='PlaceManager']/method[@name='newCurrentPlaceFeedbackRequest' and count(parameter)=1 and parameter[1][@type='com.facebook.places.model.CurrentPlaceFeedbackRequestParams']]/parameter[1]"
     name="managedName">requestParams</attr>

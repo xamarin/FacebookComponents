@@ -197,13 +197,13 @@
     name="managedName">id</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newDeleteObjectRequest' and count(parameter)=3 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='com.facebook.GraphRequest.Callback']]/parameter[3]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newMeRequest' and count(parameter)=2 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='com.facebook.GraphRequest.GraphJSONObjectCallback']]/parameter[1]"
     name="managedName">accessToken</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newMeRequest' and count(parameter)=2 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='com.facebook.GraphRequest.GraphJSONObjectCallback']]/parameter[2]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newPostRequest' and count(parameter)=4 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='org.json.JSONObject'] and parameter[4][@type='com.facebook.GraphRequest.Callback']]/parameter[1]"
     name="managedName">accessToken</attr>
@@ -215,13 +215,13 @@
     name="managedName">graphObject</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newPostRequest' and count(parameter)=4 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='org.json.JSONObject'] and parameter[4][@type='com.facebook.GraphRequest.Callback']]/parameter[4]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newMyFriendsRequest' and count(parameter)=2 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='com.facebook.GraphRequest.GraphJSONArrayCallback']]/parameter[1]"
     name="managedName">accessToken</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newMyFriendsRequest' and count(parameter)=2 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='com.facebook.GraphRequest.GraphJSONArrayCallback']]/parameter[2]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newGraphPathRequest' and count(parameter)=3 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='com.facebook.GraphRequest.Callback']]/parameter[1]"
     name="managedName">accessToken</attr>
@@ -230,7 +230,7 @@
     name="managedName">graphPath</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newGraphPathRequest' and count(parameter)=3 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='com.facebook.GraphRequest.Callback']]/parameter[3]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newPlacesSearchRequest' and count(parameter)=6 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='android.location.Location'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='java.lang.String'] and parameter[6][@type='com.facebook.GraphRequest.GraphJSONArrayCallback']]/parameter[1]"
     name="managedName">accessToken</attr>
@@ -248,7 +248,7 @@
     name="managedName">searchText</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newPlacesSearchRequest' and count(parameter)=6 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='android.location.Location'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='java.lang.String'] and parameter[6][@type='com.facebook.GraphRequest.GraphJSONArrayCallback']]/parameter[6]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newUploadPhotoRequest' and count(parameter)=6 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='android.graphics.Bitmap'] and parameter[4][@type='java.lang.String'] and parameter[5][@type='android.os.Bundle'] and parameter[6][@type='com.facebook.GraphRequest.Callback']]/parameter[1]"
     name="managedName">accessToken</attr>
@@ -266,7 +266,7 @@
     name="managedName">@params</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newUploadPhotoRequest' and count(parameter)=6 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='android.graphics.Bitmap'] and parameter[4][@type='java.lang.String'] and parameter[5][@type='android.os.Bundle'] and parameter[6][@type='com.facebook.GraphRequest.Callback']]/parameter[6]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newUploadPhotoRequest' and count(parameter)=6 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.io.File'] and parameter[4][@type='java.lang.String'] and parameter[5][@type='android.os.Bundle'] and parameter[6][@type='com.facebook.GraphRequest.Callback']]/parameter[1]"
     name="managedName">accessToken</attr>
@@ -284,7 +284,7 @@
     name="managedName">@params</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newUploadPhotoRequest' and count(parameter)=6 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.io.File'] and parameter[4][@type='java.lang.String'] and parameter[5][@type='android.os.Bundle'] and parameter[6][@type='com.facebook.GraphRequest.Callback']]/parameter[6]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newUploadPhotoRequest' and count(parameter)=6 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='android.net.Uri'] and parameter[4][@type='java.lang.String'] and parameter[5][@type='android.os.Bundle'] and parameter[6][@type='com.facebook.GraphRequest.Callback']]/parameter[1]"
     name="managedName">accessToken</attr>
@@ -302,7 +302,7 @@
     name="managedName">@params</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newUploadPhotoRequest' and count(parameter)=6 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='android.net.Uri'] and parameter[4][@type='java.lang.String'] and parameter[5][@type='android.os.Bundle'] and parameter[6][@type='com.facebook.GraphRequest.Callback']]/parameter[6]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newCustomAudienceThirdPartyIdRequest' and count(parameter)=4 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='android.content.Context'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='com.facebook.GraphRequest.Callback']]/parameter[1]"
     name="managedName">accessToken</attr>
@@ -314,7 +314,7 @@
     name="managedName">applicationId</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newCustomAudienceThirdPartyIdRequest' and count(parameter)=4 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='android.content.Context'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='com.facebook.GraphRequest.Callback']]/parameter[4]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newCustomAudienceThirdPartyIdRequest' and count(parameter)=3 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='android.content.Context'] and parameter[3][@type='com.facebook.GraphRequest.Callback']]/parameter[1]"
     name="managedName">accessToken</attr>
@@ -323,7 +323,7 @@
     name="managedName">context</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='newCustomAudienceThirdPartyIdRequest' and count(parameter)=3 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='android.content.Context'] and parameter[3][@type='com.facebook.GraphRequest.Callback']]/parameter[3]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='setGraphObject' and count(parameter)=1 and parameter[1][@type='org.json.JSONObject']]/parameter[1]"
     name="managedName">graphObject</attr>
@@ -359,7 +359,7 @@
     name="managedName">applicationId</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='setCallback' and count(parameter)=1 and parameter[1][@type='com.facebook.GraphRequest.Callback']]/parameter[1]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/method[@name='setTag' and count(parameter)=1 and parameter[1][@type='java.lang.Object']]/parameter[1]"
     name="managedName">tag</attr>
@@ -452,7 +452,7 @@
     name="managedName">httpMethod</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/constructor[@name='GraphRequest' and count(parameter)=5 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='android.os.Bundle'] and parameter[4][@type='com.facebook.HttpMethod'] and parameter[5][@type='com.facebook.GraphRequest.Callback']]/parameter[5]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/constructor[@name='GraphRequest' and count(parameter)=6 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='android.os.Bundle'] and parameter[4][@type='com.facebook.HttpMethod'] and parameter[5][@type='com.facebook.GraphRequest.Callback'] and parameter[6][@type='java.lang.String']]/parameter[1]"
     name="managedName">accessToken</attr>
@@ -467,7 +467,7 @@
     name="managedName">httpMethod</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/constructor[@name='GraphRequest' and count(parameter)=6 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='android.os.Bundle'] and parameter[4][@type='com.facebook.HttpMethod'] and parameter[5][@type='com.facebook.GraphRequest.Callback'] and parameter[6][@type='java.lang.String']]/parameter[5]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequest']/constructor[@name='GraphRequest' and count(parameter)=6 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='android.os.Bundle'] and parameter[4][@type='com.facebook.HttpMethod'] and parameter[5][@type='com.facebook.GraphRequest.Callback'] and parameter[6][@type='java.lang.String']]/parameter[6]"
     name="managedName">version</attr>
@@ -512,7 +512,7 @@
     name="managedName">publishParams</attr>
   <attr
     path="/api/package[@name='com.facebook']/interface[@name='FacebookSdk.GraphRequestCreator']/method[@name='createPostRequest' and count(parameter)=4 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='org.json.JSONObject'] and parameter[4][@type='com.facebook.GraphRequest.Callback']]/parameter[4]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/interface[@name='GraphResponse.PagingDirection']/method[@name='valueOf' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">name</attr>
@@ -560,7 +560,7 @@
     name="managedName">callbackRequestCodeOffset</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='FacebookSdk']/method[@name='sdkInitialize' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='int'] and parameter[3][@type='com.facebook.FacebookSdk.InitializeCallback']]/parameter[3]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='FacebookSdk']/method[@name='sdkInitialize' and count(parameter)=1 and parameter[1][@type='android.content.Context']]/parameter[1]"
     name="managedName">applicationContext</attr>
@@ -569,7 +569,7 @@
     name="managedName">applicationContext</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='FacebookSdk']/method[@name='sdkInitialize' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='com.facebook.FacebookSdk.InitializeCallback']]/parameter[2]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='FacebookSdk']/method[@name='addLoggingBehavior' and count(parameter)=1 and parameter[1][@type='com.facebook.LoggingBehavior']]/parameter[1]"
     name="managedName">behavior</attr>
@@ -680,7 +680,7 @@
     name="managedName">accessToken</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='AccessToken']/method[@name='refreshCurrentAccessTokenAsync' and count(parameter)=1 and parameter[1][@type='com.facebook.AccessToken.AccessTokenRefreshCallback']]/parameter[1]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='AccessToken']/method[@name='createFromNativeLinkingIntent' and count(parameter)=3 and parameter[1][@type='android.content.Intent'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='com.facebook.AccessToken.AccessTokenCreationCallback']]/parameter[1]"
     name="managedName">intent</attr>
@@ -806,10 +806,10 @@
     name="managedName">timeoutInMilliseconds</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequestBatch']/method[@name='addCallback' and count(parameter)=1 and parameter[1][@type='com.facebook.GraphRequestBatch.Callback']]/parameter[1]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequestBatch']/method[@name='removeCallback' and count(parameter)=1 and parameter[1][@type='com.facebook.GraphRequestBatch.Callback']]/parameter[1]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/class[@name='GraphRequestBatch']/method[@name='add' and count(parameter)=1 and parameter[1][@type='com.facebook.GraphRequest']]/parameter[1]"
     name="managedName">request</attr>
@@ -1076,7 +1076,7 @@
     name="managedName">feature</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='FeatureManager']/method[@name='checkFeature' and count(parameter)=2 and parameter[1][@type='com.facebook.internal.FeatureManager.Feature'] and parameter[2][@type='com.facebook.internal.FeatureManager.Callback']]/parameter[2]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='FeatureManager']/method[@name='isEnabled' and count(parameter)=1 and parameter[1][@type='com.facebook.internal.FeatureManager.Feature']]/parameter[1]"
     name="managedName">feature</attr>
@@ -1088,7 +1088,7 @@
     name="managedName">className</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='InstallReferrerUtil']/method[@name='tryUpdateReferrerInfo' and count(parameter)=1 and parameter[1][@type='com.facebook.internal.InstallReferrerUtil.Callback']]/parameter[1]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='FacebookInitProvider']/method[@name='query' and count(parameter)=5 and parameter[1][@type='android.net.Uri'] and parameter[2][@type='java.lang.String[]'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='java.lang.String[]'] and parameter[5][@type='java.lang.String']]/parameter[1]"
     name="managedName">uri</attr>
@@ -1139,10 +1139,10 @@
     name="managedName">name</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='WorkQueue']/method[@name='addActiveWorkItem' and count(parameter)=1 and parameter[1][@type='java.lang.Runnable']]/parameter[1]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='WorkQueue']/method[@name='addActiveWorkItem' and count(parameter)=2 and parameter[1][@type='java.lang.Runnable'] and parameter[2][@type='boolean']]/parameter[1]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='WorkQueue']/method[@name='addActiveWorkItem' and count(parameter)=2 and parameter[1][@type='java.lang.Runnable'] and parameter[2][@type='boolean']]/parameter[2]"
     name="managedName">addToFront</attr>
@@ -1358,7 +1358,7 @@
     name="managedName">applicationId</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='FetchedAppSettingsManager']/method[@name='getAppSettingsAsync' and count(parameter)=1 and parameter[1][@type='com.facebook.internal.FetchedAppSettingsManager.FetchedAppSettingsCallback']]/parameter[1]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='FetchedAppSettingsManager']/method[@name='queryAppSettings' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='boolean']]/parameter[1]"
     name="managedName">applicationId</attr>
@@ -1469,7 +1469,7 @@
     name="managedName">intent</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='ImageRequest.Builder']/method[@name='setCallback' and count(parameter)=1 and parameter[1][@type='com.facebook.internal.ImageRequest.Callback']]/parameter[1]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='ImageRequest.Builder']/method[@name='setCallerTag' and count(parameter)=1 and parameter[1][@type='java.lang.Object']]/parameter[1]"
     name="managedName">callerTag</attr>
@@ -1832,7 +1832,7 @@
     name="managedName">accessToken</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='getGraphMeRequestWithCacheAsync' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.facebook.internal.Utility.GraphMeRequestWithCacheCallback']]/parameter[2]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='awaitGetGraphMeRequestWithCache' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">accessToken</attr>
@@ -1985,13 +1985,13 @@
     name="managedName">requestCode</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='CallbackManagerImpl']/method[@name='registerStaticCallback' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='com.facebook.internal.CallbackManagerImpl.Callback']]/parameter[2]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='CallbackManagerImpl']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='com.facebook.internal.CallbackManagerImpl.Callback']]/parameter[1]"
     name="managedName">requestCode</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='CallbackManagerImpl']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='com.facebook.internal.CallbackManagerImpl.Callback']]/parameter[2]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='CallbackManagerImpl']/method[@name='unregisterCallback' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]"
     name="managedName">requestCode</attr>
@@ -2231,7 +2231,7 @@
     name="managedName">parameters</attr>
   <attr
     path="/api/package[@name='com.facebook.appevents']/class[@name='AppEventsLogger']/method[@name='updateUserProperties' and count(parameter)=2 and parameter[1][@type='android.os.Bundle'] and parameter[2][@type='com.facebook.GraphRequest.Callback']]/parameter[2]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.appevents']/class[@name='AppEventsLogger']/method[@name='updateUserProperties' and count(parameter)=3 and parameter[1][@type='android.os.Bundle'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='com.facebook.GraphRequest.Callback']]/parameter[1]"
     name="managedName">parameters</attr>
@@ -2240,7 +2240,7 @@
     name="managedName">applicationID</attr>
   <attr
     path="/api/package[@name='com.facebook.appevents']/class[@name='AppEventsLogger']/method[@name='updateUserProperties' and count(parameter)=3 and parameter[1][@type='android.os.Bundle'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='com.facebook.GraphRequest.Callback']]/parameter[3]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.appevents']/class[@name='AppEventsLogger']/method[@name='logSdkEvent' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.Double'] and parameter[3][@type='android.os.Bundle']]/parameter[1]"
     name="managedName">eventName</attr>
@@ -2429,7 +2429,7 @@
     name="managedName">reports</attr>
   <attr
     path="/api/package[@name='com.facebook.internal.instrument']/class[@name='InstrumentUtility']/method[@name='sendReports' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='org.json.JSONArray'] and parameter[3][@type='com.facebook.GraphRequest.Callback']]/parameter[3]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.internal.instrument']/class[@name='InstrumentData.Builder']/method[@name='load' and count(parameter)=1 and parameter[1][@type='java.io.File']]/parameter[1]"
     name="managedName">file</attr>

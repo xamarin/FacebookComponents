@@ -77,7 +77,7 @@
     name="managedName">callbackManager</attr>
   <attr
     path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[2]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton']/method[@name='unregisterCallback' and count(parameter)=1 and parameter[1][@type='com.facebook.CallbackManager']]/parameter[1]"
     name="managedName">callbackManager</attr>
