@@ -68,13 +68,13 @@
     name="managedName">callbackManager</attr>
   <attr
     path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[2]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog']/method[@name='registerCallback' and count(parameter)=3 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[3][starts-with(@type,'int')]]/parameter[1]"
     name="managedName">callbackManager</attr>
   <attr
     path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog']/method[@name='registerCallback' and count(parameter)=3 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[3][starts-with(@type,'int')]]/parameter[2]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook']/interface[@name='FacebookDialog']/method[@name='registerCallback' and count(parameter)=3 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[3][starts-with(@type,'int')]]/parameter[3]"
     name="managedName">requestCode</attr>
@@ -206,13 +206,13 @@
     name="managedName">callbackManager</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[2]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='registerCallback' and count(parameter)=3 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[3][starts-with(@type,'int')]]/parameter[1]"
     name="managedName">callbackManager</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='registerCallback' and count(parameter)=3 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[3][starts-with(@type,'int')]]/parameter[2]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='registerCallback' and count(parameter)=3 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[3][starts-with(@type,'int')]]/parameter[3]"
     name="managedName">requestCode</attr>
@@ -221,7 +221,7 @@
     name="managedName">callbackManager</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='registerCallbackImpl' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.internal.CallbackManagerImpl')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[2]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase']/method[@name='setRequestCode' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]"
     name="managedName">requestCode</attr>
@@ -575,7 +575,7 @@
     name="managedName">callbackManager</attr>
   <attr
     path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='registerCallback' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.CallbackManager')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[2]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.login']/class[@name='LoginManager']/method[@name='unregisterCallback' and count(parameter)=1 and parameter[1][@type='com.facebook.CallbackManager']]/parameter[1]"
     name="managedName">callbackManager</attr>
@@ -827,7 +827,7 @@
     name="managedName">callbackManager</attr>
   <attr
     path="/api/package[@name='com.facebook.share.widget']/class[@name='ShareDialog']/method[@name='registerCallbackImpl' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.internal.CallbackManagerImpl')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[2]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.share.widget']/class[@name='ShareDialog']/method[@name='setShouldFailOnDataError' and count(parameter)=1 and parameter[1][@type='boolean']]/parameter[1]"
     name="managedName">shouldFailOnDataError</attr>
@@ -1010,7 +1010,7 @@
     name="managedName">objectType</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='LikeActionController']/method[@name='getControllerForObjectId' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.facebook.share.widget.LikeView.ObjectType'] and parameter[3][@type='com.facebook.share.internal.LikeActionController.CreationCallback']]/parameter[3]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='LikeActionController']/method[@name='toggleLike' and count(parameter)=3 and parameter[1][@type='android.app.Activity'] and parameter[2][@type='com.facebook.internal.FragmentWrapper'] and parameter[3][@type='android.os.Bundle']]/parameter[1]"
     name="managedName">activity</attr>
@@ -1043,7 +1043,7 @@
     name="managedName">error</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ResultProcessor']/constructor[@name='ResultProcessor' and count(parameter)=1 and parameter[1][@type='com.facebook.FacebookCallback']]/parameter[1]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='WebDialogParameters']/method[@name='create' and count(parameter)=1 and parameter[1][@type='com.facebook.share.model.AppGroupCreationContent']]/parameter[1]"
     name="managedName">appGroupCreationContent</attr>
@@ -1142,19 +1142,19 @@
     name="managedName">shareContent</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='invokeCallbackWithException' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[2][starts-with(@type,'java.lang.Exception')]]/parameter[1]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='invokeCallbackWithException' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[2][starts-with(@type,'java.lang.Exception')]]/parameter[2]"
     name="managedName">exception</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='invokeCallbackWithError' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[2][starts-with(@type,'java.lang.String')]]/parameter[1]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='invokeCallbackWithError' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[2][starts-with(@type,'java.lang.String')]]/parameter[2]"
     name="managedName">error</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='invokeCallbackWithResults' and count(parameter)=3 and parameter[1][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[2][starts-with(@type,'java.lang.String')] and parameter[3][starts-with(@type,'com.facebook.GraphResponse')]]/parameter[1]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='invokeCallbackWithResults' and count(parameter)=3 and parameter[1][starts-with(@type,'com.facebook.FacebookCallback')] and parameter[2][starts-with(@type,'java.lang.String')] and parameter[3][starts-with(@type,'com.facebook.GraphResponse')]]/parameter[2]"
     name="managedName">postId</attr>
@@ -1181,7 +1181,7 @@
     name="managedName">resultProcessor</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='getShareResultProcessor' and count(parameter)=1 and parameter[1][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[1]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='registerStaticShareCallback' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]"
     name="managedName">requestCode</attr>
@@ -1193,7 +1193,7 @@
     name="managedName">callbackManager</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='registerSharerCallback' and count(parameter)=3 and parameter[1][starts-with(@type,'int')] and parameter[2][starts-with(@type,'com.facebook.CallbackManager')] and parameter[3][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[3]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='getPhotoUrls' and count(parameter)=2 and parameter[1][@type='com.facebook.share.model.SharePhotoContent'] and parameter[2][@type='java.util.UUID']]/parameter[1]"
     name="managedName">photoContent</attr>
@@ -1250,7 +1250,7 @@
     name="managedName">image</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='newUploadStagingResourceWithImageRequest' and count(parameter)=3 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='android.graphics.Bitmap'] and parameter[3][@type='com.facebook.GraphRequest.Callback']]/parameter[3]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='newUploadStagingResourceWithImageRequest' and count(parameter)=3 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.io.File'] and parameter[3][@type='com.facebook.GraphRequest.Callback']]/parameter[1]"
     name="managedName">accessToken</attr>
@@ -1259,7 +1259,7 @@
     name="managedName">file</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='newUploadStagingResourceWithImageRequest' and count(parameter)=3 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='java.io.File'] and parameter[3][@type='com.facebook.GraphRequest.Callback']]/parameter[3]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='newUploadStagingResourceWithImageRequest' and count(parameter)=3 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='android.net.Uri'] and parameter[3][@type='com.facebook.GraphRequest.Callback']]/parameter[1]"
     name="managedName">accessToken</attr>
@@ -1268,7 +1268,7 @@
     name="managedName">imageUri</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='newUploadStagingResourceWithImageRequest' and count(parameter)=3 and parameter[1][@type='com.facebook.AccessToken'] and parameter[2][@type='android.net.Uri'] and parameter[3][@type='com.facebook.GraphRequest.Callback']]/parameter[3]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareInternalUtility']/method[@name='getMostSpecificObjectType' and count(parameter)=2 and parameter[1][@type='com.facebook.share.widget.LikeView.ObjectType'] and parameter[2][@type='com.facebook.share.widget.LikeView.ObjectType']]/parameter[1]"
     name="managedName">objectType1</attr>
@@ -1331,7 +1331,7 @@
     name="managedName">callbackManager</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='LikeDialog']/method[@name='registerCallbackImpl' and count(parameter)=2 and parameter[1][starts-with(@type,'com.facebook.internal.CallbackManagerImpl')] and parameter[2][starts-with(@type,'com.facebook.FacebookCallback')]]/parameter[2]"
-    name="managedName">callback</attr>
+    name="managedName">@callback</attr>
   <attr
     path="/api/package[@name='com.facebook.share.internal']/class[@name='LikeDialog']/constructor[@name='LikeDialog' and count(parameter)=1 and parameter[1][@type='android.app.Activity']]/parameter[1]"
     name="managedName">activity</attr>
