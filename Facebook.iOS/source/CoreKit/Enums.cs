@@ -430,6 +430,9 @@ namespace Facebook.CoreKit
 	public enum ProfilePictureMode : ulong
 	{
 		Square,
-		Normal
+		Normal,
+		Album,
+		Small,
+		Large,
 	}
 }
