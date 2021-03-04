@@ -1,6 +1,8 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudienceNetwork", "AudienceNetwork\AudienceNetwork.csproj", "{54FF3FE1-B984-4642-8131-16A4E8335A0D}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreKit", "CoreKit\CoreKit.csproj", "{5B88D7C7-6E76-4D0D-8DBE-B3F0A5D6B8A0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacebookSdks", "FacebookSdks\FacebookSdks.csproj", "{B8A416D8-45F1-4CD5-9469-5436304E3CBA}"
@@ -17,6 +19,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54FF3FE1-B984-4642-8131-16A4E8335A0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54FF3FE1-B984-4642-8131-16A4E8335A0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54FF3FE1-B984-4642-8131-16A4E8335A0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54FF3FE1-B984-4642-8131-16A4E8335A0D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8C6EFD7E-1512-4976-8E47-CF189BF6CB90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8C6EFD7E-1512-4976-8E47-CF189BF6CB90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C6EFD7E-1512-4976-8E47-CF189BF6CB90}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -6,6 +6,7 @@ var FACEBOOK_SDKS_VERSION      = FACEBOOK_SDK_VERSION;
 var LOGIN_KIT_VERSION          = FACEBOOK_SDK_VERSION;
 var SHARE_KIT_VERSION          = FACEBOOK_SDK_VERSION;
 var GAMINGSERVICES_KIT_VERSION = FACEBOOK_SDK_VERSION;
+var AUDIENCE_NETWORK_VERSION   = "5.10.1";
 
 var CORE_KIT_NUGET_VERSION           = NUGET_VERSION;
 var FACEBOOK_SDKS_NUGET_VERSION      = NUGET_VERSION;
@@ -19,8 +20,10 @@ Artifact FACEBOOK_SDKS_ARTIFACT      = new Artifact ("FacebookSdks",      FACEBO
 Artifact LOGIN_KIT_ARTIFACT          = new Artifact ("LoginKit",          LOGIN_KIT_NUGET_VERSION,            "9.0");
 Artifact SHARE_KIT_ARTIFACT          = new Artifact ("ShareKit",          SHARE_KIT_NUGET_VERSION,            "9.0");
 Artifact GAMINGSERVICES_KIT_ARTIFACT = new Artifact ("GamingServicesKit", GAMINGSERVICES_KIT_NUGET_VERSION,   "9.0");
+Artifact AUDIENCE_NETWORK_ARTIFACT = new Artifact   ("AudienceNetwork",   AUDIENCE_NETWORK_VERSION,           "9.0");
 
 var ARTIFACTS = new Dictionary<string, Artifact> {
+	{ "AudienceNetwork", AUDIENCE_NETWORK_ARTIFACT },
 	{ "CoreKit", CORE_KIT_ARTIFACT },
 	{ "FacebookSdks", FACEBOOK_SDKS_ARTIFACT },
 	{ "LoginKit", LOGIN_KIT_ARTIFACT },
@@ -30,6 +33,7 @@ var ARTIFACTS = new Dictionary<string, Artifact> {
 
 void SetArtifactsDependencies ()
 {
+	AUDIENCE_NETWORK_ARTIFACT.Dependencies   = null;
 	CORE_KIT_ARTIFACT.Dependencies           = null;
 	FACEBOOK_SDKS_ARTIFACT.Dependencies      = new [] { CORE_KIT_ARTIFACT, LOGIN_KIT_ARTIFACT, SHARE_KIT_ARTIFACT, GAMINGSERVICES_KIT_ARTIFACT };
 	LOGIN_KIT_ARTIFACT.Dependencies          = new [] { CORE_KIT_ARTIFACT };
@@ -39,6 +43,9 @@ void SetArtifactsDependencies ()
 
 void SetArtifactsPodSpecs ()
 {
+	AUDIENCE_NETWORK_ARTIFACT.PodSpecs = new [] {
+		PodSpec.Create ("FBAudienceNetwork", AUDIENCE_NETWORK_VERSION, frameworkSource: FrameworkSource.Custom)
+	};
 	CORE_KIT_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("FBSDKCoreKit", CORE_KIT_VERSION)
 	};
@@ -62,6 +69,7 @@ void SetArtifactsExtraPodfileLines ()
 
 void SetArtifactsSamples ()
 {
+	AUDIENCE_NETWORK_ARTIFACT.Samples   = new [] { "FBAudienceNetworkSample" };
 	CORE_KIT_ARTIFACT.Samples           = null;
 	FACEBOOK_SDKS_ARTIFACT.Samples      = new [] { "HelloFacebook", "FacebookiOSSample" };
 	LOGIN_KIT_ARTIFACT.Samples          = null;
