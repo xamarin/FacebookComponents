@@ -96,7 +96,7 @@ namespace Facebook.CoreKit {
 		[Wrap ("UserId")]
 		string UserID { get; }
 
-		// @property (readonly, copy, nonatomic) NSString * _Nonnull graphDomain;
+		[Obsolete ("Use the 'GraphDomain' property on 'AuthenticationToken' instead. This will be removed in future versions.")]
 		[Export ("graphDomain")]
 		string GraphDomain { get; }
 
@@ -114,6 +114,7 @@ namespace Facebook.CoreKit {
 		IntPtr Constructor (string tokenString, string [] permissions, string [] declinedPermissions, string [] expiredPermissions, string appId, string userId, [NullAllowed] NSDate expirationDate, [NullAllowed] NSDate refreshDate, [NullAllowed] NSDate dataAccessExpirationDate);
 
 		// -(instancetype _Nonnull)initWithTokenString:(NSString * _Nonnull)tokenString permissions:(NSArray<NSString *> * _Nonnull)permissions declinedPermissions:(NSArray<NSString *> * _Nonnull)declinedPermissions expiredPermissions:(NSArray<NSString *> * _Nonnull)expiredPermissions appID:(NSString * _Nonnull)appID userID:(NSString * _Nonnull)userID expirationDate:(NSDate * _Nullable)expirationDate refreshDate:(NSDate * _Nullable)refreshDate dataAccessExpirationDate:(NSDate * _Nullable)dataAccessExpirationDate graphDomain:(NSString * _Nullable)graphDomain;
+		[Obsolete ("Use initializers that do not take in 'graphDomain' domain instead.")]
 		[Export ("initWithTokenString:permissions:declinedPermissions:expiredPermissions:appID:userID:expirationDate:refreshDate:dataAccessExpirationDate:graphDomain:")]
 		IntPtr Constructor (string tokenString, string[] permissions, string[] declinedPermissions, string[] expiredPermissions, string appId, string userId, [NullAllowed] NSDate expirationDate, [NullAllowed] NSDate refreshDate, [NullAllowed] NSDate dataAccessExpirationDate, [NullAllowed] string graphDomain);
 
@@ -1096,9 +1097,12 @@ namespace Facebook.CoreKit {
 		NSString NewProfileKey { get; }
 
 		// -(instancetype)initWithUserID:(NSString *)userID firstName:(NSString *)firstName middleName:(NSString *)middleName lastName:(NSString *)lastName name:(NSString *)name linkURL:(NSURL *)linkURL refreshDate:(NSDate *)refreshDate __attribute__((objc_designated_initializer));
-		[DesignatedInitializer]
 		[Export ("initWithUserID:firstName:middleName:lastName:name:linkURL:refreshDate:")]
 		IntPtr Constructor (string userId, [NullAllowed] string firstName,[NullAllowed] string middleName,[NullAllowed] string lastName,[NullAllowed] string name, [NullAllowed] NSUrl linkUrl, [NullAllowed] NSDate refreshDate);
+
+		[Export ("initWithUserID:firstName:middleName:lastName:name:linkURL:refreshDate:imageURL:email:")]
+		[DesignatedInitializer]
+		IntPtr Constructor (string userId, [NullAllowed] string firstName, [NullAllowed] string middleName, [NullAllowed] string lastName, [NullAllowed] string name, [NullAllowed] NSUrl linkUrl, [NullAllowed] NSDate refreshDate, [NullAllowed] NSUrl imageUrl, [NullAllowed] string email);
 
 		// @property (nonatomic, strong, class) FBSDKProfile * _Nullable currentProfile;
 		[Static]
@@ -1140,6 +1144,13 @@ namespace Facebook.CoreKit {
 		[Export ("refreshDate")]
 		NSDate RefreshDate { get; }
 
+		[NullAllowed, Export ("imageURL")]
+		NSUrl ImageUrl { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nullable email;
+		[NullAllowed, Export ("email")]
+		string Email { get; }
+
 		// +(void)enableUpdatesOnAccessTokenChange:(BOOL)enable;
 		[Static]
 		[Export ("enableUpdatesOnAccessTokenChange:")]
@@ -1154,7 +1165,7 @@ namespace Facebook.CoreKit {
 		// - (NSURL *)imageURLForPictureMode:(FBSDKProfilePictureMode)mode size:(CGSize)size;
 		[return: NullAllowed]
 		[Export ("imageURLForPictureMode:size:")]
-		NSUrl ImageUrl (ProfilePictureMode mode, CGSize size);
+		NSUrl GetImageUrl (ProfilePictureMode mode, CGSize size);
 
 		// -(BOOL)isEqualToProfile:(FBSDKProfile *)profile;
 		[Export ("isEqualToProfile:")]
@@ -1207,11 +1218,6 @@ namespace Facebook.CoreKit {
 		[Export ("JPEGCompressionQuality")]
 		nfloat JpegCompressionQuality { get; set; }
 
-		// @property (getter = isAutoInitEnabled, assign, nonatomic, class) BOOL autoInitEnabled;
-		[Static]
-		[Export ("autoInitEnabled")]
-		bool AutoInitEnabled { [Bind ("isAutoInitEnabled")] get; set; }
-
 		// @property (getter = isAutoLogAppEventsEnabled, assign, nonatomic, class) BOOL autoLogAppEventsEnabled;
 		[Static]
 		[Export ("autoLogAppEventsEnabled")]
@@ -1226,6 +1232,10 @@ namespace Facebook.CoreKit {
 		[Static]
 		[Export ("advertiserIDCollectionEnabled")]
 		bool AdvertiserIdCollectionEnabled { [Bind ("isAdvertiserIDCollectionEnabled")] get; set; }
+
+		[Static]
+		[Export ("SKAdNetworkReportEnabled")]
+		bool SKAdNetworkReportEnabled { [Bind ("isSKAdNetworkReportEnabled")] get; set; }
 
 		// @property (getter = shouldLimitEventAndDataUsage, assign, nonatomic, class) BOOL limitEventAndDataUsage;
 		[Static]
@@ -1277,6 +1287,10 @@ namespace Facebook.CoreKit {
 		[Static]
 		[Export ("graphAPIVersion")]
 		string GraphApiVersion { get; set; }
+
+		[Static]
+		[Export ("advertiserTrackingEnabled")]
+		bool AdvertiserTrackingEnabled { [Bind ("isAdvertiserTrackingEnabled")] get; set; }
 
 		// +(void)setDataProcessingOptions:(NSArray<NSString *> * _Nullable)options;
 		[Static]
@@ -1452,5 +1466,34 @@ namespace Facebook.CoreKit {
 		[Static]
 		[Export ("sharedInstance", ArgumentSemantic.Strong)]
 		WebViewAppLinkResolver SharedInstance { get; }
+	}
+
+	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FBSDKAppLinkResolverRequestBuilder")]
+	interface AppLinkResolverRequestBuilder {
+
+		[Export ("requestForURLs:")]
+		GraphRequest GetRequest (NSUrl[] urls);
+
+		[NullAllowed, Export ("getIdiomSpecificField")]
+		string IdiomSpecificField { get; }
+	}
+
+	[BaseType (typeof (NSObject), Name = "FBSDKAuthenticationToken")]
+	[DisableDefaultCtor]
+	interface AuthenticationToken {
+
+		[Static]
+		[NullAllowed, Export ("currentAuthenticationToken", ArgumentSemantic.Copy)]
+		AuthenticationToken CurrentAuthenticationToken { get; set; }
+
+		[Export ("tokenString")]
+		string TokenString { get; }
+
+		[Export ("nonce")]
+		string Nonce { get; }
+
+		[Export ("graphDomain")]
+		string GraphDomain { get; }
 	}
 }
