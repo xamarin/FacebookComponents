@@ -6,7 +6,7 @@ var FACEBOOK_SDKS_VERSION      = FACEBOOK_SDK_VERSION;
 var LOGIN_KIT_VERSION          = FACEBOOK_SDK_VERSION;
 var SHARE_KIT_VERSION          = FACEBOOK_SDK_VERSION;
 var GAMINGSERVICES_KIT_VERSION = FACEBOOK_SDK_VERSION;
-var AUDIENCE_NETWORK_VERSION   = "5.10.1";
+var AUDIENCE_NETWORK_VERSION   = "6.3.0";
 
 var CORE_KIT_NUGET_VERSION           = NUGET_VERSION;
 var FACEBOOK_SDKS_NUGET_VERSION      = NUGET_VERSION;
@@ -20,7 +20,7 @@ Artifact FACEBOOK_SDKS_ARTIFACT      = new Artifact ("FacebookSdks",      FACEBO
 Artifact LOGIN_KIT_ARTIFACT          = new Artifact ("LoginKit",          LOGIN_KIT_NUGET_VERSION,            "9.0");
 Artifact SHARE_KIT_ARTIFACT          = new Artifact ("ShareKit",          SHARE_KIT_NUGET_VERSION,            "9.0");
 Artifact GAMINGSERVICES_KIT_ARTIFACT = new Artifact ("GamingServicesKit", GAMINGSERVICES_KIT_NUGET_VERSION,   "9.0");
-Artifact AUDIENCE_NETWORK_ARTIFACT = new Artifact   ("AudienceNetwork",   AUDIENCE_NETWORK_VERSION,           "9.0");
+Artifact AUDIENCE_NETWORK_ARTIFACT   = new Artifact ("AudienceNetwork",   AUDIENCE_NETWORK_VERSION,           "9.0");
 
 var ARTIFACTS = new Dictionary<string, Artifact> {
 	{ "AudienceNetwork", AUDIENCE_NETWORK_ARTIFACT },
