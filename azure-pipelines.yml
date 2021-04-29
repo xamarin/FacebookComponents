@@ -8,6 +8,7 @@ resources:
       type: github
       name: xamarin/yaml-templates
       endpoint: xamarin
+      ref: refs/heads/main
     - repository: components
       type: github
       name: xamarin/XamarinComponents
@@ -20,6 +21,6 @@ variables:
 jobs:
   - template: .ci/build.yml@components
   - ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:
-    - template: sign-artifacts/jobs/v1.yml@internal-templates
+    - template: sign-artifacts/jobs/v2.yml@internal-templates
       parameters:
         dependsOn: [ 'build' ]

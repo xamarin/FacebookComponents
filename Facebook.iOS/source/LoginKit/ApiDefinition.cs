@@ -133,6 +133,12 @@ namespace Facebook.LoginKit {
 		// @property (assign, nonatomic) FBSDKTooltipColorStyle tooltipColorStyle;
 		[Export ("tooltipColorStyle", ArgumentSemantic.Assign)]
 		TooltipColorStyle TooltipColorStyle { get; set; }
+
+		[Export ("loginTracking", ArgumentSemantic.Assign)]
+		LoginTracking LoginTracking { get; set; }
+
+		[NullAllowed, Export ("nonce")]
+		string Nonce { get; set; }
 	}
 
 	interface ILoginButtonDelegate {
@@ -185,6 +191,12 @@ namespace Facebook.LoginKit {
 		[Export ("logInWithPermissions:fromViewController:handler:")]
 		void LogIn (string [] permissions, [NullAllowed] UIViewController fromViewController, [NullAllowed] LoginManagerLoginResultBlockHandler handler);
 
+		[Export ("logInFromViewController:configuration:completion:")]
+		void LogIn ([NullAllowed] UIViewController fromViewController, LoginConfiguration configuration, LoginManagerLoginResultBlockHandler completion);
+
+		[Export ("logInWithURL:handler:")]
+		void LogIn (NSUrl url, [NullAllowed] LoginManagerLoginResultBlockHandler handler);
+
 		// -(void)reauthorizeDataAccess:(UIViewController *)fromViewController handler:(FBSDKLoginManagerLoginResultBlockHandler)handler;
 		[Export ("reauthorizeDataAccess:handler:")]
 		void ReauthorizeDataAccess (UIViewController fromViewController, LoginManagerLoginResultBlockHandler handler);
@@ -204,6 +216,9 @@ namespace Facebook.LoginKit {
 		[Export ("token", ArgumentSemantic.Copy)]
 		CoreKit.AccessToken Token { get; set; }
 
+		[NullAllowed, Export ("authenticationToken", ArgumentSemantic.Copy)]
+		CoreKit.AuthenticationToken AuthenticationToken { get; set; }
+
 		// @property (readonly, nonatomic) BOOL isCancelled;
 		[Export ("isCancelled")]
 		bool IsCancelled { get; }
@@ -220,8 +235,8 @@ namespace Facebook.LoginKit {
 
 		// -(instancetype)initWithToken:(FBSDKAccessToken *)token isCancelled:(BOOL)isCancelled grantedPermissions:(NSSet *)grantedPermissions declinedPermissions:(NSSet *)declinedPermissions __attribute__((objc_designated_initializer));
 		[DesignatedInitializer]
-		[Export ("initWithToken:isCancelled:grantedPermissions:declinedPermissions:")]
-		IntPtr Constructor ([NullAllowed] CoreKit.AccessToken token, bool isCancelled, [NullAllowed] NSSet grantedPermissions, [NullAllowed] NSSet declinedPermissions);
+		[Export ("initWithToken:authenticationToken:isCancelled:grantedPermissions:declinedPermissions:")]
+		IntPtr Constructor ([NullAllowed] CoreKit.AccessToken token, [NullAllowed] CoreKit.AuthenticationToken authenticationToken, bool isCancelled, [NullAllowed] NSSet grantedPermissions, [NullAllowed] NSSet declinedPermissions);
 	}
 
 	// @interface FBSDKLoginTooltipView : FBSDKTooltipView
@@ -311,5 +326,69 @@ namespace Facebook.LoginKit {
 		// -(void)dismiss;
 		[Export ("dismiss")]
 		void Dismiss ();
+	}
+
+	[BaseType (typeof (NSObject), Name = "FBSDKLoginConfiguration")]
+	[DisableDefaultCtor]
+	interface LoginConfiguration {
+
+		[Export ("nonce")]
+		string Nonce { get; }
+
+		[Export ("tracking")]
+		LoginTracking Tracking { get; }
+
+		[Export ("requestedPermissions", ArgumentSemantic.Copy)]
+		NSSet RequestedPermissions { get; }
+
+		[Export ("initWithPermissions:tracking:nonce:")]
+		IntPtr Constructor (string[] permissions, LoginTracking tracking, string nonce);
+
+		[Export ("initWithPermissions:tracking:")]
+		IntPtr Constructor (string[] permissions, LoginTracking tracking);
+
+		[Export ("initWithTracking:")]
+		IntPtr Constructor (LoginTracking tracking);
+	}
+
+	[BaseType (typeof (NSObject), Name = "FBSDKReferralCode")]
+	[DisableDefaultCtor]
+	interface ReferralCode {
+
+		[Export ("value", ArgumentSemantic.Strong)]
+		string Value { get; set; }
+
+		[Static]
+		[Export ("initWithString:")]
+		[return: NullAllowed]
+		ReferralCode Create (string @string);
+	}
+
+	delegate void ReferralManagerResultBlockHandler ([NullAllowed] ReferralManagerResult result, [NullAllowed] NSError error);
+
+	[BaseType (typeof (NSObject), Name = "FBSDKReferralManager")]
+	interface ReferralManager {
+
+		[Export ("initWithViewController:")]
+		IntPtr Constructor ([NullAllowed] UIViewController viewController);
+
+		[Async]
+		[Export ("startReferralWithCompletionHandler:")]
+		void StartReferral ([NullAllowed] ReferralManagerResultBlockHandler handler);
+	}
+
+	[BaseType (typeof (NSObject), Name = "FBSDKReferralManagerResult")]
+	[DisableDefaultCtor]
+	interface ReferralManagerResult {
+
+		[Export ("isCancelled")]
+		bool IsCancelled { get; }
+
+		[Export ("referralCodes", ArgumentSemantic.Copy)]
+		ReferralCode [] ReferralCodes { get; set; }
+
+		[Export ("initWithReferralCodes:isCancelled:")]
+		[DesignatedInitializer]
+		IntPtr Constructor ([NullAllowed] ReferralCode [] referralCodes, bool isCancelled);
 	}
 }

@@ -33,7 +33,9 @@ namespace Facebook.LoginKit
 		UnconfirmedUser,
 		SystemAccountAppDisabled,
 		SystemAccountUnavailable,
-		BadChallengeString
+		BadChallengeString,
+		InvalidIdToken,
+		MissingAccessToken,
 	}
 
 	[Native]
@@ -64,5 +66,11 @@ namespace Facebook.LoginKit
 	{
 		FriendlyBlue = 0,
 		NeutralGray = 1
+	}
+
+	[Native]
+	public enum LoginTracking : ulong {
+		Enabled,
+		Limited,
 	}
 }
