@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "facebook-login", "..\source
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "facebook-messenger", "..\source\facebook-messenger\facebook-messenger.csproj", "{BA14D282-8E9A-44EE-B2E1-9FADDA9E65AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "facebook-places", "..\source\facebook-places\facebook-places.csproj", "{1943D11A-34A0-4925-A017-C4AF5B3669B1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "facebook-share", "..\source\facebook-share\facebook-share.csproj", "{62FAC805-05EF-46B7-BFED-EBF107F9E748}"
 EndProject
 Global
@@ -53,10 +51,6 @@ Global
 		{BA14D282-8E9A-44EE-B2E1-9FADDA9E65AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA14D282-8E9A-44EE-B2E1-9FADDA9E65AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA14D282-8E9A-44EE-B2E1-9FADDA9E65AD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1943D11A-34A0-4925-A017-C4AF5B3669B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1943D11A-34A0-4925-A017-C4AF5B3669B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1943D11A-34A0-4925-A017-C4AF5B3669B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1943D11A-34A0-4925-A017-C4AF5B3669B1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{62FAC805-05EF-46B7-BFED-EBF107F9E748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{62FAC805-05EF-46B7-BFED-EBF107F9E748}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62FAC805-05EF-46B7-BFED-EBF107F9E748}.Release|Any CPU.ActiveCfg = Release|Any CPU
