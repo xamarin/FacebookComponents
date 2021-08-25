@@ -42,6 +42,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Xamarin.Kotlin.StdLib.Jdk8" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="..\..\External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
   </ItemGroup>
 
@@ -57,4 +60,7 @@
     <ProjectReference Include="..\facebook-core\facebook-core.csproj" PrivateAssets="None" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk8" Version="1.5.10" />
+  </ItemGroup>
 </Project>

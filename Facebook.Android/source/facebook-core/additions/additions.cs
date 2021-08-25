@@ -10,6 +10,40 @@ namespace Xamarin.Facebook
 			return new Java.Lang.Object(JNIEnv.CallObjectMethod(Handle, JNIEnv.GetMethodID(JNIEnv.GetObjectClass(Handle), "doInBackground", "([Ljava/lang/Object;)Ljava/lang/Object;")), JniHandleOwnership.TransferLocalRef);
 		}
 	}
+
+	public partial class GraphRequestBatch : global::Java.Util.AbstractList
+    {
+		// Metadata.xml XPath method reference: path="/api/package[@name='com.facebook']/class[@name='GraphRequestBatch']/method[@name='size' and count(parameter)=0]"
+		[Register("size", "()I", "")]
+		public override sealed unsafe int Size()
+		{
+			const string __id = "size.()I";
+			try
+			{
+				var __rm = _members.InstanceMethods.InvokeNonvirtualInt32Method(__id, this, null);
+				return __rm;
+			}
+			finally
+			{
+			}
+		}
+
+		// Metadata.xml XPath method reference: path="/api/package[@name='com.facebook']/class[@name='GraphRequestBatch']/method[@name='getSize' and count(parameter)=0]"
+		[Register("getSize", "()I", "")]
+		public unsafe int GetSize()
+		{
+			const string __id = "getSize.()I";
+			try
+			{
+				var __rm = _members.InstanceMethods.InvokeAbstractInt32Method(__id, this, null);
+				return __rm;
+			}
+			finally
+			{
+			}
+		}
+
+	}
 }
 
 namespace Xamarin.Facebook.AppEvents.Internal

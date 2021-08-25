@@ -37,10 +37,9 @@
     <TransformFile Include="transforms\*.xml" />
   </ItemGroup>
     
-  <PropertyGroup>
-    <Java8DocPaths>..\..\externals\facebook-android-sdk-docs\</Java8DocPaths>
-  </PropertyGroup>
-
+  <ItemGroup>
+    <None Remove="Xamarin.Kotlin.StdLib.Jdk7" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="..\..\External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
   </ItemGroup>
@@ -63,4 +62,7 @@
     <ProjectReference Include="..\facebook-gamingservices\facebook-gamingservices.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk7" Version="1.5.10" />
+  </ItemGroup>
 </Project>

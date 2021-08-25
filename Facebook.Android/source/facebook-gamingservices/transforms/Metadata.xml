@@ -5,4 +5,8 @@
     <attr path="/api/package[@name='com.facebook.gamingservices.cloudgaming.internal']" name="managedName">Xamarin.Facebook.GamingServices.CloudGaming.Internal</attr>
     <attr path="/api/package[@name='com.facebook.gamingservices.internal']" name="managedName">Xamarin.Facebook.GamingServices.Internal</attr>
 
+    <attr path="/api/package[@name='com.facebook.gamingservices.model']/class[@name='ContextSwitchContent.Builder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Java.Lang.Object</attr>
+    <attr path="/api/package[@name='com.facebook.gamingservices.model']/class[@name='ContextCreateContent.Builder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Java.Lang.Object</attr>
+    <attr path="/api/package[@name='com.facebook.gamingservices.model']/class[@name='ContextChooseContent.Builder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Java.Lang.Object</attr>
+
 </metadata>

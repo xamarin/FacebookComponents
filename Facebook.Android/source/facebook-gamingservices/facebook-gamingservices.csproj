@@ -42,6 +42,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Xamarin.Kotlin.StdLib.Jdk8" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="..\..\External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
   </ItemGroup>
 
@@ -62,5 +65,8 @@
 
   <ItemGroup>
     <Folder Include="additions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk8" Version="1.5.10" />
   </ItemGroup>
 </Project>
