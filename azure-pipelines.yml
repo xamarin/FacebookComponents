@@ -1,5 +1,5 @@
 trigger:
-  - main
+  - master
   - refs/tags/*
 
 variables:
@@ -15,7 +15,7 @@ resources:
       type: github
       name: xamarin/yaml-templates
       endpoint: xamarin
-      ref: refs/heads/main
+      ref: refs/heads/master
     - repository: components
       type: github
       name: xamarin/XamarinComponents
