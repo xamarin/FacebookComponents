@@ -6,6 +6,8 @@ variables:
   DotNetVersion: 6.0.100-rc.1.21458.32
   LegacyXamarinAndroidPkg: https://aka.ms/xamarin-android-commercial-d16-10-macos
   LegacyXamarinAndroidVsix: https://aka.ms/xamarin-android-commercial-d16-10-windows
+  BUILD_COMMIT: $(Build.SourceVersion)
+  BUILD_NUMBER: $(Build.BuildNumber)
 
 resources:
   repositories:
@@ -18,10 +20,6 @@ resources:
       type: github
       name: xamarin/XamarinComponents
       endpoint: xamarin
-
-variables:
-  BUILD_COMMIT: $(Build.SourceVersion)
-  BUILD_NUMBER: $(Build.BuildNumber)
 
 jobs:
   - template: .ci/build.yml@components
