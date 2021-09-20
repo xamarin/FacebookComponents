@@ -43,9 +43,4 @@ jobs:
             dotnet tool install --global boots
             boots $(LegacyXamarinAndroidPkg)
           condition: eq(variables['System.JobName'], 'macos')
-  - ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:
-    - template: sign-artifacts/jobs/v2.yml@internal-templates
-      parameters:
-        dependsOn: [ 'build' ]
-
 
