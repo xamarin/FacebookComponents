@@ -2,6 +2,11 @@ trigger:
   - main
   - refs/tags/*
 
+variables:
+  DotNetVersion: 6.0.100-rc.1.21458.32
+  LegacyXamarinAndroidPkg: https://aka.ms/xamarin-android-commercial-d16-10-macos
+  LegacyXamarinAndroidVsix: https://aka.ms/xamarin-android-commercial-d16-10-windows
+
 resources:
   repositories:
     - repository: internal-templates
@@ -20,7 +25,28 @@ variables:
 
 jobs:
   - template: .ci/build.yml@components
-  - ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:
+    parameters:
+      initSteps:
+        - task: UseDotNet@2
+          displayName: install .NET $(DotNetVersion)
+          inputs:
+            version: $(DotNetVersion)
+        - pwsh: |
+            dotnet workload install android
+        - task: JavaToolInstaller@0
+          inputs:
+            versionSpec: '11'
+            jdkArchitectureOption: 'x64'
+            jdkSourceOption: 'PreInstalled'
+  
+      preBuildSteps:
+        - pwsh: |
+            dotnet tool install --global boots
+            boots $(LegacyXamarinAndroidPkg)
+          condition: eq(variables['System.JobName'], 'macos')
+- ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:
     - template: sign-artifacts/jobs/v2.yml@internal-templates
       parameters:
         dependsOn: [ 'build' ]
+
+
