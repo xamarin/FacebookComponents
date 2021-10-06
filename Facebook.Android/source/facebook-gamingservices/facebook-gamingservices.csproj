@@ -5,7 +5,7 @@
     <TargetFrameworks>MonoAndroid90</TargetFrameworks>
     <IsBindingProject>true</IsBindingProject>
 
-    <AssemblyName>Xamarin.Facebook.Marketing.Android</AssemblyName>
+    <AssemblyName>Xamarin.Facebook.GamingServices.Android</AssemblyName>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
@@ -14,10 +14,10 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>Xamarin.Facebook.Marketing.Android</PackageId>
-    <Title>Xamarin Facebook Android - Marketing</Title>
-    <Summary>Xamarin.Android bindings for Facebook Android - Marketing</Summary>
-    <Description>Xamarin.Android bindings for Facebook Android - Marketing</Description>
+    <PackageId>Xamarin.Facebook.GamingServices.Android</PackageId>
+    <Title>Xamarin Facebook Android - Gaming Services</Title>
+    <Summary>Xamarin.Android bindings for Facebook Android - Gaming Services</Summary>
+    <Description>Xamarin.Android bindings for Facebook Android - Gaming Services</Description>
     <PackageTags>Xamarin Android Xamarin.Android Facebook</PackageTags>
     <Authors>Microsoft</Authors>
     <Owners>Microsoft</Owners>
@@ -37,27 +37,36 @@
     <TransformFile Include="transforms\*.xml" />
   </ItemGroup>
     
-  <ItemGroup>
-    <Compile Include="..\AssemblyInfo.cs" />
-  </ItemGroup>
-
   <PropertyGroup>
-    <Java8DocPaths>..\..\externals\facebook-marketing-docs\</Java8DocPaths>
+    <Java8DocPaths>..\..\externals\facebook-gamingservices-docs\</Java8DocPaths>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Xamarin.Kotlin.StdLib.Jdk8" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="..\..\External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
   </ItemGroup>
 
+
   <ItemGroup>
-    <LibraryProjectZip Include="..\..\externals\facebook-marketing.aar" />
+    <Compile Include="..\AssemblyInfo.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <LibraryProjectZip Include="..\..\externals\facebook-gamingservices.aar" />
+  </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\facebook-core\facebook-core.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\facebook-common\facebook-common.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\facebook-share\facebook-share.csproj" PrivateAssets="None" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.AndroidX.Annotation" Version="1.1.0.1" />
+    <Folder Include="additions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk8" Version="1.5.10" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,0 @@
-<metadata>
-    <attr path="/api/package[@name='com.facebook']" name="managedName">Xamarin.Facebook</attr>
-    <attr path="/api/package[@name='com.facebook.places']" name="managedName">Xamarin.Facebook.Places</attr>
-    <attr path="/api/package[@name='com.facebook.places.internal']" name="managedName">Xamarin.Facebook.Places.Internal</attr>
-    <attr path="/api/package[@name='com.facebook.places.model']" name="managedName">Xamarin.Facebook.Places.Model</attr>
-
-</metadata>

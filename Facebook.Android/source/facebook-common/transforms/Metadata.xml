@@ -5,6 +5,7 @@
     
     <attr path="/api/package[@name='com.facebook.internal']" name="managedName">Xamarin.Facebook.Internal</attr>
     <attr path="/api/package[@name='com.facebook.login']" name="managedName">Xamarin.Facebook.Login</attr>
+    <attr path="/api/package[@name='com.facebook.referrals']" name="managedName">Xamarin.Facebook.Referrals</attr>
     <attr path="/api/package[@name='com.facebook.share']" name="managedName">Xamarin.Facebook.Share</attr>
     <attr path="/api/package[@name='com.facebook.share.internal']" name="managedName">Xamarin.Facebook.Share.Internal</attr>
     <attr path="/api/package[@name='com.facebook.share.model']" name="managedName">Xamarin.Facebook.Share.Model</attr>
