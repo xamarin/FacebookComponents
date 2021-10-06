@@ -1,6 +1,7 @@
 #addin nuget:?package=Cake.FileHelpers&version=3.2.1
 
-var FB_VERSION = "7.1.0";
+var FB_VERSION = "11.2.0";
+var NUGET_VERSION = "11.2.0.1";
 
 var BUILD_COMMIT = EnvironmentVariable("BUILD_COMMIT") ?? "DEV";
 var BUILD_NUMBER = EnvironmentVariable("BUILD_NUMBER") ?? "DEBUG";
@@ -9,20 +10,15 @@ var BUILD_TIMESTAMP = DateTime.UtcNow.ToString();
 var TARGET = Argument ("t", Argument ("target", "ci"));
 
 var ARTIFACTS = new List<ArtifactInfo> {
-	new ArtifactInfo("facebook-android-sdk", "7.1.0"),
-	new ArtifactInfo("facebook-core", "7.1.0"),
-	new ArtifactInfo("facebook-common", "7.1.0"),
-	new ArtifactInfo("facebook-login", "7.1.0"),
-	new ArtifactInfo("facebook-share", "7.1.0"),
-	new ArtifactInfo("facebook-places", "7.1.0"),
-	new ArtifactInfo("facebook-applinks", "7.1.0"),
-	new ArtifactInfo("facebook-messenger", "7.1.0"),
-	new ArtifactInfo("facebook-livestreaming", "4.36.0"),
-	new ArtifactInfo("facebook-loginkit", "4.36.0"),
-	new ArtifactInfo("facebook-marketing", "7.0.1"),
-	new ArtifactInfo("account-kit-sdk", "5.4.0"),
-	new ArtifactInfo("audience-network-sdk", "5.10.1"),
-	new ArtifactInfo("notifications", "1.0.2")
+	new ArtifactInfo("facebook-android-sdk", FB_VERSION, NUGET_VERSION),
+	new ArtifactInfo("facebook-core", FB_VERSION, NUGET_VERSION),
+	new ArtifactInfo("facebook-common", FB_VERSION, NUGET_VERSION),
+	new ArtifactInfo("facebook-login", FB_VERSION, NUGET_VERSION),
+	new ArtifactInfo("facebook-share", FB_VERSION, NUGET_VERSION),
+	new ArtifactInfo("facebook-applinks", FB_VERSION, NUGET_VERSION),
+	new ArtifactInfo("facebook-messenger", FB_VERSION, NUGET_VERSION),
+	new ArtifactInfo("facebook-gamingservices", FB_VERSION, NUGET_VERSION),
+	new ArtifactInfo("audience-network-sdk", "6.6.0", "6.6.0")
 };
 
 class ArtifactInfo
@@ -42,6 +38,7 @@ class ArtifactInfo
 Task ("externals")
 	.Does (() => 
 {
+	EnsureDirectoryExists("./output");
 	EnsureDirectoryExists ("./externals/");
 
 	foreach (var artifact in ARTIFACTS) {
@@ -113,7 +110,7 @@ Task ("nuget")
 		MSBuild(csproj, c => 
 			c.SetConfiguration("Release")
 			.WithProperty("NoBuild", "true")
-			.WithProperty("PackageVersion", art.Version)
+			.WithProperty("PackageVersion", art.NugetVersion)
 			.WithProperty("PackageOutputPath", MakeAbsolute((DirectoryPath)"./output/").FullPath)
 			.WithProperty("DesignTimeBuild", "false")
  			.WithTarget("Pack"));	
