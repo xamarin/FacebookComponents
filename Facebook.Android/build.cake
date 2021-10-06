@@ -137,7 +137,10 @@ Task ("clean")
  		.WithTarget("Clean"));
 
 	if (DirectoryExists ("./externals/"))
-		DeleteDirectory ("./externals", true);
+		DeleteDirectory ("./externals", new DeleteDirectorySettings {
+															Recursive = true,
+															Force = true
+														});
 });
 
 Task ("ci")
