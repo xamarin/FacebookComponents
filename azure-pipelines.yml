@@ -25,6 +25,7 @@ resources:
 jobs:
   - template: .ci/build.yml@components
     parameters:
+      xcode: 13.0
       initSteps:
         - task: UseDotNet@2
           displayName: install .NET $(DotNetVersion)
