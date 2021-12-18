@@ -396,12 +396,6 @@ namespace Facebook.CoreKit
 	}
 
 	[Native]
-	public enum IncludeStatusBarInSize : ulong {
-		Never,
-		Always
-	}
-
-	[Native]
 	public enum CoreError : long {
 		Reserved = 0,
 		Encryption,
@@ -434,5 +428,16 @@ namespace Facebook.CoreKit
 		Album,
 		Small,
 		Large,
+	}
+
+	// typedef NS_OPTIONS(NSUInteger, FBSDKGraphRequestFlags)
+	[Flags]
+	[Native]
+	public enum GraphRequestFlags : ulong
+	{
+		None = 0x0,
+		SkipClientToken = 1uL << 1,
+		DoNotInvalidateTokenOnError = 1uL << 2,
+		DisableErrorRecovery = 1uL << 3
 	}
 }

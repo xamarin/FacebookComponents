@@ -6,7 +6,7 @@
     <RootNamespace>Facebook.CoreKit</RootNamespace>
     <AssemblyName>Facebook.CoreKit</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>9.0.1.5</FileVersion>
+    <FileVersion>12.2.0.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ProcessEnums>true</ProcessEnums>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2007135</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=2007136</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>9.0.1.5</PackageVersion>
+    <PackageVersion>12.2.0.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -39,18 +39,36 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\externals\FBSDKCoreKit.framework\FBSDKCoreKit">
-      <Link>FBSDKCoreKit.framework</Link>
+    <None Include="..\..\externals\FBSDKCoreKit.xcframework\ios-arm64_armv7\FBSDKCoreKit.framework\FBSDKCoreKit">
+      <Link>FBSDKCoreKit.xcframework</Link>
+    </None>
+    <None Include="..\..\externals\FBAEMKit.xcframework\ios-arm64_armv7\FBAEMKit.framework\FBAEMKit">
+      <Link>FBAEMKit.xcframework</Link>
+    </None>
+    <None Include="..\..\externals\FBSDKCoreKit_Basics.xcframework\ios-arm64_armv7\FBSDKCoreKit_Basics.framework\FBSDKCoreKit_Basics">
+      <Link>FBSDKCoreKit_Basics.xcframework</Link>
     </None>
     <None Include="..\..\External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <NativeReference Include="..\..\externals\FBSDKCoreKit.framework">
+    <NativeReference Include="..\..\externals\FBSDKCoreKit.xcframework">
       <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-ObjC</LinkerFlags>
-      <WeakFrameworks>Accelerate Accounts CoreLocation Social Security QuartzCore CoreGraphics UIKit Foundation AudioToolbox</WeakFrameworks>
+    </NativeReference>
+    <NativeReference Include="..\..\externals\FBAEMKit.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+      <LinkerFlags>-ObjC</LinkerFlags>
+    </NativeReference>
+    <NativeReference Include="..\..\externals\FBSDKCoreKit_Basics.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+      <LinkerFlags>-ObjC -lz</LinkerFlags>
     </NativeReference>
   </ItemGroup>
 
