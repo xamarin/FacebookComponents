@@ -17,7 +17,7 @@ var GAMINGSERVICES_KIT_NUGET_VERSION = NUGET_VERSION;
 // Artifacts available to be built.
 Artifact CORE_KIT_ARTIFACT           = new Artifact ("CoreKit",           CORE_KIT_NUGET_VERSION,             "10.0");
 Artifact FACEBOOK_SDKS_ARTIFACT      = new Artifact ("FacebookSdks",      FACEBOOK_SDKS_NUGET_VERSION,        "9.0");
-Artifact LOGIN_KIT_ARTIFACT          = new Artifact ("LoginKit",          LOGIN_KIT_NUGET_VERSION,            "9.0");
+Artifact LOGIN_KIT_ARTIFACT          = new Artifact ("LoginKit",          LOGIN_KIT_NUGET_VERSION,            "10.0");
 Artifact SHARE_KIT_ARTIFACT          = new Artifact ("ShareKit",          SHARE_KIT_NUGET_VERSION,            "9.0");
 Artifact GAMINGSERVICES_KIT_ARTIFACT = new Artifact ("GamingServicesKit", GAMINGSERVICES_KIT_NUGET_VERSION,   "9.0");
 Artifact AUDIENCE_NETWORK_ARTIFACT   = new Artifact ("AudienceNetwork",   AUDIENCE_NETWORK_VERSION,           "9.0");
