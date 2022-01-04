@@ -8,15 +8,15 @@ namespace Facebook.GamingServicesKit {
 	// typedef void (^FBSDKGamingServiceCompletionHandler)(BOOL, NSError * _Nullable);
 	delegate void GamingServiceCompletionHandler (bool success, [NullAllowed] NSError error);
 
-	// typedef void (^FBSDKGamingServiceResultCompletionHandler)(BOOL, NSString * _Nullable, NSError * _Nullable);
-	delegate void GamingServiceResultCompletionHandler (bool success, [NullAllowed] string result, [NullAllowed] NSError error);
+	// typedef void (^FBSDKGamingServiceResultCompletion)(BOOL, NSDictionary<NSString *,id> * _Nullable __strong, NSError * _Nullable __strong);
+	delegate void GamingServiceResultCompletionHandler (bool success, [NullAllowed] NSDictionary<NSString, NSObject> result, [NullAllowed] NSError error);
 
 	// typedef void (^FBSDKGamingServiceProgressHandler)(int64_t, int64_t, int64_t);
 	delegate void GamingServiceProgressHandler (long bytesSent, long totalBytesSent, long totalBytesExpectedToSend);
 
 	// @interface FBSDKFriendFinderDialog : NSObject
-	[BaseType (typeof (NSObject), Name = "FBSDKFriendFinderDialog")]
 	[DisableDefaultCtor]
+	[BaseType (typeof (NSObject), Name = "FBSDKFriendFinderDialog")]
 	interface FriendFinderDialog {
 
 		// +(void)launchFriendFinderDialogWithCompletionHandler:(FBSDKGamingServiceCompletionHandler _Nonnull)completionHandler;
