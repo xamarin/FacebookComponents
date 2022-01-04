@@ -7,9 +7,9 @@ using CoreGraphics;
 using Photos;
 
 namespace Facebook.ShareKit {
-	// @interface FBSDKAppGroupContent : NSObject <FBSDKCopying, NSSecureCoding>
+	// @interface FBSDKAppGroupContent : NSObject <NSCopying, NSObject, NSSecureCoding>
 	[BaseType (typeof (NSObject), Name = "FBSDKAppGroupContent")]
-	interface AppGroupContent : CoreKit.ICopying, INSSecureCoding {
+	interface AppGroupContent : INSCopying, INSSecureCoding {
 
 		// @property (copy, nonatomic) NSString * groupDescription;
 		[Export ("groupDescription", ArgumentSemantic.Copy)]
@@ -28,9 +28,9 @@ namespace Facebook.ShareKit {
 		bool Equals (AppGroupContent content);
 	}
 
-	// @interface FBSDKAppInviteContent : NSObject <FBSDKCopying, NSSecureCoding>
+	// @interface FBSDKAppInviteContent : NSObject <NSCopying, NSObject, FBSDKSharingValidation, NSSecureCoding>
 	[BaseType (typeof (NSObject), Name = "FBSDKAppInviteContent")]
-	interface AppInviteContent : CoreKit.ICopying, SharingValidation, INSSecureCoding {
+	interface AppInviteContent : INSCopying, SharingValidation, INSSecureCoding {
 
 		// @property (copy, nonatomic) NSURL * appLinkURL;
 		[NullAllowed]
@@ -61,9 +61,9 @@ namespace Facebook.ShareKit {
 		bool Equals (AppInviteContent content);
 	}
 
-	// @interface FBSDKCameraEffectArguments : NSObject <FBSDKCopying, NSSecureCoding>
+	// @interface FBSDKCameraEffectArguments : NSObject <NSCopying, NSObject, NSSecureCoding>
 	[BaseType (typeof (NSObject), Name = "FBSDKCameraEffectArguments")]
-	interface CameraEffectArguments : CoreKit.ICopying, INSSecureCoding {
+	interface CameraEffectArguments : INSCopying, INSSecureCoding {
 		// -(void)setString:(NSString *)string forKey:(NSString *)key;
 		[Export ("setString:forKey:")]
 		void SetString ([NullAllowed] string aString, string key);
@@ -83,9 +83,9 @@ namespace Facebook.ShareKit {
 		string [] GetArray (string key);
 	}
 
-	// @interface FBSDKCameraEffectTextures : NSObject <FBSDKCopying, NSSecureCoding>
+	// @interface FBSDKCameraEffectTextures : NSObject <NSCopying, NSObject, NSSecureCoding>
 	[BaseType (typeof (NSObject), Name = "FBSDKCameraEffectTextures")]
-	interface CameraEffectTextures : CoreKit.ICopying, INSSecureCoding {
+	interface CameraEffectTextures : INSCopying, INSSecureCoding {
 		// -(void)setImage:(UIImage *)image forKey:(NSString *)key;
 		[Export ("setImage:forKey:")]
 		void SetImage ([NullAllowed] UIImage image, string key);
@@ -96,9 +96,9 @@ namespace Facebook.ShareKit {
 		UIImage GetImage (string key);
 	}
 
-	// @interface FBSDKGameRequestContent : NSObject <FBSDKCopying, NSSecureCoding>
+	// @interface FBSDKGameRequestContent : NSObject <NSCopying, NSObject, FBSDKSharingValidation, NSSecureCoding>
 	[BaseType (typeof (NSObject), Name = "FBSDKGameRequestContent")]
-	interface GameRequestContent : CoreKit.ICopying, SharingValidation, INSSecureCoding {
+	interface GameRequestContent : INSCopying, SharingValidation, INSSecureCoding {
 
 		// @property (assign, nonatomic) FBSDKGameRequestActionType actionType;
 		[Export ("actionType", ArgumentSemantic.Assign)]
@@ -136,13 +136,14 @@ namespace Facebook.ShareKit {
 		// @property (copy, nonatomic) NSString * title;
 		[Export ("title", ArgumentSemantic.Copy)]
 		string Title { get; set; }
+
+		// @property (copy, nonatomic) NSString * _Nonnull cta;
+		[Export ("cta", ArgumentSemantic.Copy)]
+		string Cta { get; set; }
 	}
 
 	// @interface FBSDKGameRequestDialog : NSObject
-	[BaseType (typeof (NSObject),
-		Name = "FBSDKGameRequestDialog",
-		Delegates = new [] { "Delegate" },
-		Events = new [] { typeof (GameRequestDialogDelegate) })]
+	[BaseType (typeof (NSObject), Name = "FBSDKGameRequestDialog")]
 	interface GameRequestDialog {
 		// +(instancetype _Nonnull)dialogWithContent:(FBSDKGameRequestContent * _Nonnull)content delegate:(id<FBSDKGameRequestDialogDelegate> _Nullable)delegate __attribute__((swift_name("init(content:delegate:)")));
 		[Static]
@@ -191,29 +192,46 @@ namespace Facebook.ShareKit {
 
 		// @required -(void)gameRequestDialog:(FBSDKGameRequestDialog *)gameRequestDialog didCompleteWithResults:(NSDictionary *)results;
 		[Abstract]
-		[EventArgs ("GameRequestDialogCompleted")]
-		[EventName ("Completed")]
 		[Export ("gameRequestDialog:didCompleteWithResults:")]
 		void DidComplete (GameRequestDialog gameRequestDialog, NSDictionary results);
 
 		// @required -(void)gameRequestDialog:(FBSDKGameRequestDialog *)gameRequestDialog didFailWithError:(NSError *)error;
 		[Abstract]
-		[EventArgs ("GameRequestDialogFailed")]
-		[EventName ("Failed")]
 		[Export ("gameRequestDialog:didFailWithError:")]
 		void DidFail (GameRequestDialog gameRequestDialog, NSError error);
 
 		// @required -(void)gameRequestDialogDidCancel:(FBSDKGameRequestDialog *)gameRequestDialog;
 		[Abstract]
-		[EventArgs ("GameRequestDialogCancelled")]
-		[EventName ("Cancelled")]
 		[Export ("gameRequestDialogDidCancel:")]
 		void DidCancel (GameRequestDialog gameRequestDialog);
 	}
 
-	// @interface FBSDKHashtag : NSObject <FBSDKCopying, NSSecureCoding>
+	// @interface FBSDKGameRequestURLProvider : NSObject
+	[BaseType (typeof(NSObject), Name = "FBSDKGameRequestURLProvider")]
+	interface GameRequestUrlProvider
+	{
+		// +(NSURL * _Nullable)createDeepLinkURLWithQueryDictionary:(NSDictionary<NSString *,id> * _Nonnull __strong)queryDictionary;
+		[Static]
+		[Export ("createDeepLinkURLWithQueryDictionary:")]
+		[return: NullAllowed]
+		NSUrl CreateDeepLinkUrl (NSDictionary<NSString, NSObject> queryDictionary);
+
+		// +(NSString * _Nullable)filtersNameForFilters:(FBSDKGameRequestFilter)filters;
+		[Static]
+		[Export ("filtersNameForFilters:")]
+		[return: NullAllowed]
+		string GetFiltersName (GameRequestFilter filters);
+
+		// +(NSString * _Nullable)actionTypeNameForActionType:(FBSDKGameRequestActionType)actionType;
+		[Static]
+		[Export ("actionTypeNameForActionType:")]
+		[return: NullAllowed]
+		string GetActionTypeName (GameRequestActionType actionType);
+	}
+
+	// @interface FBSDKHashtag : NSObject <NSCopying, NSObject, NSSecureCoding>
 	[BaseType (typeof (NSObject), Name = "FBSDKHashtag")]
-	interface Hashtag : CoreKit.ICopying, INSSecureCoding {
+	interface Hashtag : INSCopying, INSSecureCoding {
 		// + (instancetype)hashtagWithString:(NSString *)hashtagString;
 		[Static]
 		[Export ("hashtagWithString:")]
@@ -232,36 +250,15 @@ namespace Facebook.ShareKit {
 		bool Equals (Hashtag hashtag);
 	}
 
-	interface ILiking {
-
-	}
-
-	// @protocol FBSDKLiking <NSObject>
-	[Model (AutoGeneratedName = true)]
-	[Protocol]
-	[BaseType (typeof (NSObject), Name = "FBSDKLiking")]
-	interface Liking {
-
-		// @required @property (copy, nonatomic) NSString * objectID;
-		[Export ("objectID")]
-		string GetObjectId ();
-
-		[Export ("setObjectID:")]
-		void SetObjectId (string id);
-
-		// @required @property (assign, nonatomic) FBSDKLikeObjectType objectType;
-		[Export ("objectType")]
-		LikeObjectType GetObjectType ();
-
-		[Export ("setObjectType:")]
-		void SetObjectType (LikeObjectType type);
-	}
-
 	// @interface FBSDKMessageDialog : NSObject <FBSDKSharingDialog>
 	[Obsolete ("Sharing to Messenger via the SDK is unsupported. https://developers.facebook.com/docs/messenger-platform/changelog/#20190610. Sharing should be performed by the native share sheet.")]
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKMessageDialog")]
 	interface MessageDialog : SharingDialog {
+		// -(instancetype _Nonnull)initWithContent:(id<FBSDKSharingContent>  _Nullable __strong)content delegate:(id<FBSDKSharingDelegate>  _Nullable __strong)delegate __attribute__((ns_consumes_self)) __attribute__((ns_returns_retained));
+		[Export ("initWithContent:delegate:")]
+		IntPtr Constructor ([NullAllowed] ISharingContent content, [NullAllowed] ISharingDelegate @delegate);
+		
 		// +(instancetype _Nonnull)dialogWithContent:(id<FBSDKSharingContent> _Nonnull)content delegate:(id<FBSDKSharingDelegate> _Nullable)delegate __attribute__((swift_name("init(content:delegate:)")));
 		[Static]
 		[Export ("dialogWithContent:delegate:")]
@@ -311,8 +308,13 @@ namespace Facebook.ShareKit {
 	}
 
 	// @interface FBSDKShareDialog : NSObject <FBSDKSharingDialog>
+	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKShareDialog")]
 	interface ShareDialog : SharingDialog {
+		// -(instancetype _Nonnull)initWithViewController:(UIViewController * _Nullable __strong)viewController content:(id<FBSDKSharingContent>  _Nullable __strong)content delegate:(id<FBSDKSharingDelegate>  _Nullable __strong)delegate __attribute__((ns_consumes_self)) __attribute__((ns_returns_retained));
+		[Export ("initWithViewController:content:delegate:")]
+		IntPtr Constructor ([NullAllowed] UIViewController viewController, [NullAllowed] ISharingContent content, [NullAllowed] ISharingDelegate @delegate);
+		
 		// +(instancetype _Nonnull)dialogWithViewController:(UIViewController * _Nullable)viewController withContent:(id<FBSDKSharingContent> _Nonnull)content delegate:(id<FBSDKSharingDelegate> _Nullable)delegate __attribute__((swift_name("init(fromViewController:content:delegate:)")));
 		[Static]
 		[Export ("dialogWithViewController:withContent:delegate:")]
@@ -364,10 +366,10 @@ namespace Facebook.ShareKit {
 		bool Equals (ShareMediaContent content);
 	}
 
-	// @interface FBSDKSharePhoto : NSObject <NSSecureCoding, FBSDKCopying, FBSDKShareMedia, FBSDKSharingValidation>
+	// @interface FBSDKSharePhoto : NSObject <NSSecureCoding, NSCopying, NSObject, FBSDKShareMedia, FBSDKSharingValidation>
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKSharePhoto")]
-	interface SharePhoto : INSSecureCoding, CoreKit.ICopying, ShareMedia, SharingValidation {
+	interface SharePhoto : INSSecureCoding, INSCopying, ShareMedia, SharingValidation {
 
 		// +(instancetype)photoWithImage:(UIImage *)image userGenerated:(BOOL)userGenerated;
 		[Static]
@@ -426,10 +428,10 @@ namespace Facebook.ShareKit {
 		bool Equals (SharePhotoContent content);
 	}
 
-	// @interface FBSDKShareVideo : NSObject <NSSecureCoding, FBSDKCopying, FBSDKShareMedia, FBSDKSharingValidation>
+	// @interface FBSDKShareVideo : NSObject <NSSecureCoding, NSCopying, NSObject, FBSDKShareMedia, FBSDKSharingValidation>
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBSDKShareVideo")]
-	interface ShareVideo : INSSecureCoding, CoreKit.ICopying, ShareMedia, SharingValidation {
+	interface ShareVideo : INSSecureCoding, INSCopying, ShareMedia, SharingValidation {
 		// +(instancetype)videoWithData:(NSData *)data;
 		[Static]
 		[Export ("videoWithData:")]
@@ -608,9 +610,9 @@ namespace Facebook.ShareKit {
 
 	}
 
-	// @protocol FBSDKSharingContent <FBSDKCopying, NSSecureCoding>
+	// @protocol FBSDKSharingContent <NSCopying, NSObject, FBSDKSharingValidation, NSSecureCoding>
 	[Protocol (Name = "FBSDKSharingContent")]
-	interface SharingContent : CoreKit.ICopying, SharingValidation, INSSecureCoding {
+	interface SharingContent : INSCopying, SharingValidation, INSSecureCoding {
 
 		// @required @property (copy, nonatomic) NSURL * contentURL;
 		[Abstract]
@@ -672,6 +674,7 @@ namespace Facebook.ShareKit {
 	interface ISharingScheme { }
 
 	// @protocol FBSDKSharingScheme
+	[Obsolete ("`SharingScheme` is deprecated and will be removed in the next major release.")]
 	[Protocol (Name = "FBSDKSharingScheme")]
 	interface SharingScheme {
 		// @required -(NSString * _Nullable)schemeForMode:(FBSDKShareDialogMode)mode;
