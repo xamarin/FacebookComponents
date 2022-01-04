@@ -24,7 +24,8 @@ namespace Facebook.ShareKit
 		None = 0,
 		Send,
 		AskFor,
-		Turn
+		Turn,
+		Invite
 	}
 
 	[Native]
@@ -32,15 +33,8 @@ namespace Facebook.ShareKit
 	{
 		None = 0,
 		AppUsers,
-		AppNonUsers
-	}
-
-	[Native]
-	public enum LikeObjectType : ulong
-	{
-		Unknown = 0,
-		OpenGraph,
-		Page
+		AppNonUsers,
+		Everybody
 	}
 
 	[Native]
