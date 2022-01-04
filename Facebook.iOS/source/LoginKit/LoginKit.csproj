@@ -6,7 +6,7 @@
     <RootNamespace>Facebook.LoginKit</RootNamespace>
     <AssemblyName>Facebook.LoginKit</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>9.0.1.5</FileVersion>
+    <FileVersion>12.2.0.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	<ProcessEnums>true</ProcessEnums>
@@ -23,7 +23,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2007321</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=2007137</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>9.0.1.5</PackageVersion>
+    <PackageVersion>12.2.0.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -39,14 +39,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\externals\FBSDKLoginKit.xcframework\ios-arm64_armv7\FBSDKLoginKit.framework\FBSDKLoginKit">
+      <Link>FBSDKLoginKit.xcframework</Link>
+    </None>
     <None Include="..\..\External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <NativeReference Include="..\..\externals\FBSDKLoginKit.framework">
+    <NativeReference Include="..\..\externals\FBSDKLoginKit.xcframework\ios-arm64_armv7\FBSDKLoginKit.framework\FBSDKLoginKit">
       <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
-      <WeakFrameworks>Accounts CoreLocation Social Security QuartzCore CoreGraphics UIKit Foundation AudioToolbox</WeakFrameworks>
       <LinkerFlags>-ObjC</LinkerFlags>
     </NativeReference>
   </ItemGroup>

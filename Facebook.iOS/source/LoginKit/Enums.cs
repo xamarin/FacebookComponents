@@ -5,16 +5,6 @@ using ObjCRuntime;
 
 namespace Facebook.LoginKit
 {
-	public enum LoginAuthType {
-		// extern FBSDKLoginAuthType _Nonnull FBSDKLoginAuthTypeRerequest;
-		[Field ("FBSDKLoginAuthTypeRerequest", "__Internal")]
-		Rerequest,
-
-		// extern FBSDKLoginAuthType _Nonnull FBSDKLoginAuthTypeReauthorize;
-		[Field ("FBSDKLoginAuthTypeReauthorize", "__Internal")]
-		Reauthorize
-	}
-
 	[Native]
 	public enum LoginButtonTooltipBehavior : ulong
 	{

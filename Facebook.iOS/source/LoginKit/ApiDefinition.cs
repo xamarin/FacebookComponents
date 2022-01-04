@@ -100,10 +100,7 @@ namespace Facebook.LoginKit {
 	}
 
 	// @interface FBSDKLoginButton : FBSDKButton
-	[BaseType (typeof (CoreKit.Button),
-		Name = "FBSDKLoginButton",
-		Delegates = new [] { "Delegate" },
-		Events = new [] { typeof (LoginButtonDelegate) })]
+	[BaseType (typeof (CoreKit.Button), Name = "FBSDKLoginButton")]
 	interface LoginButton {
 
 		[Export ("initWithFrame:")]
@@ -153,20 +150,14 @@ namespace Facebook.LoginKit {
 
 		// @required -(void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error;
 		[Abstract]
-		[EventArgs ("LoginButtonCompleted")]
-		[EventName ("Completed")]
 		[Export ("loginButton:didCompleteWithResult:error:")]
 		void DidComplete (LoginButton loginButton, [NullAllowed] LoginManagerLoginResult result, [NullAllowed] NSError error);
 
 		// @required -(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton;
 		[Abstract]
-		[EventArgs ("LoginButtonLoggedOut")]
-		[EventName ("LoggedOut")]
 		[Export ("loginButtonDidLogOut:")]
 		void DidLogOut (LoginButton loginButton);
 
-		[DelegateName ("LoginButtonWillLogin")]
-		[DefaultValue (true)]
 		[Export ("loginButtonWillLogin:")]
 		bool WillLogin (LoginButton loginButton);
 	}
@@ -177,11 +168,6 @@ namespace Facebook.LoginKit {
 	// @interface FBSDKLoginManager : NSObject
 	[BaseType (typeof (NSObject), Name = "FBSDKLoginManager")]
 	interface LoginManager {
-
-		// @property (strong, nonatomic) NSString *authType;
-		[BindAs (typeof (LoginAuthType))]
-		[Export ("authType", ArgumentSemantic.Strong)]
-		NSString AuthType { get; set; }
 
 		// @property (assign, nonatomic) FBSDKDefaultAudience defaultAudience;
 		[Export ("defaultAudience", ArgumentSemantic.Assign)]
@@ -240,10 +226,7 @@ namespace Facebook.LoginKit {
 	}
 
 	// @interface FBSDKLoginTooltipView : FBSDKTooltipView
-	[BaseType (typeof (TooltipView),
-		Name = "FBSDKLoginTooltipView",
-		Delegates = new [] { "Delegate" },
-		Events = new [] { typeof (LoginTooltipViewDelegate) })]
+	[BaseType (typeof (TooltipView), Name = "FBSDKLoginTooltipView")]
 	interface LoginTooltipView {
 
 		[Export ("initWithFrame:")]
@@ -270,18 +253,14 @@ namespace Facebook.LoginKit {
 	interface LoginTooltipViewDelegate {
 
 		// @optional -(BOOL)loginTooltipView:(FBSDKLoginTooltipView *)view shouldAppear:(BOOL)appIsEligible;
-		[DelegateName ("LoginTooltipViewShouldAppear")]
-		[DefaultValue (true)]
 		[Export ("loginTooltipView:shouldAppear:")]
 		bool ShouldAppear (LoginTooltipView view, bool appIsEligible);
 
 		// @optional -(void)loginTooltipViewWillAppear:(FBSDKLoginTooltipView *)view;
-		[EventArgs ("LoginTooltipViewWillAppear")]
 		[Export ("loginTooltipViewWillAppear:")]
 		void WillAppear (LoginTooltipView view);
 
 		// @optional -(void)loginTooltipViewWillNotAppear:(FBSDKLoginTooltipView *)view;
-		[EventArgs ("LoginTooltipViewWillNotAppear")]
 		[Export ("loginTooltipViewWillNotAppear:")]
 		void WillNotAppear (LoginTooltipView view);
 	}
@@ -351,6 +330,7 @@ namespace Facebook.LoginKit {
 		IntPtr Constructor (LoginTracking tracking);
 	}
 
+	[Obsolete ("ReferralCode is deprecated and will be removed in the next major release.")]
 	[BaseType (typeof (NSObject), Name = "FBSDKReferralCode")]
 	[DisableDefaultCtor]
 	interface ReferralCode {
@@ -366,6 +346,7 @@ namespace Facebook.LoginKit {
 
 	delegate void ReferralManagerResultBlockHandler ([NullAllowed] ReferralManagerResult result, [NullAllowed] NSError error);
 
+	[Obsolete ("ReferralManager is deprecated and will be removed in the next major release.")]
 	[BaseType (typeof (NSObject), Name = "FBSDKReferralManager")]
 	interface ReferralManager {
 
@@ -377,6 +358,7 @@ namespace Facebook.LoginKit {
 		void StartReferral ([NullAllowed] ReferralManagerResultBlockHandler handler);
 	}
 
+	[Obsolete ("ReferralManagerResult is deprecated and will be removed in the next major release.")]	
 	[BaseType (typeof (NSObject), Name = "FBSDKReferralManagerResult")]
 	[DisableDefaultCtor]
 	interface ReferralManagerResult {
