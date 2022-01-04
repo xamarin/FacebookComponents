@@ -46,7 +46,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <NativeReference Include="..\..\externals\FBSDKLoginKit.xcframework\ios-arm64_armv7\FBSDKLoginKit.framework\FBSDKLoginKit">
+    <NativeReference Include="..\..\externals\FBSDKLoginKit.xcframework">
       <Kind>Framework</Kind>
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>

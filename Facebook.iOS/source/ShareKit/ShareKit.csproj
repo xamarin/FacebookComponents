@@ -45,7 +45,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <NativeReference Include="..\..\externals\FBSDKShareKit.xcframework\ios-arm64_armv7\FBSDKShareKit.framework\FBSDKShareKit">
+    <NativeReference Include="..\..\externals\FBSDKShareKit.xcframework">
       <Kind>Framework</Kind>
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>

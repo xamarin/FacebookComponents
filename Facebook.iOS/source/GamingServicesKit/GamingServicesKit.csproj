@@ -6,7 +6,7 @@
     <RootNamespace>Facebook.GamingServicesKit</RootNamespace>
     <AssemblyName>Xamarin.Facebook.GamingServicesKit</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>9.0.1.5</FileVersion>
+    <FileVersion>12.2.0.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -22,7 +22,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2007033</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=2007140</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>9.0.1.5</PackageVersion>
+    <PackageVersion>12.2.0.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -38,18 +38,27 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\externals\FBSDKGamingServicesKit.framework\FBSDKGamingServicesKit">
-      <Link>FBSDKGamingServicesKit.framework</Link>
+    <None Include="..\..\externals\FBSDKGamingServicesKit.xcframework\ios-arm64_armv7\FBSDKGamingServicesKit.framework\FBSDKGamingServicesKit">
+      <Link>FBSDKGamingServicesKit.xcframework</Link>
+    </None>
+    <None Include="..\..\externals\FacebookGamingServices.xcframework\ios-arm64_armv7\FacebookGamingServices.framework\FacebookGamingServices">
+      <Link>FacebookGamingServices.xcframework</Link>
     </None>
     <None Include="..\..\External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <NativeReference Include="..\..\externals\FBSDKGamingServicesKit.framework">
+    <NativeReference Include="..\..\externals\FBSDKGamingServicesKit.xcframework">
       <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-ObjC</LinkerFlags>
-      <WeakFrameworks>Accounts AudioToolbox CoreGraphics CoreLocation Foundation QuartzCore Security Social UIKit</WeakFrameworks>
+    </NativeReference>
+    <NativeReference Include="..\..\externals\FacebookGamingServices.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+      <LinkerFlags>-ObjC</LinkerFlags>
     </NativeReference>
   </ItemGroup>
 
