@@ -48,19 +48,22 @@ void SetArtifactsPodSpecs ()
 		PodSpec.Create ("FBAudienceNetwork", AUDIENCE_NETWORK_VERSION, frameworkSource: FrameworkSource.Custom)
 	};
 	CORE_KIT_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("FBSDKCoreKit", CORE_KIT_VERSION)
+		PodSpec.Create ("FBSDKCoreKit", CORE_KIT_VERSION),
+		PodSpec.Create ("FBSDKCoreKit_Basics", CORE_KIT_VERSION),
+		PodSpec.Create ("FBAEMKit", CORE_KIT_VERSION)
 	};
 	FACEBOOK_SDKS_ARTIFACT.PodSpecs = new [] {
 		PodSpec.Create ("FacebookSdks", FACEBOOK_SDKS_VERSION, frameworkSource: FrameworkSource.Custom)
 	};
 	LOGIN_KIT_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("FBSDKLoginKit", LOGIN_KIT_VERSION))
+		PodSpec.Create ("FBSDKLoginKit", LOGIN_KIT_VERSION)
 	};
 	SHARE_KIT_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("FBSDKShareKit", SHARE_KIT_VERSION))
+		PodSpec.Create ("FBSDKShareKit", SHARE_KIT_VERSION)
 	};
 	GAMINGSERVICES_KIT_ARTIFACT.PodSpecs = new [] {
-		PodSpec.Create ("FBSDKGamingServicesKit", GAMINGSERVICES_KIT_VERSION))
+		PodSpec.Create ("FBSDKGamingServicesKit", GAMINGSERVICES_KIT_VERSION),
+		PodSpec.Create ("FacebookGamingServices", GAMINGSERVICES_KIT_VERSION)
 	};
 }
 
