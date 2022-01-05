@@ -242,7 +242,8 @@ namespace Facebook.AudienceNetwork
 		CarouselImgSquareAppInstall,
 		CarouselImgSquareLink,
 		CarouselVidSquareLink,
-		Playable
+		Playable,
+		FBRV
 
 	}
 
