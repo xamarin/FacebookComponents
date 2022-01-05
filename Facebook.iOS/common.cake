@@ -71,6 +71,26 @@ void CreateAndInstallPodfile (Artifact artifact)
 	CocoaPodInstall (podfilePath);
 }
 
+void CopyXcFrameworksToExternals (Artifact artifact)
+{
+	if (artifact.PodSpecs?.Length == 0)
+		return;
+
+	var workingDirectory = (DirectoryPath)$"./externals/{artifact.Id}";
+
+	foreach (var podSpec in artifact.PodSpecs)
+	{
+		if (podSpec.FrameworkSource != FrameworkSource.Pods)
+			continue;
+
+		var framework = $"{podSpec.FrameworkName}.xcframework";
+		var paths = GetDirectories($"{workingDirectory}/Pods/**/{framework}");
+		
+		foreach (var path in paths)
+			CopyDirectory (path, $"./externals/{framework}");
+	}
+}
+
 void BuildSdkOnPodfile (Artifact artifact)
 {
 	if (artifact.PodSpecs?.Length == 0)

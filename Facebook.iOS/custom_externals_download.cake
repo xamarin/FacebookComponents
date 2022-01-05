@@ -7,5 +7,5 @@ void DownloadAudienceNetwork (Artifact artifact)
 	var basePath = $"./externals/{id}";
 	DownloadFile (url, $"{basePath}.zip", new Cake.Xamarin.Build.DownloadFileSettings { UserAgent = "curl/7.43.0" });
 	Unzip ($"{basePath}.zip", $"{basePath}");
-	CopyDirectory ($"{basePath}/Dynamic/{id}.framework", $"./externals/{id}.framework");
+	CopyDirectory ($"{basePath}/Dynamic/{id}.xcframework", $"./externals/{id}.xcframework");
 }
