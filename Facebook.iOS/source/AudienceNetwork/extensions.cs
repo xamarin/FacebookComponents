@@ -68,6 +68,22 @@ namespace Facebook.AudienceNetwork
 			}
 		}
 
+		static AdSize? bannerDynamicSizeHeight;
+
+		public static AdSize BannerDynamicSizeHeight {
+			get {
+				if (bannerDynamicSizeHeight != null)
+					return bannerDynamicSizeHeight.Value;
+
+				IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
+				IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kFBAdDynamicSizeHeightBanner");
+				bannerDynamicSizeHeight = (AdSize)Marshal.PtrToStructure (ptr, typeof (AdSize));
+				Dlfcn.dlclose (RTLD_MAIN_ONLY);
+
+				return bannerDynamicSizeHeight.Value;
+			}
+		}
+
 		static AdSize? interstitial;
 
 		public static AdSize Interstitial {
@@ -81,23 +97,6 @@ namespace Facebook.AudienceNetwork
 				Dlfcn.dlclose (RTLD_MAIN_ONLY);
 
 				return interstitial.Value;
-			}
-		}
-
-		static AdSize? interstital;
-
-		[Obsolete ("Use Interstitial instead.")]
-		public static AdSize Interstital {
-			get {
-				if (interstital != null)
-					return interstital.Value;
-
-				IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (null, 0);
-				IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "kFBAdSizeInterstitial");
-				interstital = (AdSize)Marshal.PtrToStructure (ptr, typeof (AdSize));
-				Dlfcn.dlclose (RTLD_MAIN_ONLY);
-
-				return interstital.Value;
 			}
 		}
 

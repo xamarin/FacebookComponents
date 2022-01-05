@@ -101,10 +101,10 @@ namespace Facebook.AudienceNetwork
 		NSString RewardedInterstitial { get; }
 	}
 
-	// @interface FBAdExperienceConfig : NSObject
-	[BaseType(typeof(NSObject), Name= "FBAdExperienceConfig")]
+	// @interface FBAdExperienceConfig : NSObject <NSCopying>
 	[DisableDefaultCtor]
-	interface AdExperienceConfig
+	[BaseType(typeof(NSObject), Name= "FBAdExperienceConfig")]
+	interface AdExperienceConfig : INSCopying
 	{
 		// @property (readwrite, nonatomic, strong) FBAdExperienceType _Nonnull adExperienceType;
 		[Export("adExperienceType", ArgumentSemantic.Strong)]
@@ -667,6 +667,11 @@ namespace Facebook.AudienceNetwork
 		[Field ("kFBAdSizeHeight90Banner", "__Internal")]
 		IntPtr _kFBAdSizeHeight90Banner { get; }
 
+		// extern const FBAdSize kFBAdDynamicSizeHeightBanner __attribute__((visibility("default")));
+		[Internal]
+		[Field ("kFBAdDynamicSizeHeightBanner", "__Internal")]
+		IntPtr _kFBAdDynamicSizeHeightBanner { get; }
+
 		[Internal]
 		[Field ("kFBAdSizeInterstitial", "__Internal")]
 		IntPtr _kFBAdSizeInterstitial { get; }
@@ -1080,10 +1085,10 @@ namespace Facebook.AudienceNetwork
 		void NativeAdWillLogImpression(NativeAd nativeAd);
 	}
 
-	// @interface FBNativeAdBase : NSObject
+	// @interface FBNativeAdBase : NSObject <NSCopying>
 	[DisableDefaultCtor]
 	[BaseType (typeof (NSObject), Name = "FBNativeAdBase")]
-	interface NativeAdBase {
+	interface NativeAdBase : INSCopying {
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull placementID;
 		[Export ("placementID")]
 		string PlacementId { get; }
