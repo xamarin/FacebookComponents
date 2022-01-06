@@ -10,6 +10,7 @@
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ProcessEnums>true</ProcessEnums>
+    <NoBindingEmbedding>true</NoBindingEmbedding>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -54,19 +55,19 @@
   <ItemGroup>
     <NativeReference Include="..\..\externals\FBSDKCoreKit.xcframework">
       <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
+      <SmartLink>False</SmartLink>
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-ObjC</LinkerFlags>
     </NativeReference>
     <NativeReference Include="..\..\externals\FBAEMKit.xcframework">
       <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
+      <SmartLink>False</SmartLink>
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-ObjC</LinkerFlags>
     </NativeReference>
     <NativeReference Include="..\..\externals\FBSDKCoreKit_Basics.xcframework">
       <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
+      <SmartLink>False</SmartLink>
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-ObjC -lz</LinkerFlags>
     </NativeReference>

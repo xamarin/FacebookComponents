@@ -527,7 +527,7 @@ namespace Facebook.CoreKit {
 		// @required +(instancetype _Nonnull)appLinkTargetWithURL:(NSURL * _Nullable __strong)url appStoreId:(NSString * _Nullable __strong)appStoreId appName:(NSString * _Nonnull __strong)appName __attribute__((swift_name("init(url:appStoreId:appName:)")));
 		[Static, Abstract]
 		[Export ("appLinkTargetWithURL:appStoreId:appName:")]
-		FBSDKAppLinkTarget Create ([NullAllowed] NSUrl url, [NullAllowed] string appStoreId, string appName);
+		IAppLinkTargetProtocol Create ([NullAllowed] NSUrl url, [NullAllowed] string appStoreId, string appName);
 
 		// @required @property (readonly, nonatomic) NSURL * _Nullable URL;
 		[Abstract]
@@ -719,9 +719,6 @@ namespace Facebook.CoreKit {
 		bool ProcessError (NSError error, GraphRequest request, [NullAllowed] IGraphErrorRecoveryProcessorDelegate aDelegate);
 	}
 
-	// typedef void (^FBSDKGraphRequestCompletion)(id<FBSDKGraphRequestConnecting>  _Nullable __strong, id  _Nullable __strong, NSError * _Nullable __strong);
-	delegate void GraphRequestCompletionHandler ([NullAllowed] IGraphRequestConnecting connection, [NullAllowed] NSObject result, [NullAllowed] NSError error);
-
 	interface IGraphRequestProtocol { }
 
 	// @protocol FBSDKGraphRequest
@@ -745,9 +742,8 @@ namespace Facebook.CoreKit {
 
 		// @required @property (readonly, copy, nonatomic) FBSDKHTTPMethod _Nonnull HTTPMethod;
 		[Abstract]
-		[BindAs (typeof (HttpMethod))]
 		[Export ("HTTPMethod")]
-		NSString HttpMethod { get; }
+		HttpMethod HttpMethod { get; }
 
 		// @required @property (readonly, copy, nonatomic) NSString * _Nonnull version;
 		[Abstract]
@@ -824,7 +820,7 @@ namespace Facebook.CoreKit {
 
 		// @property (readonly, nonatomic, strong) NSMutableDictionary * parameters;
 		[Export ("parameters", ArgumentSemantic.Copy)]
-		NSDictionary<NSString, NSObject> Parameters { get; }
+		NSDictionary<NSString, NSObject> Parameters { get; set; }
 
 		// @property (readonly, copy, nonatomic) NSString * tokenString;
 		[NullAllowed]
@@ -853,8 +849,8 @@ namespace Facebook.CoreKit {
 		IGraphRequestConnecting Start ([NullAllowed] GraphRequestCompletionHandler handler);
 	}
 
-	// typedef void (^FBSDKGraphRequestBlockHandler)(FBSDKGraphRequestConnection *id, NSError *);
-	delegate void GraphRequestCompletionHandler ([NullAllowed] GraphRequestConnection connection, [NullAllowed] NSObject result, [NullAllowed] NSError error);
+	// typedef void (^FBSDKGraphRequestCompletion)(id<FBSDKGraphRequestConnecting>  _Nullable __strong, id  _Nullable __strong, NSError * _Nullable __strong);
+	delegate void GraphRequestCompletionHandler([NullAllowed] IGraphRequestConnecting connection, [NullAllowed] NSObject result, [NullAllowed] NSError error);
 
 	interface IGraphRequestConnecting { }
 
@@ -943,20 +939,20 @@ namespace Facebook.CoreKit {
 		[Export ("delegateQueue", ArgumentSemantic.Retain)]
 		NSOperationQueue DelegateQueue { get; set; }
 
-		// -(void)addRequest:(FBSDKGraphRequest *)request completionHandler:(FBSDKGraphRequestBlockHandler)handler;
+		// -(void)addRequest:(id<FBSDKGraphRequest>  _Nonnull __strong)request completion:(FBSDKGraphRequestCompletion  _Nonnull __strong)completion;
 		[Async (ResultTypeName = "GraphRequestResult")]
-		[Export ("addRequest:completionHandler:")]
+		[Export ("addRequest:completion:")]
 		void AddRequest (IGraphRequestProtocol request, GraphRequestCompletionHandler handler);
 
-		// -(void)addRequest:(FBSDKGraphRequest *)request batchEntryName:(NSString *)name completionHandler:(FBSDKGraphRequestBlockHandler)handler;
+		// -(void)addRequest:(id<FBSDKGraphRequest>  _Nonnull __strong)request name:(NSString * _Nonnull __strong)name completion:(FBSDKGraphRequestCompletion  _Nonnull __strong)completion;
 		[Async (ResultTypeName = "GraphRequestResult")]
 		[Export ("addRequest:batchEntryName:completionHandler:")]
 		void AddRequest (IGraphRequestProtocol request, string name, GraphRequestCompletionHandler handler);
 
-		// -(void)addRequest:(FBSDKGraphRequest *)request batchParameters:(NSDictionary<NSString *,id> *)batchParameters completionHandler:(FBSDKGraphRequestBlockHandler)handler;
+		// -(void)addRequest:(id<FBSDKGraphRequest>  _Nonnull __strong)request parameters:(NSDictionary<NSString *,id> * _Nullable __strong)parameters completion:(FBSDKGraphRequestCompletion  _Nonnull __strong)completion;
 		[Async (ResultTypeName = "GraphRequestResult")]
 		[Export ("addRequest:batchParameters:completionHandler:")]
-		void AddRequest (GraphIGraphRequestProtocolRequest request, [NullAllowed] NSDictionary batchParameters, GraphRequestCompletionHandler handler);
+		void AddRequest (IGraphRequestProtocol request, [NullAllowed] NSDictionary batchParameters, GraphRequestCompletionHandler handler);
 
 		// -(void)cancel;
 		[Export ("cancel")]

@@ -10,6 +10,7 @@
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	<ProcessEnums>true</ProcessEnums>
+    <NoBindingEmbedding>true</NoBindingEmbedding>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -48,7 +49,7 @@
   <ItemGroup>
     <NativeReference Include="..\..\externals\FBSDKLoginKit.xcframework">
       <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
+      <SmartLink>False</SmartLink>
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-ObjC</LinkerFlags>
     </NativeReference>
