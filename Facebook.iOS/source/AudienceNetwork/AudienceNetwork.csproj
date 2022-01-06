@@ -10,6 +10,7 @@
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ProcessEnums>true</ProcessEnums>
+    <NoBindingEmbedding>true</NoBindingEmbedding>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -49,6 +50,7 @@
     <NativeReference Include="..\..\externals\FBAudienceNetwork.xcframework">
       <Kind>Framework</Kind>
       <ForceLoad>True</ForceLoad>
+      <SmartLink>False</SmartLink>
       <Frameworks>AudioToolbox StoreKit CoreGraphics UIKit Foundation Security CoreImage AVFoundation CoreMedia</Frameworks>
       <WeakFrameworks>AdSupport CFNetwork CoreMotion CoreTelephony LocalAuthentication SafariServices SystemConfiguration VideoToolbox WebKit</WeakFrameworks>
       <LinkerFlags>-ObjC -lc++ -lxml2 -lz</LinkerFlags>

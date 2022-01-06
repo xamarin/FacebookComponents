@@ -9,6 +9,7 @@
     <FileVersion>12.2.0.0</FileVersion>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoBindingEmbedding>true</NoBindingEmbedding>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -47,7 +48,7 @@
   <ItemGroup>
     <NativeReference Include="..\..\externals\FBSDKShareKit.xcframework">
       <Kind>Framework</Kind>
-      <SmartLink>True</SmartLink>
+      <SmartLink>False</SmartLink>
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-ObjC</LinkerFlags>
     </NativeReference>
