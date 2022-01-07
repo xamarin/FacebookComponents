@@ -11,7 +11,7 @@ using Foundation;
 
 namespace FacebookiOSSample
 {
-	public partial class MainViewController : DialogViewController
+	public partial class MainViewController : DialogViewController, ILoginButtonDelegate
 	{
 
 		// To see the full list of permissions, visit the following link:
@@ -51,24 +51,9 @@ namespace FacebookiOSSample
 				LoggedIn (e.NewProfile.UserId);
 			});
 
-			loginButton = new LoginButton(new CGRect(48, 0, 218, 46));
-
-			// Handle actions once the user is logged in
-			loginButton.Completed += (sender, e) => {
-				if (e.Error != null) {
-					ShowMessageBox ("Ups", e.Error.Description, "Ok", null, null);
-					return;
-				}
-				if (e.Result.IsCancelled) {
-					ShowMessageBox ("Ups", "The user cancelled the request", "Ok", null, null);
-					return;
-				}
-			};
-
-			// Handle actions once the user is logged out
-			loginButton.LoggedOut += (sender, e) => {				
-				LoggedOut ();
-			};
+			loginButton = new LoginButton(new CGRect(48, 0, 218, 46)) {
+				Delegate = this
+            };
 
 			// This permission is set by default
 			chkPublicProfile = new CustomCheckboxElement ("Public Profile", true);
@@ -110,6 +95,29 @@ namespace FacebookiOSSample
 			// Release any cached data, images, etc that aren't in use.
 		}
 
+		#region LoginButton Delegate
+
+		// Handle actions once the user is logged in
+		public void DidComplete (LoginButton loginButton, LoginManagerLoginResult result, NSError error)
+        {
+			if (error != null) {
+				ShowMessageBox ("Ups", error.Description, "Ok", null, null);
+				return;
+			}
+			if (result.IsCancelled) {
+				ShowMessageBox ("Ups", "The user cancelled the request", "Ok", null, null);
+				return;
+			}
+		}
+
+
+		// Handle actions once the user is logged out
+		public void DidLogOut (LoginButton loginButton)
+        {
+			LoggedOut ();
+		}
+
+		#endregion
 
 		#region Login Status Methods
 
