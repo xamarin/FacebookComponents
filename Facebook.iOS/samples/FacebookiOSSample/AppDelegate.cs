@@ -44,7 +44,7 @@ namespace FacebookiOSSample
 		{
 			// Call the 'ActivateApp' method to log an app event for use
 			// in analytics and advertising reporting. This is optional
-			AppEvents.ActivateApp ();
+			AppEvents.Shared.ActivateApp ();
 		}
 	}
 }

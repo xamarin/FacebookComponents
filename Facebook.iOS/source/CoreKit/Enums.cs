@@ -78,11 +78,6 @@ namespace Facebook.CoreKit
 		[Field ("FBSDKAppEventNameSchedule", "__Internal")]
 		Schedule,
 
-		// extern FBSDKAppEventName _Nonnull FBSDKAppEventNameSubscriptionHeartbeat;
-		[Obsolete ("This attribute is no longer used.")]
-		[Field ("FBSDKAppEventNameSubscriptionHeartbeat", "__Internal")]
-		SubscriptionHeartbeat,
-
 		// extern NSString *const FBSDKAppEventNameStartTrial;
 		[Field ("FBSDKAppEventNameStartTrial", "__Internal")]
 		StartTrial,

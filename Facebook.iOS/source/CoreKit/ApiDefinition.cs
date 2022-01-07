@@ -752,15 +752,18 @@ namespace Facebook.CoreKit {
 
 		// @required @property (readonly, assign, nonatomic) FBSDKGraphRequestFlags flags;
 		[Export ("flags", ArgumentSemantic.Assign)]
-		GraphRequestFlags Flags { get; }
+		GraphRequestFlags GetFlags ();
 
 		// @required @property (getter = isGraphErrorRecoveryDisabled, nonatomic) BOOL graphErrorRecoveryDisabled;
-		[Export ("graphErrorRecoveryDisabled")]
-		bool GraphErrorRecoveryDisabled { [Bind ("isGraphErrorRecoveryDisabled")] get; set; }
+		[Export ("isGraphErrorRecoveryDisabled")]
+		bool IsGraphErrorRecoveryDisabled ();
+
+		[Export ("setGraphErrorRecoveryDisabled:")]
+		void SetGraphErrorRecoveryDisabled (bool disable);
 
 		// @required @property (readonly, nonatomic) BOOL hasAttachments;
 		[Export ("hasAttachments")]
-		bool HasAttachments { get; }
+		bool HasAttachments ();
 
 		// @required -(id<FBSDKGraphRequestConnecting> _Nonnull)startWithCompletion:(FBSDKGraphRequestCompletion  _Nullable __strong)completion;
 		[Abstract]
@@ -769,7 +772,7 @@ namespace Facebook.CoreKit {
 
 		// @required -(NSString * _Nonnull)formattedDescription;
 		[Export ("formattedDescription")]
-		string FormattedDescription { get; }
+		string GetFormattedDescription ();
 	}
 
 	// @interface FBSDKGraphRequest : NSObject <FBSDKGraphRequest>
