@@ -143,22 +143,28 @@ Task ("libs")
 	.IsDependentOn("ci-setup")
 	.Does(() =>
 {
-	MSBuild(SOURCES_SOLUTION_PATH, c => {
-		c.Configuration = "Release";
-		c.Restore = true;
-		c.MaxCpuCount = 0;
-	});
+	foreach (var target in SOURCES_TARGETS)
+		MSBuild(SOURCES_SOLUTION_PATH, c => {
+			c.Configuration = "Release";
+			c.Restore = true;
+			c.MaxCpuCount = 1;
+			c.Targets.Clear();
+			c.Targets.Add(target);
+		});
 });
 
 Task ("samples")
 	.IsDependentOn("libs")
 	.Does(() =>
 {
-	MSBuild(SAMPLES_SOLUTION_PATH, c => {
-		c.Configuration = "Release";
-		c.Restore = true;
-		c.MaxCpuCount = 0;
-	});
+	foreach (var target in SAMPLES_TARGETS)
+		MSBuild(SAMPLES_SOLUTION_PATH, c => {
+			c.Configuration = "Release";
+			c.Restore = true;
+			c.MaxCpuCount = 1;
+			c.Targets.Clear();
+			c.Targets.Add($@"samples{BACKSLASH}{target}");
+		});
 });
 
 Task ("nuget")
@@ -167,14 +173,15 @@ Task ("nuget")
 {
 	EnsureDirectoryExists("./output");
 
-	MSBuild(SOURCES_SOLUTION_PATH, c => {
-		c.Configuration = "Release";
-		c.Restore = true;
-		c.MaxCpuCount = 0;
-		c.Targets.Clear();
-		c.Targets.Add("Pack");
-		c.Properties.Add("PackageOutputPath", new [] { "../../output/" });
-	});
+	foreach (var target in SOURCES_TARGETS)
+		MSBuild(SOURCES_SOLUTION_PATH, c => {
+			c.Configuration = "Release";
+			c.Restore = true;
+			c.MaxCpuCount = 1;
+			c.Targets.Clear();
+			c.Targets.Add($"{target}:Pack");
+			c.Properties.Add("PackageOutputPath", new [] { "../../output/" });
+		});
 });
 
 Task ("clean")
