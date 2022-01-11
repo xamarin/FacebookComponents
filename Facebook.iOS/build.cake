@@ -12,7 +12,6 @@ var BUILD_NUMBER = EnvironmentVariable("BUILD_NUMBER") ?? "DEBUG";
 var BUILD_TIMESTAMP = DateTime.UtcNow.ToString();
 
 var IS_LOCAL_BUILD = true;
-var BACKSLASH = string.Empty;
 
 var SOURCES_SOLUTION_PATH = "./source/Sources.sln";
 var SAMPLES_SOLUTION_PATH = "./samples/Samples.sln";
@@ -28,7 +27,6 @@ Setup (context =>
 {
 	IS_LOCAL_BUILD = string.IsNullOrWhiteSpace (EnvironmentVariable ("AGENT_ID"));
 	Information ($"Is a local build? {IS_LOCAL_BUILD}");
-	BACKSLASH = IS_LOCAL_BUILD ? @"\\" : @"\";
 });
 
 // Prepares the artifacts to be built.
@@ -163,7 +161,7 @@ Task ("samples")
 			c.Restore = true;
 			c.MaxCpuCount = 1;
 			c.Targets.Clear();
-			c.Targets.Add($@"samples{BACKSLASH}{target}");
+			c.Targets.Add($@"samples\{target}");
 		});
 });
 

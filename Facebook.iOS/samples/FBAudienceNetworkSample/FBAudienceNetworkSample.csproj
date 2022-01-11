@@ -10,6 +10,7 @@
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>FBAudienceNetworkSample</AssemblyName>
     <IntermediateOutputPath>obj\$(Platform)\$(Configuration)</IntermediateOutputPath>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -119,6 +120,7 @@
     <MtouchProfiling>true</MtouchProfiling>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchLink>SdkOnly</MtouchLink>
+    <BuildProjectReferences>false</BuildProjectReferences>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug-Nuget|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -136,6 +138,7 @@
     <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchProfiling>true</MtouchProfiling>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <BuildProjectReferences>false</BuildProjectReferences>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Nuget|iPhone' ">
     <DebugType>full</DebugType>
@@ -150,6 +153,7 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <MtouchExtraArgs></MtouchExtraArgs>
     <MtouchLink>SdkOnly</MtouchLink>
+    <BuildProjectReferences>false</BuildProjectReferences>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Nuget|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -162,6 +166,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchI18n></MtouchI18n>
     <MtouchArch>i386, x86_64</MtouchArch>
+    <BuildProjectReferences>false</BuildProjectReferences>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -201,9 +206,12 @@
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-568h%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\source\AudienceNetwork\AudienceNetwork.csproj">
+    <ProjectReference Include="..\..\source\AudienceNetwork\AudienceNetwork.csproj" Condition=" '$(Configuration)' != 'Debug-Nuget' AND '$(Configuration)' != 'Release-Nuget' ">
       <Project>{54FF3FE1-B984-4642-8131-16A4E8335A0D}</Project>
       <Name>AudienceNetwork</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(Configuration)' == 'Debug-Nuget' OR '$(Configuration)' == 'Release-Nuget' ">
+    <PackageReference Include="Xamarin.Facebook.AudienceNetwork.iOS" Version="6.9.0" />
   </ItemGroup>
 </Project>

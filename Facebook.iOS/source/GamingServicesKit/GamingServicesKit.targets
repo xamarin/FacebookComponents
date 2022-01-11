@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+    <_FBSDKGamingServicesKitId>FBSDKGamingServicesKit</_FBSDKGamingServicesKitId>
+    <_FacebookGamingServicesId>FacebookGamingServices</_FacebookGamingServicesId>
+	</PropertyGroup>
+
+	<ItemGroup Condition="('$(OutputType)' != 'Library' OR '$(IsAppExtension)' == 'True')">
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\lib\xamarinios10\Xamarin.Facebook.GamingServicesKit.resources\FBSDKGamingServicesKit.xcframework">
+      <_Id>$(_FBSDKGamingServicesKitId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\lib\xamarinios10\Xamarin.Facebook.GamingServicesKit.resources\FacebookGamingServices.xcframework">
+      <_Id>$(_FacebookGamingServicesId)</_Id>
+    </_NativeReference>
+  </ItemGroup>
+  
+  <Target Name="_ResolveNativeReferencesForFacebookGamingServicesKit" BeforeTargets="ResolveNativeReferences">
+    <ItemGroup>
+      <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_FBSDKGamingServicesKitId)' OR '%(_NativeReference._Id)' == '$(_FacebookGamingServicesId)'">
+        <Kind>Framework</Kind>
+        <SmartLink>False</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <LinkerFlags>-ObjC</LinkerFlags>
+      </_NativeReference>
+      <NativeReference Include="@(_NativeReference)" />
+    </ItemGroup>
+  </Target>
+</Project>

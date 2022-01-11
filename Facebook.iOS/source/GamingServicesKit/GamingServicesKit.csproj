@@ -38,6 +38,25 @@
     <Compile Include="..\AssemblyInfo.cs" />
   </ItemGroup>
 
+  <!-- An iOS app project cannot find Xcframeworks within a NuGet if a TFM
+       previous than net6.0-ios is used.
+       https://github.com/xamarin/xamarin-macios/issues/13693
+       You must include the Xcframework's NativeReference tag into the iOS app
+       project so sidecar can work properly. -->
+  <!-- This workaround was designed like this to have the same
+       the NativeReference tag for the iOS binding and for the .targets file -->
+  <Import Project="GamingServicesKit.targets" />
+
+  <ItemGroup>
+    <_NativeReference Include="..\..\externals\FBSDKGamingServicesKit.xcframework">
+      <_Id>$(_FBSDKGamingServicesKitId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="..\..\externals\FacebookGamingServices.xcframework">
+      <_Id>$(_FacebookGamingServicesId)</_Id>
+    </_NativeReference>
+  </ItemGroup>
+  <!-- End of workaround -->
+
   <ItemGroup>
     <None Include="..\..\externals\FBSDKGamingServicesKit.xcframework\ios-arm64_armv7\FBSDKGamingServicesKit.framework\FBSDKGamingServicesKit">
       <Link>FBSDKGamingServicesKit.xcframework</Link>
@@ -45,22 +64,9 @@
     <None Include="..\..\externals\FacebookGamingServices.xcframework\ios-arm64_armv7\FacebookGamingServices.framework\FacebookGamingServices">
       <Link>FacebookGamingServices.xcframework</Link>
     </None>
+    <None Include="GamingServicesKit.targets" Pack="True" PackagePath="build/Xamarin.Facebook.GamingServicesKit.iOS.targets" />
+    <None Include="GamingServicesKit.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Facebook.GamingServicesKit.iOS.targets" />
     <None Include="..\..\External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <NativeReference Include="..\..\externals\FBSDKGamingServicesKit.xcframework">
-      <Kind>Framework</Kind>
-      <SmartLink>False</SmartLink>
-      <ForceLoad>True</ForceLoad>
-      <LinkerFlags>-ObjC</LinkerFlags>
-    </NativeReference>
-    <NativeReference Include="..\..\externals\FacebookGamingServices.xcframework">
-      <Kind>Framework</Kind>
-      <SmartLink>False</SmartLink>
-      <ForceLoad>True</ForceLoad>
-      <LinkerFlags>-ObjC</LinkerFlags>
-    </NativeReference>
   </ItemGroup>
 
   <ItemGroup>

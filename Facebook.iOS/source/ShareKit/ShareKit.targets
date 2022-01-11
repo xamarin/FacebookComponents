@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+    <_FBSDKShareKitId>FBSDKShareKit</_FBSDKShareKitId>
+	</PropertyGroup>
+
+	<ItemGroup Condition="('$(OutputType)' != 'Library' OR '$(IsAppExtension)' == 'True')">
+    <_NativeReference Include="$(MSBuildThisFileDirectory)..\lib\xamarinios10\Facebook.ShareKit.resources\FBSDKShareKit.xcframework">
+      <_Id>$(_FBSDKShareKitId)</_Id>
+    </_NativeReference>
+  </ItemGroup>
+  
+  <Target Name="_ResolveNativeReferencesForFacebookShareKit" BeforeTargets="ResolveNativeReferences">
+    <ItemGroup>
+      <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_FBSDKShareKitId)'">
+        <Kind>Framework</Kind>
+        <SmartLink>False</SmartLink>
+        <ForceLoad>True</ForceLoad>
+        <LinkerFlags>-ObjC</LinkerFlags>
+      </_NativeReference>
+      <NativeReference Include="@(_NativeReference)" />
+    </ItemGroup>
+  </Target>
+</Project>

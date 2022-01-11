@@ -39,22 +39,29 @@
     <Compile Include="..\AssemblyInfo.cs" />
   </ItemGroup>
 
+  <!-- An iOS app project cannot find Xcframeworks within a NuGet if a TFM
+       previous than net6.0-ios is used.
+       https://github.com/xamarin/xamarin-macios/issues/13693
+       You must include the Xcframework's NativeReference tag into the iOS app
+       project so sidecar can work properly. -->
+  <!-- This workaround was designed like this to have the same
+       the NativeReference tag for the iOS binding and for the .targets file -->
+  <Import Project="AudienceNetwork.targets" />
+
+  <ItemGroup>
+    <_NativeReference Include="..\..\externals\FBAudienceNetwork.xcframework">
+        <_Id>$(_FBAudienceNetworkId)</_Id>
+    </_NativeReference>
+  </ItemGroup>
+  <!-- End of workaround -->
+
   <ItemGroup>
     <None Include="..\..\externals\FBAudienceNetwork.xcframework/ios-arm64_armv7/FBAudienceNetwork.framework\FBAudienceNetwork">
       <Link>FBAudienceNetwork.xcframework</Link>
     </None>
+    <None Include="AudienceNetwork.targets" Pack="True" PackagePath="build/Xamarin.Facebook.AudienceNetwork.iOS.targets" />
+    <None Include="AudienceNetwork.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Facebook.AudienceNetwork.iOS.targets" />
     <None Include="..\..\External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <NativeReference Include="..\..\externals\FBAudienceNetwork.xcframework">
-      <Kind>Framework</Kind>
-      <ForceLoad>True</ForceLoad>
-      <SmartLink>False</SmartLink>
-      <Frameworks>AudioToolbox StoreKit CoreGraphics UIKit Foundation Security CoreImage AVFoundation CoreMedia</Frameworks>
-      <WeakFrameworks>AdSupport CFNetwork CoreMotion CoreTelephony LocalAuthentication SafariServices SystemConfiguration VideoToolbox WebKit</WeakFrameworks>
-      <LinkerFlags>-ObjC -lc++ -lxml2 -lz</LinkerFlags>
-    </NativeReference>
   </ItemGroup>
 
   <ItemGroup>
@@ -62,7 +69,7 @@
     <Compile Remove="ApiDefinition.cs" />
     <Compile Remove="Structs.cs" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
     <ObjcBindingApiDefinition Include="Enums.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />

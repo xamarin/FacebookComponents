@@ -39,6 +39,28 @@
     <Compile Include="..\AssemblyInfo.cs" />
   </ItemGroup>
 
+  <!-- An iOS app project cannot find Xcframeworks within a NuGet if a TFM
+       previous than net6.0-ios is used.
+       https://github.com/xamarin/xamarin-macios/issues/13693
+       You must include the Xcframework's NativeReference tag into the iOS app
+       project so sidecar can work properly. -->
+  <!-- This workaround was designed like this to have the same
+       the NativeReference tag for the iOS binding and for the .targets file -->
+  <Import Project="CoreKit.targets" />
+
+  <ItemGroup>
+    <_NativeReference Include="..\..\externals\FBSDKCoreKit.xcframework">
+      <_Id>$(_FBSDKCoreKitId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="..\..\externals\FBAEMKit.xcframework">
+      <_Id>$(_FBAEMKitId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="..\..\externals\FBSDKCoreKit_Basics.xcframework">
+      <_Id>$(_FBSDKCoreKit_BasicsId)</_Id>
+    </_NativeReference>
+  </ItemGroup>
+  <!-- End of workaround -->
+
   <ItemGroup>
     <None Include="..\..\externals\FBSDKCoreKit.xcframework\ios-arm64_armv7\FBSDKCoreKit.framework\FBSDKCoreKit">
       <Link>FBSDKCoreKit.xcframework</Link>
@@ -49,28 +71,9 @@
     <None Include="..\..\externals\FBSDKCoreKit_Basics.xcframework\ios-arm64_armv7\FBSDKCoreKit_Basics.framework\FBSDKCoreKit_Basics">
       <Link>FBSDKCoreKit_Basics.xcframework</Link>
     </None>
+    <None Include="CoreKit.targets" Pack="True" PackagePath="build/Xamarin.Facebook.CoreKit.iOS.targets" />
+    <None Include="CoreKit.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Facebook.CoreKit.iOS.targets" />
     <None Include="..\..\External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <NativeReference Include="..\..\externals\FBSDKCoreKit.xcframework">
-      <Kind>Framework</Kind>
-      <SmartLink>False</SmartLink>
-      <ForceLoad>True</ForceLoad>
-      <LinkerFlags>-ObjC</LinkerFlags>
-    </NativeReference>
-    <NativeReference Include="..\..\externals\FBAEMKit.xcframework">
-      <Kind>Framework</Kind>
-      <SmartLink>False</SmartLink>
-      <ForceLoad>True</ForceLoad>
-      <LinkerFlags>-ObjC</LinkerFlags>
-    </NativeReference>
-    <NativeReference Include="..\..\externals\FBSDKCoreKit_Basics.xcframework">
-      <Kind>Framework</Kind>
-      <SmartLink>False</SmartLink>
-      <ForceLoad>True</ForceLoad>
-      <LinkerFlags>-ObjC -lz</LinkerFlags>
-    </NativeReference>
   </ItemGroup>
 
   <ItemGroup>
