@@ -9,6 +9,7 @@
     <RootNamespace>HelloFacebook</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>HelloFacebook</AssemblyName>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -92,6 +93,7 @@
     <MtouchFastDev>false</MtouchFastDev>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchLink>SdkOnly</MtouchLink>
+    <BuildProjectReferences>false</BuildProjectReferences>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug-Nuget|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -108,6 +110,7 @@
     <MtouchProfiling>true</MtouchProfiling>
     <MtouchI18n></MtouchI18n>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <BuildProjectReferences>false</BuildProjectReferences>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Nuget|iPhone' ">
     <DebugType>full</DebugType>
@@ -121,6 +124,7 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchI18n></MtouchI18n>
     <MtouchLink>SdkOnly</MtouchLink>
+    <BuildProjectReferences>false</BuildProjectReferences>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Nuget|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -132,6 +136,7 @@
     <ConsolePause>false</ConsolePause>
     <MtouchLink>None</MtouchLink>
     <MtouchI18n></MtouchI18n>
+    <BuildProjectReferences>false</BuildProjectReferences>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -159,22 +164,25 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\source\CoreKit\CoreKit.csproj">
+    <ProjectReference Include="..\..\source\CoreKit\CoreKit.csproj" Condition=" '$(Configuration)' != 'Debug-Nuget' AND '$(Configuration)' != 'Release-Nuget' ">
       <Project>{5B88D7C7-6E76-4D0D-8DBE-B3F0A5D6B8A0}</Project>
       <Name>CoreKit</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\source\LoginKit\LoginKit.csproj">
+    <ProjectReference Include="..\..\source\LoginKit\LoginKit.csproj" Condition=" '$(Configuration)' != 'Debug-Nuget' AND '$(Configuration)' != 'Release-Nuget' ">
       <Project>{8C6EFD7E-1512-4976-8E47-CF189BF6CB90}</Project>
       <Name>LoginKit</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\source\PlacesKit\PlacesKit.csproj">
+    <ProjectReference Include="..\..\source\PlacesKit\PlacesKit.csproj" Condition=" '$(Configuration)' != 'Debug-Nuget' AND '$(Configuration)' != 'Release-Nuget' ">
       <Project>{30556F40-CE2F-413B-9031-5A7A037AE1C9}</Project>
       <Name>PlacesKit</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\source\ShareKit\ShareKit.csproj">
+    <ProjectReference Include="..\..\source\ShareKit\ShareKit.csproj" Condition=" '$(Configuration)' != 'Debug-Nuget' AND '$(Configuration)' != 'Release-Nuget' ">
       <Project>{170FAF51-4DF1-4271-B843-3257D285E864}</Project>
       <Name>ShareKit</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(Configuration)' == 'Debug-Nuget' OR '$(Configuration)' == 'Release-Nuget' ">
+    <PackageReference Include="Xamarin.Facebook.iOS" Version="12.2.0" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
