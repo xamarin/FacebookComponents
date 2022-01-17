@@ -15,7 +15,7 @@
       <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_FBAudienceNetworkId)'">
         <Kind>Framework</Kind>
         <ForceLoad>True</ForceLoad>
-        <SmartLink>False</SmartLink>
+        <SmartLink>True</SmartLink>
         <Frameworks>AudioToolbox StoreKit CoreGraphics UIKit Foundation Security CoreImage AVFoundation CoreMedia</Frameworks>
         <WeakFrameworks>AdSupport CFNetwork CoreMotion CoreTelephony LocalAuthentication SafariServices SystemConfiguration VideoToolbox WebKit</WeakFrameworks>
         <LinkerFlags>-ObjC -lc++ -lxml2 -lz</LinkerFlags>
