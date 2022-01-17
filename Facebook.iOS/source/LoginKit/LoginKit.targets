@@ -14,7 +14,7 @@
     <ItemGroup>
       <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_FBSDKLoginKitId)'">
         <Kind>Framework</Kind>
-        <SmartLink>False</SmartLink>
+        <SmartLink>True</SmartLink>
         <ForceLoad>True</ForceLoad>
         <LinkerFlags>-ObjC</LinkerFlags>
       </_NativeReference>
