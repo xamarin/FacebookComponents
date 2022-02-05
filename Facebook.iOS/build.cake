@@ -13,8 +13,7 @@ var BUILD_TIMESTAMP = DateTime.UtcNow.ToString();
 
 var IS_LOCAL_BUILD = true;
 
-var SOURCES_SOLUTION_PATH = "./source/Sources.sln";
-var SAMPLES_SOLUTION_PATH = "./samples/Samples.sln";
+var SOLUTION_PATH = "./Xamarin.Facebook.sln";
 var EXTERNALS_PATH = new DirectoryPath ("./externals");
 
 // Artifacts that need to be built from pods or be copied from pods
@@ -142,12 +141,12 @@ Task ("libs")
 	.Does(() =>
 {
 	foreach (var target in SOURCES_TARGETS)
-		MSBuild(SOURCES_SOLUTION_PATH, c => {
+		MSBuild(SOLUTION_PATH, c => {
 			c.Configuration = "Release";
 			c.Restore = true;
 			c.MaxCpuCount = 1;
 			c.Targets.Clear();
-			c.Targets.Add(target);
+			c.Targets.Add($@"source\{target}");
 		});
 });
 
@@ -156,12 +155,12 @@ Task ("samples")
 	.Does(() =>
 {
 	foreach (var target in SAMPLES_TARGETS)
-		MSBuild(SAMPLES_SOLUTION_PATH, c => {
+		MSBuild(SOLUTION_PATH, c => {
 			c.Configuration = "Release";
 			c.Restore = true;
 			c.MaxCpuCount = 1;
 			c.Targets.Clear();
-			c.Targets.Add($@"samples\{target}");
+			c.Targets.Add($@"samples-using-source\{target}");
 		});
 });
 
@@ -172,12 +171,12 @@ Task ("nuget")
 	EnsureDirectoryExists("./output");
 
 	foreach (var target in SOURCES_TARGETS)
-		MSBuild(SOURCES_SOLUTION_PATH, c => {
+		MSBuild(SOLUTION_PATH, c => {
 			c.Configuration = "Release";
 			c.Restore = true;
 			c.MaxCpuCount = 1;
 			c.Targets.Clear();
-			c.Targets.Add($"{target}:Pack");
+			c.Targets.Add($@"source\{target}:Pack");
 			c.Properties.Add("PackageOutputPath", new [] { "../../output/" });
 		});
 });
