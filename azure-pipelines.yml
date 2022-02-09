@@ -26,6 +26,7 @@ jobs:
   - template: .ci/build.yml@components
     parameters:
       areaPath: 'DevDiv\VS Client - Runtime SDKs'
+      windowsImage: windows-2019
       xcode: 13.0
       initSteps:
         - task: UseDotNet@2
