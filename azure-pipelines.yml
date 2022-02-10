@@ -47,7 +47,7 @@ jobs:
             boots $(LegacyXamarinAndroidPkg)
           condition: eq(variables['System.JobName'], 'macos')
 
-  - ${{ if ne(variables['System.TeamProject'], 'devdiv') }}:
+  - ${{ if and(eq(variables['System.TeamProject'], 'devdiv'), not(startsWith(variables['Build.SourceBranch'], 'refs/tags/'))) }}:
     - template: compliance/sbom/job.v1.yml@internal-templates
       parameters:
         artifactNames: ['nuget']
@@ -61,11 +61,11 @@ jobs:
         dependsOn: [ 'build' ]
         condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
 
+  - ${{ if and(eq(variables['System.TeamProject'], 'devdiv'), startsWith(variables['Build.SourceBranch'], 'refs/tags/')) }}:
     - template: compliance/sbom/job.v1.yml@internal-templates
       parameters:
         artifactNames: ['nuget-signed']
         packageName: 'Xamarin Facebook Components'
         packageFilter: '*.nupkg'
         dependsOn: [ 'signing' ]
-        condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
 
