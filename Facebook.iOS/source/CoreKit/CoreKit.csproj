@@ -1,16 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
+<Project Sdk="Xamarin.Legacy.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
+    <TargetFrameworks>xamarin.ios10;net6.0-ios</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
     <IsBindingProject>true</IsBindingProject>
+    <NoBindingEmbedding>true</NoBindingEmbedding>
+    <SupportedOSPlatformVersion>10.0</SupportedOSPlatformVersion>
     <RootNamespace>Facebook.CoreKit</RootNamespace>
     <AssemblyName>Facebook.CoreKit</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>12.2.0.0</FileVersion>
-    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ProcessEnums>true</ProcessEnums>
-    <NoBindingEmbedding>true</NoBindingEmbedding>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -26,14 +28,6 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>12.2.0.0</PackageVersion>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Reference Include="Xamarin.iOS" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
   
   <ItemGroup>
     <Compile Include="..\AssemblyInfo.cs" />
@@ -62,28 +56,19 @@
   <!-- End of workaround -->
 
   <ItemGroup>
-    <None Include="..\..\externals\FBSDKCoreKit.xcframework\ios-arm64_armv7\FBSDKCoreKit.framework\FBSDKCoreKit">
-      <Link>FBSDKCoreKit.xcframework</Link>
-    </None>
-    <None Include="..\..\externals\FBAEMKit.xcframework\ios-arm64_armv7\FBAEMKit.framework\FBAEMKit">
-      <Link>FBAEMKit.xcframework</Link>
-    </None>
-    <None Include="..\..\externals\FBSDKCoreKit_Basics.xcframework\ios-arm64_armv7\FBSDKCoreKit_Basics.framework\FBSDKCoreKit_Basics">
-      <Link>FBSDKCoreKit_Basics.xcframework</Link>
-    </None>
     <None Include="CoreKit.targets" Pack="True" PackagePath="build/Xamarin.Facebook.CoreKit.iOS.targets" />
     <None Include="CoreKit.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Facebook.CoreKit.iOS.targets" />
     <None Include="..\..\External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="Enums.cs" />
+  <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
     <Compile Remove="ApiDefinition.cs" />
+    <Compile Remove="Enums.cs" />
   </ItemGroup>
   
   <ItemGroup>
-    <ObjcBindingApiDefinition Include="ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
-    <ObjcBindingApiDefinition Include="Enums.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+    <ObjcBindingApiDefinition Include="Enums.cs" />
   </ItemGroup>
 
 </Project>

@@ -11,3 +11,5 @@ tmp-nugets/
 *.user
 _._
 **/Resource.designer.cs
+*.binlog
+*.log

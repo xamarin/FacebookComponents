@@ -1,16 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
+<Project Sdk="Xamarin.Legacy.Sdk">
   <PropertyGroup>
     <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
     <IsBindingProject>true</IsBindingProject>
+    <NoBindingEmbedding>true</NoBindingEmbedding>
+    <SupportedOSPlatformVersion>10.0</SupportedOSPlatformVersion>
     <RootNamespace>Facebook.LoginKit</RootNamespace>
     <AssemblyName>Facebook.LoginKit</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>12.2.0.0</FileVersion>
-    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-	<ProcessEnums>true</ProcessEnums>
-    <NoBindingEmbedding>true</NoBindingEmbedding>
+    <ProcessEnums>true</ProcessEnums>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -26,14 +28,6 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>12.2.0.0</PackageVersion>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Reference Include="Xamarin.iOS" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
   
   <ItemGroup>
     <Compile Include="..\AssemblyInfo.cs" />
@@ -56,22 +50,19 @@
   <!-- End of workaround -->
 
   <ItemGroup>
-    <None Include="..\..\externals\FBSDKLoginKit.xcframework\ios-arm64_armv7\FBSDKLoginKit.framework\FBSDKLoginKit">
-      <Link>FBSDKLoginKit.xcframework</Link>
-    </None>
     <None Include="LoginKit.targets" Pack="True" PackagePath="build/Xamarin.Facebook.LoginKit.iOS.targets" />
     <None Include="LoginKit.targets" Pack="True" PackagePath="buildTransitive/Xamarin.Facebook.LoginKit.iOS.targets" />
     <None Include="..\..\External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />
   </ItemGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
     <Compile Remove="Enums.cs" />
     <Compile Remove="ApiDefinition.cs" />
   </ItemGroup>
   
   <ItemGroup>
-    <ObjcBindingApiDefinition Include="ApiDefinition.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
-    <ObjcBindingApiDefinition Include="Enums.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true'" />
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+    <ObjcBindingApiDefinition Include="Enums.cs" />
   </ItemGroup>
 
   <ItemGroup>
