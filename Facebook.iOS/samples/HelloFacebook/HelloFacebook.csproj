@@ -101,7 +101,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\..\source\CoreKit\CoreKit.csproj">
-      <Project>{2801E237-8609-4DCE-97F2-0C4326FBB413}</Project>
+      <Project>{9F027278-F37C-450B-96DB-99604829F70D}</Project>
       <Name>CoreKit</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\source\LoginKit\LoginKit.csproj">

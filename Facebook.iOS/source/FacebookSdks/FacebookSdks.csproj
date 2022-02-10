@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
+<Project Sdk="Xamarin.Legacy.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
+    <TargetFrameworks>xamarin.ios10;net6.0-ios</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
     <RootNamespace>Facebook</RootNamespace>
     <AssemblyName>Facebook</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>12.2.0.0</FileVersion>
-    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <IncludeBuildOutput>false</IncludeBuildOutput>
   </PropertyGroup>
 
@@ -23,15 +24,7 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageVersion>12.2.0.0</PackageVersion>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Reference Include="Xamarin.iOS" />
-  </ItemGroup>
   
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
-
   <ItemGroup>
     <Compile Include="..\AssemblyInfo.cs" />
   </ItemGroup>

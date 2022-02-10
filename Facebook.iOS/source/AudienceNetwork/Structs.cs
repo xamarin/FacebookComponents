@@ -3,6 +3,10 @@ using System.Runtime.InteropServices;
 
 using CoreGraphics;
 
+#if NET
+using ObjCRuntime;
+#endif
+
 namespace Facebook.AudienceNetwork {
 	[StructLayout (LayoutKind.Sequential)]
 	public struct AdSize {

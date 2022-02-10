@@ -140,14 +140,24 @@ Task ("libs")
 	.IsDependentOn("ci-setup")
 	.Does(() =>
 {
-	foreach (var target in SOURCES_TARGETS)
-		MSBuild(SOLUTION_PATH, c => {
-			c.Configuration = "Release";
-			c.Restore = true;
-			c.MaxCpuCount = 1;
-			c.Targets.Clear();
-			c.Targets.Add($@"source\{target}");
+	foreach (var target in SOURCES_TARGETS) {
+		var msBuildSettings = new DotNetCoreMSBuildSettings ();
+		msBuildSettings.Targets.Add($@"source\{target}");		
+		
+		DotNetCoreBuild(SOLUTION_PATH, new DotNetCoreBuildSettings {
+			Configuration = "Release",
+			MSBuildSettings = msBuildSettings
 		});
+	}
+
+	// foreach (var target in SOURCES_TARGETS)
+	// 	MSBuild(SOLUTION_PATH, c => {
+	// 		c.Configuration = "Release";
+	// 		c.Restore = true;
+	// 		c.MaxCpuCount = 1;
+	// 		c.Targets.Clear();
+	// 		c.Targets.Add($@"source\{target}");
+	// 	});
 });
 
 Task ("samples")
@@ -170,15 +180,18 @@ Task ("nuget")
 {
 	EnsureDirectoryExists("./output");
 
-	foreach (var target in SOURCES_TARGETS)
-		MSBuild(SOLUTION_PATH, c => {
-			c.Configuration = "Release";
-			c.Restore = true;
-			c.MaxCpuCount = 1;
-			c.Targets.Clear();
-			c.Targets.Add($@"source\{target}:Pack");
-			c.Properties.Add("PackageOutputPath", new [] { "../../output/" });
-		});
+	// foreach (var target in SOURCES_TARGETS)
+	// 	DotNetBuild(SOLUTION_PATH, );
+
+	// foreach (var target in SOURCES_TARGETS)
+	// 	MSBuild(SOLUTION_PATH, c => {
+	// 		c.Configuration = "Release";
+	// 		c.Restore = true;
+	// 		c.MaxCpuCount = 1;
+	// 		c.Targets.Clear();
+	// 		c.Targets.Add($@"source\{target}:Pack");
+	// 		c.Properties.Add("PackageOutputPath", new [] { "../../output/" });
+	// 	});
 });
 
 Task ("clean")
