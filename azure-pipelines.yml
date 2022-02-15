@@ -58,9 +58,9 @@ jobs:
       parameters:
         packageName: 'Xamarin Facebook Components'
         packageFilter: '*.nupkg'
-        $ {{ if not(startsWith(variables['Build.SourceBranch'], 'refs/tags/')) }}:
+        ${{ if not(startsWith(variables['Build.SourceBranch'], 'refs/tags/')) }}:
           artifactNames: ['nuget']
           dependsOn: [ 'build' ]
-        $ {{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/') }}:
+        ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/') }}:
           artifactNames: ['nuget-signed']
           dependsOn: [ 'signing' ]
