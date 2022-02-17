@@ -16,7 +16,7 @@
     <Platforms>iPhoneSimulator;iPhone</Platforms>
     <Configurations>Debug;Release</Configurations>
     <BaseOutputPath>bin\$(MSBuildProjectName)\</BaseOutputPath>
-    <BaseIntermediateOutputPath>obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+    <BaseIntermediateOutputPath>obj\FBAudienceNetworkSample.NuGet</BaseIntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,6 +67,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\source\AudienceNetwork\AudienceNetwork.csproj" />
+    <PackageReference Include="Xamarin.Facebook.AudienceNetwork.iOS" Version="6.9.0.1" />
   </ItemGroup>
 </Project>

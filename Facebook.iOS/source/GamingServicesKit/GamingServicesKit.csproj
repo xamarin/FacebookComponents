@@ -10,7 +10,7 @@
     <RootNamespace>Facebook.GamingServicesKit</RootNamespace>
     <AssemblyName>Xamarin.Facebook.GamingServicesKit</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>12.2.0.0</FileVersion>
+    <FileVersion>12.2.0.1</FileVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
@@ -25,7 +25,7 @@
     <PackageProjectUrl>https://go.microsoft.com/fwlink/?linkid=2007033</PackageProjectUrl>
     <PackageLicenseUrl>https://go.microsoft.com/fwlink/?linkid=2007140</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageVersion>12.2.0.0</PackageVersion>
+    <PackageVersion>12.2.0.1</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
