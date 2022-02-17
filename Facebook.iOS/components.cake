@@ -75,7 +75,7 @@ void SetArtifactsSamples ()
 {
 	AUDIENCE_NETWORK_ARTIFACT.Samples   = new [] { "FBAudienceNetworkSample" };
 	CORE_KIT_ARTIFACT.Samples           = null;
-	FACEBOOK_SDKS_ARTIFACT.Samples      = new [] { "HelloFacebook", "FacebookiOSSample" };
+	FACEBOOK_SDKS_ARTIFACT.Samples      = new [] { "HelloFacebook" };
 	LOGIN_KIT_ARTIFACT.Samples          = null;
 	SHARE_KIT_ARTIFACT.Samples          = null;
 	GAMINGSERVICES_KIT_ARTIFACT.Samples = null;
