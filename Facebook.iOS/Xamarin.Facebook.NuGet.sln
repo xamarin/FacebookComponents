@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples-using-NuGet", "samples-using-NuGet", "{EBA46879-FDD0-4283-B3E1-E9A98B5C5C21}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FBAudienceNetworkSample.NuGet", "samples\FBAudienceNetworkSample\FBAudienceNetworkSample.NuGet.csproj", "{610910FB-1D2E-4362-B9B3-E50A46FEFFFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhone = Debug|iPhone
@@ -18,6 +20,14 @@ Global
 		Release|iPhone = Release|iPhone
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{610910FB-1D2E-4362-B9B3-E50A46FEFFFC}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{610910FB-1D2E-4362-B9B3-E50A46FEFFFC}.Debug|iPhone.Build.0 = Debug|iPhone
+		{610910FB-1D2E-4362-B9B3-E50A46FEFFFC}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{610910FB-1D2E-4362-B9B3-E50A46FEFFFC}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{610910FB-1D2E-4362-B9B3-E50A46FEFFFC}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{610910FB-1D2E-4362-B9B3-E50A46FEFFFC}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{610910FB-1D2E-4362-B9B3-E50A46FEFFFC}.Release|iPhone.ActiveCfg = Release|iPhone
+		{610910FB-1D2E-4362-B9B3-E50A46FEFFFC}.Release|iPhone.Build.0 = Release|iPhone
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -26,5 +36,6 @@ Global
 		SolutionGuid = {4FD42E20-E429-47B1-B4CD-CE1AC4B93FA9}
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{610910FB-1D2E-4362-B9B3-E50A46FEFFFC} = {EBA46879-FDD0-4283-B3E1-E9A98B5C5C21}
 	EndGlobalSection
 EndGlobal

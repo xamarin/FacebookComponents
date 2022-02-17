@@ -9,9 +9,8 @@
     <RootNamespace>FBAudienceNetworkSample</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>FBAudienceNetworkSample</AssemblyName>
-    <OutputPath>bin\$(Platform)\$(Configuration)-NuGet</OutputPath>
-    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)-NuGet</IntermediateOutputPath>
-    <MSBuildProjectExtensionsPath>obj\$(MSBuildProjectName)\</MSBuildProjectExtensionsPath>
+    <BaseOutputPath>bin\$(MSBuildProjectName)\</BaseOutputPath>
+    <BaseIntermediateOutputPath>obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
@@ -114,6 +113,6 @@
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-568h%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Facebook.AudienceNetwork.iOS" Version="6.9.0" />
+    <PackageReference Include="Xamarin.Facebook.AudienceNetwork.iOS" Version="6.9.0.1" />
   </ItemGroup>
 </Project>
