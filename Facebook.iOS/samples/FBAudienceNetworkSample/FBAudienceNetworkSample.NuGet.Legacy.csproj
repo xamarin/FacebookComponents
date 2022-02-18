@@ -9,8 +9,6 @@
     <RootNamespace>FBAudienceNetworkSample</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>FBAudienceNetworkSample</AssemblyName>
-    <BaseOutputPath>bin\$(MSBuildProjectName)\</BaseOutputPath>
-    <BaseIntermediateOutputPath>obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">

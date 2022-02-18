@@ -10,8 +10,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <SupportedOSPlatformVersion>10.0</SupportedOSPlatformVersion>
-    <AssemblyName>FBAudienceNetworkSample</AssemblyName>
-    <RootNamespace>FBAudienceNetworkSample</RootNamespace>
+    <AssemblyName>HelloFacebook</AssemblyName>
+    <RootNamespace>HelloFacebook</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <Platforms>iPhoneSimulator;iPhone</Platforms>
     <Configurations>Debug;Release</Configurations>
@@ -54,17 +54,11 @@
     <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="AdsViewController.designer.cs">
-      <DependentUpon>AdsViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Update="NativeAdTemplateTableViewCell.designer.cs">
-      <DependentUpon>NativeAdTemplateTableViewCell.cs</DependentUpon>
-    </Compile>
-    <Compile Update="NativeAdTableViewCell.designer.cs">
-      <DependentUpon>NativeAdTableViewCell.cs</DependentUpon>
+    <Compile Update="ViewController.designer.cs">
+      <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Facebook.AudienceNetwork.iOS" Version="6.9.0.1" />
+    <PackageReference Include="Xamarin.Facebook.iOS" Version="12.2.0.1" />
   </ItemGroup>
 </Project>
