@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples-using-NuGet", "samp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FBAudienceNetworkSample.NuGet", "samples\FBAudienceNetworkSample\FBAudienceNetworkSample.NuGet.csproj", "{610910FB-1D2E-4362-B9B3-E50A46FEFFFC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloFacebook.NuGet", "samples\HelloFacebook\HelloFacebook.NuGet.csproj", "{A21F9095-03D8-4EC4-9D2B-454FDD2E2B2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhone = Debug|iPhone
@@ -28,6 +30,14 @@ Global
 		{610910FB-1D2E-4362-B9B3-E50A46FEFFFC}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{610910FB-1D2E-4362-B9B3-E50A46FEFFFC}.Release|iPhone.ActiveCfg = Release|iPhone
 		{610910FB-1D2E-4362-B9B3-E50A46FEFFFC}.Release|iPhone.Build.0 = Release|iPhone
+		{A21F9095-03D8-4EC4-9D2B-454FDD2E2B2A}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{A21F9095-03D8-4EC4-9D2B-454FDD2E2B2A}.Debug|iPhone.Build.0 = Debug|iPhone
+		{A21F9095-03D8-4EC4-9D2B-454FDD2E2B2A}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{A21F9095-03D8-4EC4-9D2B-454FDD2E2B2A}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{A21F9095-03D8-4EC4-9D2B-454FDD2E2B2A}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{A21F9095-03D8-4EC4-9D2B-454FDD2E2B2A}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{A21F9095-03D8-4EC4-9D2B-454FDD2E2B2A}.Release|iPhone.ActiveCfg = Release|iPhone
+		{A21F9095-03D8-4EC4-9D2B-454FDD2E2B2A}.Release|iPhone.Build.0 = Release|iPhone
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,5 +47,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{610910FB-1D2E-4362-B9B3-E50A46FEFFFC} = {EBA46879-FDD0-4283-B3E1-E9A98B5C5C21}
+		{A21F9095-03D8-4EC4-9D2B-454FDD2E2B2A} = {EBA46879-FDD0-4283-B3E1-E9A98B5C5C21}
 	EndGlobalSection
 EndGlobal

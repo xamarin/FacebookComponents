@@ -15,8 +15,6 @@
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <Platforms>iPhoneSimulator;iPhone</Platforms>
     <Configurations>Debug;Release</Configurations>
-    <BaseOutputPath>bin\$(MSBuildProjectName)\</BaseOutputPath>
-    <BaseIntermediateOutputPath>obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
