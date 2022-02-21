@@ -158,14 +158,18 @@ Task ("samples")
 	.IsDependentOn("libs")
 	.Does(() =>
 {
+	var msBuildSettings = new DotNetCoreMSBuildSettings { 
+			MaxCpuCount = 1,
+	};
+	var dotNetCoreBuildSettings = new DotNetCoreBuildSettings { 
+		Configuration = "Release",
+		MSBuildSettings = msBuildSettings
+	};
+	
 	foreach (var target in SAMPLES_TARGETS)
-		MSBuild(SOLUTION_PATH, c => {
-			c.Configuration = "Release";
-			c.Restore = true;
-			c.MaxCpuCount = 1;
-			c.Targets.Clear();
-			c.Targets.Add($@"samples-using-source\{target}");
-		});
+		msBuildSettings.Targets.Add($@"samples-using-source\{target}");
+	
+	DotNetCoreBuild(SOLUTION_PATH, dotNetCoreBuildSettings);
 });
 
 Task ("nuget")
