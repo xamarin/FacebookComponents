@@ -6,7 +6,7 @@
     <_FBSDKCoreKit_BasicsId>FBSDKCoreKit_Basics</_FBSDKCoreKit_BasicsId>
 	</PropertyGroup>
 
-	<ItemGroup Condition="('$(OutputType)' != 'Library' OR '$(IsAppExtension)' == 'True')">
+	<ItemGroup Condition="('$(OutputType)' != 'Library' OR '$(IsAppExtension)' == 'True') AND ('$(TargetFrameworks)' == '' AND '$(TargetFramework)' == '')">
     <_NativeReference Include="$(MSBuildThisFileDirectory)..\lib\xamarinios10\Facebook.CoreKit.resources\FBSDKCoreKit.xcframework">
       <_Id>$(_FBSDKCoreKitId)</_Id>
     </_NativeReference>
@@ -18,7 +18,9 @@
     </_NativeReference>
   </ItemGroup>
   
-  <Target Name="_ResolveNativeReferencesForFacebookCoreKit" BeforeTargets="ResolveNativeReferences">
+  <Target Name="_ResolveNativeReferencesForFacebookCoreKit" 
+          BeforeTargets="ResolveNativeReferences"
+          Condition="('$(TargetFrameworks)' == '' AND '$(TargetFramework)' == '') OR '$(IsBindingProject)' == 'true'">
     <ItemGroup>
       <_NativeReference Update="@(_NativeReference)" Condition="'%(_NativeReference._Id)' == '$(_FBSDKCoreKitId)' OR '%(_NativeReference._Id)' == '$(_FBAEMKitId)' OR '%(_NativeReference._Id)' == '$(_FBSDKCoreKit_BasicsId)'">
         <Kind>Framework</Kind>
