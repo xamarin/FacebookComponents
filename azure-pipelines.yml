@@ -26,7 +26,7 @@ resources:
 jobs:
   - template: .ci/build.yml@components
     parameters:
-      ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:    # The AzurePipelines-EO pool is only available in DevDiv
+      ${{ if and(eq(variables['System.TeamProject'], 'devdiv'), not(startsWith(variables['release'], 'true'))) }}:    # The AzurePipelines-EO pool is only available in DevDiv
         windowsAgentPoolName: AzurePipelines-EO
         windowsImage: ''  # Override the 'windows-latest' default settings
         windowsImageOverride: AzurePipelinesWindows2019compliant
