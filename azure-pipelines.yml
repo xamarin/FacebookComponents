@@ -9,6 +9,7 @@ variables:
   LegacyXamarinAndroidVsix: https://download.visualstudio.microsoft.com/download/pr/7372b89a-b719-426c-9916-c33cbc6c7a61/45c38957fdcacfbee95be95ee40c4f5a4cc9ace69416625ad26e2da83b176941/Xamarin.Android.Sdk-11.4.0.5.vsix
   BUILD_COMMIT: $(Build.SourceVersion)
   BUILD_NUMBER: $(Build.BuildNumber)
+  release: true
 
 resources:
   repositories:
@@ -25,8 +26,17 @@ resources:
 jobs:
   - template: .ci/build.yml@components
     parameters:
+      ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:    # The AzurePipelines-EO pool is only available in DevDiv
+        windowsAgentPoolName: AzurePipelines-EO
+        windowsImage: ''  # Override the 'windows-latest' default settings
+        windowsImageOverride: AzurePipelinesWindows2019compliant
+      ${{ if ne(variables['System.TeamProject'], 'devdiv') }}:
+        windowsImage: windows-2019
+    #  ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/') }}:  # We only need to ship from OSX builds
+      ${{ if startsWith(variables['release'], 'true') }}:
+        windowsAgentPoolName: ''
+        windowsImage: ''
       areaPath: 'DevDiv\VS Client - Runtime SDKs'
-      windowsImage: windows-2019
       xcode: 13.0
       initSteps:
         - task: UseDotNet@2
