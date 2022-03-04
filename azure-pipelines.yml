@@ -26,16 +26,16 @@ resources:
 jobs:
   - template: .ci/build.yml@components
     parameters:
-      ${{ if and(eq(variables['System.TeamProject'], 'devdiv'), not(startsWith(variables['release'], 'true'))) }}:    # The AzurePipelines-EO pool is only available in DevDiv
+      ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/') }}:  # We only need to ship from OSX builds so don't run on windows
+        windowsAgentPoolName: ''
+        windowsImage: ''
+      ${{ elseif eq(variables['System.TeamProject'], 'devdiv') }}:    # The AzurePipelines-EO pool is only available in DevDiv
         windowsAgentPoolName: AzurePipelines-EO
         windowsImage: ''  # Override the 'windows-latest' default settings
         windowsImageOverride: AzurePipelinesWindows2019compliant
-      ${{ if ne(variables['System.TeamProject'], 'devdiv') }}:
+      ${{ else }}:
         windowsImage: windows-2019
-    #  ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/') }}:  # We only need to ship from OSX builds
-      ${{ if startsWith(variables['release'], 'true') }}:
-        windowsAgentPoolName: ''
-        windowsImage: ''
+     
       areaPath: 'DevDiv\VS Client - Runtime SDKs'
       xcode: 13.0
       initSteps:
