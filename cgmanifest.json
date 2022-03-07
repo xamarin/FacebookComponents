@@ -6,7 +6,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-android-sdk",
 					"GroupId": "com.facebook.android",
-					"Version": "5.11.2"
+					"Version": "11.2.0"
 				}
 			}
 		},
@@ -16,7 +16,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-core",
 					"GroupId": "com.facebook.android",
-					"Version": "5.11.2"
+					"Version": "11.2.0"
 				}
 			}
 		},
@@ -26,7 +26,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-common",
 					"GroupId": "com.facebook.android",
-					"Version": "5.11.2"
+					"Version": "11.2.0"
 				}
 			}
 		},
@@ -36,7 +36,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-login",
 					"GroupId": "com.facebook.android",
-					"Version": "5.11.2"
+					"Version": "11.2.0"
 				}
 			}
 		},
@@ -46,17 +46,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-share",
 					"GroupId": "com.facebook.android",
-					"Version": "5.11.2"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Maven",
-				"Maven": {
-					"ArtifactId": "facebook-places",
-					"GroupId": "com.facebook.android",
-					"Version": "5.11.2"
+					"Version": "11.2.0"
 				}
 			}
 		},
@@ -66,7 +56,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-applinks",
 					"GroupId": "com.facebook.android",
-					"Version": "5.11.2"
+					"Version": "11.2.0"
 				}
 			}
 		},
@@ -76,7 +66,7 @@
 				"Maven": {
 					"ArtifactId": "facebook-messenger",
 					"GroupId": "com.facebook.android",
-					"Version": "5.11.2"
+					"Version": "11.2.0"
 				}
 			}
 		},
@@ -84,39 +74,9 @@
 			"Component": {
 				"Type": "Maven",
 				"Maven": {
-					"ArtifactId": "facebook-livestreaming",
+					"ArtifactId": "facebook-gamingservices",
 					"GroupId": "com.facebook.android",
-					"Version": "4.36.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Maven",
-				"Maven": {
-					"ArtifactId": "facebook-loginkit",
-					"GroupId": "com.facebook.android",
-					"Version": "4.36.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Maven",
-				"Maven": {
-					"ArtifactId": "facebook-marketing",
-					"GroupId": "com.facebook.android",
-					"Version": "5.11.2"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Maven",
-				"Maven": {
-					"ArtifactId": "account-kit-sdk",
-					"GroupId": "com.facebook.android",
-					"Version": "5.4.0"
+					"Version": "11.2.0"
 				}
 			}
 		},
@@ -126,90 +86,83 @@
 				"Maven": {
 					"ArtifactId": "audience-network-sdk",
 					"GroupId": "com.facebook.android",
-					"Version": "5.6.0"
+					"Version": "6.6.0"
+				}
+			}
+		},
+		{
+            "Component": {
+                "Type": "other",
+                "Other": {
+                    "Name": "FBAudienceNetwork",
+                    "Version": "6.9.0",
+                    "DownloadUrl": "https://developers.facebook.com/resources/FBAudienceNetwork-6.9.0.zip"
+                }
+            }
+        },
+		{
+			"Component": {
+				"Type": "Pod",
+				"Pod": {
+					"Name": "FBSDKCoreKit",
+					"Version": "12.2.0"
 				}
 			}
 		},
 		{
 			"Component": {
-				"Type": "Maven",
-				"Maven": {
-					"ArtifactId": "notifications",
-					"GroupId": "com.facebook.android",
-					"Version": "1.0.2"
+				"Type": "Pod",
+				"Pod": {
+					"Name": "FBSDKCoreKit_Basics",
+					"Version": "12.2.0"
 				}
 			}
 		},
 		{
-			"component": {
-				"type": "other",
-				"other": {
-					"name": "AccountKit",
-					"version": "5.4.0",
-					"downloadUrl": "https://github.com/facebook/facebook-objc-sdk/releases/download/v5.4.0/AccountKit.zip"
+			"Component": {
+				"Type": "Pod",
+				"Pod": {
+					"Name": "FBAEMKit",
+					"Version": "12.2.0"
 				}
 			}
 		},
 		{
-			"component": {
-				"type": "other",
-				"other": {
-					"name": "FBAudienceNetwork",
-					"version": "5.5.1",
-					"downloadUrl": "https://developers.facebook.com/resources/FBAudienceNetwork-5.5.1.zip"
+			"Component": {
+				"Type": "Pod",
+				"Pod": {
+					"Name": "FBSDKLoginKit",
+					"Version": "12.2.0"
 				}
 			}
 		},
 		{
-			"component": {
-				"type": "git",
-				"git": {
-					"name": "FBSDSKCoreKit",
-					"repositoryUrl": "https://github.com/facebook/facebook-objc-sdk.git",
-					"commitHash": "cf9e0d837f9596223b05cb25faf0edf54d6347a2"
+			"Component": {
+				"Type": "Pod",
+				"Pod": {
+					"Name": "FBSDKShareKit",
+					"Version": "12.2.0"
 				}
 			}
 		},
 		{
-			"component": {
-				"type": "git",
-				"git": {
-					"name": "FBSDSKLoginKit",
-					"repositoryUrl": "https://github.com/facebook/facebook-objc-sdk.git",
-					"commitHash": "cf9e0d837f9596223b05cb25faf0edf54d6347a2"
+			"Component": {
+				"Type": "Pod",
+				"Pod": {
+					"Name": "FBSDKGamingServicesKit",
+					"Version": "12.2.0"
 				}
 			}
 		},
 		{
-			"component": {
-				"type": "other",
-				"other": {
-					"name": "FBSDSKMarketingKit",
-					"version": "5.5.0",
-					"downloadUrl": "https://github.com/facebook/facebook-objc-sdk/releases/download/v5.5.0/FBSDKMarketingKit.zip"
+			"Component": {
+				"Type": "Pod",
+				"Pod": {
+					"Name": "FacebookGamingServices",
+					"Version": "12.2.0"
 				}
 			}
-		},
-		{
-			"component": {
-				"type": "git",
-				"git": {
-					"name": "FBSDSKPlacesKit",
-					"repositoryUrl": "https://github.com/facebook/facebook-objc-sdk.git",
-					"commitHash": "cf9e0d837f9596223b05cb25faf0edf54d6347a2"
-				}
-			}
-		},
-		{
-			"component": {
-				"type": "git",
-				"git": {
-					"name": "FBSDSKShareKit",
-					"repositoryUrl": "https://github.com/facebook/facebook-objc-sdk.git",
-					"commitHash": "cf9e0d837f9596223b05cb25faf0edf54d6347a2"
-				}
-			}
-		}
+		}		
 	],
 	"Version": 1
 }
