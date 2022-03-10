@@ -3,6 +3,10 @@ using Foundation;
 using ObjCRuntime;
 using UIKit;
 
+#if !NET
+using NativeHandle = System.IntPtr;
+#endif
+
 namespace Facebook.GamingServicesKit {
 
 	// typedef void (^FBSDKGamingServiceCompletionHandler)(BOOL, NSError * _Nullable);
@@ -70,7 +74,7 @@ namespace Facebook.GamingServicesKit {
 
 		// -(instancetype _Nonnull)initWithImage:(UIImage * _Nonnull)image caption:(NSString * _Nullable)caption shouldLaunchMediaDialog:(BOOL)shouldLaunchMediaDialog;
 		[Export ("initWithImage:caption:shouldLaunchMediaDialog:")]
-		IntPtr Constructor (UIImage image, [NullAllowed] string caption, bool shouldLaunchMediaDialog);
+		NativeHandle Constructor (UIImage image, [NullAllowed] string caption, bool shouldLaunchMediaDialog);
 	}
 
 	// @interface FBSDKGamingVideoUploader : NSObject
@@ -104,6 +108,6 @@ namespace Facebook.GamingServicesKit {
 
 		// -(instancetype _Nonnull)initWithVideoURL:(NSURL * _Nonnull)videoURL caption:(NSString * _Nullable)caption;
 		[Export ("initWithVideoURL:caption:")]
-		IntPtr Constructor (NSUrl videoUrl, [NullAllowed] string caption);
+		NativeHandle Constructor (NSUrl videoUrl, [NullAllowed] string caption);
 	}
 }
