@@ -145,6 +145,7 @@ Task ("libs")
 	};
 	var dotNetCoreBuildSettings = new DotNetCoreBuildSettings { 
 		Configuration = "Release",
+		Verbosity = DotNetCoreVerbosity.Diagnostic,
 		MSBuildSettings = msBuildSettings
 	};
 	
@@ -163,6 +164,7 @@ Task ("samples")
 	};
 	var dotNetCoreBuildSettings = new DotNetCoreBuildSettings { 
 		Configuration = "Release",
+		Verbosity = DotNetCoreVerbosity.Diagnostic,
 		MSBuildSettings = msBuildSettings
 	};
 	
@@ -186,6 +188,7 @@ Task ("nuget")
 		NoRestore = true,
 		NoBuild = true,
 		OutputDirectory = "./output/",
+		Verbosity = DotNetCoreVerbosity.Diagnostic,
 		MSBuildSettings = msBuildSettings
 	};
 
