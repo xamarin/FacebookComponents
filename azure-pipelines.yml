@@ -54,6 +54,15 @@ jobs:
         - pwsh: |
             dotnet tool install --global boots
             boots $(LegacyXamarinAndroidPkg)
+          displayName: Install .NET boots tool
+          condition: eq(variables['System.JobName'], 'macos')
+        - pwsh: |
+            dotnet workload install android
+          displayName: Install .NET 6 Android Workload
+          condition: ne(variables['System.JobName'], 'linux')
+        - pwsh: |
+            dotnet workload install ios
+          displayName: Install .NET 6 iOS Workload
           condition: eq(variables['System.JobName'], 'macos')
 
   - ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:
