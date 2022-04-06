@@ -36,7 +36,7 @@ jobs:
         windowsImage: windows-2019
      
       areaPath: 'DevDiv\VS Client - Runtime SDKs'
-      xcode: 13.0
+      xcode: 13.2
       initSteps:
         - task: UseDotNet@2
           displayName: install .NET $(DotNetVersion)
