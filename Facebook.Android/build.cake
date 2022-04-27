@@ -1,7 +1,7 @@
 #addin nuget:?package=Cake.FileHelpers&version=3.2.1
 
-var FB_VERSION = "11.2.0";
-var NUGET_VERSION = "11.2.0.1";
+var FB_VERSION = "13.1.0";
+var NUGET_VERSION = "13.1.0";
 
 var BUILD_COMMIT = EnvironmentVariable("BUILD_COMMIT") ?? "DEV";
 var BUILD_NUMBER = EnvironmentVariable("BUILD_NUMBER") ?? "DEBUG";
