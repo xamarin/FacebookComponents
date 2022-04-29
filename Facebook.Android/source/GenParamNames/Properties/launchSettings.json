@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "WSL": {
+      "commandName": "WSL2",
+      "environmentVariables": {},
+      "distributionName": ""
+    },
+    "GenParamNames Core": {
+      "commandName": "Project",
+      "commandLineArgs": "-o ../facebook-core/transforms/Metadata-Names.xml -i ../../externals/facebook-core-docs/com",
+      "workingDirectory": "C:\\Dev\\Sources\\Xamarin.FacebookComponents.MOS\\Facebook.Android\\source\\GenParamNames"
+    }
+  }
+}
