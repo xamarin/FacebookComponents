@@ -1014,9 +1014,9 @@
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='NativeAppCallAttachmentStore']/method[@name='createAttachment' and count(parameter)=2 and parameter[1][@type='java.util.UUID'] and parameter[2][@type='android.net.Uri']]/parameter[2]"
     name="managedName">attachmentUri</attr>
-  <attr
+  <!--<attr
     path="/api/package[@name='com.facebook.internal']/class[@name='NativeAppCallAttachmentStore']/method[@name='addAttachments' and count(parameter)=1 and parameter[1][starts-with(@type,'java.util.Collection&lt;NativeAppCallAttachmentStore.Attachment&gt;')]]/parameter[1]"
-    name="managedName">attachments</attr>
+    name="managedName">attachments</attr>-->
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='NativeAppCallAttachmentStore']/method[@name='cleanupAttachmentsForCall' and count(parameter)=1 and parameter[1][@type='java.util.UUID']]/parameter[1]"
     name="managedName">callId</attr>
@@ -1059,7 +1059,7 @@
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol']/method[@name='validateServiceIntent' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.content.Intent'] and parameter[3][@type='com.facebook.internal.NativeProtocol.NativeAppInfo']]/parameter[3]"
     name="managedName">appInfo</attr>
-  <attr
+  <!--<attr
     path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol']/method[@name='createInstagramIntent' and count(parameter)=13 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String'] and parameter[3][starts-with(@type,'java.util.Collection&lt;java.lang.String&gt;')] and parameter[4][@type='java.lang.String'] and parameter[5][@type='boolean'] and parameter[6][@type='boolean'] and parameter[7][@type='com.facebook.login/DefaultAudience'] and parameter[8][@type='java.lang.String'] and parameter[9][@type='java.lang.String'] and parameter[10][@type='java.lang.String'] and parameter[11][@type='boolean'] and parameter[12][@type='boolean'] and parameter[13][@type='boolean']]/parameter[1]"
     name="managedName">context</attr>
   <attr
@@ -1097,8 +1097,8 @@
     name="managedName">isFamilyLogin</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol']/method[@name='createInstagramIntent' and count(parameter)=13 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String'] and parameter[3][starts-with(@type,'java.util.Collection&lt;java.lang.String&gt;')] and parameter[4][@type='java.lang.String'] and parameter[5][@type='boolean'] and parameter[6][@type='boolean'] and parameter[7][@type='com.facebook.login/DefaultAudience'] and parameter[8][@type='java.lang.String'] and parameter[9][@type='java.lang.String'] and parameter[10][@type='java.lang.String'] and parameter[11][@type='boolean'] and parameter[12][@type='boolean'] and parameter[13][@type='boolean']]/parameter[13]"
-    name="managedName">shouldSkipAccountDedupe</attr>
-  <attr
+    name="managedName">shouldSkipAccountDedupe</attr>-->
+  <!--<attr
     path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol']/method[@name='createProxyAuthIntents' and count(parameter)=17 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String'] and parameter[3][starts-with(@type,'java.util.Collection&lt;java.lang.String&gt;')] and parameter[4][@type='java.lang.String'] and parameter[5][@type='boolean'] and parameter[6][@type='boolean'] and parameter[7][@type='com.facebook.login/DefaultAudience'] and parameter[8][@type='java.lang.String'] and parameter[9][@type='java.lang.String'] and parameter[10][@type='boolean'] and parameter[11][@type='java.lang.String'] and parameter[12][@type='boolean'] and parameter[13][@type='boolean'] and parameter[14][@type='boolean'] and parameter[15][@type='java.lang.String'] and parameter[16][@type='java.lang.String'] and parameter[17][@type='java.lang.String']]/parameter[1]"
     name="managedName">context</attr>
   <attr
@@ -1148,7 +1148,7 @@
     name="managedName">codeChallenge</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol']/method[@name='createProxyAuthIntents' and count(parameter)=17 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String'] and parameter[3][starts-with(@type,'java.util.Collection&lt;java.lang.String&gt;')] and parameter[4][@type='java.lang.String'] and parameter[5][@type='boolean'] and parameter[6][@type='boolean'] and parameter[7][@type='com.facebook.login/DefaultAudience'] and parameter[8][@type='java.lang.String'] and parameter[9][@type='java.lang.String'] and parameter[10][@type='boolean'] and parameter[11][@type='java.lang.String'] and parameter[12][@type='boolean'] and parameter[13][@type='boolean'] and parameter[14][@type='boolean'] and parameter[15][@type='java.lang.String'] and parameter[16][@type='java.lang.String'] and parameter[17][@type='java.lang.String']]/parameter[17]"
-    name="managedName">codeChallengeMethod</attr>
+    name="managedName">codeChallengeMethod</attr>-->
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol']/method[@name='isVersionCompatibleWithBucketedIntent' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]"
     name="managedName">version</attr>
@@ -1225,31 +1225,25 @@
     path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol']/method[@name='getLatestAvailableProtocolVersionForService' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]"
     name="managedName">minimumVersion</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol']/method[@name='getLatestAvailableProtocolVersionForAction' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='IntArray']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol']/method[@name='getLatestAvailableProtocolVersionForAction' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int[]']]/parameter[1]"
     name="managedName">action</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol']/method[@name='getLatestAvailableProtocolVersionForAction' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='IntArray']]/parameter[2]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol']/method[@name='getLatestAvailableProtocolVersionForAction' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int[]']]/parameter[2]"
     name="managedName">versionSpec</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol']/method[@name='computeLatestAvailableVersionFromVersionSpec' and count(parameter)=3 and parameter[1][starts-with(@type,'java.util.TreeSet&lt;java.lang.Integer&gt;')] and parameter[2][@type='int'] and parameter[3][@type='IntArray']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol']/method[@name='computeLatestAvailableVersionFromVersionSpec' and count(parameter)=3 and parameter[1][starts-with(@type,'java.util.TreeSet&lt;java.lang.Integer&gt;')] and parameter[2][@type='int'] and parameter[3][@type='int[]']]/parameter[1]"
     name="managedName">allAvailableFacebookAppVersions</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol']/method[@name='computeLatestAvailableVersionFromVersionSpec' and count(parameter)=3 and parameter[1][starts-with(@type,'java.util.TreeSet&lt;java.lang.Integer&gt;')] and parameter[2][@type='int'] and parameter[3][@type='IntArray']]/parameter[2]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol']/method[@name='computeLatestAvailableVersionFromVersionSpec' and count(parameter)=3 and parameter[1][starts-with(@type,'java.util.TreeSet&lt;java.lang.Integer&gt;')] and parameter[2][@type='int'] and parameter[3][@type='int[]']]/parameter[2]"
     name="managedName">latestSdkVersion</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol']/method[@name='computeLatestAvailableVersionFromVersionSpec' and count(parameter)=3 and parameter[1][starts-with(@type,'java.util.TreeSet&lt;java.lang.Integer&gt;')] and parameter[2][@type='int'] and parameter[3][@type='IntArray']]/parameter[3]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol']/method[@name='computeLatestAvailableVersionFromVersionSpec' and count(parameter)=3 and parameter[1][starts-with(@type,'java.util.TreeSet&lt;java.lang.Integer&gt;')] and parameter[2][@type='int'] and parameter[3][@type='int[]']]/parameter[3]"
     name="managedName">versionSpec</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol.ProtocolVersionQueryResult.Companion']/method[@name='create' and count(parameter)=2 and parameter[1][@type='com.facebook.internal.NativeProtocol.NativeAppInfo'] and parameter[2][@type='int']]/parameter[1]"
     name="managedName">nativeAppInfo</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol.ProtocolVersionQueryResult.Companion']/method[@name='create' and count(parameter)=2 and parameter[1][@type='com.facebook.internal.NativeProtocol.NativeAppInfo'] and parameter[2][@type='int']]/parameter[2]"
-    name="managedName">protocolVersion</attr>
-  <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol.ProtocolVersionQueryResult']/method[@name='setAppInfo' and count(parameter)=1 and parameter[1][@type='com.facebook.internal.NativeProtocol.NativeAppInfo']]/parameter[1]"
-    name="managedName">appInfo</attr>
-  <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='NativeProtocol.ProtocolVersionQueryResult']/method[@name='setProtocolVersion' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]"
     name="managedName">protocolVersion</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='ServerProtocol']/method[@name='getGraphUrlBaseForSubdomain' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
@@ -1294,13 +1288,13 @@
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='sha1hash' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='sha1hash' and count(parameter)=1 and parameter[1][@type='ByteArray']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='sha1hash' and count(parameter)=1 and parameter[1][@type='byte[]']]/parameter[1]"
     name="managedName">bytes</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='sha256hash' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='sha256hash' and count(parameter)=1 and parameter[1][@type='ByteArray']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='sha256hash' and count(parameter)=1 and parameter[1][@type='byte[]']]/parameter[1]"
     name="managedName">bytes</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='buildUri' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='android.os.Bundle']]/parameter[1]"
@@ -1396,10 +1390,10 @@
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='clearFacebookCookies' and count(parameter)=1 and parameter[1][@type='android.content.Context']]/parameter[1]"
     name="managedName">context</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='logd' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='Exception']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='logd' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.Exception']]/parameter[1]"
     name="managedName">tag</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='logd' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='Exception']]/parameter[2]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='logd' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.Exception']]/parameter[2]"
     name="managedName">e</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='logd' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String']]/parameter[1]"
@@ -1416,12 +1410,12 @@
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='logd' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.lang.Throwable']]/parameter[3]"
     name="managedName">t</attr>
-  <attr
+  <!--<attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='areObjectsEqual' and count(parameter)=2 and parameter[1][@type='com.facebook.internal.Utility#areObjectsEqual(T,T)'] and parameter[2][@type='com.facebook.internal.Utility#areObjectsEqual(T,T)']]/parameter[1]"
     name="managedName">a</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='areObjectsEqual' and count(parameter)=2 and parameter[1][@type='com.facebook.internal.Utility#areObjectsEqual(T,T)'] and parameter[2][@type='com.facebook.internal.Utility#areObjectsEqual(T,T)']]/parameter[2]"
-    name="managedName">b</attr>
+    name="managedName">b</attr>-->
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='safeGetStringFromResponse' and count(parameter)=2 and parameter[1][@type='org.json.JSONObject'] and parameter[2][@type='java.lang.String']]/parameter[1]"
     name="managedName">response</attr>
@@ -1446,9 +1440,9 @@
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='jsonArrayToSet' and count(parameter)=1 and parameter[1][@type='org.json.JSONArray']]/parameter[1]"
     name="managedName">jsonArray</attr>
-  <attr
+  <!--<attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='mapToJsonStr' and count(parameter)=1 and parameter[1][starts-with(@type,'java.util.Map&lt;String, String&gt;')]]/parameter[1]"
-    name="managedName">map</attr>
+    name="managedName">map</attr>-->
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='jsonStrToMap' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">str</attr>
@@ -1492,13 +1486,13 @@
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='getMethodQuietly' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String'] and parameter[3][starts-with(@type,'java.lang.Class&lt;?&gt;')]]/parameter[3]"
     name="managedName">parameterTypes</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='invokeMethodQuietly' and count(parameter)=3 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.reflect.Method'] and parameter[3][@type='java.lang.Object']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='invokeMethodQuietly' and count(parameter)=3 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.reflect.Method'] and parameter[3][@type='java.lang.Object...']]/parameter[1]"
     name="managedName">receiver</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='invokeMethodQuietly' and count(parameter)=3 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.reflect.Method'] and parameter[3][@type='java.lang.Object']]/parameter[2]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='invokeMethodQuietly' and count(parameter)=3 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.reflect.Method'] and parameter[3][@type='java.lang.Object...']]/parameter[2]"
     name="managedName">method</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='invokeMethodQuietly' and count(parameter)=3 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.reflect.Method'] and parameter[3][@type='java.lang.Object']]/parameter[3]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='invokeMethodQuietly' and count(parameter)=3 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.reflect.Method'] and parameter[3][@type='java.lang.Object...']]/parameter[3]"
     name="managedName">args</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='getActivityName' and count(parameter)=1 and parameter[1][@type='android.content.Context']]/parameter[1]"
@@ -1527,21 +1521,21 @@
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='getBundleLongAsDate' and count(parameter)=3 and parameter[1][@type='android.os.Bundle'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.util.Date']]/parameter[3]"
     name="managedName">dateBase</attr>
-  <attr
+  <!--<attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='writeStringMapToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][starts-with(@type,'java.util.Map&lt;String, String&gt;')]]/parameter[1]"
     name="managedName">parcel</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='writeStringMapToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][starts-with(@type,'java.util.Map&lt;String, String&gt;')]]/parameter[2]"
-    name="managedName">map</attr>
+    name="managedName">map</attr>-->
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='readStringMapFromParcel' and count(parameter)=1 and parameter[1][@type='android.os.Parcel']]/parameter[1]"
     name="managedName">parcel</attr>
-  <attr
+  <!--<attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='writeNonnullStringMapToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][starts-with(@type,'java.util.Map&lt;String, String&gt;')]]/parameter[1]"
     name="managedName">parcel</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='writeNonnullStringMapToParcel' and count(parameter)=2 and parameter[1][@type='android.os.Parcel'] and parameter[2][starts-with(@type,'java.util.Map&lt;String, String&gt;')]]/parameter[2]"
-    name="managedName">map</attr>
+    name="managedName">map</attr>-->
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Utility']/method[@name='readNonnullStringMapFromParcel' and count(parameter)=1 and parameter[1][@type='android.os.Parcel']]/parameter[1]"
     name="managedName">parcel</attr>
@@ -1584,36 +1578,36 @@
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Validate']/method[@name='notNull' and count(parameter)=2 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.String']]/parameter[2]"
     name="managedName">name</attr>
-  <attr
+  <!--<attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Validate']/method[@name='notEmpty' and count(parameter)=2 and parameter[1][starts-with(@type,'java.util.Collection&lt;Validate.html#notEmpty(java.util.Collection,String)&gt;')] and parameter[2][@type='java.lang.String']]/parameter[1]"
     name="managedName">container</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Validate']/method[@name='notEmpty' and count(parameter)=2 and parameter[1][starts-with(@type,'java.util.Collection&lt;Validate.html#notEmpty(java.util.Collection,String)&gt;')] and parameter[2][@type='java.lang.String']]/parameter[2]"
-    name="managedName">name</attr>
+    name="managedName">name</attr>-->
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Validate']/method[@name='notEmpty' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String']]/parameter[1]"
     name="managedName">arg</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Validate']/method[@name='notEmpty' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String']]/parameter[2]"
     name="managedName">name</attr>
-  <attr
+  <!--<attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Validate']/method[@name='containsNoNulls' and count(parameter)=2 and parameter[1][starts-with(@type,'java.util.Collection&lt;Validate.html#containsNoNulls(java.util.Collection,String)&gt;')] and parameter[2][@type='java.lang.String']]/parameter[1]"
     name="managedName">container</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Validate']/method[@name='containsNoNulls' and count(parameter)=2 and parameter[1][starts-with(@type,'java.util.Collection&lt;Validate.html#containsNoNulls(java.util.Collection,String)&gt;')] and parameter[2][@type='java.lang.String']]/parameter[2]"
-    name="managedName">name</attr>
-  <attr
+    name="managedName">name</attr>-->
+  <!--<attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Validate']/method[@name='containsNoNullOrEmpty' and count(parameter)=2 and parameter[1][starts-with(@type,'java.util.Collection&lt;java.lang.String&gt;')] and parameter[2][@type='java.lang.String']]/parameter[1]"
     name="managedName">container</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Validate']/method[@name='containsNoNullOrEmpty' and count(parameter)=2 and parameter[1][starts-with(@type,'java.util.Collection&lt;java.lang.String&gt;')] and parameter[2][@type='java.lang.String']]/parameter[2]"
-    name="managedName">name</attr>
-  <attr
+    name="managedName">name</attr>-->
+  <!--<attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Validate']/method[@name='notEmptyAndContainsNoNulls' and count(parameter)=2 and parameter[1][starts-with(@type,'java.util.Collection&lt;Validate.html#notEmptyAndContainsNoNulls(java.util.Collection,String)&gt;')] and parameter[2][@type='java.lang.String']]/parameter[1]"
     name="managedName">container</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Validate']/method[@name='notEmptyAndContainsNoNulls' and count(parameter)=2 and parameter[1][starts-with(@type,'java.util.Collection&lt;Validate.html#notEmptyAndContainsNoNulls(java.util.Collection,String)&gt;')] and parameter[2][@type='java.lang.String']]/parameter[2]"
-    name="managedName">name</attr>
+    name="managedName">name</attr>-->
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Validate']/method[@name='notNullOrEmpty' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String']]/parameter[1]"
     name="managedName">arg</attr>
@@ -1621,13 +1615,13 @@
     path="/api/package[@name='com.facebook.internal']/class[@name='Validate']/method[@name='notNullOrEmpty' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String']]/parameter[2]"
     name="managedName">name</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='Validate']/method[@name='oneOf' and count(parameter)=3 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.lang.Object']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='Validate']/method[@name='oneOf' and count(parameter)=3 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.lang.Object...']]/parameter[1]"
     name="managedName">arg</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='Validate']/method[@name='oneOf' and count(parameter)=3 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.lang.Object']]/parameter[2]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='Validate']/method[@name='oneOf' and count(parameter)=3 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.lang.Object...']]/parameter[2]"
     name="managedName">name</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='Validate']/method[@name='oneOf' and count(parameter)=3 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.lang.Object']]/parameter[3]"
+    path="/api/package[@name='com.facebook.internal']/class[@name='Validate']/method[@name='oneOf' and count(parameter)=3 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.lang.Object...']]/parameter[3]"
     name="managedName">values</attr>
   <attr
     path="/api/package[@name='com.facebook.internal']/class[@name='Validate']/method[@name='hasInternetPermissions' and count(parameter)=1 and parameter[1][@type='android.content.Context']]/parameter[1]"
@@ -1687,23 +1681,23 @@
     path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='CodelessLoggingEventListener.AutoLoggingOnItemClickListener']/method[@name='setSupportCodelessLogging' and count(parameter)=1 and parameter[1][@type='boolean']]/parameter[1]"
     name="managedName">supportCodelessLogging</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='CodelessLoggingEventListener']/method[@name='getOnClickListener' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.codeless.internal/EventBinding'] and parameter[2][@type='android.view.View'] and parameter[3][@type='android.view.View']]/parameter[1]"
+    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='CodelessLoggingEventListener']/method[@name='getOnClickListener' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.codeless.internal.EventBinding'] and parameter[2][@type='android.view.View'] and parameter[3][@type='android.view.View']]/parameter[1]"
     name="managedName">mapping</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='CodelessLoggingEventListener']/method[@name='getOnClickListener' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.codeless.internal/EventBinding'] and parameter[2][@type='android.view.View'] and parameter[3][@type='android.view.View']]/parameter[2]"
+    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='CodelessLoggingEventListener']/method[@name='getOnClickListener' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.codeless.internal.EventBinding'] and parameter[2][@type='android.view.View'] and parameter[3][@type='android.view.View']]/parameter[2]"
     name="managedName">rootView</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='CodelessLoggingEventListener']/method[@name='getOnClickListener' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.codeless.internal/EventBinding'] and parameter[2][@type='android.view.View'] and parameter[3][@type='android.view.View']]/parameter[3]"
+    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='CodelessLoggingEventListener']/method[@name='getOnClickListener' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.codeless.internal.EventBinding'] and parameter[2][@type='android.view.View'] and parameter[3][@type='android.view.View']]/parameter[3]"
     name="managedName">hostView</attr>
-  <attr
-    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='CodelessLoggingEventListener']/method[@name='getOnItemClickListener' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.codeless.internal/EventBinding'] and parameter[2][starts-with(@type,'android.view.View&lt;?&gt;')] and parameter[3][starts-with(@type,'android.widget.AdapterView&lt;?&gt;')]]/parameter[1]"
+  <!--<attr
+    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='CodelessLoggingEventListener']/method[@name='getOnItemClickListener' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.codeless.internal.EventBinding'] and parameter[2][@type = android.view.View'] and parameter[3][@type = android.widget.AdapterView']]/parameter[1]"
     name="managedName">mapping</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='CodelessLoggingEventListener']/method[@name='getOnItemClickListener' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.codeless.internal/EventBinding'] and parameter[2][starts-with(@type,'android.view.View&lt;?&gt;')] and parameter[3][starts-with(@type,'android.widget.AdapterView&lt;?&gt;')]]/parameter[2]"
+    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='CodelessLoggingEventListener']/method[@name='getOnItemClickListener' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.codeless.internal.EventBinding'] and parameter[2][@type = android.view.View'] and parameter[3][@type = android.widget.AdapterView']]/parameter[2]"
     name="managedName">rootView</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='CodelessLoggingEventListener']/method[@name='getOnItemClickListener' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.codeless.internal/EventBinding'] and parameter[2][starts-with(@type,'android.view.View&lt;?&gt;')] and parameter[3][starts-with(@type,'android.widget.AdapterView&lt;?&gt;')]]/parameter[3]"
-    name="managedName">hostView</attr>
+    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='CodelessLoggingEventListener']/method[@name='getOnItemClickListener' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.codeless.internal.EventBinding'] and parameter[2][@type = android.view.View'] and parameter[3][@type = android.widget.AdapterView']]/parameter[3]"
+    name="managedName">hostView</attr>-->
   <attr
     path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='CodelessManager']/method[@name='onActivityResumed' and count(parameter)=1 and parameter[1][@type='android.app.Activity']]/parameter[1]"
     name="managedName">activity</attr>
@@ -1717,44 +1711,44 @@
     path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='RCTCodelessLoggingEventListener.AutoLoggingOnTouchListener']/method[@name='setSupportCodelessLogging' and count(parameter)=1 and parameter[1][@type='boolean']]/parameter[1]"
     name="managedName">supportCodelessLogging</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='RCTCodelessLoggingEventListener']/method[@name='getOnTouchListener' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.codeless.internal/EventBinding'] and parameter[2][@type='android.view.View'] and parameter[3][@type='android.view.View']]/parameter[1]"
+    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='RCTCodelessLoggingEventListener']/method[@name='getOnTouchListener' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.codeless.internal.EventBinding'] and parameter[2][@type='android.view.View'] and parameter[3][@type='android.view.View']]/parameter[1]"
     name="managedName">mapping</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='RCTCodelessLoggingEventListener']/method[@name='getOnTouchListener' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.codeless.internal/EventBinding'] and parameter[2][@type='android.view.View'] and parameter[3][@type='android.view.View']]/parameter[2]"
+    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='RCTCodelessLoggingEventListener']/method[@name='getOnTouchListener' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.codeless.internal.EventBinding'] and parameter[2][@type='android.view.View'] and parameter[3][@type='android.view.View']]/parameter[2]"
     name="managedName">rootView</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='RCTCodelessLoggingEventListener']/method[@name='getOnTouchListener' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.codeless.internal/EventBinding'] and parameter[2][@type='android.view.View'] and parameter[3][@type='android.view.View']]/parameter[3]"
+    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='RCTCodelessLoggingEventListener']/method[@name='getOnTouchListener' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.codeless.internal.EventBinding'] and parameter[2][@type='android.view.View'] and parameter[3][@type='android.view.View']]/parameter[3]"
     name="managedName">hostView</attr>
   <attr
     path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='ViewIndexer.Companion']/method[@name='sendToServerUnityInstance' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">tree</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='ViewIndexer.Companion']/method[@name='buildAppIndexingRequest' and count(parameter)=4 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.facebook.appevents.AccessToken'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='ViewIndexer.Companion']/method[@name='buildAppIndexingRequest' and count(parameter)=4 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.facebook.AccessToken'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='java.lang.String']]/parameter[1]"
     name="managedName">appIndex</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='ViewIndexer.Companion']/method[@name='buildAppIndexingRequest' and count(parameter)=4 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.facebook.appevents.AccessToken'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='java.lang.String']]/parameter[2]"
+    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='ViewIndexer.Companion']/method[@name='buildAppIndexingRequest' and count(parameter)=4 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.facebook.AccessToken'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='java.lang.String']]/parameter[2]"
     name="managedName">accessToken</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='ViewIndexer.Companion']/method[@name='buildAppIndexingRequest' and count(parameter)=4 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.facebook.appevents.AccessToken'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='java.lang.String']]/parameter[3]"
+    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='ViewIndexer.Companion']/method[@name='buildAppIndexingRequest' and count(parameter)=4 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.facebook.AccessToken'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='java.lang.String']]/parameter[3]"
     name="managedName">appId</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='ViewIndexer.Companion']/method[@name='buildAppIndexingRequest' and count(parameter)=4 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.facebook.appevents.AccessToken'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='java.lang.String']]/parameter[4]"
+    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='ViewIndexer.Companion']/method[@name='buildAppIndexingRequest' and count(parameter)=4 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.facebook.AccessToken'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='java.lang.String']]/parameter[4]"
     name="managedName">requestType</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='ViewIndexer']/method[@name='processRequest' and count(parameter)=2 and parameter[1][@type='com.facebook.appevents.GraphRequest'] and parameter[2][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='ViewIndexer']/method[@name='processRequest' and count(parameter)=2 and parameter[1][@type='com.facebook.GraphRequest'] and parameter[2][@type='java.lang.String']]/parameter[1]"
     name="managedName">request</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='ViewIndexer']/method[@name='processRequest' and count(parameter)=2 and parameter[1][@type='com.facebook.appevents.GraphRequest'] and parameter[2][@type='java.lang.String']]/parameter[2]"
+    path="/api/package[@name='com.facebook.appevents.codeless']/class[@name='ViewIndexer']/method[@name='processRequest' and count(parameter)=2 and parameter[1][@type='com.facebook.GraphRequest'] and parameter[2][@type='java.lang.String']]/parameter[2]"
     name="managedName">currentDigest</attr>
-  <attr
+  <!--<attr
     path="/api/package[@name='com.facebook.appevents.eventdeactivation']/class[@name='EventDeactivationManager']/method[@name='processEvents' and count(parameter)=1 and parameter[1][starts-with(@type,'java.util.List&lt;../AppEvent&gt;')]]/parameter[1]"
-    name="managedName">events</attr>
-  <attr
+    name="managedName">events</attr>-->
+  <!--<attr
     path="/api/package[@name='com.facebook.appevents.eventdeactivation']/class[@name='EventDeactivationManager']/method[@name='processDeprecatedParameters' and count(parameter)=2 and parameter[1][starts-with(@type,'java.util.Map&lt;String, String&gt;')] and parameter[2][@type='java.lang.String']]/parameter[1]"
     name="managedName">parameters</attr>
   <attr
     path="/api/package[@name='com.facebook.appevents.eventdeactivation']/class[@name='EventDeactivationManager']/method[@name='processDeprecatedParameters' and count(parameter)=2 and parameter[1][starts-with(@type,'java.util.Map&lt;String, String&gt;')] and parameter[2][@type='java.lang.String']]/parameter[2]"
-    name="managedName">eventName</attr>
+    name="managedName">eventName</attr>-->
   <attr
     path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseAutoLogger']/method[@name='startIapLogging' and count(parameter)=1 and parameter[1][@type='android.content.Context']]/parameter[1]"
     name="managedName">context</attr>
@@ -1776,18 +1770,18 @@
   <attr
     path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseEventManager']/method[@name='asInterface' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='android.os.IBinder']]/parameter[2]"
     name="managedName">service</attr>
-  <attr
-    path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseEventManager']/method[@name='getSkuDetails' and count(parameter)=4 and parameter[1][@type='android.content.Context'] and parameter[2][@type='ArrayList'] and parameter[3][@type='java.lang.Object'] and parameter[4][@type='boolean']]/parameter[1]"
+  <!--<attr
+    path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseEventManager']/method[@name='getSkuDetails' and count(parameter)=4 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.util.ArrayList'] and parameter[3][@type='java.lang.Object'] and parameter[4][@type='boolean']]/parameter[1]"
     name="managedName">context</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseEventManager']/method[@name='getSkuDetails' and count(parameter)=4 and parameter[1][@type='android.content.Context'] and parameter[2][@type='ArrayList'] and parameter[3][@type='java.lang.Object'] and parameter[4][@type='boolean']]/parameter[2]"
+    path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseEventManager']/method[@name='getSkuDetails' and count(parameter)=4 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.util.ArrayList'] and parameter[3][@type='java.lang.Object'] and parameter[4][@type='boolean']]/parameter[2]"
     name="managedName">skuList</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseEventManager']/method[@name='getSkuDetails' and count(parameter)=4 and parameter[1][@type='android.content.Context'] and parameter[2][@type='ArrayList'] and parameter[3][@type='java.lang.Object'] and parameter[4][@type='boolean']]/parameter[3]"
+    path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseEventManager']/method[@name='getSkuDetails' and count(parameter)=4 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.util.ArrayList'] and parameter[3][@type='java.lang.Object'] and parameter[4][@type='boolean']]/parameter[3]"
     name="managedName">inAppBillingObj</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseEventManager']/method[@name='getSkuDetails' and count(parameter)=4 and parameter[1][@type='android.content.Context'] and parameter[2][@type='ArrayList'] and parameter[3][@type='java.lang.Object'] and parameter[4][@type='boolean']]/parameter[4]"
-    name="managedName">isSubscription</attr>
+    path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseEventManager']/method[@name='getSkuDetails' and count(parameter)=4 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.util.ArrayList'] and parameter[3][@type='java.lang.Object'] and parameter[4][@type='boolean']]/parameter[4]"
+    name="managedName">isSubscription</attr>-->
   <attr
     path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseEventManager']/method[@name='getPurchasesInapp' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.Object']]/parameter[1]"
     name="managedName">context</attr>
@@ -1809,12 +1803,12 @@
   <attr
     path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseEventManager']/method[@name='getPurchaseHistoryInapp' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.Object']]/parameter[2]"
     name="managedName">inAppBillingObj</attr>
-  <attr
+  <!--<attr
     path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseLoggerManager']/method[@name='filterPurchaseLogging' and count(parameter)=2 and parameter[1][starts-with(@type,'java.util.Map&lt;String, JSONObject&gt;')] and parameter[2][starts-with(@type,'java.util.Map&lt;String, JSONObject&gt;')]]/parameter[1]"
     name="managedName">purchaseDetailsMap</attr>
   <attr
     path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseLoggerManager']/method[@name='filterPurchaseLogging' and count(parameter)=2 and parameter[1][starts-with(@type,'java.util.Map&lt;String, JSONObject&gt;')] and parameter[2][starts-with(@type,'java.util.Map&lt;String, JSONObject&gt;')]]/parameter[2]"
-    name="managedName">skuDetailsMap</attr>
+    name="managedName">skuDetailsMap</attr>-->
   <attr
     path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseSkuDetailsWrapper']/method[@name='getSkuDetailsParams' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][starts-with(@type,'java.util.List&lt;java.lang.String&gt;')]]/parameter[1]"
     name="managedName">skuType</attr>
@@ -1834,19 +1828,19 @@
     path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseUtils']/method[@name='getMethod' and count(parameter)=3 and parameter[1][starts-with(@type,'java.lang.Class&lt;?&gt;')] and parameter[2][@type='java.lang.String'] and parameter[3][starts-with(@type,'java.lang.Class&lt;?&gt;')]]/parameter[3]"
     name="managedName">args</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseUtils']/method[@name='invokeMethod' and count(parameter)=4 and parameter[1][starts-with(@type,'java.lang.Class&lt;?&gt;')] and parameter[2][@type='java.lang.reflect.Method'] and parameter[3][@type='java.lang.Object'] and parameter[4][@type='java.lang.Object']]/parameter[1]"
+    path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseUtils']/method[@name='invokeMethod' and count(parameter)=4 and parameter[1][starts-with(@type,'java.lang.Class')] and parameter[2][@type='java.lang.reflect.Method'] and parameter[3][@type='java.lang.Object'] and parameter[4][@type='java.lang.Object...']]/parameter[1]"
     name="managedName">clazz</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseUtils']/method[@name='invokeMethod' and count(parameter)=4 and parameter[1][starts-with(@type,'java.lang.Class&lt;?&gt;')] and parameter[2][@type='java.lang.reflect.Method'] and parameter[3][@type='java.lang.Object'] and parameter[4][@type='java.lang.Object']]/parameter[2]"
+    path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseUtils']/method[@name='invokeMethod' and count(parameter)=4 and parameter[1][starts-with(@type,'java.lang.Class')] and parameter[2][@type='java.lang.reflect.Method'] and parameter[3][@type='java.lang.Object'] and parameter[4][@type='java.lang.Object...']]/parameter[2]"
     name="managedName">method</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseUtils']/method[@name='invokeMethod' and count(parameter)=4 and parameter[1][starts-with(@type,'java.lang.Class&lt;?&gt;')] and parameter[2][@type='java.lang.reflect.Method'] and parameter[3][@type='java.lang.Object'] and parameter[4][@type='java.lang.Object']]/parameter[3]"
+    path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseUtils']/method[@name='invokeMethod' and count(parameter)=4 and parameter[1][starts-with(@type,'java.lang.Class')] and parameter[2][@type='java.lang.reflect.Method'] and parameter[3][@type='java.lang.Object'] and parameter[4][@type='java.lang.Object...']]/parameter[3]"
     name="managedName">obj</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseUtils']/method[@name='invokeMethod' and count(parameter)=4 and parameter[1][starts-with(@type,'java.lang.Class&lt;?&gt;')] and parameter[2][@type='java.lang.reflect.Method'] and parameter[3][@type='java.lang.Object'] and parameter[4][@type='java.lang.Object']]/parameter[4]"
+    path="/api/package[@name='com.facebook.appevents.iap']/class[@name='InAppPurchaseUtils']/method[@name='invokeMethod' and count(parameter)=4 and parameter[1][starts-with(@type,'java.lang.Class')] and parameter[2][@type='java.lang.reflect.Method'] and parameter[3][@type='java.lang.Object'] and parameter[4][@type='java.lang.Object...']]/parameter[4]"
     name="managedName">args</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.integrity']/class[@name='IntegrityManager']/method[@name='processParameters' and count(parameter)=1 and parameter[1][starts-with(@type,'java.util.Map&lt;String, String&gt;')]]/parameter[1]"
+    path="/api/package[@name='com.facebook.appevents.integrity']/class[@name='IntegrityManager']/method[@name='processParameters' and count(parameter)=1 and parameter[1][starts-with(@type,'java.util.Map')]]/parameter[1]"
     name="managedName">parameters</attr>
   <attr
     path="/api/package[@name='com.facebook.appevents.internal']/class[@name='ActivityLifecycleTracker']/method[@name='startTracking' and count(parameter)=2 and parameter[1][@type='android.app.Application'] and parameter[2][@type='java.lang.String']]/parameter[1]"
@@ -1860,26 +1854,26 @@
   <attr
     path="/api/package[@name='com.facebook.appevents.internal']/class[@name='ActivityLifecycleTracker']/method[@name='onActivityResumed' and count(parameter)=1 and parameter[1][@type='android.app.Activity']]/parameter[1]"
     name="managedName">activity</attr>
-  <attr
-    path="/api/package[@name='com.facebook.appevents.internal']/class[@name='AppEventsLoggerUtility']/method[@name='getJSONObjectForGraphAPICall' and count(parameter)=5 and parameter[1][@type='com.facebook.appevents.internal.AppEventsLoggerUtility.GraphAPIActivityType'] and parameter[2][@type='com.facebook.appevents.internal/AttributionIdentifiers'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='boolean'] and parameter[5][@type='android.content.Context']]/parameter[1]"
+  <!--<attr
+    path="/api/package[@name='com.facebook.appevents.internal']/class[@name='AppEventsLoggerUtility']/method[@name='getJSONObjectForGraphAPICall' and count(parameter)=5 and parameter[1][@type='com.facebook.appevents.internal.AppEventsLoggerUtility.GraphAPIActivityType'] and parameter[2][@type='com.facebook.appevents.internal.AttributionIdentifiers'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='boolean'] and parameter[5][@type='android.content.Context']]/parameter[1]"
     name="managedName">activityType</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.internal']/class[@name='AppEventsLoggerUtility']/method[@name='getJSONObjectForGraphAPICall' and count(parameter)=5 and parameter[1][@type='com.facebook.appevents.internal.AppEventsLoggerUtility.GraphAPIActivityType'] and parameter[2][@type='com.facebook.appevents.internal/AttributionIdentifiers'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='boolean'] and parameter[5][@type='android.content.Context']]/parameter[2]"
+    path="/api/package[@name='com.facebook.appevents.internal']/class[@name='AppEventsLoggerUtility']/method[@name='getJSONObjectForGraphAPICall' and count(parameter)=5 and parameter[1][@type='com.facebook.appevents.internal.AppEventsLoggerUtility.GraphAPIActivityType'] and parameter[2][@type='com.facebook.appevents.internal.AttributionIdentifiers'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='boolean'] and parameter[5][@type='android.content.Context']]/parameter[2]"
     name="managedName">attributionIdentifiers</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.internal']/class[@name='AppEventsLoggerUtility']/method[@name='getJSONObjectForGraphAPICall' and count(parameter)=5 and parameter[1][@type='com.facebook.appevents.internal.AppEventsLoggerUtility.GraphAPIActivityType'] and parameter[2][@type='com.facebook.appevents.internal/AttributionIdentifiers'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='boolean'] and parameter[5][@type='android.content.Context']]/parameter[3]"
+    path="/api/package[@name='com.facebook.appevents.internal']/class[@name='AppEventsLoggerUtility']/method[@name='getJSONObjectForGraphAPICall' and count(parameter)=5 and parameter[1][@type='com.facebook.appevents.internal.AppEventsLoggerUtility.GraphAPIActivityType'] and parameter[2][@type='com.facebook.appevents.internal.AttributionIdentifiers'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='boolean'] and parameter[5][@type='android.content.Context']]/parameter[3]"
     name="managedName">anonymousAppDeviceGUID</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.internal']/class[@name='AppEventsLoggerUtility']/method[@name='getJSONObjectForGraphAPICall' and count(parameter)=5 and parameter[1][@type='com.facebook.appevents.internal.AppEventsLoggerUtility.GraphAPIActivityType'] and parameter[2][@type='com.facebook.appevents.internal/AttributionIdentifiers'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='boolean'] and parameter[5][@type='android.content.Context']]/parameter[4]"
+    path="/api/package[@name='com.facebook.appevents.internal']/class[@name='AppEventsLoggerUtility']/method[@name='getJSONObjectForGraphAPICall' and count(parameter)=5 and parameter[1][@type='com.facebook.appevents.internal.AppEventsLoggerUtility.GraphAPIActivityType'] and parameter[2][@type='com.facebook.appevents.internal.AttributionIdentifiers'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='boolean'] and parameter[5][@type='android.content.Context']]/parameter[4]"
     name="managedName">limitEventUsage</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.internal']/class[@name='AppEventsLoggerUtility']/method[@name='getJSONObjectForGraphAPICall' and count(parameter)=5 and parameter[1][@type='com.facebook.appevents.internal.AppEventsLoggerUtility.GraphAPIActivityType'] and parameter[2][@type='com.facebook.appevents.internal/AttributionIdentifiers'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='boolean'] and parameter[5][@type='android.content.Context']]/parameter[5]"
-    name="managedName">context</attr>
+    path="/api/package[@name='com.facebook.appevents.internal']/class[@name='AppEventsLoggerUtility']/method[@name='getJSONObjectForGraphAPICall' and count(parameter)=5 and parameter[1][@type='com.facebook.appevents.internal.AppEventsLoggerUtility.GraphAPIActivityType'] and parameter[2][@type='com.facebook.appevents.internal.AttributionIdentifiers'] and parameter[3][@type='java.lang.String'] and parameter[4][@type='boolean'] and parameter[5][@type='android.content.Context']]/parameter[5]"
+    name="managedName">context</attr>-->
   <attr
     path="/api/package[@name='com.facebook.appevents.internal']/class[@name='AppEventUtility']/method[@name='normalizePrice' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">value</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.internal']/class[@name='AppEventUtility']/method[@name='bytesToHex' and count(parameter)=1 and parameter[1][@type='ByteArray']]/parameter[1]"
+    path="/api/package[@name='com.facebook.appevents.internal']/class[@name='AppEventUtility']/method[@name='bytesToHex' and count(parameter)=1 and parameter[1][@type='byte[]']]/parameter[1]"
     name="managedName">bytes</attr>
   <attr
     path="/api/package[@name='com.facebook.appevents.internal']/class[@name='AppEventUtility']/method[@name='getRootView' and count(parameter)=1 and parameter[1][@type='android.app.Activity']]/parameter[1]"
@@ -1915,22 +1909,19 @@
     path="/api/package[@name='com.facebook.appevents.ml']/class[@name='ModelManager']/method[@name='getRuleFile' and count(parameter)=1 and parameter[1][@type='com.facebook.appevents.ml.ModelManager.Task']]/parameter[1]"
     name="managedName">task</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.ml']/class[@name='ModelManager']/method[@name='predict' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.ml.ModelManager.Task'] and parameter[2][starts-with(@type,'FloatArray[]')] and parameter[3][starts-with(@type,'FloatArray[]')]]/parameter[1]"
+    path="/api/package[@name='com.facebook.appevents.ml']/class[@name='ModelManager']/method[@name='predict' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.ml.ModelManager.Task'] and parameter[2][starts-with(@type,'float[][]')] and parameter[3][starts-with(@type,'java.lang.String[]')]]/parameter[1]"
     name="managedName">task</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.ml']/class[@name='ModelManager']/method[@name='predict' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.ml.ModelManager.Task'] and parameter[2][starts-with(@type,'FloatArray[]')] and parameter[3][starts-with(@type,'FloatArray[]')]]/parameter[2]"
+    path="/api/package[@name='com.facebook.appevents.ml']/class[@name='ModelManager']/method[@name='predict' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.ml.ModelManager.Task'] and parameter[2][starts-with(@type,'float[][]')] and parameter[3][starts-with(@type,'java.lang.String[]')]]/parameter[2]"
     name="managedName">denses</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.ml']/class[@name='ModelManager']/method[@name='predict' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.ml.ModelManager.Task'] and parameter[2][starts-with(@type,'FloatArray[]')] and parameter[3][starts-with(@type,'FloatArray[]')]]/parameter[3]"
+    path="/api/package[@name='com.facebook.appevents.ml']/class[@name='ModelManager']/method[@name='predict' and count(parameter)=3 and parameter[1][@type='com.facebook.appevents.ml.ModelManager.Task'] and parameter[2][starts-with(@type,'float[][]')] and parameter[3][starts-with(@type,'java.lang.String[]')]]/parameter[3]"
     name="managedName">texts</attr>
-  <attr
-    path="/api/package[@name='com.facebook.appevents.ml']/class[@name='MTensor']/method[@name='setData' and count(parameter)=1 and parameter[1][@type='FloatArray']]/parameter[1]"
-    name="managedName">data</attr>
   <attr
     path="/api/package[@name='com.facebook.appevents.ml']/class[@name='MTensor']/method[@name='getShape' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]"
     name="managedName">i</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.ml']/class[@name='MTensor']/method[@name='reshape' and count(parameter)=1 and parameter[1][@type='IntArray']]/parameter[1]"
+    path="/api/package[@name='com.facebook.appevents.ml']/class[@name='MTensor']/method[@name='reshape' and count(parameter)=1 and parameter[1][@type='int[]']]/parameter[1]"
     name="managedName">shape</attr>
   <attr
     path="/api/package[@name='com.facebook.appevents.ml']/class[@name='Utils']/method[@name='vectorize' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='int']]/parameter[1]"
@@ -1959,65 +1950,65 @@
   <attr
     path="/api/package[@name='com.facebook.appevents.ondeviceprocessing']/class[@name='RemoteServiceWrapper']/method[@name='sendInstallEvent' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">applicationId</attr>
-  <attr
+  <!--<attr
     path="/api/package[@name='com.facebook.appevents.ondeviceprocessing']/class[@name='RemoteServiceWrapper']/method[@name='sendCustomEvents' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][starts-with(@type,'java.util.List&lt;../AppEvent&gt;')]]/parameter[1]"
     name="managedName">applicationId</attr>
   <attr
     path="/api/package[@name='com.facebook.appevents.ondeviceprocessing']/class[@name='RemoteServiceWrapper']/method[@name='sendCustomEvents' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][starts-with(@type,'java.util.List&lt;../AppEvent&gt;')]]/parameter[2]"
-    name="managedName">appEvents</attr>
+    name="managedName">appEvents</attr>-->
   <attr
     path="/api/package[@name='com.facebook.appevents.restrictivedatafilter']/class[@name='RestrictiveDataManager']/method[@name='processEvent' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">eventName</attr>
-  <attr
+  <!--<attr
     path="/api/package[@name='com.facebook.appevents.restrictivedatafilter']/class[@name='RestrictiveDataManager']/method[@name='processParameters' and count(parameter)=2 and parameter[1][starts-with(@type,'java.util.Map&lt;String, String&gt;')] and parameter[2][@type='java.lang.String']]/parameter[1]"
     name="managedName">parameters</attr>
   <attr
     path="/api/package[@name='com.facebook.appevents.restrictivedatafilter']/class[@name='RestrictiveDataManager']/method[@name='processParameters' and count(parameter)=2 and parameter[1][starts-with(@type,'java.util.Map&lt;String, String&gt;')] and parameter[2][@type='java.lang.String']]/parameter[2]"
-    name="managedName">eventName</attr>
+    name="managedName">eventName</attr>-->
   <attr
     path="/api/package[@name='com.facebook.appevents.suggestedevents']/class[@name='SuggestedEventsManager']/method[@name='trackActivity' and count(parameter)=1 and parameter[1][@type='android.app.Activity']]/parameter[1]"
     name="managedName">activity</attr>
-  <attr
-    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='setGateKeepers' and count(parameter)=2 and parameter[1][@type='String'] and parameter[2][starts-with(@type,'java.util.List&lt;GateKeeper&gt;')]]/parameter[1]"
+  <!--<attr
+    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='setGateKeepers' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][starts-with(@type,'java.util.List&lt;GateKeeper&gt;')]]/parameter[1]"
     name="managedName">appId</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='setGateKeepers' and count(parameter)=2 and parameter[1][@type='String'] and parameter[2][starts-with(@type,'java.util.List&lt;GateKeeper&gt;')]]/parameter[2]"
-    name="managedName">gateKeeperList</attr>
+    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='setGateKeepers' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][starts-with(@type,'java.util.List&lt;GateKeeper&gt;')]]/parameter[2]"
+    name="managedName">gateKeeperList</attr>-->
   <attr
-    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='dumpGateKeepers' and count(parameter)=1 and parameter[1][@type='String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='dumpGateKeepers' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">appId</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='getGateKeeperValue' and count(parameter)=3 and parameter[1][@type='String'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='boolean']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='getGateKeeperValue' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='boolean']]/parameter[1]"
     name="managedName">appId</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='getGateKeeperValue' and count(parameter)=3 and parameter[1][@type='String'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='boolean']]/parameter[2]"
+    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='getGateKeeperValue' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='boolean']]/parameter[2]"
     name="managedName">name</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='getGateKeeperValue' and count(parameter)=3 and parameter[1][@type='String'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='boolean']]/parameter[3]"
+    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='getGateKeeperValue' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='boolean']]/parameter[3]"
     name="managedName">defaultValue</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='setGateKeeperValue' and count(parameter)=3 and parameter[1][@type='String'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='boolean']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='setGateKeeperValue' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='boolean']]/parameter[1]"
     name="managedName">appId</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='setGateKeeperValue' and count(parameter)=3 and parameter[1][@type='String'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='boolean']]/parameter[2]"
+    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='setGateKeeperValue' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='boolean']]/parameter[2]"
     name="managedName">name</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='setGateKeeperValue' and count(parameter)=3 and parameter[1][@type='String'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='boolean']]/parameter[3]"
+    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='setGateKeeperValue' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='boolean']]/parameter[3]"
     name="managedName">value</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='getGateKeeper' and count(parameter)=2 and parameter[1][@type='String'] and parameter[2][@type='java.lang.String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='getGateKeeper' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String']]/parameter[1]"
     name="managedName">appId</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='getGateKeeper' and count(parameter)=2 and parameter[1][@type='String'] and parameter[2][@type='java.lang.String']]/parameter[2]"
+    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='getGateKeeper' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.String']]/parameter[2]"
     name="managedName">name</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='setGateKeeper' and count(parameter)=2 and parameter[1][@type='String'] and parameter[2][@type='com.facebook.internal.gatekeeper.GateKeeper']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='setGateKeeper' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.facebook.internal.gatekeeper.GateKeeper']]/parameter[1]"
     name="managedName">appId</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='setGateKeeper' and count(parameter)=2 and parameter[1][@type='String'] and parameter[2][@type='com.facebook.internal.gatekeeper.GateKeeper']]/parameter[2]"
+    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='setGateKeeper' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.facebook.internal.gatekeeper.GateKeeper']]/parameter[2]"
     name="managedName">gateKeeper</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='resetCache' and count(parameter)=1 and parameter[1][@type='String']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal.gatekeeper']/class[@name='GateKeeperRuntimeCache']/method[@name='resetCache' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">appId</attr>
   <attr
     path="/api/package[@name='com.facebook.internal.instrument']/class[@name='ExceptionAnalyzer']/method[@name='execute' and count(parameter)=1 and parameter[1][@type='java.lang.Throwable']]/parameter[1]"
@@ -2074,13 +2065,13 @@
     path="/api/package[@name='com.facebook.internal.instrument']/class[@name='InstrumentUtility']/method[@name='deleteFile' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">filename</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal.instrument']/class[@name='InstrumentUtility']/method[@name='sendReports' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='org.json.JSONArray'] and parameter[3][@type='com.facebook.internal.GraphRequest.Callback']]/parameter[1]"
+    path="/api/package[@name='com.facebook.internal.instrument']/class[@name='InstrumentUtility']/method[@name='sendReports' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='org.json.JSONArray'] and parameter[3][@type='com.facebook.GraphRequest.Callback']]/parameter[1]"
     name="managedName">key</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal.instrument']/class[@name='InstrumentUtility']/method[@name='sendReports' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='org.json.JSONArray'] and parameter[3][@type='com.facebook.internal.GraphRequest.Callback']]/parameter[2]"
+    path="/api/package[@name='com.facebook.internal.instrument']/class[@name='InstrumentUtility']/method[@name='sendReports' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='org.json.JSONArray'] and parameter[3][@type='com.facebook.GraphRequest.Callback']]/parameter[2]"
     name="managedName">reports</attr>
   <attr
-    path="/api/package[@name='com.facebook.internal.instrument']/class[@name='InstrumentUtility']/method[@name='sendReports' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='org.json.JSONArray'] and parameter[3][@type='com.facebook.internal.GraphRequest.Callback']]/parameter[3]"
+    path="/api/package[@name='com.facebook.internal.instrument']/class[@name='InstrumentUtility']/method[@name='sendReports' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='org.json.JSONArray'] and parameter[3][@type='com.facebook.GraphRequest.Callback']]/parameter[3]"
     name="managedName">callback</attr>
   <attr
     path="/api/package[@name='com.facebook.internal.security']/class[@name='CertificateUtil']/method[@name='getCertificateHash' and count(parameter)=1 and parameter[1][@type='android.content.Context']]/parameter[1]"
@@ -2134,13 +2125,13 @@
     path="/api/package[@name='com.facebook.appevents.codeless.internal']/class[@name='ViewHierarchy']/method[@name='updateBasicInfoOfView' and count(parameter)=2 and parameter[1][@type='android.view.View'] and parameter[2][@type='org.json.JSONObject']]/parameter[2]"
     name="managedName">json</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.codeless.internal']/class[@name='ViewHierarchy']/method[@name='updateAppearanceOfView' and count(parameter)=3 and parameter[1][@type='android.view.View'] and parameter[2][@type='org.json.JSONObject'] and parameter[3][@type='java.lang.Float']]/parameter[1]"
+    path="/api/package[@name='com.facebook.appevents.codeless.internal']/class[@name='ViewHierarchy']/method[@name='updateAppearanceOfView' and count(parameter)=3 and parameter[1][@type='android.view.View'] and parameter[2][@type='org.json.JSONObject'] and parameter[3][@type='float']]/parameter[1]"
     name="managedName">view</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.codeless.internal']/class[@name='ViewHierarchy']/method[@name='updateAppearanceOfView' and count(parameter)=3 and parameter[1][@type='android.view.View'] and parameter[2][@type='org.json.JSONObject'] and parameter[3][@type='java.lang.Float']]/parameter[2]"
+    path="/api/package[@name='com.facebook.appevents.codeless.internal']/class[@name='ViewHierarchy']/method[@name='updateAppearanceOfView' and count(parameter)=3 and parameter[1][@type='android.view.View'] and parameter[2][@type='org.json.JSONObject'] and parameter[3][@type='float']]/parameter[2]"
     name="managedName">json</attr>
   <attr
-    path="/api/package[@name='com.facebook.appevents.codeless.internal']/class[@name='ViewHierarchy']/method[@name='updateAppearanceOfView' and count(parameter)=3 and parameter[1][@type='android.view.View'] and parameter[2][@type='org.json.JSONObject'] and parameter[3][@type='java.lang.Float']]/parameter[3]"
+    path="/api/package[@name='com.facebook.appevents.codeless.internal']/class[@name='ViewHierarchy']/method[@name='updateAppearanceOfView' and count(parameter)=3 and parameter[1][@type='android.view.View'] and parameter[2][@type='org.json.JSONObject'] and parameter[3][@type='float']]/parameter[3]"
     name="managedName">displayDensity</attr>
   <attr
     path="/api/package[@name='com.facebook.appevents.codeless.internal']/class[@name='ViewHierarchy']/method[@name='getDictionaryOfView' and count(parameter)=1 and parameter[1][@type='android.view.View']]/parameter[1]"
