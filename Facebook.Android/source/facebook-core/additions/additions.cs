@@ -55,7 +55,7 @@ namespace Xamarin.Facebook.AppEvents.Internal
 		static Delegate GetDoInBackground_arrayLjava_lang_String_Handler()
 		{
 			if (cb_doInBackground_arrayLjava_lang_String_ == null)
-				cb_doInBackground_arrayLjava_lang_String_ = JNINativeWrapper.CreateDelegate((_JniMarshal_PPL_L)n_DoInBackground_arrayLjava_lang_String_);
+				cb_doInBackground_arrayLjava_lang_String_ = JNINativeWrapper.CreateDelegate((Func<IntPtr,IntPtr,IntPtr, IntPtr>)n_DoInBackground_arrayLjava_lang_String_);
 			return cb_doInBackground_arrayLjava_lang_String_;
 		}
 
