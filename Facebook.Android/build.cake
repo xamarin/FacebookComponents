@@ -1,7 +1,7 @@
-#addin nuget:?package=Cake.FileHelpers&version=3.2.1
+#addin nuget:?package=Cake.FileHelpers&version=5.0.0
 
-var FB_VERSION = "11.2.0";
-var NUGET_VERSION = "11.2.0.1";
+var FB_VERSION = "13.2.0";
+var NUGET_VERSION = "13.2.0.1";
 
 var BUILD_COMMIT = EnvironmentVariable("BUILD_COMMIT") ?? "DEV";
 var BUILD_NUMBER = EnvironmentVariable("BUILD_NUMBER") ?? "DEBUG";
@@ -18,7 +18,7 @@ var ARTIFACTS = new List<ArtifactInfo> {
 	new ArtifactInfo("facebook-applinks", FB_VERSION, NUGET_VERSION),
 	new ArtifactInfo("facebook-messenger", FB_VERSION, NUGET_VERSION),
 	new ArtifactInfo("facebook-gamingservices", FB_VERSION, NUGET_VERSION),
-	new ArtifactInfo("audience-network-sdk", "6.6.0", "6.6.0")
+	new ArtifactInfo("audience-network-sdk", "6.11.0", "6.11.0")
 };
 
 class ArtifactInfo
