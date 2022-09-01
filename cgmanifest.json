@@ -1,168 +1,169 @@
 {
-	"Registrations": [
-		{
-			"Component": {
-				"Type": "Maven",
-				"Maven": {
-					"ArtifactId": "facebook-android-sdk",
-					"GroupId": "com.facebook.android",
-					"Version": "11.2.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Maven",
-				"Maven": {
-					"ArtifactId": "facebook-core",
-					"GroupId": "com.facebook.android",
-					"Version": "11.2.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Maven",
-				"Maven": {
-					"ArtifactId": "facebook-common",
-					"GroupId": "com.facebook.android",
-					"Version": "11.2.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Maven",
-				"Maven": {
-					"ArtifactId": "facebook-login",
-					"GroupId": "com.facebook.android",
-					"Version": "11.2.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Maven",
-				"Maven": {
-					"ArtifactId": "facebook-share",
-					"GroupId": "com.facebook.android",
-					"Version": "11.2.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Maven",
-				"Maven": {
-					"ArtifactId": "facebook-applinks",
-					"GroupId": "com.facebook.android",
-					"Version": "11.2.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Maven",
-				"Maven": {
-					"ArtifactId": "facebook-messenger",
-					"GroupId": "com.facebook.android",
-					"Version": "11.2.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Maven",
-				"Maven": {
-					"ArtifactId": "facebook-gamingservices",
-					"GroupId": "com.facebook.android",
-					"Version": "11.2.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Maven",
-				"Maven": {
-					"ArtifactId": "audience-network-sdk",
-					"GroupId": "com.facebook.android",
-					"Version": "6.6.0"
-				}
-			}
-		},
-		{
-            "Component": {
-                "Type": "other",
-                "Other": {
-                    "Name": "FBAudienceNetwork",
-                    "Version": "6.9.0",
-                    "DownloadUrl": "https://developers.facebook.com/resources/FBAudienceNetwork-6.9.0.zip"
-                }
-            }
-        },
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "FBSDKCoreKit",
-					"Version": "12.2.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "FBSDKCoreKit_Basics",
-					"Version": "12.2.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "FBAEMKit",
-					"Version": "12.2.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "FBSDKLoginKit",
-					"Version": "12.2.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "FBSDKShareKit",
-					"Version": "12.2.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "FBSDKGamingServicesKit",
-					"Version": "12.2.0"
-				}
-			}
-		},
-		{
-			"Component": {
-				"Type": "Pod",
-				"Pod": {
-					"Name": "FacebookGamingServices",
-					"Version": "12.2.0"
-				}
-			}
-		}		
-	],
-	"Version": 1
+  "$schema": "https://json.schemastore.org/component-detection-manifest.json",
+  "Registrations": [
+    {
+      "Component": {
+        "Type": "Maven",
+        "Maven": {
+          "ArtifactId": "facebook-android-sdk",
+          "GroupId": "com.facebook.android",
+          "Version": "11.2.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Maven",
+        "Maven": {
+          "ArtifactId": "facebook-core",
+          "GroupId": "com.facebook.android",
+          "Version": "11.2.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Maven",
+        "Maven": {
+          "ArtifactId": "facebook-common",
+          "GroupId": "com.facebook.android",
+          "Version": "11.2.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Maven",
+        "Maven": {
+          "ArtifactId": "facebook-login",
+          "GroupId": "com.facebook.android",
+          "Version": "11.2.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Maven",
+        "Maven": {
+          "ArtifactId": "facebook-share",
+          "GroupId": "com.facebook.android",
+          "Version": "11.2.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Maven",
+        "Maven": {
+          "ArtifactId": "facebook-applinks",
+          "GroupId": "com.facebook.android",
+          "Version": "11.2.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Maven",
+        "Maven": {
+          "ArtifactId": "facebook-messenger",
+          "GroupId": "com.facebook.android",
+          "Version": "11.2.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Maven",
+        "Maven": {
+          "ArtifactId": "facebook-gamingservices",
+          "GroupId": "com.facebook.android",
+          "Version": "11.2.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Maven",
+        "Maven": {
+          "ArtifactId": "audience-network-sdk",
+          "GroupId": "com.facebook.android",
+          "Version": "6.6.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "other",
+        "Other": {
+          "Name": "FBAudienceNetwork",
+          "Version": "6.9.0",
+          "DownloadUrl": "https://developers.facebook.com/resources/FBAudienceNetwork-6.9.0.zip"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "FBSDKCoreKit",
+          "Version": "12.2.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "FBSDKCoreKit_Basics",
+          "Version": "12.2.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "FBAEMKit",
+          "Version": "12.2.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "FBSDKLoginKit",
+          "Version": "12.2.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "FBSDKShareKit",
+          "Version": "12.2.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "FBSDKGamingServicesKit",
+          "Version": "12.2.0"
+        }
+      }
+    },
+    {
+      "Component": {
+        "Type": "Pod",
+        "Pod": {
+          "Name": "FacebookGamingServices",
+          "Version": "12.2.0"
+        }
+      }
+    }
+  ],
+  "Version": 1
 }
