@@ -831,7 +831,13 @@
   <attr
     path="/api/package[@name='com.facebook.share.widget']/class[@name='ShareDialog']/method[@name='setShouldFailOnDataError' and count(parameter)=1 and parameter[1][@type='boolean']]/parameter[1]"
     name="managedName">shouldFailOnDataError</attr>
-  <attr
+	<attr
+		path="/api/package[@name='com.facebook.share.widget']/class[@name='ShareDialog']/method[@name='setShouldFailOnDataError']"
+		name="visibility">public</attr>
+	<attr
+		path="/api/package[@name='com.facebook.share.widget']/class[@name='ShareDialog']/method[@name='getShouldFailOnDataError']"
+		name="visibility">public</attr>
+	<attr
     path="/api/package[@name='com.facebook.share.widget']/class[@name='ShareDialog']/method[@name='canShow' and count(parameter)=2 and parameter[1][@type='com.facebook.share.model.ShareContent'] and parameter[2][@type='com.facebook.share.widget.ShareDialog.Mode']]/parameter[1]"
     name="managedName">content</attr>
   <attr

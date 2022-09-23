@@ -10,9 +10,8 @@
     <attr path="/api/package[@name='com.facebook.share.internal']" name="managedName">Xamarin.Facebook.Share.Internal</attr>
     <attr path="/api/package[@name='com.facebook.share.model']" name="managedName">Xamarin.Facebook.Share.Model</attr>
     <attr path="/api/package[@name='com.facebook.share.widget']" name="managedName">Xamarin.Facebook.Share.Widget</attr>
-
     
-    <!--<attr path="/api/package[@name='com.facebook']/class[@name='GraphRequestAsyncTask']/method[@name='doInBackground' and count(parameter)=1 and parameter[1][@type='java.lang.Void...']]/parameter[1]" name="managedType">params Java.Lang.Object[]</attr>
+	<!--<attr path="/api/package[@name='com.facebook']/class[@name='GraphRequestAsyncTask']/method[@name='doInBackground' and count(parameter)=1 and parameter[1][@type='java.lang.Void...']]/parameter[1]" name="managedType">params Java.Lang.Object[]</attr>
     <attr path="/api/package[@name='com.facebook']/class[@name='GraphRequestAsyncTask']/method[@name='doInBackground' and count(parameter)=1 and parameter[1][@type='java.lang.Void...']]" name="managedReturn">Java.Lang.Object</attr>
 -->
     <remove-node path="/api/package[contains(@name, 'com.facebook.share.internal')]" />
@@ -37,4 +36,5 @@
 
     <remove-node path="/api/package[@name='com.facebook.login']/class[@name='LoginFragment']/method[@name='createLoginClient' and count(parameter)=0]" />
     <remove-node path="/api/package[@name='com.facebook.login']/class[@name='LoginMethodHandler']/field[@name='loginClient']" />
+    <remove-node path="/api/package[@name='com.facebook.login']/class[@name='NativeAppLoginMethodHandler']/method[@name='tryAuthorize' and count(parameter)=1]"/>
 </metadata>
