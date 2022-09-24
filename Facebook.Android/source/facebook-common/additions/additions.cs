@@ -288,9 +288,6 @@ namespace Xamarin.Facebook.Share.Widget
 
 	public partial class ShareDialog
 	{
-		//public bool ShouldFailOnDataError { get; set; }
-
-
         protected override global::System.Collections.IList _OrderedModeHandlers()
 		{
 			return OrderedModeHandlers.ToList();
