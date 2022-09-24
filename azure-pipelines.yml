@@ -3,7 +3,7 @@ trigger:
   - refs/tags/*
 
 variables:
-  DotNetVersion: 6.0.300
+  DotNetVersion: 6.0.400
   # NOTE: there wasn't a public release of 16.11 for macOS
   LegacyXamarinAndroidPkg: https://download.visualstudio.microsoft.com/download/pr/b51d2f25-e4e9-4032-9cfa-152f6e4b01c6/0a0de518e3b7cf13417e7492f1bec07f/xamarin.android-12.0.0.3.pkg
   LegacyXamarinAndroidVsix: https://download.visualstudio.microsoft.com/download/pr/497eaa29-8a2c-4ea8-947d-2418e8862e0a/3dc8e35223e5b18b8abde409574e09eb00c653237403d87a9f2f27b8ce048335/Xamarin.Android.Sdk-12.0.0.3.vsix
@@ -67,7 +67,7 @@ jobs:
           displayName: Install .NET 6 Android Workload
           condition: ne(variables['System.JobName'], 'linux')
         - pwsh: |
-            dotnet workload install ios --from-rollback-file https://maui.blob.core.windows.net/metadata/rollbacks/6.0.3xx.json --source https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet6/nuget/v3/index.json --source https://api.nuget.org/v3/index.json
+            dotnet workload install ios
           displayName: Install .NET 6 iOS Workload
           condition: eq(variables['System.JobName'], 'macos')
 
