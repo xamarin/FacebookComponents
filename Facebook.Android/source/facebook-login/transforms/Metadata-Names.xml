@@ -228,4 +228,10 @@
   <attr
     path="/api/package[@name='com.facebook.login.widget']/interface[@name='ToolTipPopup.Style']/method[@name='valueOf' and count(parameter)=1 and parameter[1][@type='java.lang.String']]/parameter[1]"
     name="managedName">name</attr>
+	<attr
+        path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton.LoginButtonProperties']"
+        name="visibility">private</attr>
+	<attr
+		path="/api/package[@name='com.facebook.login.widget']/class[@name='LoginButton.LoginButtonProperties']"
+		name="static">true</attr>
 </metadata>

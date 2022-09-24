@@ -51,6 +51,30 @@ namespace Xamarin.Facebook.GamingServices
             return OrderedModeHandlers.ToList();
         }
     }
+
+    public partial class TournamentShareDialog
+    {
+        protected override global::System.Collections.IList _OrderedModeHandlers()
+        {
+            return OrderedModeHandlers.ToList();
+        }
+    }
+
+    public partial class TournamentConfig
+    {
+        public partial class Builder
+        {
+            public global::Java.Lang.Object ReadFrom(global::Java.Lang.Object model)
+            {
+                if (model is global::Xamarin.Facebook.GamingServices.TournamentConfig typedModel)
+                {
+                    return ReadFrom(typedModel);
+                }
+
+                return null;
+            }
+        }
+    }
 }
 
 namespace Com.Facebook.Gamingservices.Model

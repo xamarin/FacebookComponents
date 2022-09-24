@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
-    <TargetFramework>MonoAndroid90</TargetFramework>
+    <TargetFramework>MonoAndroid12.0</TargetFramework>
     <IsBindingProject>true</IsBindingProject>
 
     <AssemblyName>Xamarin.Facebook.AudienceNetwork.Android</AssemblyName>
@@ -55,7 +55,7 @@
 
   <ItemGroup>
 
-    <PackageReference Include="Xamarin.GooglePlayServices.Basement" Version="71.1620.0" PrivateAssets="None" />
+    <PackageReference Include="Xamarin.GooglePlayServices.Basement" Version="117.6.0.6" PrivateAssets="None" />
 
   </ItemGroup>
 
