@@ -254,21 +254,21 @@ namespace HelloFacebookSample
         		
 		void PostStatusUpdate ()
 		{
-            var profile = Profile.CurrentProfile;
+            //var profile = Profile.CurrentProfile;
 
-            var linkContent = new ShareLinkContent.Builder ()
-                .SetContentTitle ("Hello Facebook")
-                .SetContentDescription ("The 'Hello Facebook' sample showcases simple Facebook integration")
-                .SetContentUrl (Android.Net.Uri.Parse ("http://developer.facebook.com/docs/android"))
-                .JavaCast<ShareLinkContent.Builder> ()
-                .Build ();
+            //var linkContent = new ShareLinkContent.Builder ()
+            //    .SetContentTitle ("Hello Facebook")
+            //    .SetContentDescription ("The 'Hello Facebook' sample showcases simple Facebook integration")
+            //    .SetContentUrl (Android.Net.Uri.Parse ("http://developer.facebook.com/docs/android"))
+            //    .JavaCast<ShareLinkContent.Builder> ()
+            //    .Build ();
 
-            if (canPresentShareDialog)
-                shareDialog.Show (linkContent);
-            else if (profile != null && HasPublishPermission ())
-                ShareApi.Share (linkContent, shareCallback);
-            else
-                pendingAction = PendingAction.POST_STATUS_UPDATE;
+            //if (canPresentShareDialog)
+            //    shareDialog.Show (linkContent);
+            //else if (profile != null && HasPublishPermission ())
+            //    ShareApi.Share (linkContent, shareCallback);
+            //else
+            //    pendingAction = PendingAction.POST_STATUS_UPDATE;
                 
 		}
 
