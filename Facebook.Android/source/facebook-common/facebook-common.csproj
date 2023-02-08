@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
-    <TargetFrameworks>MonoAndroid90</TargetFrameworks>
+    <TargetFrameworks>MonoAndroid12.0</TargetFrameworks>
     <IsBindingProject>true</IsBindingProject>
 
     <AssemblyName>Xamarin.Facebook.Common.Android</AssemblyName>
@@ -62,11 +62,11 @@
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Google.ZXing.Core" Version="3.3.3" PrivateAssets="None" />
-    <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.1.0.1" />
-    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0.1" />
-    <PackageReference Include="Xamarin.AndroidX.CardView" Version="1.0.0.1" />
-    <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.2.0.1" />
-    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk8" Version="1.5.10" />
+    <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.4.1.1" />
+    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0.13" />
+    <PackageReference Include="Xamarin.AndroidX.CardView" Version="1.0.0.15" />
+    <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.4.0.1" />
+    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk8" Version="1.6.20.1" />
   </ItemGroup>
 
 </Project>

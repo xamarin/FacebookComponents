@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
-    <TargetFramework>MonoAndroid90</TargetFramework>
+    <TargetFramework>MonoAndroid12.0</TargetFramework>
     <IsBindingProject>true</IsBindingProject>
 
     <AssemblyName>Xamarin.Facebook.Android</AssemblyName>
@@ -63,6 +63,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk7" Version="1.5.10" />
+    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk7" Version="1.6.20.1" />
   </ItemGroup>
 </Project>
