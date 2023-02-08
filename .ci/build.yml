@@ -68,10 +68,6 @@ jobs:
       vmImage: $(imageName)
     steps:
       - checkout: self
-      - ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:
-        - task: CodeQL3000Init@0
-          displayName: CodeQL 3000 Init
-          condition: and(succeeded(), eq(variables['Codeql.Enabled'], 'true'), eq(variables['Build.SourceBranch'], 'refs/heads/import-build-yml'))
       # before the build starts, make sure the tooling is as expected
       - bash: sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh ${{ parameters.mono }}
         displayName: 'Switch to the latest Xamarin SDK'
@@ -364,14 +360,11 @@ jobs:
             scanType: 'Register'
             verbosity: 'Verbose'
             alertWarningLevel: 'High'
-      - task: CodeQL3000Finalize@0
-        displayName: CodeQL 3000 Finalize
-        condition: and(succeeded(), eq(variables['Codeql.Enabled'], 'true'), eq(variables['Build.SourceBranch'], 'refs/heads/import-build-yml'))
 
   - ${{ if and(eq(parameters.runChecks, 'true'), eq(variables['System.TeamProject'], 'devdiv')) }}:
     - job: ${{ parameters.name }}_checks
       displayName: 'Run required code checks'
-      condition: or(eq('refs/heads/${{ parameters.masterBranchName }}', variables['Build.SourceBranch']), eq('refs/heads/import-build-yml', variables['Build.SourceBranch']))
+      condition: eq('refs/heads/${{ parameters.masterBranchName }}', variables['Build.SourceBranch'])
       pool:
         name: 'Hosted Windows 2019 with VS2019'
       steps:
