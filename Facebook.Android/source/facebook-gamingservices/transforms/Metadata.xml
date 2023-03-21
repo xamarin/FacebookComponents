@@ -9,4 +9,14 @@
     <attr path="/api/package[@name='com.facebook.gamingservices.model']/class[@name='ContextCreateContent.Builder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Java.Lang.Object</attr>
     <attr path="/api/package[@name='com.facebook.gamingservices.model']/class[@name='ContextChooseContent.Builder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Java.Lang.Object</attr>
 
+	<attr path="/api/package[@name='com.facebook.gamingservices']/class[@name='Tournament.CREATOR']/method[@name='createFromParcel' and count(parameter)=1]"
+          name="managedReturn">Java.Lang.Object</attr>
+	<attr path="/api/package[@name='com.facebook.gamingservices']/class[@name='Tournament.CREATOR']/method[@name='newArray' and count(parameter)=1]"
+	      name="managedReturn">Java.Lang.Object[]</attr>
+	<attr path="/api/package[@name='com.facebook.gamingservices']/class[@name='TournamentConfig.Builder']/method[@name='build' and count(parameter)=0]"
+	      name="managedReturn">Java.Lang.Object</attr>
+	<attr path="/api/package[@name='com.facebook.gamingservices']/class[@name='TournamentConfig.CREATOR']/method[@name='createFromParcel' and count(parameter)=1]"
+	      name="managedReturn">Java.Lang.Object</attr>
+	<attr path="/api/package[@name='com.facebook.gamingservices']/class[@name='TournamentConfig.CREATOR']/method[@name='newArray' and count(parameter)=1]"
+	      name="managedReturn">Java.Lang.Object[]</attr>
 </metadata>

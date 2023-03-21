@@ -9,7 +9,7 @@ namespace HelloFacebookSample
 //    [ContentProvider (new [] { "com.facebook.app.FacebookContentProvider355198514515820" }, 
 //        Name="com.facebook.FacebookContentProvider", 
 //        Exported=true)]
-    [BroadcastReceiverAttribute]
+    [BroadcastReceiver(Exported = true)]
     [IntentFilterAttribute (new [] { "com.facebook.platform.AppCallResultBroadcast" })]
     public class HelloFacebookBroadcastReceiver : FacebookBroadcastReceiver
     {

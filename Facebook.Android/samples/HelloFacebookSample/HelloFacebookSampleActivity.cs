@@ -48,7 +48,8 @@ namespace HelloFacebookSample
 			Latitude = (47.6097),
 			Longitude = (-122.3331)
 		};
-		
+
+		private Login l = new Xamarin.Facebook.Login.Login();
         const String PENDING_ACTION_BUNDLE_KEY = "com.facebook.samples.hellofacebook:PendingAction";
 		Button postStatusUpdateButton;
 		Button postPhotoButton;
@@ -74,7 +75,7 @@ namespace HelloFacebookSample
 			base.OnCreate (savedInstanceState);
 		
             FacebookSdk.SdkInitialize (this.ApplicationContext);
-
+            
             callbackManager = CallbackManagerFactory.Create ();
 
             var loginCallback = new FacebookCallback<LoginResult> {
@@ -182,7 +183,7 @@ namespace HelloFacebookSample
 		{
             base.OnResume ();
 
-            AppEventsLogger.ActivateApp (this);
+            AppEventsLogger.ActivateApp(this.Application);
 
 			UpdateUI ();
 		}
@@ -205,7 +206,7 @@ namespace HelloFacebookSample
 		{
 			base.OnPause ();
 			
-            AppEventsLogger.DeactivateApp (this);
+           // AppEventsLogger.DeactivateApp (this.Application);
 		}
 
 		protected override void OnDestroy ()
@@ -253,21 +254,21 @@ namespace HelloFacebookSample
         		
 		void PostStatusUpdate ()
 		{
-            var profile = Profile.CurrentProfile;
+            //var profile = Profile.CurrentProfile;
 
-            var linkContent = new ShareLinkContent.Builder ()
-                .SetContentTitle ("Hello Facebook")
-                .SetContentDescription ("The 'Hello Facebook' sample showcases simple Facebook integration")
-                .SetContentUrl (Android.Net.Uri.Parse ("http://developer.facebook.com/docs/android"))
-                .JavaCast<ShareLinkContent.Builder> ()
-                .Build ();
+            //var linkContent = new ShareLinkContent.Builder ()
+            //    .SetContentTitle ("Hello Facebook")
+            //    .SetContentDescription ("The 'Hello Facebook' sample showcases simple Facebook integration")
+            //    .SetContentUrl (Android.Net.Uri.Parse ("http://developer.facebook.com/docs/android"))
+            //    .JavaCast<ShareLinkContent.Builder> ()
+            //    .Build ();
 
-            if (canPresentShareDialog)
-                shareDialog.Show (linkContent);
-            else if (profile != null && HasPublishPermission ())
-                ShareApi.Share (linkContent, shareCallback);
-            else
-                pendingAction = PendingAction.POST_STATUS_UPDATE;
+            //if (canPresentShareDialog)
+            //    shareDialog.Show (linkContent);
+            //else if (profile != null && HasPublishPermission ())
+            //    ShareApi.Share (linkContent, shareCallback);
+            //else
+            //    pendingAction = PendingAction.POST_STATUS_UPDATE;
                 
 		}
 
